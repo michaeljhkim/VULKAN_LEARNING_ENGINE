@@ -2,7 +2,8 @@
 This is my (second) attempt at creating a C++ game engine using OPENGL. This is primarily designed for linux systems. 
 This second attempt is based off of the tutorial of Michael Grieco :
 - Tutorial Playlist: https://www.youtube.com/playlist?list=PLysLvOneEETPlOI_PI4mJnocqIpr2cSHS 
-- github repo: https://github.com/michaelg29/yt-tutorials. 
+- github repo: https://github.com/michaelg29/yt-tutorials.
+
 I noticed that it had most of the starting features I wanted to implement, it had better structure, and was just easier to port that code than to create from the ground up. Most likely, the code will become unrecognizeable as I keep adding and changing to suite my goals. 
 It had shaders, models (not obj, must change), simple lighting sytem, user input, physics, collisions, textures, skybox, and fonts.   
 

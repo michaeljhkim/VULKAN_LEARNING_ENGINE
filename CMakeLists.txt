@@ -15,8 +15,9 @@ add_executable(yurrgoht_engine
     src/main.cpp
     src/scene.cpp
     src/glad.c
+    lib/stb.cpp
 
-    ${RENDERING_SOURCES}  # Add all gathered files here
+    ${ALGORITHIMS_SOURCES}  # Add all gathered files here
     ${GRAPHICS_SOURCES}  # Add all gathered files here
     ${IO_SOURCES}  # Add all gathered files here
     ${PHYSICS_SOURCES}  # Add all gathered files here
@@ -30,4 +31,4 @@ include_directories(${SDL2_INCLUDE_DIRS})
 find_package(assimp REQUIRED)
 
 # Link SDL2 library
-target_link_libraries(yurrgoht_engine ${SDL2_LIBRARIES} assimp)
+target_link_libraries(yurrgoht_engine ${SDL2_LIBRARIES} assimp freetype)

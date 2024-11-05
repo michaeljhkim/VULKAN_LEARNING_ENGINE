@@ -19,6 +19,42 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/lib/stb.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/lib/stb.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/avl.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/avl.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/bounds.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/bounds.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/math/linalg.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/math/linalg.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/octree.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/octree.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/ray.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/ray.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/mesh.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/mesh.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o"

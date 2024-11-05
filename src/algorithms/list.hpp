@@ -1,6 +1,8 @@
 #ifndef LIST_HPP
 #define LIST_HPP
 
+#include <algorithm> 
+
 /*
     namespace to tie together list utility methods
 */

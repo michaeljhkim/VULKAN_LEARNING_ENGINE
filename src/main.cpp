@@ -43,6 +43,7 @@
 
 #include "algorithms/states.hpp"
 #include "algorithms/ray.h"
+#include "algorithms/bounds.h"
 
 #include "scene.h"
 
@@ -123,11 +124,12 @@ int main() {
     // LIGHTS==============================
 
     // directional light
+    //BoundingRegion dirLight_BR(glm::vec3(-20.0f, -20.0f, 0.5f), glm::vec3(20.0f, 20.0f, 50.0f));
     DirLight dirLight(glm::vec3(-0.2f, -0.9f, -0.2f),
         glm::vec4(0.1f, 0.1f, 0.1f, 1.0f),
         glm::vec4(0.6f, 0.6f, 0.6f, 1.0f),
         glm::vec4(0.7f, 0.7f, 0.7f, 1.0f),
-        BoundingRegion(glm::vec3(-20.0f, -20.0f, 0.5f), glm::vec3(20.0f, 20.0f, 50.0f)));
+        BoundingRegion(glm::vec3(-20.0f, -20.0f, 0.5f), glm::vec3(20.0f, 20.0f, 50.0f)) );
     scene.dirLight = &dirLight;
 
     // point lights
@@ -210,20 +212,18 @@ int main() {
 
     scene.defaultFBO.bind(); // bind default framebuffer
 
-    SDL_Event event;
     while (!scene.shouldClose()) {
+        // calculate currentTime (in seconds)
+        Uint64 counter = SDL_GetPerformanceCounter();
+        Uint64 frequency = SDL_GetPerformanceFrequency();
+        double currentTime = static_cast<double>(counter) / frequency;
+
         // calculate dt
-        double currentTime = glfwGetTime();
         dt = currentTime - lastFrame;
         lastFrame = currentTime;
 
         //scene.variableLog["time"] += dt;
         //scene.variableLog["fps"] = 1 / dt;
-
-        //update inputs in scene
-        SDL_PollEvent(&event);
-        Keyboard::keyCallback(event);
-
 
         // update screen values
         scene.update();
@@ -322,10 +322,10 @@ void emitRay() {
 void processInput(double dt) {
     // process input with cameras
     scene.processInput(dt);
-    const Uint8 *keys_state = SDL_GetKeyboardState(NULL);
+    //const Uint8 *keys_state = SDL_GetKeyboardState(NULL);
 
     // close window
-    if (Keyboard::key(GLFW_KEY_ESCAPE)) {
+    if (Keyboard::key(SDLK_ESCAPE)) {
         scene.setShouldClose(true);
     }
 

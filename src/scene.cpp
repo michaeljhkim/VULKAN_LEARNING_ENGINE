@@ -366,6 +366,7 @@ void Scene::processInput(float dt) {
 }
 
 
+
 // update screen before each frame
 void Scene::update() {
     // set background color
@@ -373,6 +374,7 @@ void Scene::update() {
     // clear occupied bits
     defaultFBO.clear();
 }
+
 
 // update screen after frame
 void Scene::newFrame(Box &box) {
@@ -385,7 +387,10 @@ void Scene::newFrame(Box &box) {
 
     // send new frame to window
     SDL_GL_SwapWindow(window);
-    glfwPollEvents();
+    //update inputs in scene
+    SDL_PollEvent(&event);
+    Keyboard::keyCallback(event);
+
 }
 
 // set uniform shader varaibles (lighting, etc)
@@ -511,8 +516,10 @@ void Scene::cleanup() {
     // destroy octree
     octree->destroy();
 
-    // terminate glfw
-    glfwTerminate();
+    // quit SDL
+    //glfwTerminate();
+    SDL_DestroyWindow(window);
+    SDL_Quit(); 
 }
 
 /*

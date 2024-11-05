@@ -1,0 +1,3 @@
+/home/mk/Documents/YURRGOHT_ENGINE/build/CMakeFiles/yurrgoht_engine.dir
+/home/mk/Documents/YURRGOHT_ENGINE/build/CMakeFiles/edit_cache.dir
+/home/mk/Documents/YURRGOHT_ENGINE/build/CMakeFiles/rebuild_cache.dir

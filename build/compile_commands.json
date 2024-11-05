@@ -1,0 +1,116 @@
+[
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/main.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/main.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/main.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/scene.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/scene.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/gcc -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -o CMakeFiles/yurrgoht_engine.dir/src/glad.c.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/glad.c",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/glad.c",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/glad.c.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/mesh.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/mesh.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/model.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/model.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/cubemap.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/cubemap.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/light.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/light.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/material.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/material.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/shader.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/shader.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/text.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/text.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/texture.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/texture.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/joystick.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/joystick.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmesh.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmesh.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmodel.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmodel.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/physics/environment.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/physics/environment.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/physics/rigidbody.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/physics/rigidbody.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o"
+}
+]

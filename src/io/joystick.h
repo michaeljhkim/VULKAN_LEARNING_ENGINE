@@ -1,7 +1,9 @@
 #ifndef JOYSTICK_H
 #define JOYSTICK_H
 
-#include <GLFW/glfw3.h>
+//#include <GLFW/glfw3.h>
+#include <SDL2/SDL.h>
+#include <vector>
 
 // analog input	button values					//		PS		|		XBOX
 #define GLFW_JOYSTICK_BTN_LEFT 0				//	Square		|	X
@@ -86,12 +88,16 @@ private:
     // number of axes on joystick
     int axesCount;
     // array of axes values
-    const float* axes;
+    //const float* axes;
+    std::vector<float> axes;
 
     // number of buttons
     int buttonCount;
     // array of button states
-    const unsigned char* buttons;
+    //const unsigned char* buttons;
+    std::vector<unsigned char> buttons;
+
+    SDL_Joystick* sdl_joystick;
 };
 
 #endif

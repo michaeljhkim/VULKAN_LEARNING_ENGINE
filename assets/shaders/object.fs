@@ -175,9 +175,10 @@ vec4 calcDirLight(vec3 norm, vec3 viewDir, vec3 viewVec, vec4 diffMap, vec4 spec
 
 	//float shadow = calcDirLightShadow(norm, viewVec, lightDir);
 	float shadow = 0.0;
-
 	return vec4(ambient + (1.0 - shadow) * (diffuse + specular));
 }
+
+
 
 float calcPointLightShadow(int idx, vec3 norm, vec3 viewVec, vec3 lightDir) {
 	// get vector from the light to the fragment
@@ -206,9 +207,10 @@ float calcPointLightShadow(int idx, vec3 norm, vec3 viewVec, vec3 lightDir) {
 	}
 
 	shadow /= NUM_SAMPLESF;
-
 	return shadow;
 }
+
+
 
 vec4 calcPointLight(int idx, vec3 norm, vec3 viewVec, vec3 viewDir, vec4 diffMap, vec4 specMap) {
 	// ambient
@@ -244,9 +246,10 @@ vec4 calcPointLight(int idx, vec3 norm, vec3 viewVec, vec3 viewDir, vec4 diffMap
 
 	//float shadow = calcPointLightShadow(idx, norm, viewVec, lightDir);
 	float shadow = 0.0;
-
 	return vec4(ambient + (1.0 - shadow) * (diffuse + specular));
 }
+
+
 
 float calcSpotLightShadow(int idx, vec3 norm, vec3 viewVec, vec3 lightDir) {
 	vec4 fragPosLightSpace = spotLights[idx].lightSpaceMatrix * vec4(fs_in.FragPos, 1.0);
@@ -284,10 +287,11 @@ float calcSpotLightShadow(int idx, vec3 norm, vec3 viewVec, vec3 lightDir) {
 			shadowSum += currentDepth - bias > pcfDepth ? 1.0 : 0.0;
 		}
 	}
-
 	// return average
 	return shadowSum / 9.0;
 }
+
+
 
 vec4 calcSpotLight(int idx, vec3 norm, vec3 viewVec, vec3 viewDir, vec4 diffMap, vec4 specMap) {
 	vec3 lightDir = normalize(fs_in.tanLights.spotLightPositions[idx] - fs_in.tanLights.FragPos);
@@ -334,7 +338,6 @@ vec4 calcSpotLight(int idx, vec3 norm, vec3 viewVec, vec3 viewDir, vec4 diffMap,
 
 		//float shadow = calcSpotLightShadow(idx, norm, viewVec, lightDir);
 		float shadow = 0.0;
-
 		return vec4(ambient + (1.0 - shadow) * (diffuse + specular));
 	}
 	else {

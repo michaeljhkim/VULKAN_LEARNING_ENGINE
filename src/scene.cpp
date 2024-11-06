@@ -32,13 +32,11 @@ Scene::Scene()
     : currentId("aaaaaaaa"), lightUBO(0) {}
 
 // set with values
-Scene::Scene(int SDL2VersionMajor, int SDL2VersionMinor,
-    const char* title, unsigned int scrWidth, unsigned int scrHeight)
-    : SDL2VersionMajor(SDL2VersionMajor), SDL2VersionMinor(SDL2VersionMinor), // GLFW version
-    title(title), // window title
+Scene::Scene(int SDL2VersionMajor, int SDL2VersionMinor, const char* title, 
+    unsigned int scrWidth, unsigned int scrHeight)
+    : SDL2VersionMajor(SDL2VersionMajor), SDL2VersionMinor(SDL2VersionMinor), title(title), // window title
     // default indices/vals
-    activeCamera(-1), 
-    activePointLights(0), activeSpotLights(0),
+    activeCamera(-1), activePointLights(0), activeSpotLights(0),
     currentId("aaaaaaaa"), lightUBO(0) {
     
     // window dimensions
@@ -65,8 +63,8 @@ bool Scene::init() {
 
     // set version
     // Set OpenGL version and profile
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, SDL2VersionMajor);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, SDL2VersionMinor);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 1);

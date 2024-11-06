@@ -72,7 +72,7 @@ int main() {
     std::cout << "Hello, OpenGL!" << std::endl;
 
     // construct scene
-    scene = Scene(3, 3, "OpenGL Tutorial", 1200, 720);
+    scene = Scene(4, 3, "OpenGL Tutorial", 1920, 1080);
     // test if GLFW successfully started and created window
     if (!scene.init()) {
         std::cout << "Could not open window" << std::endl;

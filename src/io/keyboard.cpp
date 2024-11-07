@@ -27,15 +27,17 @@ bool Keyboard::keysChanged[KEY_COUNT] = { 0 };
 // key state changed
 // We check if every event is account for
 void Keyboard::keyCallback(SDL_Event event) {
-    SDL_Scancode keyPressed = event.key.keysym.scancode;
-    if (event.type == SDL_KEYDOWN) {
-        if (!keys[keyPressed])
-            keys[keyPressed] = true;
+    if (event.type == SDL_KEYDOWN || event.type == SDL_KEYUP) {
+        SDL_Scancode keyPressed = event.key.keysym.scancode;
+        if (event.type == SDL_KEYDOWN) {
+            if (!keys[keyPressed])
+                keys[keyPressed] = true;
+        }
+        else {
+            keys[keyPressed] = false;
+        }
+        keysChanged[keyPressed] = (!event.key.repeat);
     }
-    else {
-        keys[keyPressed] = false;
-    }
-    keysChanged[keyPressed] = (!event.key.repeat);
 }
 
 /*

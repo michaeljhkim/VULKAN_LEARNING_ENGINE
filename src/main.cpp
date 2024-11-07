@@ -72,7 +72,7 @@ int main() {
     std::cout << "Hello, OpenGL!" << std::endl;
 
     // construct scene
-    scene = Scene(4, 4, "OpenGL Tutorial", 1920, 1080);
+    scene = Scene(4, 4, "OpenGL Tutorial", 2560, 1440);
     // test if GLFW successfully started and created window
     if (!scene.init()) {
         std::cout << "Could not open window" << std::endl;
@@ -339,12 +339,10 @@ void processInput(double dt) {
         launchItem(dt);
     }
 
-    /*
     // emit ray
     if (Mouse::buttonWentDown(SDL_BUTTON_LEFT)) {
-        //emitRay();
+        emitRay();
     }
-    */
     // determine if each lamp should be toggled
     for (int i = 0; i < 4; i++) {
         if (Keyboard::keyWentDown(SDL_GetScancodeFromKey(SDLK_1 + i)) ) {

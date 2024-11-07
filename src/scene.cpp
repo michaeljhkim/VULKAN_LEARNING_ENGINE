@@ -393,10 +393,12 @@ void Scene::newFrame(Box &box) {
         if (event.type == SDL_QUIT) setShouldClose(true);
         
         Keyboard::keyCallback(event);
-        Mouse::cursorPosCallback(event);
         Mouse::mouseButtonCallback(event);
         Mouse::mouseWheelCallback(event);
+        Mouse::cursorPosCallback(event);
     }
+    //This checks if a mouse button is being held down
+    //Mouse::mouseButtonRepeat();
 }
 
 // set uniform shader varaibles (lighting, etc)

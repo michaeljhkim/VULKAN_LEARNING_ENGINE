@@ -22,6 +22,9 @@ public:
     // scroll wheel moved
     static void mouseWheelCallback(SDL_Event event);
 
+    // any mouse button is being held down
+    static void mouseButtonRepeat();
+
     /*
         accessors
     */

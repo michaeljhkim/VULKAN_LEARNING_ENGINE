@@ -38,12 +38,16 @@ IMMEDIATE TODO LIST (might as well just put it here):
 - figure out how the collisions works
 - figure out how the skybox works
 - figure out how the shaders works
+- (maybe) figure out dynamic shaders
 - After figuring out above, find ways to improve and make more useful towards goals
 - possibly figure out better name for this game engine
 
+##
 
 DONE LIST : 
-- ported tutorial code to linux and SDL2
-- converted shader code to openGL 4.6 
+- ported tutorial code to linux
+- switched from GLFW to SDL2
+- switched from Visual Studio SLN to CMAKE
+- converted shader code to openGL 4.6 (only had to change a couple of lines)
  
 

@@ -42,3 +42,8 @@ IMMEDIATE TODO LIST (might as well just put it here):
 - possibly figure out better name for this game engine
 
 
+DONE LIST : 
+- ported tutorial code to linux and SDL2
+- converted shader code to openGL 4.6 
+ 
+

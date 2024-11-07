@@ -89,14 +89,9 @@ int main() {
 
     Shader shader(true, "instanced/instanced.vs", "object.fs");
     Shader boxShader(false, "instanced/box.vs", "instanced/box.fs");
-    
-    Shader dirShadowShader(false, "shadows/dirSpotShadow.vs",
-        "shadows/dirShadow.fs");
-    Shader spotShadowShader(false, "shadows/dirSpotShadow.vs",
-        "shadows/pointSpotShadow.fs");
-    Shader pointShadowShader(false, "shadows/pointShadow.vs",
-        "shadows/pointSpotShadow.fs",
-        "shadows/pointShadow.gs");
+    Shader dirShadowShader(false, "shadows/dirSpotShadow.vs", "shadows/dirShadow.fs");
+    Shader spotShadowShader(false, "shadows/dirSpotShadow.vs", "shadows/pointSpotShadow.fs");
+    Shader pointShadowShader(false, "shadows/pointShadow.vs", "shadows/pointSpotShadow.fs",  "shadows/pointShadow.gs");
 
     Shader::clearDefault();
 
@@ -108,9 +103,7 @@ int main() {
 
     // MODELS==============================
     scene.registerModel(&lamp);
-
     scene.registerModel(&wall);
-
     scene.registerModel(&sphere);
 
     //scene.registerModel(&cube);
@@ -277,6 +270,7 @@ int main() {
 
         // clear instances that have been marked for deletion
         scene.clearDeadInstances();
+        //std::cout << "Do we even get here?" << std::endl;
     }
 
     // clean up objects
@@ -322,10 +316,9 @@ void emitRay() {
 void processInput(double dt) {
     // process input with cameras
     scene.processInput(dt);
-    //const Uint8 *keys_state = SDL_GetKeyboardState(NULL);
 
     // close window
-    if (Keyboard::key(SDLK_ESCAPE)) {
+    if (Keyboard::key(SDL_SCANCODE_ESCAPE)) {
         scene.setShouldClose(true);
     }
 
@@ -337,23 +330,24 @@ void processInput(double dt) {
         scene.spotLights[0]->updateMatrices();
     }
 
-    if (Keyboard::keyWentDown(SDLK_l)) {
+    if (Keyboard::keyWentDown(SDL_SCANCODE_1)) {
         States::toggleIndex(&scene.activeSpotLights, 0); // toggle spot light
     }
 
     // launch sphere
-    if (Keyboard::keyWentDown(SDLK_f)) {
+    if (Keyboard::keyWentDown(SDL_SCANCODE_F)) {
         launchItem(dt);
     }
 
+    /*
     // emit ray
     if (Mouse::buttonWentDown(SDL_BUTTON_LEFT)) {
-        emitRay();
+        //emitRay();
     }
-
+    */
     // determine if each lamp should be toggled
     for (int i = 0; i < 4; i++) {
-        if (Keyboard::keyWentDown(SDLK_1 + i)) {
+        if (Keyboard::keyWentDown(SDL_GetScancodeFromKey(SDLK_1 + i)) ) {
             //States::toggleIndex(&scene.activePointLights, i);
         }
     }

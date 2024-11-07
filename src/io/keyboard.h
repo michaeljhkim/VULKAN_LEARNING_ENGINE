@@ -19,23 +19,23 @@ public:
     //Keyboard() {}
 
     // key state changed
-    static void keyCallback(SDL_Event& keyboard_event);
+    static void keyCallback(SDL_Event keyboard_event);
 
     /*
         static accessors
     */
 
     // get key state
-    static bool key(int key);
+    static bool key(SDL_Scancode key);
 
     // get if key recently changed
-    static bool keyChanged(int key);
+    static bool keyChanged(SDL_Scancode key);
 
     // get if key recently changed and is up
-    static bool keyWentUp(int key);
+    static bool keyWentUp(SDL_Scancode key);
 
     // get if key recently changed and is down
-    static bool keyWentDown(int key);
+    static bool keyWentDown(SDL_Scancode key);
 
 private:
     /*

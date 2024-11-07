@@ -147,6 +147,8 @@ bool Scene::init() {
 
     // Disable cursor
     SDL_ShowCursor(SDL_DISABLE);
+    SDL_WarpMouseInWindow(window, scrWidth/2, scrHeight/2);
+    SDL_SetRelativeMouseMode(SDL_TRUE);
 
     /*
         init model/instance trees
@@ -327,25 +329,23 @@ void Scene::processInput(float dt) {
             cameras[activeCamera]->updateCameraZoom(scrollDy);
         }
 
-        const Uint8 *state = SDL_GetKeyboardState(NULL);
-
         // set camera pos
-        if (Keyboard::key(SDLK_w)) {
+        if (Keyboard::key(SDL_SCANCODE_W)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::FORWARD, dt);
         }
-        if (Keyboard::key(SDLK_s)) {
+        if (Keyboard::key(SDL_SCANCODE_S)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::BACKWARD, dt);
         }
-        if (Keyboard::key(SDLK_d)) {
+        if (Keyboard::key(SDL_SCANCODE_D)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::RIGHT, dt);
         }
-        if (Keyboard::key(SDLK_a)) {
+        if (Keyboard::key(SDL_SCANCODE_A)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::LEFT, dt);
         }
-        if (Keyboard::key(SDLK_SPACE)) {
+        if (Keyboard::key(SDL_SCANCODE_SPACE)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::UP, dt);
         }
-        if (Keyboard::key(SDLK_LCTRL)) {
+        if (Keyboard::key(SDL_SCANCODE_LCTRL)) {
             cameras[activeCamera]->updateCameraPos(CameraDirection::DOWN, dt);
         }
 
@@ -354,7 +354,7 @@ void Scene::processInput(float dt) {
         projection = glm::perspective(
             glm::radians(cameras[activeCamera]->getZoom()),	    // FOV
             (float)scrWidth / (float)scrHeight,					// aspect ratio
-            0.1f, 100.0f										// near and far bounds
+            0.1f, 1000.0f										// near and far bounds
         );
         textProjection = glm::ortho(0.0f, (float)scrWidth, 0.0f, (float)scrHeight);
 
@@ -376,6 +376,7 @@ void Scene::update() {
 
 // update screen after frame
 void Scene::newFrame(Box &box) {
+
     box.positions.clear();
     box.sizes.clear();
 
@@ -385,10 +386,17 @@ void Scene::newFrame(Box &box) {
 
     // send new frame to window
     SDL_GL_SwapWindow(window);
-    //update inputs in scene
-    SDL_PollEvent(&event);
-    Keyboard::keyCallback(event);
 
+    //update inputs in scene
+    while( SDL_PollEvent(&event) != 0 ) {
+        //check if user wants to quit at all
+        if (event.type == SDL_QUIT) setShouldClose(true);
+        
+        Keyboard::keyCallback(event);
+        Mouse::cursorPosCallback(event);
+        Mouse::mouseButtonCallback(event);
+        Mouse::mouseWheelCallback(event);
+    }
 }
 
 // set uniform shader varaibles (lighting, etc)
@@ -523,10 +531,11 @@ void Scene::cleanup() {
 /*
     accessors
 */
+bool should_close = false;
 
 // determine if window should close
 bool Scene::shouldClose() {
-    return (event.type == SDL_QUIT);
+    return should_close;
 }
 
 // get current active camera in scene
@@ -541,8 +550,8 @@ Camera* Scene::getActiveCamera() {
 
 // set if the window should close
 void Scene::setShouldClose(bool shouldClose) {
-    if(shouldClose) 
-        event.type = SDL_QUIT;
+    should_close = shouldClose;
+    return;
 }
 
 // set window background color

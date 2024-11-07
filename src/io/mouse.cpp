@@ -17,52 +17,52 @@ double Mouse::scrollDy = 0;
 // if this is the first change in the mouse position
 bool Mouse::firstMouse = true;
 
+//SDL_BUTTON_X2 is last mouse button
+
 // button state array (true for down, false for up)
-bool Mouse::buttons[GLFW_MOUSE_BUTTON_LAST] = { 0 };
+bool Mouse::buttons[SDL_BUTTON_X2] = { 0 };
 // button changed array (true if changed)
-bool Mouse::buttonsChanged[GLFW_MOUSE_BUTTON_LAST] = { 0 };
+bool Mouse::buttonsChanged[SDL_BUTTON_X2] = { 0 };
 
 //Since SDL2 does not provide a way to check if a button is repeating, we store the old inputs
-bool buttonsPrevious[GLFW_MOUSE_BUTTON_LAST] = { 0 };
+bool buttonsPrevious[SDL_BUTTON_X2] = { 0 };
 
 /*
     callbacks
 */
 
 // cursor position changed
-void Mouse::cursorPosCallback(SDL_Event& event) {
-    while( SDL_PollEvent(&event) != 0 ) {
-        //if the mouse is moved at all, RELATIVE x and y values are passed into the camera MouseLook function
-        if(event.type == SDL_MOUSEMOTION) {
-            dx += event.motion.xrel;
-            dy += event.motion.yrel;
-        }
+void Mouse::cursorPosCallback(SDL_Event event) {
+    //if the mouse is moved at all, RELATIVE x and y values are passed into the camera MouseLook function
+    if(event.type == SDL_MOUSEMOTION) {
+        dx += event.motion.xrel;
+        dy -= event.motion.yrel;
     }
 }
 
-// mouse button state changed
-void Mouse::mouseButtonCallback(SDL_Event& event) {
-    while( SDL_PollEvent(&event) != 0 ) {
-        SDL_Keycode buttonPressed = event.button.button;
-        if (event.type != SDL_MOUSEBUTTONUP) {
-            if (!buttons[buttonPressed]) {
-                buttons[buttonPressed] = true;
-            }
-        }
-        else {
-            buttons[buttonPressed] = false;
-        }
-        //check if the current button was pressed previously as well, then story in the buttonsChanged (delta) 
-        buttonsChanged[buttonPressed] = (buttons[buttonPressed] != buttonsPrevious[buttonPressed]);
-        buttonsPrevious[buttonPressed] = buttons[buttonPressed];
-    }
 
+// mouse button state changed
+void Mouse::mouseButtonCallback(SDL_Event event) {
+    //std::cout << "TEST" << std::endl;
+    int buttonPressed = event.button.button;
+    if (event.type == SDL_MOUSEBUTTONDOWN) {
+        if (!buttons[buttonPressed])
+            buttons[buttonPressed] = true;
+    }
+    else {
+        buttons[buttonPressed] = false;
+    }
+    //check if the current button was pressed previously as well, then story in the buttonsChanged (delta) 
+    buttonsChanged[buttonPressed] = (buttons[buttonPressed] != buttonsPrevious[buttonPressed]);
+    buttonsPrevious[buttonPressed] = buttons[buttonPressed];
 }
 
 // scroll wheel moved
-void Mouse::mouseWheelCallback(SDL_Event& event) {
-    scrollDx = event.wheel.x;
-    scrollDy = event.wheel.y;
+void Mouse::mouseWheelCallback(SDL_Event event) {
+    if (event.type == SDL_MOUSEWHEEL) {
+        scrollDx = event.wheel.x;
+        scrollDy = event.wheel.y;
+    }
 }
 
 /*
@@ -102,12 +102,14 @@ double Mouse::getScrollDY() {
 }
 
 // get button state
-bool Mouse::button(int button) {
+bool Mouse::button(Uint8 button) {
+    button -= 1;
     return buttons[button];
 }
 
 // return if button changed then reset it in the changed array
-bool Mouse::buttonChanged(int button) {
+bool Mouse::buttonChanged(Uint8 button) {
+    button -= 1;
     bool ret = buttonsChanged[button];
     // set to false because change no longer new
     buttonsChanged[button] = false;
@@ -115,11 +117,14 @@ bool Mouse::buttonChanged(int button) {
 }
 
 // return if button changed and is now up
-bool Mouse::buttonWentUp(int button) {
+bool Mouse::buttonWentUp(Uint8 button) {
+    button -= 1;
     return !buttons[button] && buttonChanged(button);
 }
 
 // return if button changed and is now down
-bool Mouse::buttonWentDown(int button) {
+bool Mouse::buttonWentDown(Uint8 button) {
+    button -= 1;
+    //int test = button;
     return buttons[button] && buttonChanged(button);
 }

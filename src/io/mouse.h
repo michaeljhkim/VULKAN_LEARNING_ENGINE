@@ -1,6 +1,7 @@
 #ifndef MOUSE_H
 #define MOUSE_H
 
+#include <iostream>
 #include <glad/glad.h>
 #include <SDL2/SDL.h>
 
@@ -15,11 +16,11 @@ public:
     */
 
     // cursor position changed
-    static void cursorPosCallback(SDL_Event& event);
+    static void cursorPosCallback(SDL_Event event);
     // mouse button state changed
-    static void mouseButtonCallback(SDL_Event& event);
+    static void mouseButtonCallback(SDL_Event event);
     // scroll wheel moved
-    static void mouseWheelCallback(SDL_Event& event);
+    static void mouseWheelCallback(SDL_Event event);
 
     /*
         accessors
@@ -41,13 +42,13 @@ public:
     static double getScrollDY();
 
     // get button state
-    static bool button(int button);
+    static bool button(Uint8 button);
     // return if button changed then reset it in the changed array
-    static bool buttonChanged(int button);
+    static bool buttonChanged(Uint8 button);
     // return if button changed and is now up
-    static bool buttonWentUp(int button);
+    static bool buttonWentUp(Uint8 button);
     // return if button changed and is now down
-    static bool buttonWentDown(int button);
+    static bool buttonWentDown(Uint8 button);
 
 private:
     /*

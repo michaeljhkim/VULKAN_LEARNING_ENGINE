@@ -2,6 +2,12 @@
 #include "../physics/environment.h"
 
 /*
+fov/zoom stuff we can keep here because no where else needs these values... FOR NOW (add to header fiile later if needed elsewhere)
+*/
+float camera_fov = 75.0f;
+float max_zoom_out = 100.0f;
+
+/*
     constructor
 */
 
@@ -11,8 +17,8 @@ Camera::Camera(glm::vec3 position)
     yaw(0.0f),
     pitch(0.0f),
     speed(2.5f),
-    sensitivity(1.0f),
-    zoom(45.0f),
+    sensitivity(0.09f),
+    zoom(camera_fov),
     cameraFront(glm::vec3(1.0f, 0.0f, 0.0f))
 {
     updateCameraVectors();
@@ -24,8 +30,8 @@ Camera::Camera(glm::vec3 position)
 
 // change camera direction (mouse movement)
 void Camera::updateCameraDirection(double dx, double dy) {
-    yaw += dx;
-    pitch += dy;
+    yaw += dx * sensitivity;
+    pitch += dy * sensitivity;
 
     if (pitch > 89.0f) {
         pitch = 89.0f;
@@ -65,16 +71,21 @@ void Camera::updateCameraPos(CameraDirection direction, double dt) {
 
 // change camera zoom (scroll wheel)
 void Camera::updateCameraZoom(double dy) {
-    if (zoom >= 1.0f && zoom <= 45.0f) {
-        zoom -= dy;
+    float new_zoom = zoom - dy*2;
+
+    //stop being able to scroll back if new_zoom is the same as default fov size
+    if(new_zoom >= camera_fov) {
+        zoom = camera_fov;
     }
-    else if (zoom < 1.0f) {
+    else if (new_zoom >= 1.0f && new_zoom < camera_fov) {
+        zoom = new_zoom;
+    }
+    //else if (new_zoom < 1.0f)
+    else { // < 1.0f
         zoom = 1.0f;
-    }
-    else { // > 45.0f
-        zoom = 45.0f;
-    }
+    } 
 }
+
 
 /*
     accessors

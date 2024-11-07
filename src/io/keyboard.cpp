@@ -19,14 +19,6 @@ bool Keyboard::keys[KEY_COUNT] = { 0 };
 // key changed array (true if changed)
 bool Keyboard::keysChanged[KEY_COUNT] = { 0 };
 
-//const Uint8* keys_state = SDL_GetKeyboardState(NULL);
-
-/*
-//The only thing this constructor needs to do is to just 
-Keyboard::Keyboard() {
-    //memset(previous_keys_state, 0, keys_size);
-}
-*/
 
 /*
     static callback
@@ -34,19 +26,16 @@ Keyboard::Keyboard() {
 
 // key state changed
 // We check if every event is account for
-void Keyboard::keyCallback(SDL_Event& event) {
-    while( SDL_PollEvent(&event) != 0 ) {
-        SDL_Keycode keyPressed = event.key.keysym.sym;
-        if (event.type != SDL_KEYUP) {
-            if (!keys[keyPressed]) {
-                keys[keyPressed] = true;
-            }
-        }
-        else {
-            keys[keyPressed] = false;
-        }
-        keysChanged[keyPressed] = (!event.key.repeat);
+void Keyboard::keyCallback(SDL_Event event) {
+    SDL_Scancode keyPressed = event.key.keysym.scancode;
+    if (event.type == SDL_KEYDOWN) {
+        if (!keys[keyPressed])
+            keys[keyPressed] = true;
     }
+    else {
+        keys[keyPressed] = false;
+    }
+    keysChanged[keyPressed] = (!event.key.repeat);
 }
 
 /*
@@ -54,24 +43,30 @@ void Keyboard::keyCallback(SDL_Event& event) {
 */
 
 // get key state
-bool Keyboard::key(int key) {
-    return keys[key];
+bool Keyboard::key(SDL_Scancode key) {
+    int keyint = static_cast<int>(key);
+    return keys[keyint];
 }
 
 // get if key recently changed
-bool Keyboard::keyChanged(int key) {
-    bool ret = keysChanged[key];
+bool Keyboard::keyChanged(SDL_Scancode key) {
+    //key is of type SDL_Keycode which is an enum. Must cast to an int
+    int keyint = static_cast<int>(key);
+    bool ret = keysChanged[keyint];
+
     // set to false because change no longer new
-    keysChanged[key] = false;
+    keysChanged[keyint] = false;
     return ret;
 }
 
 // get if key recently changed and is up
-bool Keyboard::keyWentDown(int key) {
+bool Keyboard::keyWentDown(SDL_Scancode key) {
+    int keyint = static_cast<int>(key);
     return keys[key] && keyChanged(key);
 }
 
 // get if key recently changed and is down
-bool Keyboard::keyWentUp(int key) {
-    return !keys[key] && keyChanged(key);
+bool Keyboard::keyWentUp(SDL_Scancode key) {
+    int keyint = static_cast<int>(key);
+    return !keys[keyint] && keyChanged(key);
 }

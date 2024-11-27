@@ -419,28 +419,28 @@ void Scene::renderShader(Shader shader, bool applyLighting) {
         dirLight->render(shader, textureIdx--);
 
         // point lights
-        unsigned int noLights = pointLights.size();
-        unsigned int noActiveLights = 0;
-        for (unsigned int i = 0; i < noLights; i++) {
+        unsigned int numLights = pointLights.size();
+        unsigned int numActiveLights = 0;
+        for (unsigned int i = 0; i < numLights; i++) {
             if (States::isIndexActive(&activePointLights, i)) {
                 // i'th light is active
-                pointLights[i]->render(shader, noActiveLights, textureIdx--);
-                noActiveLights++;
+                pointLights[i]->render(shader, numActiveLights, textureIdx--);
+                numActiveLights++;
             }
         }
-        shader.setInt("noPointLights", noActiveLights);
+        shader.setInt("noPointLights", numActiveLights);
 
         // spot lights
-        noLights = spotLights.size();
-        noActiveLights = 0;
-        for (unsigned int i = 0; i < noLights; i++) {
+        numLights = spotLights.size();
+        numActiveLights = 0;
+        for (unsigned int i = 0; i < numLights; i++) {
             if (States::isIndexActive(&activeSpotLights, i)) {
                 // i'th spot light active
-                spotLights[i]->render(shader, noActiveLights, textureIdx--);
-                noActiveLights++;
+                spotLights[i]->render(shader, numActiveLights, textureIdx--);
+                numActiveLights++;
             }
         }
-        shader.setInt("noSpotLights", noActiveLights);
+        shader.setInt("noSpotLights", numActiveLights);
     }
 }
 // set uniform shader variables for directional light render

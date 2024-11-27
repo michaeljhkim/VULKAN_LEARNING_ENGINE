@@ -50,9 +50,9 @@ public:
     std::vector<RigidBody*> instances;
 
     // maximum number of instances
-    unsigned int maxNoInstances;
+    unsigned int maxNumInstances;
     // current number of instances
-    unsigned int currentNoInstances;
+    unsigned int currentNumInstances;
 
     // combination of switches above
     unsigned int switches;
@@ -62,7 +62,7 @@ public:
     */
 
     // initialize with parameters
-    Model(std::string id, unsigned int maxNoInstances, unsigned int flags = 0);
+    Model(std::string id, unsigned int maxNumInstances, unsigned int flags = 0);
 
     /*
         process functions
@@ -127,11 +127,11 @@ protected:
 
     // proces a custom mesh
     Mesh processMesh(BoundingRegion br,
-        unsigned int noVertices, float* vertices,
-        unsigned int noIndices, unsigned int* indices,
+        unsigned int numVertices, float* vertices,
+        unsigned int numIndices, unsigned int* indices,
         bool calcTanVectors = true,
-        unsigned int noCollisionPoints = 0, float* collisionPoints = NULL,
-        unsigned int noCollisionFaces = 0, unsigned int* collisionIndices = NULL,
+        unsigned int numCollisionPoints = 0, float* collisionPoints = NULL,
+        unsigned int numCollisionFaces = 0, unsigned int* collisionIndices = NULL,
         bool pad = false);
 
     // load list of textures

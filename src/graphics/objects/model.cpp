@@ -12,9 +12,9 @@
 */
 
 // initialize with parameters
-Model::Model(std::string id, unsigned int maxNoInstances, unsigned int flags)
+Model::Model(std::string id, unsigned int maxNumInstances, unsigned int flags)
     : id(id), switches(flags),
-    currentNoInstances(0), maxNoInstances(maxNoInstances), instances(maxNoInstances),
+    currentNumInstances(0), maxNumInstances(maxNumInstances), instances(maxNumInstances),
     collision(nullptr) {}
 
 /*
@@ -64,14 +64,14 @@ void Model::render(Shader shader, float dt, Scene* scene) {
         // dynamic instances - update VBO data
 
         // create list of each
-        std::vector<glm::mat4> models(currentNoInstances);
-        std::vector<glm::mat3> normalModels(currentNoInstances);
+        std::vector<glm::mat4> models(currentNumInstances);
+        std::vector<glm::mat3> normalModels(currentNumInstances);
 
         // determine if instances are moving
         bool doUpdate = States::isActive(&switches, DYNAMIC);
 
         // iterate through each instance
-        for (int i = 0; i < currentNoInstances; i++) {
+        for (int i = 0; i < currentNumInstances; i++) {
             if (doUpdate) {
                 // update Rigid Body
                 instances[i]->update(dt);
@@ -88,12 +88,12 @@ void Model::render(Shader shader, float dt, Scene* scene) {
             normalModels[i] = instances[i]->normalModel;
         }
 
-        if (currentNoInstances) {
+        if (currentNumInstances) {
             // set transformation data
             modelVBO.bind();
-            modelVBO.updateData<glm::mat4>(0, currentNoInstances, &models[0]);
+            modelVBO.updateData<glm::mat4>(0, currentNumInstances, &models[0]);
             normalModelVBO.bind();
-            normalModelVBO.updateData<glm::mat3>(0, currentNoInstances, &normalModels[0]);
+            normalModelVBO.updateData<glm::mat3>(0, currentNumInstances, &normalModels[0]);
         }
     }
 
@@ -102,7 +102,7 @@ void Model::render(Shader shader, float dt, Scene* scene) {
 
     // render each mesh
     for (unsigned int i = 0, noMeshes = meshes.size(); i < noMeshes; i++) {
-        meshes[i].render(shader, currentNoInstances);
+        meshes[i].render(shader, currentNumInstances);
     }
 }
 
@@ -132,14 +132,14 @@ void Model::cleanup() {
 
 // generate instance with parameters
 RigidBody* Model::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
-    if (currentNoInstances >= maxNoInstances) {
+    if (currentNumInstances >= maxNumInstances) {
         // all slots filled
         return nullptr;
     }
 
     // instantiate new instance
-    instances[currentNoInstances] = new RigidBody(id, size, mass, pos, rot);
-    return instances[currentNoInstances++];
+    instances[currentNumInstances] = new RigidBody(id, size, mass, pos, rot);
+    return instances[currentNumInstances++];
 }
 
 // initialize memory for instances
@@ -149,18 +149,18 @@ void Model::initInstances() {
     glm::mat4* modelData = nullptr;
     glm::mat3* normalModelData = nullptr;
 
-    std::vector<glm::mat4> models(currentNoInstances);
-    std::vector<glm::mat3> normalModels(currentNoInstances);
+    std::vector<glm::mat4> models(currentNumInstances);
+    std::vector<glm::mat3> normalModels(currentNumInstances);
 
     if (States::isActive(&switches, CONST_INSTANCES)) {
         // instances won't change, set data pointers
 
-        for (unsigned int i = 0; i < currentNoInstances; i++) {
+        for (unsigned int i = 0; i < currentNumInstances; i++) {
             models[i] = instances[i]->model;
             normalModels[i] = instances[i]->normalModel;
         }
 
-        if (currentNoInstances) {
+        if (currentNumInstances) {
             modelData = &models[0];
             normalModelData = &normalModels[0];
         }
@@ -201,12 +201,12 @@ void Model::initInstances() {
 
 // remove instance at idx
 void Model::removeInstance(unsigned int idx) {
-    if (idx < maxNoInstances) {
+    if (idx < maxNumInstances) {
         // shift down
-        for (unsigned int i = idx + 1; i < currentNoInstances; i++) {
+        for (unsigned int i = idx + 1; i < currentNumInstances; i++) {
             instances[i - 1] = instances[i];
         }
-        currentNoInstances--;
+        currentNumInstances--;
     }
 }
 
@@ -221,7 +221,7 @@ void Model::removeInstance(std::string instanceId) {
 // get index of instance with id
 unsigned int Model::getIdx(std::string id) {
     // test each instance
-    for (int i = 0; i < currentNoInstances; i++) {
+    for (int i = 0; i < currentNumInstances; i++) {
         if (instances[i]->instanceId == id) {
             return i;
         }

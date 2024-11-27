@@ -35,6 +35,7 @@
 #include "graphics/rendering/text.h"
 
 #include "physics/environment.h"
+#include "physics/collisionmesh.h"
 
 #include "io/keyboard.h"
 #include "io/mouse.h"
@@ -66,14 +67,13 @@ Brickwall wall;
 
 std::string Shader::defaultDirectory = "assets/shaders";
 
-#include "physics/collisionmesh.h"
 
 int main() {
     std::cout << "Hello, OpenGL!" << std::endl;
 
     // construct scene
     scene = Scene(4, 4, "OpenGL Tutorial", 2560, 1440);
-    // test if GLFW successfully started and created window
+    // test if SDL2 successfully created and started window
     if (!scene.init()) {
         std::cout << "Could not open window" << std::endl;
         scene.cleanup();
@@ -142,7 +142,7 @@ int main() {
 
     PointLight pointLights[4];
 
-    for (unsigned int i = 0; i < 1; i++) {
+    for (GLuint i = 0; i < 1; i++) {
         pointLights[i] = PointLight(
             pointLightPositions[i],
             k0, k1, k2,
@@ -211,7 +211,7 @@ int main() {
         Uint64 frequency = SDL_GetPerformanceFrequency();
         double currentTime = static_cast<double>(counter) / frequency;
 
-        // calculate dt
+        // calculate dt (delta time)
         dt = currentTime - lastFrame;
         lastFrame = currentTime;
 
@@ -227,7 +227,7 @@ int main() {
         // activate the directional light's FBO
 
         // remove launch objects if too far
-        for (int i = 0; i < sphere.currentNoInstances; i++) {
+        for (int i = 0; i < sphere.currentNumInstances; i++) {
             if (glm::length(cam.cameraPos - sphere.instances[i]->pos) > 250.0f) {
                 scene.markForDeletion(sphere.instances[i]->instanceId);
             }
@@ -260,13 +260,13 @@ int main() {
         scene.defaultFBO.activate();
         scene.renderShader(shader);
         renderScene(shader);
-
+        
         // render boxes
         scene.renderShader(boxShader, false);
         box.render(boxShader);
 
         // send new frame to window
-        scene.newFrame(box);
+        scene.newFrame(box);    //THIS FUNCTION CALL IS WHERE SPHERE HAS BEEN CAUSING SEGFAULTS - CHECK MORE LATER IF NEEDE
 
         // clear instances that have been marked for deletion
         scene.clearDeadInstances();
@@ -279,7 +279,7 @@ int main() {
 }
 
 void renderScene(Shader shader) {
-    if (sphere.currentNoInstances > 0) {
+    if (sphere.currentNumInstances > 0) {
         scene.renderInstances(sphere.id, shader, dt);
     }
 

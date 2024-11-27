@@ -1,0 +1,14 @@
+#include <iostream>
+#include <csignal>
+
+int currentFunctionID = 0;
+void signalHandler(int signal) {
+    if (signal == SIGSEGV) {
+        // Output the ID of the current function causing the segfault
+        std::cout << "Segfault in function ID: " << currentFunctionID << std::endl;
+        std::exit(signal); // Exit the program after identifying
+    }
+}
+std::signal(SIGSEGV, signalHandler);
+currentFunctionID = 1; // Identify error1
+currentFunctionID = 2; // Identify error2

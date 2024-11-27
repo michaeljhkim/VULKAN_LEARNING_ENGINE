@@ -1,0 +1,5 @@
+- Octrees are used to split the game world into smaller and smaller pieces
+- This is so that when collisions occur, we do not need to loop through every single object and check what exactly collided
+- This section is currently the reason why my code is crashing. Newframe is processing and updating the octree, but something causes a segfault when sphere appears
+
+- collision/bounding boxes do not rotate. This is less taxing on cpu

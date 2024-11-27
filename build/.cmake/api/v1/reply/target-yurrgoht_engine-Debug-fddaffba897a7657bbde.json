@@ -147,6 +147,10 @@
 				"role" : "flags"
 			},
 			{
+				"fragment" : "-Wl,--dependency-file,CMakeFiles/yurrgoht_engine.dir/link.d",
+				"role" : "flags"
+			},
+			{
 				"backtrace" : 2,
 				"fragment" : "/usr/lib/libSDL2main.a",
 				"role" : "libraries"

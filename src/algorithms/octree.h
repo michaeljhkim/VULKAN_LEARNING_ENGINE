@@ -1,7 +1,7 @@
 #ifndef OCTREE_H
 #define OCTREE_H
 
-#define NO_CHILDREN 8
+#define NUM_CHILDREN 8
 #define MIN_BOUNDS 0.5
 
 #include <vector>
@@ -55,7 +55,7 @@ namespace Octree {
         // parent pointer
         node* parent;
         // array of children (8)
-        node* children[NO_CHILDREN];
+        node* children[NUM_CHILDREN];
 
         // switch for active octants
         unsigned char activeOctants;

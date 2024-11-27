@@ -2,6 +2,7 @@
 #include "avl.h"
 #include "../graphics/models/box.hpp"
 
+
 // calculate bounds of specified quadrant in bounding region
 void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion parentRegion) {
     // find min and max points of corresponding octant
@@ -69,9 +70,9 @@ void Octree::node::addToPending(RigidBody* instance, Model *model) {
 // build tree (called during initialization)
 void Octree::node::build() {
     // variable declarations
-    BoundingRegion octants[NO_CHILDREN];
+    BoundingRegion octants[NUM_CHILDREN];
     glm::vec3 dimensions = region.calculateDimensions();
-    std::vector<BoundingRegion> octLists[NO_CHILDREN]; // array of lists of objects in each octant
+    std::vector<BoundingRegion> octLists[NUM_CHILDREN]; // array of lists of objects in each octant
     
     /*
         termination conditions (don't subdivide further)
@@ -94,14 +95,14 @@ void Octree::node::build() {
     }
 
     // create regions
-    for (int i = 0; i < NO_CHILDREN; i++) {
+    for (int i = 0; i < NUM_CHILDREN; i++) {
         calculateBounds(octants[i], (Octant)(1 << i), region);
     }
 
     // determine which octants to place objects in
     for (int i = 0, len = objects.size(); i < len; i++) {
         BoundingRegion br = objects[i];
-        for (int j = 0; j < NO_CHILDREN; j++) {
+        for (int j = 0; j < NUM_CHILDREN; j++) {
             if (octants[j].containsRegion(br)) {
                 // octant contains region
                 octLists[j].push_back(br);
@@ -116,7 +117,7 @@ void Octree::node::build() {
     }
 
     // populate octants
-    for (int i = 0; i < NO_CHILDREN; i++) {
+    for (int i = 0; i < NUM_CHILDREN; i++) {
         if (octLists[i].size() != 0) {
             // if children go into this octant, generate new child
             children[i] = new node(octants[i], octLists[i]);
@@ -328,8 +329,8 @@ bool Octree::node::insert(BoundingRegion obj) {
     }
 
     // create regions if not defined
-    BoundingRegion octants[NO_CHILDREN];
-    for (int i = 0; i < NO_CHILDREN; i++) {
+    BoundingRegion octants[NUM_CHILDREN];
+    for (int i = 0; i < NUM_CHILDREN; i++) {
         if (children[i] != nullptr) {
             // child exists, so take its region
             octants[i] = children[i]->region;
@@ -343,10 +344,10 @@ bool Octree::node::insert(BoundingRegion obj) {
     objects.push_back(obj);
 
     // determine which octants to put objects in
-    std::vector<BoundingRegion> octLists[NO_CHILDREN]; // array of list of objects in each octant
+    std::vector<BoundingRegion> octLists[NUM_CHILDREN]; // array of list of objects in each octant
     for (int i = 0, len = objects.size(); i < len; i++) {
         objects[i].cell = this;
-        for (int j = 0; j < NO_CHILDREN; j++) {
+        for (int j = 0; j < NUM_CHILDREN; j++) {
             if (octants[j].containsRegion(objects[i])) {
                 octLists[j].push_back(objects[i]);
                 // remove from objects list
@@ -359,7 +360,7 @@ bool Octree::node::insert(BoundingRegion obj) {
     }
 
     // populate octants
-    for (int i = 0; i < NO_CHILDREN; i++) {
+    for (int i = 0; i < NUM_CHILDREN; i++) {
         if (octLists[i].size() != 0) {
             // objects exist in this octant
             if (children[i]) {

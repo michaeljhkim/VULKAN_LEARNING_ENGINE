@@ -3,6 +3,7 @@
 #include "rigidbody.h"
 
 #include "../algorithms/math/linalg.h"
+#include <iostream>
 
 bool Face::collidesWithFace(RigidBody* thisRB, Face& face, RigidBody* faceRB, glm::vec3& retNorm) {
 	// transform coordinates so that P1 is the origin

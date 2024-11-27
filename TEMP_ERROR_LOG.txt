@@ -1,9 +1,0 @@
-Hello, OpenGL!
-Error with shader comp.object.fs:
-0:272(27): error: sampler arrays indexed with non-constant expressions are forbidden in GLSL 1.30 and later
-0:348(37): error: sampler arrays indexed with non-constant expressions are forbidden in GLSL 1.30 and later
-0:353(27): error: sampler arrays indexed with non-constant expressions are forbidden in GLSL 1.30 and later
-
-Linking error:
-error: linking with uncompiled/unspecialized shader
-Segmentation fault (core dumped)

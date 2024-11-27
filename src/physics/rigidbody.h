@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 
+#include <iostream>
 #include <string>
 
 // switches for instance states

@@ -1,7 +1,19 @@
 #include "octree.h"
 #include "avl.h"
 #include "../graphics/models/box.hpp"
+#include <iostream>
+#include <csignal>
 
+int currentFunctionID = 0;
+int test;
+void signalHandler(int signal) {
+    if (signal == SIGSEGV) {
+        // Output the ID of the current function causing the segfault
+        std::cout << "Segfault in function ID: " << currentFunctionID << std::endl;
+        std::cout << "Num of objects " << test << std::endl;
+        std::exit(signal); // Exit the program after identifying
+    }
+}
 
 // calculate bounds of specified quadrant in bounding region
 void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion parentRegion) {
@@ -39,16 +51,24 @@ void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion 
 */
 
 // default
-Octree::node::node()
-    : region(BoundTypes::AABB) {}
+Octree::node::node() : region(BoundTypes::AABB) {
+    parent = nullptr;
+    maxLifespan = 8;
+    currentLifespan = -1;
+}
 
 // initialize with bounds (no objects yet)
-Octree::node::node(BoundingRegion bounds)
-    : region(bounds) {}
+Octree::node::node(BoundingRegion bounds) : region(bounds) {
+    parent = nullptr;
+    maxLifespan = 8;
+    currentLifespan = -1;
+}
 
 // initialize with bounds and list of objects
-Octree::node::node(BoundingRegion bounds, std::vector<BoundingRegion> objectList)
-    : region(bounds) {
+Octree::node::node(BoundingRegion bounds, std::vector<BoundingRegion> objectList) : region(bounds) {
+    maxLifespan = 8;
+    currentLifespan = -1;
+
     // insert entire list of objects
     objects.insert(objects.end(), objectList.begin(), objectList.end());
 }
@@ -140,6 +160,9 @@ setVars:
 
 // update objects in tree (called during each iteration of main loop)
 void Octree::node::update(Box &box) {
+    std::signal(SIGSEGV, signalHandler);
+    currentFunctionID = 1; // Identify min error spot
+    test = objects.size();
     if (treeBuilt && treeReady) {
         box.positions.push_back(region.calculateCenter());
         box.sizes.push_back(region.calculateDimensions());
@@ -192,30 +215,33 @@ void Octree::node::update(Box &box) {
 
         // remove dead branches
         unsigned char flags = activeOctants;
-        for (int i = 0;
-            flags > 0;
-            flags >>= 1, i++) {
-            if (States::isIndexActive(&flags, 0) && children[i]->currentLifespan == 0) {
-                // active and run out of time
-                if (children[i]->objects.size() > 0) {
-                    // branch is dead but has children, so reset
-                    children[i]->currentLifespan = -1;
-                }
-                else {
-                    // branch is dead
-                    free(children[i]);
-                    children[i] = nullptr;
-                    States::deactivateIndex(&activeOctants, i);
+        for (int i = 0; flags > 0; flags >>= 1, i++) {
+            if (States::isIndexActive(&flags, 0) && children[i]) {    
+                currentFunctionID = 9;
+                int test = children[i]->currentLifespan;
+                std::cout << "Processing child " << i << ", lifespan: " << test << std::endl;
+                currentFunctionID = 34;
+                if (children[i]->currentLifespan == 0) {
+                    // active and run out of time
+                    if (children[i]->objects.size() > 0) {
+                        // branch is dead but has children, so reset
+                        children[i]->currentLifespan = -1;
+                    }
+                    else {
+                        // branch is dead
+                        delete(children[i]);
+                        children[i] = nullptr;
+                        States::deactivateIndex(&activeOctants, i);
+                    }
                 }
             }
         }
+        currentFunctionID = 5;
 
         // update child nodes
         if (children != nullptr) {
             // go through each octant using flags
-            for (unsigned char flags = activeOctants, i = 0;
-                flags > 0;
-                flags >>= 1, i++) {
+            for (unsigned char flags = activeOctants, i = 0; flags > 0; flags >>= 1, i++) {
                 if (States::isIndexActive(&flags, 0)) {
                     // active octant
                     if (children[i] != nullptr) {
@@ -268,13 +294,16 @@ void Octree::node::update(Box &box) {
 
             // parents
             while (current->parent) {
+                //currentFunctionID = 3;
                 current = current->parent;
                 current->checkCollisionsSelf(movedObj);
+                //std::cout << "Do we actually get in here?" << std::endl;
             }
         }
     }
 
     processPending();
+    currentFunctionID = 10;
 }
 
 // process pending queue

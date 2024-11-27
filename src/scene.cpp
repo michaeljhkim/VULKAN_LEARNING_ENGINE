@@ -6,6 +6,8 @@
 unsigned int Scene::scrWidth = 0;
 unsigned int Scene::scrHeight = 0;
 
+#include <iostream>
+#include <csignal>
 
 //for getting every single input user can make in SDL
 SDL_Event event;
@@ -146,9 +148,11 @@ bool Scene::init() {
     SDL_GL_SetSwapInterval(1);  // 1 enables v-sync
 
     // Disable cursor
+    /*
     SDL_ShowCursor(SDL_DISABLE);
-    SDL_WarpMouseInWindow(window, scrWidth/2, scrHeight/2);
+    SDL_WarpMouseInWindow(window, 0, 0);
     SDL_SetRelativeMouseMode(SDL_TRUE);
+    */
 
     /*
         init model/instance trees
@@ -382,6 +386,7 @@ void Scene::newFrame(Box &box) {
 
     // process pending objects
     octree->processPending();
+    //std::cout << "Does this part work?" << std::endl;
     octree->update(box);
 
     // send new frame to window

@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "C++ Debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/yurrgoht_engine",  // Replace with your actual binary path
+        "args": [],
+        "stopAtEntry": false,  // Set this to true if you want to break at the start
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": true,  // Use an external console
+        "MIMode": "gdb",  // Or "lldb" if using LLVM debugger
+        "miDebuggerPath": "/usr/bin/gdb",  // Path to GDB (or LLDB)
+        "preLaunchTask": "build",  // Use this if you have a pre-launch task to build your project
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ],
+        "logging": {
+          "moduleLoad": false,
+          "trace": true,
+          "traceResponse": true
+        }
+      }
+    ]
+  }
+  

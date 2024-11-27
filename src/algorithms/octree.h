@@ -70,6 +70,7 @@ namespace Octree {
         // current lifespace
         short currentLifespan = -1;
 
+
         // list of objects in node
         std::vector<BoundingRegion> objects;
         // queue of objects to be dynamically inserted

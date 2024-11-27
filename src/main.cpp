@@ -105,7 +105,6 @@ int main() {
     scene.registerModel(&lamp);
     scene.registerModel(&wall);
     scene.registerModel(&sphere);
-
     //scene.registerModel(&cube);
 
     Box box;
@@ -126,11 +125,12 @@ int main() {
     scene.dirLight = &dirLight;
 
     // point lights
+    float move_up = 50.0f;
     glm::vec3 pointLightPositions[] = {
-        glm::vec3(1.0f, 1.0f, 0.0f),
-        glm::vec3(0.0f,  15.0f,  0.0f),
-        glm::vec3(-4.0f,  2.0f, -12.0f),
-        glm::vec3(0.0f,  0.0f, -3.0f)
+        glm::vec3(1.0f, move_up+ 1.0f, 0.0f),
+        glm::vec3(0.0f, move_up+ 15.0f,  0.0f),
+        glm::vec3(-4.0f, move_up+ 2.0f, -12.0f),
+        glm::vec3(0.0f, move_up+ 0.0f, -3.0f)
     };
 
     glm::vec4 ambient = glm::vec4(0.05f, 0.05f, 0.05f, 1.0f);
@@ -169,7 +169,8 @@ int main() {
     scene.spotLights.push_back(&spotLight);
     //scene.activeSpotLights = 1; // 0b00000001
 
-    //scene.generateInstance(cube.id, glm::vec3(20.0f, 0.1f, 20.0f), 100.0f, glm::vec3(0.0f, -3.0f, 0.0f));
+    /*
+    scene.generateInstance(cube.id, glm::vec3(20.0f, 0.1f, 20.0f), 100.0f, glm::vec3(0.0f, -3.0f, 0.0f));
     glm::vec3 cubePositions[] = {
         { 1.0f, 3.0f, -5.0f },
         { -7.25f, 2.1f, 1.5f },
@@ -182,12 +183,15 @@ int main() {
         { 0.0f, 5.0f, 0.0f }
     };
     for (unsigned int i = 0; i < 9; i++) {
-        //scene.generateInstance(cube.id, glm::vec3(0.5f), 1.0f, cubePositions[i]);
+        scene.generateInstance(cube.id, glm::vec3(0.5f), 1.0f, cubePositions[i]);
     }
+    */
 
     // instantiate the brickwall plane
     scene.generateInstance(wall.id, glm::vec3(1.0f), 1.0f, 
         { 0.0f, 0.0f, 2.0f }, { -1.0f, glm::pi<float>(), 0.0f });
+
+    //scene.generateInstance(sphere.id, glm::vec3(0.1f), 1.0f, cam.cameraPos);
 
     // instantiate instances
     scene.initInstances();

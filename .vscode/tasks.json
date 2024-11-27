@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",  // This is the task label
+            "type": "shell",
+            "command": "cmake",  // The command to invoke
+            "args": [
+                "--build", 
+                "${workspaceFolder}/build", // Path to the build directory
+                "--target", 
+                "yurrgoht_engine"  // Replace with your actual target name
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task for building CMake project"
+        }
+    ]
+}

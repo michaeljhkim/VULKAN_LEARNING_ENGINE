@@ -148,11 +148,10 @@ bool Scene::init() {
     SDL_GL_SetSwapInterval(1);  // 1 enables v-sync
 
     // Disable cursor
-    /*
     SDL_ShowCursor(SDL_DISABLE);
     SDL_WarpMouseInWindow(window, 0, 0);
     SDL_SetRelativeMouseMode(SDL_TRUE);
-    */
+    
 
     /*
         init model/instance trees

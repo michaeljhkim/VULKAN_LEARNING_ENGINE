@@ -53,21 +53,31 @@ void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion 
 // default
 Octree::node::node() : region(BoundTypes::AABB) {
     parent = nullptr;
+    treeReady = false;
+    treeBuilt = false;
     maxLifespan = 8;
     currentLifespan = -1;
+    test_num = 0;
 }
 
 // initialize with bounds (no objects yet)
 Octree::node::node(BoundingRegion bounds) : region(bounds) {
     parent = nullptr;
+    treeReady = false;
+    treeBuilt = false;
     maxLifespan = 8;
     currentLifespan = -1;
+    test_num = 0;
 }
 
 // initialize with bounds and list of objects
 Octree::node::node(BoundingRegion bounds, std::vector<BoundingRegion> objectList) : region(bounds) {
+    parent = nullptr;
+    treeReady = false;
+    treeBuilt = false;
     maxLifespan = 8;
     currentLifespan = -1;
+    test_num = 0;
 
     // insert entire list of objects
     objects.insert(objects.end(), objectList.begin(), objectList.end());
@@ -140,7 +150,7 @@ void Octree::node::build() {
     for (int i = 0; i < NUM_CHILDREN; i++) {
         if (octLists[i].size() != 0) {
             // if children go into this octant, generate new child
-            children[i] = new node(octants[i], octLists[i]);
+            children[i] = std::make_shared<node>(octants[i], octLists[i]);
             States::activateIndex(&activeOctants, i); // activate octant
             children[i]->parent = this;
             children[i]->build();
@@ -161,7 +171,7 @@ setVars:
 // update objects in tree (called during each iteration of main loop)
 void Octree::node::update(Box &box) {
     std::signal(SIGSEGV, signalHandler);
-    currentFunctionID = 1; // Identify min error spot
+    currentFunctionID = 1;
     test = objects.size();
     if (treeBuilt && treeReady) {
         box.positions.push_back(region.calculateCenter());
@@ -216,27 +226,22 @@ void Octree::node::update(Box &box) {
         // remove dead branches
         unsigned char flags = activeOctants;
         for (int i = 0; flags > 0; flags >>= 1, i++) {
-            if (States::isIndexActive(&flags, 0) && children[i]) {    
-                currentFunctionID = 9;
-                int test = children[i]->currentLifespan;
-                std::cout << "Processing child " << i << ", lifespan: " << test << std::endl;
-                currentFunctionID = 34;
-                if (children[i]->currentLifespan == 0) {
-                    // active and run out of time
-                    if (children[i]->objects.size() > 0) {
-                        // branch is dead but has children, so reset
-                        children[i]->currentLifespan = -1;
-                    }
-                    else {
-                        // branch is dead
-                        delete(children[i]);
-                        children[i] = nullptr;
-                        States::deactivateIndex(&activeOctants, i);
-                    }
+            if (States::isIndexActive(&flags, 0) && (children[i] != nullptr) && (children[i]->currentLifespan == 0)) {
+                //std::cout << "Processing child " << i << ", lifespan: " << children[i]->currentLifespan << std::endl;
+                // active and run out of time
+                if (children[i]->objects.size() > 0) {
+                    // branch is dead but has children, so reset
+                    children[i]->currentLifespan = -1;
+                }
+                else {
+                    // branch is dead
+                    //delete(children[i]);
+                    children[i] = nullptr;
+                    States::deactivateIndex(&activeOctants, i);
                 }
             }
         }
-        currentFunctionID = 5;
+
 
         // update child nodes
         if (children != nullptr) {
@@ -302,8 +307,8 @@ void Octree::node::update(Box &box) {
         }
     }
 
-    processPending();
     currentFunctionID = 10;
+    processPending();
 }
 
 // process pending queue
@@ -399,7 +404,7 @@ bool Octree::node::insert(BoundingRegion obj) {
             }
             else {
                 // create new node
-                children[i] = new node(octants[i], octLists[i]);
+                children[i] = std::make_shared<node>(octants[i], octLists[i]);
                 children[i]->parent = this;
                 States::activateIndex(&activeOctants, i);
                 children[i]->build();

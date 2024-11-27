@@ -7,6 +7,7 @@
 #include <vector>
 #include <queue>
 #include <stack>
+#include <memory>
 
 #include "list.hpp"
 #include "states.hpp"
@@ -55,7 +56,7 @@ namespace Octree {
         // parent pointer
         node* parent;
         // array of children (8)
-        node* children[NUM_CHILDREN];
+        std::shared_ptr<node> children[NUM_CHILDREN];
 
         // switch for active octants
         unsigned char activeOctants;
@@ -69,6 +70,8 @@ namespace Octree {
         short maxLifespan = 8;
         // current lifespace
         short currentLifespan = -1;
+
+        int test_num = 0;
 
 
         // list of objects in node

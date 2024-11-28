@@ -162,7 +162,7 @@ bool Scene::init() {
     /*
         init octree
     */
-    octree = new Octree::node(BoundingRegion(glm::vec3(-16.0f), glm::vec3(16.0f)));
+    octree = std::make_unique<Octree::node>( BoundingRegion(glm::vec3(-16.0f), glm::vec3(16.0f)) );
 
     /*
         initialize freetype library
@@ -628,7 +628,7 @@ void Scene::removeInstance(std::string instanceId) {
     // remove from tree
     instances[instanceId] = NULL;
     instances.erase(instanceId);
-    free(instance);
+    delete(instance);
 }
 
 // mark instance for deletion

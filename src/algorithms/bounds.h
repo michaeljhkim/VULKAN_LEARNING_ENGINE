@@ -2,6 +2,7 @@
 #define BOUNDS_H
 
 #include <glm/glm.hpp>
+#include <memory>
 
 #include "../physics/rigidbody.h"
 
@@ -31,6 +32,7 @@ public:
 
     // pointer for quick access to instance and collision mesh
     RigidBody* instance;
+    //std::weak_ptr<RigidBody> instance;
     CollisionMesh* collisionMesh;
 
     // pointer for quick access to current octree node

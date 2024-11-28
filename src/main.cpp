@@ -125,7 +125,7 @@ int main() {
     scene.dirLight = &dirLight;
 
     // point lights
-    float move_up = 50.0f;
+    float move_up = 5.0f;
     glm::vec3 pointLightPositions[] = {
         glm::vec3(1.0f, move_up+ 1.0f, 0.0f),
         glm::vec3(0.0f, move_up+ 15.0f,  0.0f),

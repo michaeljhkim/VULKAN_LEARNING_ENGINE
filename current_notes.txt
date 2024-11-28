@@ -5,9 +5,6 @@
 - collision/bounding boxes do not rotate. This is less taxing on cpu
 
 - octree update function is where segfault occurs. Not sure why
-- pretty sure checkCollisionsSelf doesn't actually have to do anything with it 
-- It is the act of spawning a sphere and adding it to the octree that might be the problem
 
 
-- Maybe this code?
-
+- MUST CONVERT POINTERS TO SMART POINTERS

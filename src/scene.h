@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <map>
+#include <memory>
 
 #include <glm/glm.hpp>
 
@@ -68,7 +69,7 @@ public:
     std::vector<RigidBody*> instancesToDelete;
 
     // pointer to root node in octree
-    Octree::node* octree;
+    std::unique_ptr<Octree::node> octree;
 
     // map for logged variables
     //Jsoncpp::json variableLog;
@@ -185,7 +186,7 @@ public:
         glm::vec3 size = glm::vec3(1.0f), 
         float mass = 1.0f, 
         glm::vec3 pos = glm::vec3(0.0f),
-        glm::vec3 rot = glm::vec3(0.0f));
+        glm::vec3 rot = glm::vec3(0.0f) );
 
     // initialize model instances
     void initInstances();

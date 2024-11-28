@@ -4,16 +4,7 @@
 #include <iostream>
 #include <csignal>
 
-int currentFunctionID = 0;
-int test;
-void signalHandler(int signal) {
-    if (signal == SIGSEGV) {
-        // Output the ID of the current function causing the segfault
-        std::cout << "Segfault in function ID: " << currentFunctionID << std::endl;
-        std::cout << "Num of objects " << test << std::endl;
-        std::exit(signal); // Exit the program after identifying
-    }
-}
+//A memory leak occurs somewhere around here, so I put a band-aid on it by using a smart pointer (unique_ptr) for the children array 
 
 // calculate bounds of specified quadrant in bounding region
 void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion parentRegion) {
@@ -53,31 +44,16 @@ void Octree::calculateBounds(BoundingRegion &out, Octant octant, BoundingRegion 
 // default
 Octree::node::node() : region(BoundTypes::AABB) {
     parent = nullptr;
-    treeReady = false;
-    treeBuilt = false;
-    maxLifespan = 8;
-    currentLifespan = -1;
-    test_num = 0;
 }
 
 // initialize with bounds (no objects yet)
 Octree::node::node(BoundingRegion bounds) : region(bounds) {
     parent = nullptr;
-    treeReady = false;
-    treeBuilt = false;
-    maxLifespan = 8;
-    currentLifespan = -1;
-    test_num = 0;
 }
 
 // initialize with bounds and list of objects
 Octree::node::node(BoundingRegion bounds, std::vector<BoundingRegion> objectList) : region(bounds) {
     parent = nullptr;
-    treeReady = false;
-    treeBuilt = false;
-    maxLifespan = 8;
-    currentLifespan = -1;
-    test_num = 0;
 
     // insert entire list of objects
     objects.insert(objects.end(), objectList.begin(), objectList.end());
@@ -150,7 +126,7 @@ void Octree::node::build() {
     for (int i = 0; i < NUM_CHILDREN; i++) {
         if (octLists[i].size() != 0) {
             // if children go into this octant, generate new child
-            children[i] = std::make_shared<node>(octants[i], octLists[i]);
+            children[i] = std::make_unique<node>(octants[i], octLists[i]);
             States::activateIndex(&activeOctants, i); // activate octant
             children[i]->parent = this;
             children[i]->build();
@@ -170,9 +146,6 @@ setVars:
 
 // update objects in tree (called during each iteration of main loop)
 void Octree::node::update(Box &box) {
-    std::signal(SIGSEGV, signalHandler);
-    currentFunctionID = 1;
-    test = objects.size();
     if (treeBuilt && treeReady) {
         box.positions.push_back(region.calculateCenter());
         box.sizes.push_back(region.calculateDimensions());
@@ -299,7 +272,6 @@ void Octree::node::update(Box &box) {
 
             // parents
             while (current->parent) {
-                //currentFunctionID = 3;
                 current = current->parent;
                 current->checkCollisionsSelf(movedObj);
                 //std::cout << "Do we actually get in here?" << std::endl;
@@ -307,7 +279,6 @@ void Octree::node::update(Box &box) {
         }
     }
 
-    currentFunctionID = 10;
     processPending();
 }
 
@@ -404,7 +375,7 @@ bool Octree::node::insert(BoundingRegion obj) {
             }
             else {
                 // create new node
-                children[i] = std::make_shared<node>(octants[i], octLists[i]);
+                children[i] = std::make_unique<node>(octants[i], octLists[i]);
                 children[i]->parent = this;
                 States::activateIndex(&activeOctants, i);
                 children[i]->build();
@@ -604,15 +575,10 @@ BoundingRegion* Octree::node::checkCollisionsRay(Ray r, float& tmin) {
 void Octree::node::destroy() {
     // clearing out children
     if (children != nullptr) {
-        for (int flags = activeOctants, i = 0;
-            flags > 0;
-            flags >>= 1, i++) {
-            if (States::isIndexActive(&flags, 0)) {
-                // active
-                if (children[i] != nullptr) {
-                    children[i]->destroy();
-                    children[i] = nullptr;
-                }
+        for (int flags = activeOctants, i = 0; flags > 0; flags >>= 1, i++) {
+            if (States::isIndexActive(&flags, 0) && (children[i] != nullptr)) {
+                children[i]->destroy();
+                children[i] = nullptr;
             }
         }
     }

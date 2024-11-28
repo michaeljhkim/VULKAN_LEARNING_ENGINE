@@ -306,7 +306,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene) {
     // calculate max distance from the center
     br.center = (min + max) / 2.0f;
     br.ogCenter = br.center;
-    br.collisionMesh = NULL;
+    br.collisionMesh = nullptr;
     float maxRadiusSquared = 0.0f;
 
     for (unsigned int i = 0; i < mesh->mNumVertices; i++) {

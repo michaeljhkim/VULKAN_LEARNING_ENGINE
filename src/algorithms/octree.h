@@ -56,7 +56,7 @@ namespace Octree {
         // parent pointer
         node* parent;
         // array of children (8)
-        std::shared_ptr<node> children[NUM_CHILDREN];
+        std::unique_ptr<node> children[NUM_CHILDREN];
 
         // switch for active octants
         unsigned char activeOctants;

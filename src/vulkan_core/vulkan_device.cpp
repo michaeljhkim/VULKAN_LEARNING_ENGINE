@@ -107,7 +107,7 @@ void VulkanDevice::createInstance() {
 		throw std::runtime_error("failed to create instance!");
 	}
 
-	hasGflwRequiredInstanceExtensions();
+	hasSDLRequiredInstanceExtensions();
 }
 
 void VulkanDevice::pickPhysicalDevice() {
@@ -187,8 +187,7 @@ void VulkanDevice::createCommandPool() {
 	VkCommandPoolCreateInfo poolInfo = {};
 	poolInfo.sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
 	poolInfo.queueFamilyIndex = queueFamilyIndices.graphicsFamily;
-	poolInfo.flags =
-		VK_COMMAND_POOL_CREATE_TRANSIENT_BIT | VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
+	poolInfo.flags = VK_COMMAND_POOL_CREATE_TRANSIENT_BIT | VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
 
 	if (vkCreateCommandPool(device_, &poolInfo, nullptr, &commandPool) != VK_SUCCESS) {
 		throw std::runtime_error("failed to create command pool!");
@@ -280,7 +279,7 @@ std::vector<const char*> VulkanDevice::getRequiredExtensions() {
     return extensions;
 }
 
-void VulkanDevice::hasGflwRequiredInstanceExtensions() {
+void VulkanDevice::hasSDLRequiredInstanceExtensions() {
     uint32_t extensionCount = 0;
     vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
     std::vector<VkExtensionProperties> extensions(extensionCount);

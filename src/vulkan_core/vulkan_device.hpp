@@ -89,7 +89,7 @@ private:
 	bool checkValidationLayerSupport();
 	QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
 	void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo);
-	void hasGflwRequiredInstanceExtensions();
+	void hasSDLRequiredInstanceExtensions();
 	bool checkDeviceExtensionSupport(VkPhysicalDevice device);
 	SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
 

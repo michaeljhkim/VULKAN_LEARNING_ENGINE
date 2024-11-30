@@ -2,7 +2,7 @@
 
 #include "../../physics/environment.h"
 
-#include "../../scene.h"
+#include "../../scene.hpp"
 
 #include <iostream>
 #include <limits>

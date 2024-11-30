@@ -4,8 +4,13 @@
 // libs
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/hash.hpp>
+
 
 // std
 #include <cassert>
@@ -36,8 +41,7 @@ VulkanModel::VulkanModel(VulkanDevice &device, const VulkanModel::Builder &build
 
 VulkanModel::~VulkanModel() {}
 
-std::unique_ptr<VulkanModel> VulkanModel::createModelFromFile(
-		VulkanDevice &device, const std::string &filepath) {
+std::unique_ptr<VulkanModel> VulkanModel::createModelFromFile(VulkanDevice &device, const std::string &filepath) {
 	Builder builder{};
 	builder.loadModel(ENGINE_DIR + filepath);
 	return std::make_unique<VulkanModel>(device, builder);

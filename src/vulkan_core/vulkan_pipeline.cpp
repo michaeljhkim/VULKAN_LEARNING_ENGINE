@@ -51,11 +51,9 @@ void VulkanPipeline::createGraphicsPipeline(
 		const std::string& vertFilepath,
 		const std::string& fragFilepath,
 		const PipelineConfigInfo& configInfo) {
-	assert(
-			configInfo.pipelineLayout != VK_NULL_HANDLE &&
+	assert( configInfo.pipelineLayout != VK_NULL_HANDLE &&
 			"Cannot create graphics pipeline: no pipelineLayout provided in configInfo");
-	assert(
-			configInfo.renderPass != VK_NULL_HANDLE &&
+	assert( configInfo.renderPass != VK_NULL_HANDLE &&
 			"Cannot create graphics pipeline: no renderPass provided in configInfo");
 
 	auto vertCode = readFile(vertFilepath);
@@ -206,8 +204,8 @@ void VulkanPipeline::defaultPipelineConfigInfo(PipelineConfigInfo& configInfo) {
 			static_cast<uint32_t>(configInfo.dynamicStateEnables.size());
 	configInfo.dynamicStateInfo.flags = 0;
 
-	configInfo.bindingDescriptions = LveModel::Vertex::getBindingDescriptions();
-	configInfo.attributeDescriptions = LveModel::Vertex::getAttributeDescriptions();
+	configInfo.bindingDescriptions = VulkanModel::Vertex::getBindingDescriptions();
+	configInfo.attributeDescriptions = VulkanModel::Vertex::getAttributeDescriptions();
 }
 
 void VulkanPipeline::enableAlphaBlending(PipelineConfigInfo& configInfo) {

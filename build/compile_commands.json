@@ -13,9 +13,9 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/gcc -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -o CMakeFiles/yurrgoht_engine.dir/src/glad.c.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/glad.c",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/glad.c",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/glad.c.o"
+  "command": "/usr/bin/gcc -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -o CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/vulkan.c",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/vulkan.c",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
@@ -103,6 +103,12 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/window.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/window.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/window.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/window.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o"
@@ -148,5 +154,23 @@
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/physics/rigidbody.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/physics/rigidbody.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_descriptors.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_descriptors.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_descriptors.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_descriptors.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_device.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_device.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_device.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_device.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_swap_chain.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_swap_chain.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/vulkan_core/vulkan_swap_chain.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/vulkan_core/vulkan_swap_chain.cpp.o"
 }
 ]

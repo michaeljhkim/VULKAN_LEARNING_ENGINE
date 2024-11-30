@@ -1,4 +1,4 @@
-#include "scene.h"
+#include "scene.hpp"
 
 #define MAX_POINT_LIGHTS 10
 #define MAX_SPOT_LIGHTS 2
@@ -30,16 +30,24 @@ void Scene::framebufferSizeCallback(SDL_Window* window, int width, int height) {
 */
 
 // default
-Scene::Scene() 
-    : currentId("aaaaaaaa"), lightUBO(0) {}
+Scene::Scene() : currentId("aaaaaaaa"), lightUBO(0) {}
+
+void createInstance() {
+    VkApplicationInfo appInfo{};
+    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo.pApplicationName = "Vulkan Game Engine";
+    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.pEngineName = "No Engine";
+    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.apiVersion = VK_API_VERSION_1_3;
+}
+
 
 // set with values
-Scene::Scene(int SDL2VersionMajor, int SDL2VersionMinor, const char* title, 
-    unsigned int scrWidth, unsigned int scrHeight)
+Scene::Scene(int SDL2VersionMajor, int SDL2VersionMinor, const char* title, unsigned int scrWidth, unsigned int scrHeight)
     : SDL2VersionMajor(SDL2VersionMajor), SDL2VersionMinor(SDL2VersionMinor), title(title), // window title
     // default indices/vals
-    activeCamera(-1), activePointLights(0), activeSpotLights(0),
-    currentId("aaaaaaaa"), lightUBO(0) {
+    activeCamera(-1), activePointLights(0), activeSpotLights(0), currentId("aaaaaaaa"), lightUBO(0) {
     
     // window dimensions
     Scene::scrWidth = scrWidth;
@@ -62,18 +70,15 @@ bool Scene::init() {
         exit(1);
     }
 
-
     // set version
     // Set OpenGL version and profile
+    /*
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, SDL2VersionMajor);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, SDL2VersionMinor);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 1);
-
-#ifdef __APPLE__
-    SDL_GL_SetAttribute(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    */
 
     // initialize window
     //window = glfwCreateWindow(scrWidth, scrHeight, title, NULL, NULL);
@@ -82,7 +87,7 @@ bool Scene::init() {
                 SDL_WINDOWPOS_UNDEFINED,    /* Position x of the window */
                 SDL_WINDOWPOS_UNDEFINED,    /* Position y of the window */
                 scrWidth, scrHeight,     /* Width and Height of the window in pixels */
-                SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);     /* Additional flag(s) */
+                SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE);     /* Additional flag(s) */
 
     // not created
     if (!window) {
@@ -92,43 +97,9 @@ bool Scene::init() {
     }
 
 
-    // Create an OpenGL context
-    SDL_GLContext gl_context = SDL_GL_CreateContext(window);
-    if (!gl_context) {
-        std::cerr << "Failed to create OpenGL context: " << SDL_GetError() << std::endl;
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return false;
-    }
-
-    // Set the context to be current
-    SDL_GL_MakeCurrent(window, gl_context);
-
-    // set GLAD
-    if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)) {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
-        SDL_GL_DeleteContext(gl_context);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return false;
-    }
-
     // setup screen
     glViewport(0, 0, scrWidth, scrHeight);
 
-    /*
-        callbacks
-    */
-    /*
-    // key pressed
-    glfwSetKeyCallback(window, Keyboard::keyCallback);
-    // cursor moved
-    glfwSetCursorPosCallback(window, Mouse::cursorPosCallback);
-    // mouse btn pressed
-    glfwSetMouseButtonCallback(window, Mouse::mouseButtonCallback);
-    // mouse scroll
-    glfwSetScrollCallback(window, Mouse::mouseWheelCallback);
-    */
 
     /*
         set rendering parameters

@@ -3,7 +3,7 @@
 #include "../../io/camera.h"
 #include "../../io/keyboard.h"
 
-#include "../../scene.h"
+#include "../../scene.hpp"
 
 #include "../../physics/environment.h"
 

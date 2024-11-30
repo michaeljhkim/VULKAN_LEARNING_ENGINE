@@ -86,7 +86,9 @@
         "valarray": "cpp",
         "variant": "cpp",
         "*.ipp": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "expected": "cpp",
+        "cassert": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

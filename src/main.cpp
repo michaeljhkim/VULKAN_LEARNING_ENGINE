@@ -1,7 +1,7 @@
 /*
     CODE
     ENGINE (Scene)
-    OPENGL
+    VULKAN
     GPU
 */
 
@@ -46,7 +46,7 @@
 #include "algorithms/ray.h"
 #include "algorithms/bounds.h"
 
-#include "scene.h"
+#include "scene.hpp"
 
 Scene scene;
 
@@ -69,10 +69,10 @@ std::string Shader::defaultDirectory = "assets/shaders";
 
 
 int main() {
-    std::cout << "Hello, OpenGL!" << std::endl;
+    std::cout << "Hello, Vulkan!" << std::endl;
 
     // construct scene
-    scene = Scene(4, 4, "OpenGL Tutorial", 2560, 1440);
+    scene = Scene(4, 4, "Vulkan Game Engine", 2560, 1440);
     // test if SDL2 successfully created and started window
     if (!scene.init()) {
         std::cout << "Could not open window" << std::endl;

@@ -11,17 +11,19 @@ file(GLOB_RECURSE ALGORITHIMS_SOURCES ${CMAKE_SOURCE_DIR}/src/algorithms/*.cpp)
 file(GLOB_RECURSE GRAPHICS_SOURCES ${CMAKE_SOURCE_DIR}/src/graphics/*.cpp)
 file(GLOB_RECURSE IO_SOURCES ${CMAKE_SOURCE_DIR}/src/io/*.cpp)
 file(GLOB_RECURSE PHYSICS_SOURCES ${CMAKE_SOURCE_DIR}/src/physics/*.cpp)
+file(GLOB_RECURSE VULKAN_SOURCES ${CMAKE_SOURCE_DIR}/src/vulkan_core/*.cpp)
 
 add_executable(yurrgoht_engine
     src/main.cpp
     src/scene.cpp
-    src/glad.c
+    src/vulkan.c
     lib/stb.cpp
 
     ${ALGORITHIMS_SOURCES}  # Add all gathered files here
     ${GRAPHICS_SOURCES}  # Add all gathered files here
     ${IO_SOURCES}  # Add all gathered files here
     ${PHYSICS_SOURCES}  # Add all gathered files here
+    ${VULKAN_SOURCES}  # Add all gathered files here
 )
 
 # Find SDL2 package

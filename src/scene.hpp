@@ -4,6 +4,8 @@
 #include <glad/glad.h>
 //#include <GLFW/glfw3.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_vulkan.h>
+#include <vulkan/vulkan.hpp>
 
 #include <vector>
 #include <map>
@@ -97,8 +99,7 @@ public:
     Scene();
 
     // set with values
-    Scene(int glfwVersionMajor, int glfwVersionMinor,
-        const char* title, unsigned int scrWidth, unsigned int scrHeight);
+    Scene(int SDL2VersionMajor, int SDL2VersionMinor, const char* title, unsigned int scrWidth, unsigned int scrHeight);
 
     /*
         initialization

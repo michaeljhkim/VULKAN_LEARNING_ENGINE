@@ -13,9 +13,7 @@
 
 // initialize with parameters
 Model::Model(std::string id, unsigned int maxNumInstances, unsigned int flags)
-    : id(id), switches(flags),
-    currentNumInstances(0), maxNumInstances(maxNumInstances), instances(maxNumInstances),
-    collision(nullptr) {}
+    : id(id), switches(flags), currentNumInstances(0), maxNumInstances(maxNumInstances), instances(maxNumInstances), collision(nullptr) {}
 
 /*
     process functions
@@ -29,8 +27,7 @@ void Model::loadModel(std::string path) {
     // use ASSIMP to read file
     Assimp::Importer import;
     // triangulate = group indices in triangles, flip = flip textures on load
-    const aiScene* scene = import.ReadFile(path, 
-        aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+    const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
     // if no errors
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {

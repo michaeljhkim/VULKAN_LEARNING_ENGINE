@@ -13,13 +13,10 @@
 
 #include <vector>
 
-#include "mesh.h"
-
+#include "mesh.hpp"
 #include "../models/box.hpp"
-
 #include "../../physics/collisionmodel.h"
 #include "../../physics/rigidbody.h"
-
 #include "../../algorithms/bounds.h"
 
 // model switches

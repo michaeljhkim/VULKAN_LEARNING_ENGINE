@@ -3,13 +3,13 @@
 #include <iostream>
 
 // generate list of vertices
-std::vector<Vertex> Vertex::genList(float* vertices, int noVertices) {
-    std::vector<Vertex> ret(noVertices);
+std::vector<Vertex> Vertex::genList(float* vertices, int numVertices) {
+    std::vector<Vertex> ret(numVertices);
 
     int stride = 8;
 
-    for (int i = 0; i < noVertices; i++) {
-        ret[i].pos = glm::vec3(
+    for (int i = 0; i < numVertices; i++) {
+        ret[i].position = glm::vec3(
             vertices[i * stride + 0],
             vertices[i * stride + 1],
             vertices[i * stride + 2]
@@ -58,8 +58,8 @@ void Vertex::calcTanVectors(std::vector<Vertex>& list, std::vector<unsigned int>
         Vertex v3 = list[indices[i + 2]];
 
         // calculate edges
-        glm::vec3 edge1 = v2.pos - v1.pos;
-        glm::vec3 edge2 = v3.pos - v1.pos;
+        glm::vec3 edge1 = v2.position - v1.position;
+        glm::vec3 edge2 = v3.position - v1.position;
 
         // calculate dUVs
         glm::vec2 deltaUV1 = v2.texCoord - v1.texCoord;
@@ -155,40 +155,40 @@ void Mesh::loadData(std::vector<Vertex> _vertices, std::vector<unsigned int> _in
 }
 
 // setup collision mesh
-void Mesh::loadCollisionMesh(unsigned int noPoints, float* coordinates, unsigned int noFaces, unsigned int* indices) {
-    this->collision = new CollisionMesh(noPoints, coordinates, noFaces, indices);
+void Mesh::loadCollisionMesh(unsigned int numPoints, float* coordinates, unsigned int numFaces, unsigned int* indices) {
+    this->collision = new CollisionMesh(numPoints, coordinates, numFaces, indices);
     this->br = this->collision->br;
 }
 
 // setup textures
 void Mesh::setupTextures(std::vector<Texture> textures) {
-    this->noTex = false;
+    this->numTex = false;
     this->textures.insert(this->textures.end(), textures.begin(), textures.end());
 }
 
 // setup material colors
 void Mesh::setupColors(aiColor4D diff, aiColor4D spec) {
-    this->noTex = true;
+    this->numTex = true;
     this->diffuse = diff;
     this->specular = spec;
 }
 
 // set material structure
 void Mesh::setupMaterial(Material mat) {
-    this->noTex = true;
+    this->numTex = true;
     this->diffuse = { mat.diffuse.r, mat.diffuse.g, mat.diffuse.b, 1.0f };
     this->specular = { mat.specular.r, mat.specular.g, mat.specular.b, 1.0f };
 }
 
 // render number of instances using shader
-void Mesh::render(Shader shader, unsigned int noInstances) {
+void Mesh::render(Shader shader, unsigned int numInstances) {
     shader.setBool("noNormalMap", true);
 
-    if (noTex) {
+    if (numTex) {
         // materials
         shader.set4Float("material.diffuse", diffuse);
         shader.set4Float("material.specular", specular);
-        shader.setBool("noTex", true);
+        shader.setBool("numTex", true);
     }
     else {
         // textures
@@ -224,11 +224,11 @@ void Mesh::render(Shader shader, unsigned int noInstances) {
             textures[i].bind();
         }
 
-        shader.setBool("noTex", false);
+        shader.setBool("numTex", false);
     }
     
     VAO.bind();
-    VAO.draw(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0, noInstances);
+    VAO.draw(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0, numInstances);
     ArrayObject::clear();
 
     glActiveTexture(GL_TEXTURE0);

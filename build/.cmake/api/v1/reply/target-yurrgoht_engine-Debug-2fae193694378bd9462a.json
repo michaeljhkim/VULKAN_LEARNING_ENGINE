@@ -26,25 +26,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 37,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 7,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 32,
+				"line" : 33,
 				"parent" : 0
 			}
 		]
@@ -55,7 +55,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++17"
+					"fragment" : "-g -std=gnu++20"
 				}
 			],
 			"includes" : 
@@ -77,7 +77,7 @@
 				[
 					1
 				],
-				"standard" : "17"
+				"standard" : "20"
 			},
 			"sourceIndexes" : 
 			[
@@ -108,7 +108,13 @@
 				25,
 				26,
 				27,
-				28
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34
 			]
 		},
 		{
@@ -218,7 +224,13 @@
 				25,
 				26,
 				27,
-				28
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34
 			]
 		}
 	],
@@ -281,6 +293,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/graphics/mesh.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/graphics/objects/mesh.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -329,7 +347,55 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/graphics/window.cpp",
+			"path" : "src/graphics/simple_render_system.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_buffer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_descriptors.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_device.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_model.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_pipeline.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_renderer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_swap_chain.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/vulkan_window.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -378,24 +444,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/physics/rigidbody.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/vulkan_core/vulkan_descriptors.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/vulkan_core/vulkan_device.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/vulkan_core/vulkan_swap_chain.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

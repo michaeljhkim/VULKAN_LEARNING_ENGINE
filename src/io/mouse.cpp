@@ -1,4 +1,4 @@
-#include "mouse.h"
+#include "mouse.hpp"
 #include "camera.h"
 
 /*
@@ -44,19 +44,15 @@ void Mouse::cursorPosCallback(SDL_Event event) {
 
 // mouse button state changed
 void Mouse::mouseButtonCallback(SDL_Event event) {
-    int buttonPressed = event.button.button;
     if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
-        if (event.type == SDL_MOUSEBUTTONDOWN) {
-            //std::cout << buttonPressed << std::endl;
-            if (!buttons[buttonPressed])
-                buttons[buttonPressed] = true;
-        }
-        else {
-            buttons[buttonPressed] = false;
-        }
-        //check if the current button was pressed previously as well, then story in the buttonsChanged (delta) 
-        buttonsChanged[buttonPressed] = (buttons[buttonPressed] != buttonsPrevious[buttonPressed]);
-        buttonsPrevious[buttonPressed] = buttons[buttonPressed];
+        int buttonPressed = event.button.button;
+
+        // Update button state based on the event type
+        bool isPressed = (event.type == SDL_MOUSEBUTTONDOWN);
+        buttonsChanged[buttonPressed] = (buttons[buttonPressed] != isPressed); // Check for state change
+
+        buttons[buttonPressed] = isPressed;
+        buttonsPrevious[buttonPressed] = isPressed; // Update previous state
     }
 }
 
@@ -67,28 +63,13 @@ void Mouse::mouseButtonRepeat() {
     // Poll mouse button state
     Uint32 mouseState = SDL_GetMouseState(nullptr, nullptr);
 
-    if (mouseState & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-        //std::cout << "Mouse button LEFT is being held down!" << std::endl;
-        if (!buttons[SDL_BUTTON_LEFT])
-            buttons[SDL_BUTTON_LEFT] = true;
-    }
-    else buttons[SDL_BUTTON_LEFT] = false;
+    // Array of mouse buttons to check
+    const int mouseButtons[] = {SDL_BUTTON_LEFT, SDL_BUTTON_MIDDLE, SDL_BUTTON_RIGHT};
 
-    if (mouseState & SDL_BUTTON(SDL_BUTTON_MIDDLE)) {
-        //std::cout << "Mouse button MIDDLE is being held down!" << std::endl;
-        if (!buttons[SDL_BUTTON_MIDDLE])
-            buttons[SDL_BUTTON_MIDDLE] = true;
+    for (int button : mouseButtons) {
+        buttons[button] = (mouseState & SDL_BUTTON(button));
     }
-    else buttons[SDL_BUTTON_MIDDLE] = false;
-    
-    if (mouseState & SDL_BUTTON(SDL_BUTTON_RIGHT)) {
-        //std::cout << "Mouse button RIGHT is being held down!" << std::endl;
-        if (!buttons[SDL_BUTTON_LEFT])
-            buttons[SDL_BUTTON_LEFT] = true;
-    }
-    else buttons[SDL_BUTTON_RIGHT] = false;
 }
-
 
 // scroll wheel moved
 void Mouse::mouseWheelCallback(SDL_Event event) {
@@ -102,57 +83,52 @@ void Mouse::mouseWheelCallback(SDL_Event event) {
     accessors
 */
 
+// Helper function to get and reset a value
+template <typename T>
+T Mouse::getAndReset(T& value) {
+    T temp = value;
+    value = 0;
+    return temp;
+}
+
 // get mouse change in x
 double Mouse::getDX() {
-    double _dx = dx;
-    // set to 0 because change no longer new
-    dx = 0;
-    return _dx;
+    return getAndReset(dx);
 }
 
 // get mouse change in y
 double Mouse::getDY() {
-    double _dy = dy;
-    // set to 0 because change no longer new
-    dy = 0;
-    return _dy;
+    return getAndReset(dy);
 }
 
 // get scroll value in x
 double Mouse::getScrollDX() {
-    double _scrollDx = scrollDx;
-    // set to 0 because change no longer new
-    scrollDx = 0;
-    return _scrollDx;
+    return getAndReset(scrollDx);
 }
 
 // get scroll value in y
 double Mouse::getScrollDY() {
-    double _scrollDy = scrollDy;
-    // set to 0 because change no longer new
-    scrollDy = 0;
-    return _scrollDy;
+    return getAndReset(scrollDy);
 }
 
-// get button state
-bool Mouse::button(Uint8 button) {
+// Return the state of a mouse button
+bool Mouse::button_state(Uint8 button) {
     return buttons[button];
 }
 
-// return if button changed then reset it in the changed array
+// Return if a button's state has changed, then reset the changed state
 bool Mouse::buttonChanged(Uint8 button) {
     bool ret = buttonsChanged[button];
-    // set to false because change no longer new
-    buttonsChanged[button] = false;
+    buttonsChanged[button] = false; // Reset after reading
     return ret;
 }
 
-// return if button changed and is now up
+// Return if a button's state has changed and is now up
 bool Mouse::buttonWentUp(Uint8 button) {
-    return !buttons[button] && buttonChanged(button);
+    return !button_state(button) && buttonChanged(button);
 }
 
-// return if button changed and is now down
+// Return if a button's state has changed and is now down
 bool Mouse::buttonWentDown(Uint8 button) {
-    return buttons[button] && buttonChanged(button);
+    return button_state(button) && buttonChanged(button);
 }

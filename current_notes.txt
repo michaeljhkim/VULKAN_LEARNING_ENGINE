@@ -8,3 +8,8 @@
 
 
 - MUST CONVERT POINTERS TO SMART POINTERS
+
+
+- vulkan allows you to not bind anything UNTIL the very end. In the meantime, you create buffers and change up the buffer as needed
+
+- CURRENTLY TRYING TO FIGURE OUT SHADER SYSTEMS IN VULKAN, AND HOW TO ADAPT THEM GIVEN THE CURRENT OPENGL SHADER SYSTEM

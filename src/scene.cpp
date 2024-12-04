@@ -32,17 +32,6 @@ void Scene::framebufferSizeCallback(SDL_Window* window, int width, int height) {
 // default
 Scene::Scene() : currentId("aaaaaaaa"), lightUBO(0) {}
 
-void createInstance() {
-    VkApplicationInfo appInfo{};
-    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    appInfo.pApplicationName = "Vulkan Game Engine";
-    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.pEngineName = "No Engine";
-    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.apiVersion = VK_API_VERSION_1_3;
-}
-
-
 // set with values
 Scene::Scene(int SDL2VersionMajor, int SDL2VersionMinor, const char* title, unsigned int scrWidth, unsigned int scrHeight)
     : SDL2VersionMajor(SDL2VersionMajor), SDL2VersionMinor(SDL2VersionMinor), title(title), // window title

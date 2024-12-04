@@ -14,7 +14,7 @@
 #include "bounds.h"
 #include "ray.h"
 
-#include "../graphics/objects/model.h"
+#include "../graphics/model.hpp"
 
 // forward declaration
 class Model;

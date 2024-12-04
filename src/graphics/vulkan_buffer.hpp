@@ -2,6 +2,9 @@
 
 #include "vulkan_device.hpp"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 //namespace lve {
 
 class VulkanBuffer {
@@ -18,6 +21,7 @@ class VulkanBuffer {
 	VulkanBuffer(const VulkanBuffer&) = delete;
 	VulkanBuffer& operator=(const VulkanBuffer&) = delete;
 
+	void UpdateInstanceBuffer(const std::vector<glm::mat4>& instances);
 	VkResult map(VkDeviceSize size = VK_WHOLE_SIZE, VkDeviceSize offset = 0);
 	void unmap();
 
@@ -39,6 +43,7 @@ class VulkanBuffer {
 	VkBufferUsageFlags getUsageFlags() const { return usageFlags; }
 	VkMemoryPropertyFlags getMemoryPropertyFlags() const { return memoryPropertyFlags; }
 	VkDeviceSize getBufferSize() const { return bufferSize; }
+	VkDeviceMemory getMemory() const { return memory; }
 
  private:
 	static VkDeviceSize getAlignment(VkDeviceSize instanceSize, VkDeviceSize minOffsetAlignment);

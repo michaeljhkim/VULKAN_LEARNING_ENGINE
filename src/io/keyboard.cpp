@@ -10,7 +10,6 @@
 // key state array (true for down, false for up)
 //bool Keyboard::keys[GLFW_KEY_LAST] = { 0 };
 // Get the number of keys (usually at least 512)
-
 const int KEY_COUNT = 512; // Maximum number of key states
 
 // Global variables to store keyboard states

@@ -1,8 +1,6 @@
-#ifndef MESH_H
-#define MESH_H
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "vulkan_buffer.hpp"
 #include <vulkan/vulkan.hpp>
 
 #include <vector>
@@ -13,11 +11,8 @@
 #include "rendering/material.h"
 
 #include "memory/vertexmemory.hpp"
-
 #include "models/box.hpp"
-
 #include "../algorithms/bounds.h"
-
 #include "../physics/collisionmesh.h"
 
 /*
@@ -47,13 +42,49 @@ struct Vertex {
     // calculate tangent vectors for each face
     static void calcTanVectors(std::vector<Vertex>& list, std::vector<unsigned int>& indices);
 
+    static std::vector<VkVertexInputBindingDescription> getBindingDescriptions() {
+        std::vector<VkVertexInputBindingDescription> bindingDescriptions = {
+            // Binding for vertex data
+            {0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX},
 
-    static std::vector<VkVertexInputBindingDescription> getBindingDescriptions();
-    static std::vector<VkVertexInputAttributeDescription> getAttributeDescriptions();
+            // Binding for instance data
+            {1, sizeof(glm::mat4), VK_VERTEX_INPUT_RATE_INSTANCE},
+
+            // Binding for normalized instance data (e.g., orientation)
+            {2, sizeof(glm::mat3), VK_VERTEX_INPUT_RATE_INSTANCE}
+        };
+        return bindingDescriptions;
+    }
+
+    static std::vector<VkVertexInputAttributeDescription> getAttributeDescriptions() {
+        std::vector<VkVertexInputAttributeDescription> attributeDescriptions = {
+            // Per-vertex attributes
+            {0, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, position)},
+            {1, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, color)},
+            {2, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, normal)},
+            {3, 0, VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex, texCoord)},
+
+            // Per-instance attributes (model matrix columns)
+            //{4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, 0 * sizeof(glm::vec4)}, // First column
+            //{5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, 1 * sizeof(glm::vec4)}, // Second column
+            {4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, 0 },
+            {5, 1, VK_FORMAT_R32G32B32A32_SFLOAT,     sizeof(glm::vec4)},
+            {6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, 2 * sizeof(glm::vec4)}, // Third column
+            {7, 1, VK_FORMAT_R32G32B32A32_SFLOAT, 3 * sizeof(glm::vec4)}, // Fourth column
+
+            // Per-instance attributes (normalized matrix columns)
+            //{ 8, 2, VK_FORMAT_R32G32B32_SFLOAT, 0 * sizeof(glm::vec3)},  // First column of glm::mat3
+            //{ 9, 2, VK_FORMAT_R32G32B32_SFLOAT, 1 * sizeof(glm::vec3)},  // Second column of glm::mat3
+            { 8, 2, VK_FORMAT_R32G32B32_SFLOAT, 0},
+            { 9, 2, VK_FORMAT_R32G32B32_SFLOAT,     sizeof(glm::vec3)}, 
+            {10, 2, VK_FORMAT_R32G32B32_SFLOAT, 2 * sizeof(glm::vec3)}   // Third column of glm::mat3
+        };
+
+        return attributeDescriptions;
+    }
 
     bool operator==(const Vertex &other) const {
-        return position == other.position && color == other.color && normal == other.normal &&
-                        texCoord == other.texCoord;
+        return (position == other.position) && (color == other.color) && (normal == other.normal) && (texCoord == other.texCoord);
     }
 };
 
@@ -87,19 +118,19 @@ public:
     */
 
     // default
-    Mesh();
+    Mesh(VulkanDevice &device);
 
     // intialize with a bounding region
-    Mesh(BoundingRegion br);
+    Mesh(VulkanDevice &device, BoundingRegion br);
 
     // initialize as textured object
-    Mesh(BoundingRegion br, std::vector<Texture> textures);
+    Mesh(VulkanDevice &device, BoundingRegion br, std::vector<Texture> textures);
 
     // initialize as material object
-    Mesh(BoundingRegion br, aiColor4D diff, aiColor4D spec);
+    Mesh(VulkanDevice &device, BoundingRegion br, aiColor4D diff, aiColor4D spec);
 
     // initialize with a material
-    Mesh(BoundingRegion br, Material m);
+    Mesh(VulkanDevice &device, BoundingRegion br, Material m);
 
     // load vertex and index data
     void loadData(std::vector<Vertex> vertices, std::vector<unsigned int> indices, bool pad = false);
@@ -122,12 +153,25 @@ public:
     // free up memory
     void cleanup();
 
+	void bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer);
+	void draw(VkCommandBuffer commandBuffer, uint32_t instanceCount);
+
 private:
+	void createVertexBuffers();
+	void createIndexBuffers();
+
     // true if has only materials
-    bool numTex;
+    bool TexExists;
 
     // setup data with buffers
-    void setup();
-};
+    //void setup();
 
-#endif
+	VulkanDevice &vulkanDevice;
+
+	std::unique_ptr<VulkanBuffer> vertexBuffer;
+	uint32_t vertexCount;
+
+  	bool hasIndexBuffer = false;
+	std::unique_ptr<VulkanBuffer> indexBuffer;
+	uint32_t indexCount;
+};

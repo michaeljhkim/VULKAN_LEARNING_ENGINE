@@ -1,11 +1,9 @@
 #include "mesh.hpp"
-
 #include <iostream>
 
 // generate list of vertices
 std::vector<Vertex> Vertex::genList(float* vertices, int numVertices) {
     std::vector<Vertex> ret(numVertices);
-
     int stride = 8;
 
     for (int i = 0; i < numVertices; i++) {
@@ -36,9 +34,7 @@ void averageVectors(glm::vec3& baseVec, glm::vec3 addition, unsigned char existi
     }
     else {
         float f = 1 / ((float)existingContributions + 1);
-
         baseVec *= (float)(existingContributions)*f;
-
         baseVec += addition * f;
     }
 }
@@ -86,72 +82,36 @@ void Vertex::calcTanVectors(std::vector<Vertex>& list, std::vector<unsigned int>
 */
 
 // default
-Mesh::Mesh()
-    : collision(NULL) {}
+Mesh::Mesh(VulkanDevice &device) : vulkanDevice{device}, collision(NULL) {}
 
-// intialize with a bounding region
-Mesh::Mesh(BoundingRegion br)
-    : br(br), collision(NULL) {}
+// Constructor with bounding region
+Mesh::Mesh(VulkanDevice &device, BoundingRegion br) : Mesh(device) {
+    this->br = br;
+}
 
 // initialize as textured object
-Mesh::Mesh(BoundingRegion br, std::vector<Texture> textures)
-    : Mesh(br) {
+Mesh::Mesh(VulkanDevice &device, BoundingRegion br, std::vector<Texture> textures) : Mesh(device, br) {
     setupTextures(textures);
 }
 
 // initialize as material object
-Mesh::Mesh(BoundingRegion br, aiColor4D diff, aiColor4D spec)
-    : Mesh(br) {
+Mesh::Mesh(VulkanDevice &device, BoundingRegion br, aiColor4D diff, aiColor4D spec) : Mesh(device, br) {
     setupColors(diff, spec);
 }
 
 // initialize with a material
-Mesh::Mesh(BoundingRegion br, Material m)
-    : Mesh(br) {
+Mesh::Mesh(VulkanDevice &device, BoundingRegion br, Material m) : Mesh(device, br) {
     setupMaterial(m);
 }
+
 
 // load vertex and index data
 void Mesh::loadData(std::vector<Vertex> _vertices, std::vector<unsigned int> _indices, bool pad) {
     this->vertices = _vertices;
     this->indices = _indices;
 
-    // bind VAO
-    VAO.generate();
-    VAO.bind();
-
-    // generate/set EBO
-    VAO["EBO"] = BufferObject(GL_ELEMENT_ARRAY_BUFFER);
-    VAO["EBO"].generate();
-    VAO["EBO"].bind();
-    VAO["EBO"].setData<GLuint>(this->indices.size(), &this->indices[0], GL_STATIC_DRAW);
-
-    // load data into vertex buffers
-    VAO["VBO"] = BufferObject(GL_ARRAY_BUFFER);
-    VAO["VBO"].generate();
-    VAO["VBO"].bind();
-
-    unsigned int size = this->vertices.size();
-    if (pad && size) {
-        size++;
-    }
-
-    VAO["VBO"].setData<Vertex>(size, &this->vertices[0], GL_STATIC_DRAW);
-
-    // set the vertex attribute pointers
-    VAO["VBO"].bind();
-    // vertex Positions
-    VAO["VBO"].setAttPointer<GLfloat>(0, 3, GL_FLOAT, 11, 0);
-    // normal ray
-    VAO["VBO"].setAttPointer<GLfloat>(1, 3, GL_FLOAT, 11, 3);
-    // vertex texture coords
-    VAO["VBO"].setAttPointer<GLfloat>(2, 3, GL_FLOAT, 11, 6);
-    // tangent vector
-    VAO["VBO"].setAttPointer<GLfloat>(3, 3, GL_FLOAT, 11, 8);
-
-    VAO["VBO"].clear();
-
-    ArrayObject::clear();
+    createVertexBuffers();
+    createIndexBuffers();
 }
 
 // setup collision mesh
@@ -162,20 +122,20 @@ void Mesh::loadCollisionMesh(unsigned int numPoints, float* coordinates, unsigne
 
 // setup textures
 void Mesh::setupTextures(std::vector<Texture> textures) {
-    this->numTex = false;
+    this->TexExists = false;
     this->textures.insert(this->textures.end(), textures.begin(), textures.end());
 }
 
 // setup material colors
 void Mesh::setupColors(aiColor4D diff, aiColor4D spec) {
-    this->numTex = true;
+    this->TexExists = true;
     this->diffuse = diff;
     this->specular = spec;
 }
 
 // set material structure
 void Mesh::setupMaterial(Material mat) {
-    this->numTex = true;
+    this->TexExists = true;
     this->diffuse = { mat.diffuse.r, mat.diffuse.g, mat.diffuse.b, 1.0f };
     this->specular = { mat.specular.r, mat.specular.g, mat.specular.b, 1.0f };
 }
@@ -184,11 +144,11 @@ void Mesh::setupMaterial(Material mat) {
 void Mesh::render(Shader shader, unsigned int numInstances) {
     shader.setBool("noNormalMap", true);
 
-    if (numTex) {
+    if (TexExists) {
         // materials
         shader.set4Float("material.diffuse", diffuse);
         shader.set4Float("material.specular", specular);
-        shader.setBool("numTex", true);
+        shader.setBool("TexExists", true);
     }
     else {
         // textures
@@ -224,7 +184,7 @@ void Mesh::render(Shader shader, unsigned int numInstances) {
             textures[i].bind();
         }
 
-        shader.setBool("numTex", false);
+        shader.setBool("TexExists", false);
     }
     
     VAO.bind();
@@ -243,35 +203,100 @@ void Mesh::cleanup() {
     }
 }
 
-// setup data with buffers
-void Mesh::setup() {
-    // create buffers/arrays
-    
-    // bind VAO
-    VAO.generate();
-    VAO.bind();
 
-    // generate/set EBO
-    VAO["EBO"] = BufferObject(GL_ELEMENT_ARRAY_BUFFER);
-    VAO["EBO"].generate();
-    VAO["EBO"].bind();
-    VAO["EBO"].setData<GLuint>(indices.size(), &indices[0], GL_STATIC_DRAW);
 
-    // generate/set VBO
-    VAO["VBO"] = BufferObject(GL_ARRAY_BUFFER);
-    VAO["VBO"].generate();
-    VAO["VBO"].bind();
-    VAO["VBO"].setData<Vertex>(vertices.size(), &vertices[0], GL_STATIC_DRAW);
 
-    // set vertex attrib pointers
-    // vertex positions
-    VAO["VBO"].setAttPointer<GLfloat>(0, 3, GL_FLOAT, 8, 0);
-    // normal ray
-    VAO["VBO"].setAttPointer<GLfloat>(1, 3, GL_FLOAT, 8, 3);
-    // texture coordinates
-    VAO["VBO"].setAttPointer<GLfloat>(2, 2, GL_FLOAT, 8, 6);
 
-    VAO["VBO"].clear();
 
-    ArrayObject::clear();
+
+
+void Mesh::createVertexBuffers() {
+	uint32_t vertexCount = static_cast<uint32_t>(vertices.size());
+	assert(vertexCount >= 3 && "Vertex count must be at least 3");
+	VkDeviceSize bufferSize = sizeof(vertices[0]) * vertexCount;
+	uint32_t vertexSize = sizeof(vertices[0]);
+
+	VulkanBuffer stagingBuffer{
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+	};
+
+	stagingBuffer.map();
+	stagingBuffer.writeToBuffer((void *)vertices.data());
+
+	std::unique_ptr<VulkanBuffer> vertexBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), vertexBuffer->getBuffer(), bufferSize);
 }
+
+void Mesh::createIndexBuffers() {
+	indexCount = static_cast<uint32_t>(indices.size());
+    hasIndexBuffer = indexCount > 0;
+	if (!hasIndexBuffer) {
+		return;
+	}
+
+	VkDeviceSize bufferSize = sizeof(indices[0]) * indexCount;
+	uint32_t indexSize = sizeof(indices[0]);
+
+	VulkanBuffer stagingBuffer{
+			vulkanDevice,
+			indexSize,
+			indexCount,
+			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+	};
+
+	stagingBuffer.map();
+	stagingBuffer.writeToBuffer((void *)indices.data());
+
+	indexBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			indexSize,
+			indexCount,
+			VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), indexBuffer->getBuffer(), bufferSize);
+}
+
+
+
+
+void Mesh::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {
+    // Bind the mesh's vertex buffer
+    VkBuffer buffers[] = {vertexBuffer->getBuffer()};
+    VkDeviceSize offsets[] = {0};
+    vkCmdBindVertexBuffers(commandBuffer, 0, 1, buffers, offsets);
+
+    // Bind the instance and normalized instance buffers (shared across meshes)
+    VkBuffer instanceBuffers[] = {instanceBuffer, normalizedInstanceBuffer};
+    VkDeviceSize instanceOffsets[] = {0, 0};
+    vkCmdBindVertexBuffers(commandBuffer, 1, 2, instanceBuffers, instanceOffsets);
+
+    // Bind the mesh's index buffer if it exists
+    if (hasIndexBuffer) {
+        vkCmdBindIndexBuffer(commandBuffer, indexBuffer->getBuffer(), 0, VK_INDEX_TYPE_UINT32);
+    }
+}
+
+
+void Mesh::draw(VkCommandBuffer commandBuffer, uint32_t instanceCount) {
+    if (hasIndexBuffer) {
+        vkCmdDrawIndexed(commandBuffer, indexCount, instanceCount, 0, 0, 0);
+    } else {
+        vkCmdDraw(commandBuffer, vertexCount, instanceCount, 0, 0);
+    }
+}
+
+
+// setup data with buffers
+//void Mesh::setup() {}

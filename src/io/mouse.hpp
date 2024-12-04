@@ -1,5 +1,5 @@
-#ifndef MOUSE_H
-#define MOUSE_H
+#ifndef MOUSE_HPP
+#define MOUSE_HPP
 
 #include <iostream>
 #include <glad/glad.h>
@@ -28,6 +28,9 @@ public:
     /*
         accessors
     */
+    // Helper function to get and reset a value
+    template <typename T>
+    static T getAndReset(T& value);
 
     // get mouse x position
     static double getMouseX();
@@ -45,7 +48,7 @@ public:
     static double getScrollDY();
 
     // get button state
-    static bool button(Uint8 button);
+    static bool button_state(Uint8 button);
     // return if button changed then reset it in the changed array
     static bool buttonChanged(Uint8 button);
     // return if button changed and is now up

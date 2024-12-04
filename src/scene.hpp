@@ -34,7 +34,8 @@
 
 #include "graphics/models/box.hpp"
 
-#include "graphics/objects/model.h"
+//#include "graphics/objects/model.h"
+#include "graphics/model.hpp"
 
 #include "graphics/rendering/light.h"
 #include "graphics/rendering/shader.h"
@@ -42,7 +43,7 @@
 
 #include "io/camera.h"
 #include "io/keyboard.h"
-#include "io/mouse.h"
+#include "io/mouse.hpp"
 
 #include "algorithms/states.hpp"
 #include "algorithms/avl.h"

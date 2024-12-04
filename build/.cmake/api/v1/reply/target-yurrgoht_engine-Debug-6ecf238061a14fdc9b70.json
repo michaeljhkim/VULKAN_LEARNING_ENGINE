@@ -114,7 +114,10 @@
 				31,
 				32,
 				33,
-				34
+				34,
+				35,
+				36,
+				37
 			]
 		},
 		{
@@ -230,7 +233,10 @@
 				31,
 				32,
 				33,
-				34
+				34,
+				35,
+				36,
+				37
 			]
 		}
 	],
@@ -293,7 +299,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/graphics/game_object.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/graphics/mesh.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/model.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -371,12 +389,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/graphics/vulkan_model.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/graphics/vulkan_pipeline.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -419,7 +431,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/io/keyboard_movement_controller.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/io/mouse.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/io/vulkan_camera.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

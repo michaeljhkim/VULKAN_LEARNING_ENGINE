@@ -13,7 +13,7 @@
 
 #include <vector>
 
-#include "mesh.hpp"
+#include "mesh.h"
 #include "../models/box.hpp"
 #include "../../physics/collisionmodel.h"
 #include "../../physics/rigidbody.h"

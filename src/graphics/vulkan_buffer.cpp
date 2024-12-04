@@ -47,11 +47,14 @@ VulkanBuffer::VulkanBuffer(
 		device.createBuffer(bufferSize, usageFlags, memoryPropertyFlags, buffer, memory);
 }
 
+
+
 VulkanBuffer::~VulkanBuffer() {
 	unmap();
 	vkDestroyBuffer(vulkanDevice.device(), buffer, nullptr);
 	vkFreeMemory(vulkanDevice.device(), memory, nullptr);
 }
+
 
 /**
  * Map a memory range of this buffer. If successful, mapped points to the specified buffer range.
@@ -78,6 +81,15 @@ void VulkanBuffer::unmap() {
 		mapped = nullptr;
 	}
 }
+
+
+void VulkanBuffer::UpdateInstanceBuffer(const std::vector<glm::mat4>& instances) {
+    void* data;
+    memcpy(data, instances.data(), sizeof(glm::mat4) * instances.size());
+    vkMapMemory(vulkanDevice.device(), memory, 0, VK_WHOLE_SIZE, 0, &data);
+    vkUnmapMemory(vulkanDevice.device(), memory);
+}
+
 
 /**
  * Copies the specified data to the mapped buffer. Default value writes whole buffer range

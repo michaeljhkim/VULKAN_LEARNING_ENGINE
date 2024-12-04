@@ -1,6 +1,6 @@
 #include "vulkan_pipeline.hpp"
 
-#include "vulkan_model.hpp"
+#include "model.hpp"
 
 // std
 #include <cassert>
@@ -204,8 +204,8 @@ void VulkanPipeline::defaultPipelineConfigInfo(PipelineConfigInfo& configInfo) {
 			static_cast<uint32_t>(configInfo.dynamicStateEnables.size());
 	configInfo.dynamicStateInfo.flags = 0;
 
-	configInfo.bindingDescriptions = VulkanModel::Vertex::getBindingDescriptions();
-	configInfo.attributeDescriptions = VulkanModel::Vertex::getAttributeDescriptions();
+	configInfo.bindingDescriptions = Vertex::getBindingDescriptions();
+	configInfo.attributeDescriptions = Vertex::getAttributeDescriptions();
 }
 
 void VulkanPipeline::enableAlphaBlending(PipelineConfigInfo& configInfo) {

@@ -88,7 +88,7 @@ class VulkanPipeline {
 		const std::string& geoFilepath = "");
 
 	void createShaderModule(const std::vector<char>& code, VkShaderModule* shaderModule);
-    static bool includeDefaultHeader;
+    bool includeDefaultHeader = false;
 
 	VulkanDevice& vulkanDevice;
 	VkPipeline graphicsPipeline;

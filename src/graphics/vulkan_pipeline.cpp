@@ -41,7 +41,6 @@ VulkanPipeline::VulkanPipeline(
 		const std::string& fragFilepath,
 		const std::string& geoFilepath = "")
 		: vulkanDevice{device} {
-
     this->includeDefaultHeader = includeDefaultHeader;
 	createGraphicsPipeline(configInfo, vertFilepath, fragFilepath, geoFilepath);
 }
@@ -324,7 +323,7 @@ std::vector<char> VulkanPipeline::readFile(const std::string& filepath) {
 	return buffer;
 }
 
-
+//MUST FIGURE OUT HOW TO HANDLE WITH DEFAULT HEADERS
 std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath, EShLanguage shaderType) {
     std::string spirvFilePath = VulkanPipeline::defaultDirectory + '/' + filePath + ".spv";
 
@@ -333,10 +332,9 @@ std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath,
         return readFile(spirvFilePath);
     }
 
-    // Read GLSL source code
-
     // Initialize GLSLang shader
-    glslang::TShader shader(shaderType);
+    glslang::TShader shader(shaderType);		// Read GLSL source code
+	//I MIGHT HAVE TO CREATE A NEW READFILE FUNCTION FOR THIS
     const char* sourceCStr = readFile(filePath).data();
     shader.setStrings(&sourceCStr, 1);
     TBuiltInResource defaultResource = InitResources();		//Defined in TBuiltInResource_default

@@ -134,6 +134,7 @@ void Model::render(Shader shader, float dt, Scene* scene) {
     }
 	*/
 }
+
 // generate instance with parameters
 RigidBody* Model::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
     // all slots filled

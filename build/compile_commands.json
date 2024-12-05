@@ -121,6 +121,12 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/shader_pipeline.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/shader_pipeline.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/simple_render_system.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/simple_render_system.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o"

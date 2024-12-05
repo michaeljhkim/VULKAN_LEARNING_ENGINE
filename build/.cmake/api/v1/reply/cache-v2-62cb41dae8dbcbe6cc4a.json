@@ -642,6 +642,18 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_HAVE_LIBC_PTHREAD",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Test CMAKE_HAVE_LIBC_PTHREAD"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
 			"name" : "CMAKE_HOME_DIRECTORY",
 			"properties" : 
 			[
@@ -1194,6 +1206,30 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding Threads"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[TRUE][v()]"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Vulkan",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding Vulkan"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/lib/libvulkan.so][/usr/include][cfound components: glslc glslangValidator ][v1.3.295()]"
+		},
+		{
 			"name" : "JSONCPP_DIR",
 			"properties" : 
 			[
@@ -1228,6 +1264,94 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/cmake/SDL2"
+		},
+		{
+			"name" : "SPIRV-Tools-opt_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SPIRV-Tools-opt."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/cmake/SPIRV-Tools-opt"
+		},
+		{
+			"name" : "SPIRV-Tools_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SPIRV-Tools."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/cmake/SPIRV-Tools"
+		},
+		{
+			"name" : "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/bin/glslangValidator"
+		},
+		{
+			"name" : "Vulkan_GLSLC_EXECUTABLE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/bin/glslc"
+		},
+		{
+			"name" : "Vulkan_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include"
+		},
+		{
+			"name" : "Vulkan_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/lib/libvulkan.so"
 		},
 		{
 			"name" : "_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1276,6 +1400,18 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/cmake/assimp-5.4"
+		},
+		{
+			"name" : "glslang_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for glslang."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/cmake/glslang"
 		},
 		{
 			"name" : "jsoncpp_DIR",

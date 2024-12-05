@@ -33,6 +33,8 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 find_package(assimp REQUIRED)
+find_package(Vulkan REQUIRED)
+find_package(glslang REQUIRED)
 
 # Link SDL2 library
-target_link_libraries(yurrgoht_engine ${SDL2_LIBRARIES} assimp freetype)
+target_link_libraries(yurrgoht_engine ${SDL2_LIBRARIES} assimp freetype Vulkan glslang)

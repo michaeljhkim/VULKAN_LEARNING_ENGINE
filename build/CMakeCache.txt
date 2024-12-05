@@ -232,8 +232,29 @@ JsonCpp_DIR:PATH=JsonCpp_DIR-NOTFOUND
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/lib/cmake/SDL2
 
+//The directory containing a CMake configuration file for SPIRV-Tools-opt.
+SPIRV-Tools-opt_DIR:PATH=/usr/lib/cmake/SPIRV-Tools-opt
+
+//The directory containing a CMake configuration file for SPIRV-Tools.
+SPIRV-Tools_DIR:PATH=/usr/lib/cmake/SPIRV-Tools
+
+//Path to a program.
+Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=/bin/glslangValidator
+
+//Path to a program.
+Vulkan_GLSLC_EXECUTABLE:FILEPATH=/bin/glslc
+
+//Path to a file.
+Vulkan_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vulkan_LIBRARY:FILEPATH=/lib/libvulkan.so
+
 //The directory containing a CMake configuration file for assimp.
 assimp_DIR:PATH=/usr/lib/cmake/assimp-5.4
+
+//The directory containing a CMake configuration file for glslang.
+glslang_DIR:PATH=/usr/lib/cmake/glslang
 
 //The directory containing a CMake configuration file for jsoncpp.
 jsoncpp_DIR:PATH=jsoncpp_DIR-NOTFOUND
@@ -339,6 +360,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/mk/Documents/YURRGOHT_ENGINE
@@ -406,6 +429,18 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Details about finding Vulkan
+FIND_PACKAGE_MESSAGE_DETAILS_Vulkan:INTERNAL=[/lib/libvulkan.so][/usr/include][cfound components: glslc glslangValidator ][v1.3.295()]
+//ADVANCED property for variable: Vulkan_GLSLANG_VALIDATOR_EXECUTABLE
+Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_GLSLC_EXECUTABLE
+Vulkan_GLSLC_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_INCLUDE_DIR
+Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_LIBRARY
+Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //linker supports push/pop state

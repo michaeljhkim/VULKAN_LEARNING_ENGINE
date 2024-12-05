@@ -1,12 +1,21 @@
 #include "vulkan_pipeline.hpp"
+#include "TBuiltInResource_default.hpp"
 
 #include "model.hpp"
 
-// std
-#include <cassert>
+#include <stdio.h>
 #include <fstream>
+
+#include <string>
+#include <vector>
 #include <iostream>
+#include <cstdint>
+
+// std
+#include <array>
+#include <cassert>
 #include <stdexcept>
+
 
 #ifndef ENGINE_DIR
 #define ENGINE_DIR "../"
@@ -16,16 +25,32 @@
 
 VulkanPipeline::VulkanPipeline(
 		VulkanDevice& device,
+		const PipelineConfigInfo& configInfo,
 		const std::string& vertFilepath,
 		const std::string& fragFilepath,
-		const PipelineConfigInfo& configInfo)
+		const std::string& geoFilepath)
 		: vulkanDevice{device} {
-	createGraphicsPipeline(vertFilepath, fragFilepath, configInfo);
+	createGraphicsPipeline(configInfo, vertFilepath, fragFilepath, geoFilepath);
 }
+
+VulkanPipeline::VulkanPipeline(
+		VulkanDevice& device,
+		const PipelineConfigInfo& configInfo,
+		bool includeDefaultHeader,
+		const std::string& vertFilepath,
+		const std::string& fragFilepath,
+		const std::string& geoFilepath = "")
+		: vulkanDevice{device} {
+
+    this->includeDefaultHeader = includeDefaultHeader;
+	createGraphicsPipeline(configInfo, vertFilepath, fragFilepath, geoFilepath);
+}
+
 
 VulkanPipeline::~VulkanPipeline() {
 	vkDestroyShaderModule(vulkanDevice.device(), vertShaderModule, nullptr);
 	vkDestroyShaderModule(vulkanDevice.device(), fragShaderModule, nullptr);
+	vkDestroyShaderModule(vulkanDevice.device(), geoShaderModule, nullptr);
 	vkDestroyPipeline(vulkanDevice.device(), graphicsPipeline, nullptr);
 }
 
@@ -47,36 +72,68 @@ std::vector<char> VulkanPipeline::readFile(const std::string& filepath) {
 	return buffer;
 }
 
+
+		
 void VulkanPipeline::createGraphicsPipeline(
+        const PipelineConfigInfo& configInfo,
 		const std::string& vertFilepath,
 		const std::string& fragFilepath,
-		const PipelineConfigInfo& configInfo) {
+		const std::string& geoFilepath = "") {
 	assert( configInfo.pipelineLayout != VK_NULL_HANDLE &&
 			"Cannot create graphics pipeline: no pipelineLayout provided in configInfo");
 	assert( configInfo.renderPass != VK_NULL_HANDLE &&
 			"Cannot create graphics pipeline: no renderPass provided in configInfo");
 
-	auto vertCode = readFile(vertFilepath);
-	auto fragCode = readFile(fragFilepath);
+    auto vertSpirv = getOrCompileSPIRV(vertFilepath, EShLangVertex);
+    auto fragSpirv = getOrCompileSPIRV(fragFilepath, EShLangFragment);
 
-	createShaderModule(vertCode, &vertShaderModule);
-	createShaderModule(fragCode, &fragShaderModule);
+	createShaderModule(vertSpirv, &vertShaderModule);
+	createShaderModule(fragSpirv, &fragShaderModule);
 
-	VkPipelineShaderStageCreateInfo shaderStages[2];
-	shaderStages[0].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-	shaderStages[0].stage = VK_SHADER_STAGE_VERTEX_BIT;
-	shaderStages[0].module = vertShaderModule;
-	shaderStages[0].pName = "main";
-	shaderStages[0].flags = 0;
-	shaderStages[0].pNext = nullptr;
-	shaderStages[0].pSpecializationInfo = nullptr;
-	shaderStages[1].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-	shaderStages[1].stage = VK_SHADER_STAGE_FRAGMENT_BIT;
-	shaderStages[1].module = fragShaderModule;
-	shaderStages[1].pName = "main";
-	shaderStages[1].flags = 0;
-	shaderStages[1].pNext = nullptr;
-	shaderStages[1].pSpecializationInfo = nullptr;
+    //Copy over more stuff from vulkan pipeline maybe, might actually move stuff from here to vulkan pipeline if I can figure out modular solutions
+    //Probably should do assignments first
+
+	std::vector<VkPipelineShaderStageCreateInfo> shaderStages;
+
+    // Vertex Shader Stage
+    VkPipelineShaderStageCreateInfo vertShaderStage{};
+    vertShaderStage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+    vertShaderStage.stage = VK_SHADER_STAGE_VERTEX_BIT;
+    vertShaderStage.module = vertShaderModule;
+    vertShaderStage.pName = "main";
+    vertShaderStage.flags = 0;
+    vertShaderStage.pNext = nullptr;
+    vertShaderStage.pSpecializationInfo = nullptr;
+    shaderStages.push_back(vertShaderStage);
+
+    // Fragment Shader Stage
+    VkPipelineShaderStageCreateInfo fragShaderStage{};
+    fragShaderStage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+    fragShaderStage.stage = VK_SHADER_STAGE_FRAGMENT_BIT;
+    fragShaderStage.module = fragShaderModule;
+    fragShaderStage.pName = "main";
+    fragShaderStage.flags = 0;
+    fragShaderStage.pNext = nullptr;
+    fragShaderStage.pSpecializationInfo = nullptr;
+    shaderStages.push_back(fragShaderStage);
+
+    // We add Geomatry Shader stage only if we are procided one
+    if ( !geoFilepath.empty() ) {
+        auto geoSpirv = getOrCompileSPIRV(geoFilepath, EShLangGeometry);
+	    createShaderModule(geoSpirv, &geoShaderModule);
+
+        // Geometry Shader Stage
+        VkPipelineShaderStageCreateInfo geoShaderStage{};
+        geoShaderStage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+        geoShaderStage.stage = VK_SHADER_STAGE_GEOMETRY_BIT;
+        geoShaderStage.module = geoShaderModule;
+        geoShaderStage.pName = "main";
+        geoShaderStage.flags = 0;
+        geoShaderStage.pNext = nullptr;
+        geoShaderStage.pSpecializationInfo = nullptr;
+        shaderStages.push_back(geoShaderStage);
+    }
+
 
 	auto& bindingDescriptions = configInfo.bindingDescriptions;
 	auto& attributeDescriptions = configInfo.attributeDescriptions;
@@ -90,8 +147,8 @@ void VulkanPipeline::createGraphicsPipeline(
 
 	VkGraphicsPipelineCreateInfo pipelineInfo{};
 	pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
-	pipelineInfo.stageCount = 2;
-	pipelineInfo.pStages = shaderStages;
+	pipelineInfo.stageCount = shaderStages.size();
+	pipelineInfo.pStages = shaderStages.data();
 	pipelineInfo.pVertexInputState = &vertexInputInfo;
 	pipelineInfo.pInputAssemblyState = &configInfo.inputAssemblyInfo;
 	pipelineInfo.pViewportState = &configInfo.viewportInfo;
@@ -118,6 +175,7 @@ void VulkanPipeline::createGraphicsPipeline(
 		throw std::runtime_error("failed to create graphics pipeline");
 	}
 }
+
 
 void VulkanPipeline::createShaderModule(const std::vector<char>& code, VkShaderModule* shaderModule) {
 	VkShaderModuleCreateInfo createInfo{};
@@ -220,5 +278,97 @@ void VulkanPipeline::enableAlphaBlending(PipelineConfigInfo& configInfo) {
 	configInfo.colorBlendAttachment.dstAlphaBlendFactor = VK_BLEND_FACTOR_ZERO;
 	configInfo.colorBlendAttachment.alphaBlendOp = VK_BLEND_OP_ADD;
 }
+
+
+
+
+
+// stream containing default headers
+std::stringstream VulkanPipeline::defaultHeaders;
+
+// load into default header
+void VulkanPipeline::loadIntoDefault(const std::string& filepath) {
+    // Load shader source as a string (no need for manual memory management)
+    std::string fileContents = readFile(filepath).data();
+    // Append file contents directly to the default headers
+    VulkanPipeline::defaultHeaders << fileContents;
+}
+
+// clear default header (after shader compilation)
+void VulkanPipeline::clearDefault() {
+    VulkanPipeline::defaultHeaders.clear();
+}
+
+
+
+/*
+    process functions
+*/
+
+// load char from file
+std::vector<char> VulkanPipeline::readFile(const std::string& filepath) {
+	std::string enginePath = ENGINE_DIR + filepath;
+	std::ifstream file{enginePath, std::ios::ate | std::ios::binary};
+
+	if (!file.is_open()) {
+		throw std::runtime_error("failed to open file: " + enginePath);
+	}
+
+	size_t fileSize = static_cast<size_t>(file.tellg());
+	std::vector<char> buffer(fileSize);
+
+	file.seekg(0);
+	file.read(buffer.data(), fileSize);
+
+	file.close();
+	return buffer;
+}
+
+
+std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath, EShLanguage shaderType) {
+    std::string spirvFilePath = VulkanPipeline::defaultDirectory + '/' + filePath + ".spv";
+
+    // Check if SPIR-V file already exists
+    if (std::filesystem::exists(spirvFilePath)) {
+        return readFile(spirvFilePath);
+    }
+
+    // Read GLSL source code
+
+    // Initialize GLSLang shader
+    glslang::TShader shader(shaderType);
+    const char* sourceCStr = readFile(filePath).data();
+    shader.setStrings(&sourceCStr, 1);
+    TBuiltInResource defaultResource = InitResources();		//Defined in TBuiltInResource_default
+
+    // Parse GLSL
+    if (!shader.parse(&defaultResource, 100, false, EShMsgDefault)) {
+        throw std::runtime_error("GLSL Parsing Failed: " + std::string(shader.getInfoLog())); }
+
+    // Link into a program
+    glslang::TProgram program;
+    program.addShader(&shader);
+    if (!program.link(EShMsgDefault)) {
+        throw std::runtime_error("GLSL Linking Failed: " + std::string(program.getInfoLog())); }
+
+    // Convert to SPIR-V
+    std::vector<uint32_t> spirv;
+    glslang::GlslangToSpv(*program.getIntermediate(shaderType), spirv);
+
+    // Convert the uint32_t vector into a char vector (byte-by-byte)
+    std::vector<char> spirvCharData(spirv.begin(), spirv.end());
+
+    // Save SPIR-V binary to a file
+    std::ofstream spirvFile(spirvFilePath, std::ios::binary | std::ios::out);
+    if (!spirvFile) {
+        throw std::runtime_error("Failed to open file for writing: " + spirvFilePath); }
+
+    spirvFile.write(spirvCharData.data(), spirvCharData.size());
+    spirvFile.close();
+
+    return spirvCharData;
+}
+
+
 
 //}	// namespace lve

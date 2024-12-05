@@ -1,7 +1,13 @@
-#include "shader.h"
+#include "shader.hpp"
 
 #include <stdio.h>
 #include <fstream>
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdint>
+
 
 /*
     constructors
@@ -103,6 +109,17 @@ void Shader::setMat4(const std::string& name, glm::mat4 val) {
     glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
 }
 
+
+/*
+void initializeGlslang() {
+    glslang::InitializeProcess();
+}
+
+void finalizeGlslang() {
+    glslang::FinalizeProcess();
+}
+*/
+
 /*
     static
 */
@@ -128,16 +145,17 @@ GLuint Shader::compileShader(bool includeDefaultHeader, const char* filePath, GL
     return ret;
 }
 
+
+
 // stream containing default headers
 std::stringstream Shader::defaultHeaders;
 
 // load into default header
 void Shader::loadIntoDefault(const char* filepath) {
-    char *fileContents = Shader::loadShaderSrc(false, filepath);
-
+    // Load shader source as a string (no need for manual memory management)
+    std::string fileContents = Shader::loadShaderSrc(false, filepath);
+    // Append file contents directly to the default headers
     Shader::defaultHeaders << fileContents;
-
-    free(fileContents);
 }
 
 // clear default header (after shader compilation)
@@ -146,39 +164,98 @@ void Shader::clearDefault() {
 }
 
 // load string from file
-char *Shader::loadShaderSrc(bool includeDefaultHeader, const char* filePath) {
+char* Shader::loadShaderSrc(bool includeDefaultHeader, const char* filePath) {
+    // Construct full file path
     std::string fullPath = Shader::defaultDirectory + '/' + filePath;
-    FILE* file = fopen(fullPath.c_str(), "rb");
+
+    // Open the file in binary mode
+    std::ifstream file(fullPath, std::ios::binary | std::ios::ate);
     if (!file) {
-        std::cout << "Could not open " << filePath << std::endl;
-        return NULL;
+        std::cerr << "Could not open " << filePath << std::endl;
+        return nullptr;
     }
 
-    // Move cursor to the end
-    fseek(file, 0L, SEEK_END);
-    // Get length
-    int len = ftell(file);
-    // Return to beginning
-    fseek(file, 0, SEEK_SET);
+    // Get file size
+    std::streamsize len = file.tellg();
+    file.seekg(0, std::ios::beg);
 
-    // Read
-    char* ret = NULL;
-    int cursor = 0;
+    // Determine total size with or without the default header
+    size_t totalSize = includeDefaultHeader ? (Shader::defaultHeaders.str().size() + len) : len;
+
+    // Create a buffer for the shader source (using vector for automatic memory management)
+    std::vector<char> ret(totalSize + 1);  // Extra byte for null terminator
+
+    // Copy default header if necessary
     if (includeDefaultHeader) {
-        // Copy header and advance cursor to read into space after default header
-        cursor = Shader::defaultHeaders.str().size();
-        ret = (char*)malloc(cursor + len + 1);
-        memcpy(ret, Shader::defaultHeaders.str().c_str(), cursor); // Copy header data
-    } else {
-        ret = (char*)malloc(len + 1);
+        std::copy(Shader::defaultHeaders.str().begin(), Shader::defaultHeaders.str().end(), ret.begin());
     }
 
-    // Read from file
-    fread(ret + cursor, 1, len, file);
-    ret[cursor + len] = 0; // Null terminator
+    // Read the shader source into the buffer
+    file.read(ret.data() + (includeDefaultHeader ? Shader::defaultHeaders.str().size() : 0), len);
 
-    // Close the file
-    fclose(file);
+    // Null-terminate the string
+    ret[totalSize] = '\0';
 
-    return ret;
+    // Extract just the file name from the full path using std::filesystem
+    //std::string fileName = std::filesystem::path(fullPath).filename().string();
+
+    // Return a raw pointer to the data
+    return ret.data();
+}
+
+
+
+
+// Helper function to read a file into a string
+std::string Shader::ReadFile(const std::string& filepath) {
+    std::ifstream file(filepath, std::ios::ate | std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file: " + filepath);
+    }
+    size_t fileSize = (size_t)file.tellg();
+    std::string buffer(fileSize, '\0');
+    file.seekg(0);
+    file.read(buffer.data(), fileSize);
+    file.close();
+    return buffer;
+}
+
+void Shader::saveSPIRVToFile(const std::string& filename, const std::vector<uint32_t>& spirvCode) {
+    std::ofstream file(filename, std::ios::binary | std::ios::out);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file for writing: " + filename);
+    }
+
+    file.write(reinterpret_cast<const char*>(spirvCode.data()), spirvCode.size() * sizeof(uint32_t));
+    file.close();
+}
+
+
+
+
+// Compile GLSL to SPIR-V
+std::vector<uint32_t> Shader::CompileGLSLToSPIRV(const std::string& glslSource, EShLanguage shaderType) {
+    glslang::TShader shader(shaderType);
+    const char* sourceCStr = glslSource.c_str();
+    shader.setStrings(&sourceCStr, 1);
+    
+    TBuiltInResource defaultResource = InitResources();
+
+    // Parse GLSL
+    if (!shader.parse(&defaultResource, 100, false, EShMsgDefault)) {
+        throw std::runtime_error("GLSL Parsing Failed: " + std::string(shader.getInfoLog()));
+    }
+
+    // Link into a program
+    glslang::TProgram program;
+    program.addShader(&shader);
+    if (!program.link(EShMsgDefault)) {
+        throw std::runtime_error("GLSL Linking Failed: " + std::string(program.getInfoLog()));
+    }
+
+    // Convert to SPIR-V
+    std::vector<uint32_t> spirv;
+    glslang::GlslangToSpv(*program.getIntermediate(shaderType), spirv);
+
+    return spirv;
 }

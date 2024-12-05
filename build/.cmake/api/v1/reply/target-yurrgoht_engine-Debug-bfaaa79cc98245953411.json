@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 40,
 				"parent" : 0
 			},
 			{
@@ -117,7 +117,8 @@
 				34,
 				35,
 				36,
-				37
+				37,
+				38
 			]
 		},
 		{
@@ -182,6 +183,16 @@
 				"backtrace" : 2,
 				"fragment" : "-lfreetype",
 				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lVulkan",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lglslang",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
@@ -236,7 +247,8 @@
 				34,
 				35,
 				36,
-				37
+				37,
+				38
 			]
 		}
 	],
@@ -360,6 +372,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/graphics/rendering/texture.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/graphics/shader_pipeline.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

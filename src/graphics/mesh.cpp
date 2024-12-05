@@ -272,15 +272,10 @@ void Mesh::createIndexBuffers() {
 
 
 void Mesh::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {
-    // Bind the mesh's vertex buffer
-    VkBuffer buffers[] = {vertexBuffer->getBuffer()};
-    VkDeviceSize offsets[] = {0};
-    vkCmdBindVertexBuffers(commandBuffer, 0, 1, buffers, offsets);
-
-    // Bind the instance and normalized instance buffers (shared across meshes)
-    VkBuffer instanceBuffers[] = {instanceBuffer, normalizedInstanceBuffer};
-    VkDeviceSize instanceOffsets[] = {0, 0};
-    vkCmdBindVertexBuffers(commandBuffer, 1, 2, instanceBuffers, instanceOffsets);
+    // Bind the mesh's vertex buffer, the instance and normalized instance buffers (shared across meshes)
+    VkBuffer buffers[] = { vertexBuffer->getBuffer(), instanceBuffer, normalizedInstanceBuffer };
+    VkDeviceSize offsets[] = { 0, 0, 0 };
+    vkCmdBindVertexBuffers(commandBuffer, 0, 3, buffers, offsets);
 
     // Bind the mesh's index buffer if it exists
     if (hasIndexBuffer) {

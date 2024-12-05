@@ -247,6 +247,106 @@
 		{
 			"isExternal" : true,
 			"path" : "/usr/lib/cmake/assimp-5.4/assimpTargets-release.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindVulkan.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/glslang/glslang-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/glslang/glslang-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-none.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-none.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/glslang/glslang-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/glslang/glslang-targets-none.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

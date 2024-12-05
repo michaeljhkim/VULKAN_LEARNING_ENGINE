@@ -12,4 +12,7 @@
 
 - vulkan allows you to not bind anything UNTIL the very end. In the meantime, you create buffers and change up the buffer as needed
 
-- CURRENTLY TRYING TO FIGURE OUT SHADER SYSTEMS IN VULKAN, AND HOW TO ADAPT THEM GIVEN THE CURRENT OPENGL SHADER SYSTEM
+- In either opengl or vulkan, the rigid body would be translated and rotated all in code
+- All the Shader does later is then just moving it according to how you translated it earlier
+
+- the variables in the layout part of the vertex shader indicate that we are taking from the buffer, rather than defining certain variables later 

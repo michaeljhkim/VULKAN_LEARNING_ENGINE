@@ -1,6 +1,6 @@
 #pragma once
 
-//#include "lve_camera.hpp"
+#include "../io/camera.hpp"
 #include "vulkan_device.hpp"
 #include "vulkan_frame_info.hpp"
 #include "vulkan_pipeline.hpp"
@@ -43,10 +43,17 @@ class ShaderPipline {
     ShaderPipline::ShaderPipline(VulkanDevice& device, 
                             VkRenderPass renderPass, 
                             VkDescriptorSetLayout globalSetLayout,
+                            const std::string& vertexShaderPath, 
+                            const std::string& fragShaderPath, 
+                            const std::string& geoShaderPath = "");
+
+    ShaderPipline::ShaderPipline(VulkanDevice& device, 
+                            VkRenderPass renderPass, 
+                            VkDescriptorSetLayout globalSetLayout,
                             bool includeDefaultHeader, 
                             const std::string& vertexShaderPath, 
                             const std::string& fragShaderPath, 
-                            const std::string& geoShaderPath);
+                            const std::string& geoShaderPath = "");
 
     /*
         process functions
@@ -106,7 +113,7 @@ class ShaderPipline {
 		const std::string& geoFilepath = "");
 
     VulkanDevice &vulkanDevice;
-    static bool includeDefaultHeader;
+    static const bool includeDefaultHeader = false;
 
     static std::string& vertexShaderPath;
     static std::string& fragShaderPath;

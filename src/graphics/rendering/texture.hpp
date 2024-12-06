@@ -1,11 +1,7 @@
-#ifndef TEXTURE_H
-#define TEXTURE_H
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <assimp/scene.h>
-
 #include <stb/stb_image.h>
 
 /*
@@ -57,5 +53,3 @@ public:
     // name of image
     std::string path;
 };
-
-#endif

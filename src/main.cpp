@@ -26,25 +26,25 @@
 #include "graphics/models/plane.hpp"
 #include "graphics/models/brickwall.hpp"
 
-#include "graphics/objects/model.h"
+#include "graphics/objects/model.hpp"
 
-#include "graphics/rendering/shader.h"
-#include "graphics/rendering/texture.h"
-#include "graphics/rendering/light.h"
-#include "graphics/rendering/cubemap.h"
-#include "graphics/rendering/text.h"
+#include "graphics/rendering/shader.hpp"
+#include "graphics/rendering/texture.hpp"
+#include "graphics/rendering/light.hpp"
+#include "graphics/rendering/cubemap.hpp"
+#include "graphics/rendering/text.hpp"
 
-#include "physics/environment.h"
-#include "physics/collisionmesh.h"
+#include "physics/environment.hpp"
+#include "physics/collisionmesh.hpp"
 
-#include "io/keyboard.h"
-#include "io/mouse.h"
-#include "io/joystick.h"
-#include "io/camera.h"
+#include "io/keyboard.hpp"
+#include "io/mouse.hpp"
+#include "io/joystick.hpp"
+#include "io/camera.hpp"
 
 #include "algorithms/states.hpp"
-#include "algorithms/ray.h"
-#include "algorithms/bounds.h"
+#include "algorithms/ray.hpp"
+#include "algorithms/bounds.hpp"
 
 #include "scene.hpp"
 

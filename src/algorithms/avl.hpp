@@ -1,6 +1,3 @@
-#ifndef AVL_H
-#define AVL_H
-
 // max function macro
 #define MAX(a, b) (a > b ? a : b)
 
@@ -88,5 +85,3 @@ void avl_freeDeep(avl* root);
 int strkeycmp(void* key1, void* key2);
 // integer keys
 int intkeycmp(void* key1, void* key2);
-
-#endif

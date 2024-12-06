@@ -1,4 +1,4 @@
-#include "material.h"
+#include "material.hpp"
 
 // data obtained from http://devernay.free.fr/cours/opengl/materials.html
 

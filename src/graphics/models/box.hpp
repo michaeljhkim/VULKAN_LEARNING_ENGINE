@@ -9,7 +9,7 @@
 
 #include "../memory/vertexmemory.hpp"
 
-#include "../../algorithms/bounds.h"
+#include "../../algorithms/bounds.hpp"
 #include "../rendering/shader.h"
 
 #define UPPER_BOUND 100

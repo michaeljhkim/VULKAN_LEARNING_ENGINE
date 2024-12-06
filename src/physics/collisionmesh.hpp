@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "../algorithms/bounds.h"
+#include "../algorithms/bounds.hpp"
 
 // forward declarations
 class CollisionModel;

@@ -1,6 +1,6 @@
-#include "collisionmodel.h"
+#include "collisionmodel.hpp"
 
-#include "../graphics/objects/model.h"
+#include "../graphics/model.hpp"
 
 CollisionModel::CollisionModel(Model* model)
 	: model(model) {}

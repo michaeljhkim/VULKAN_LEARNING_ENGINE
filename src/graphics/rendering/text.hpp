@@ -1,6 +1,3 @@
-#ifndef TEXT_H
-#define TEXT_H
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

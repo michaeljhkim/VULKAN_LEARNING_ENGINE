@@ -41,7 +41,7 @@ VulkanPipeline::VulkanPipeline(
 		const std::string& fragFilepath,
 		const std::string& geoFilepath = "")
 		: vulkanDevice{device} {
-    this->includeDefaultHeader = includeDefaultHeader;
+    includeDefaultHeader = includeDefaultHeader;
 	createGraphicsPipeline(configInfo, vertFilepath, fragFilepath, geoFilepath);
 }
 
@@ -85,12 +85,8 @@ void VulkanPipeline::createGraphicsPipeline(
 
     auto vertSpirv = getOrCompileSPIRV(vertFilepath, EShLangVertex);
     auto fragSpirv = getOrCompileSPIRV(fragFilepath, EShLangFragment);
-
 	createShaderModule(vertSpirv, &vertShaderModule);
 	createShaderModule(fragSpirv, &fragShaderModule);
-
-    //Copy over more stuff from vulkan pipeline maybe, might actually move stuff from here to vulkan pipeline if I can figure out modular solutions
-    //Probably should do assignments first
 
 	std::vector<VkPipelineShaderStageCreateInfo> shaderStages;
 
@@ -183,8 +179,7 @@ void VulkanPipeline::createShaderModule(const std::vector<char>& code, VkShaderM
 	createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
 
 	if (vkCreateShaderModule(vulkanDevice.device(), &createInfo, nullptr, shaderModule) != VK_SUCCESS) {
-		throw std::runtime_error("failed to create shader module");
-	}
+		throw std::runtime_error("failed to create shader module"); }
 }
 
 void VulkanPipeline::bind(VkCommandBuffer commandBuffer) {
@@ -304,37 +299,51 @@ void VulkanPipeline::clearDefault() {
     process functions
 */
 
+
 // load char from file
 std::vector<char> VulkanPipeline::readFile(const std::string& filepath) {
-	std::string enginePath = ENGINE_DIR + filepath;
-	std::ifstream file{enginePath, std::ios::ate | std::ios::binary};
+    // Open the file in binary mode
+	//std::string enginePath = ENGINE_DIR + filepath;
+    std::ifstream file(filepath, std::ios::ate | std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file: " + filepath); }
 
-	if (!file.is_open()) {
-		throw std::runtime_error("failed to open file: " + enginePath);
-	}
+    size_t fileSize = static_cast<size_t>(file.tellg());
+    file.seekg(0, std::ios::beg); // Move back to the start of the file
 
-	size_t fileSize = static_cast<size_t>(file.tellg());
-	std::vector<char> buffer(fileSize);
+    // Handle files with default headers (non-SPIR-V)
+    if (includeDefaultHeader && 
+		(std::filesystem::path(filepath).extension().string() != ".spv") ) {
 
-	file.seekg(0);
-	file.read(buffer.data(), fileSize);
+        const std::string& headers = VulkanPipeline::defaultHeaders.str();
+        size_t totalSize = fileSize + headers.size() + 1;
+        std::vector<char> buffer(totalSize, '\0');	// Allocate buffer with space for headers and a null terminator
 
-	file.close();
-	return buffer;
+        std::memcpy(buffer.data(), headers.data(), headers.size());		// Copy default headers into the buffer
+        file.read(buffer.data() + headers.size(), fileSize);			// Read file content after headers
+        file.close();
+        return buffer;
+    }
+
+    // Handle SPIR-V or files without default headers
+    std::vector<char> buffer(fileSize);
+    file.read(buffer.data(), fileSize);
+    file.close();
+
+    return buffer;
 }
 
-//MUST FIGURE OUT HOW TO HANDLE WITH DEFAULT HEADERS
+
+
 std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath, EShLanguage shaderType) {
     std::string spirvFilePath = VulkanPipeline::defaultDirectory + '/' + filePath + ".spv";
 
     // Check if SPIR-V file already exists
     if (std::filesystem::exists(spirvFilePath)) {
-        return readFile(spirvFilePath);
-    }
+		return readFile(filePath); }
 
     // Initialize GLSLang shader
     glslang::TShader shader(shaderType);		// Read GLSL source code
-	//I MIGHT HAVE TO CREATE A NEW READFILE FUNCTION FOR THIS
     const char* sourceCStr = readFile(filePath).data();
     shader.setStrings(&sourceCStr, 1);
     TBuiltInResource defaultResource = InitResources();		//Defined in TBuiltInResource_default
@@ -354,15 +363,14 @@ std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath,
     glslang::GlslangToSpv(*program.getIntermediate(shaderType), spirv);
 
     // Convert the uint32_t vector into a char vector (byte-by-byte)
-    std::vector<char> spirvCharData(spirv.begin(), spirv.end());
+    std::vector<char> spirvCharData(reinterpret_cast<const char*>(spirv.data()), 
+                                    reinterpret_cast<const char*>(spirv.data()) + spirv.size() * sizeof(uint32_t));
 
     // Save SPIR-V binary to a file
-    std::ofstream spirvFile(spirvFilePath, std::ios::binary | std::ios::out);
-    if (!spirvFile) {
+    std::ofstream spirvFile(spirvFilePath, std::ios::binary);
+    if (!spirvFile.is_open()) {
         throw std::runtime_error("Failed to open file for writing: " + spirvFilePath); }
-
     spirvFile.write(spirvCharData.data(), spirvCharData.size());
-    spirvFile.close();
 
     return spirvCharData;
 }

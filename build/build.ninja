@@ -55,6 +55,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/main.cpp.o: CXX_COMPILER__yurrgoht_engi
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/scene.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o.d
@@ -62,6 +64,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o: CXX_COMPILER__yurrgoht_eng
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o: C_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/vulkan.c || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o.d
@@ -69,6 +73,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o: C_COMPILER__yurrgoht_engine
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/lib/stb.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o.d
@@ -76,6 +82,8 @@ build CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o: CXX_COMPILER__yurrgoht_engin
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/lib
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/avl.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o.d
@@ -83,6 +91,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o: CXX_COMPILER__yur
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/algorithms
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/bounds.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o.d
@@ -90,6 +100,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o: CXX_COMPILER__
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/algorithms
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/math/linalg.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o.d
@@ -97,6 +109,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/algorithms/math
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/octree.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o.d
@@ -104,6 +118,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o: CXX_COMPILER__
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/algorithms
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/ray.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o.d
@@ -111,6 +127,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o: CXX_COMPILER__yur
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/algorithms
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/game_object.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o.d
@@ -118,6 +136,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o: CXX_COMPILE
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/mesh.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/mesh.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/mesh.cpp.o.d
@@ -125,6 +145,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/mesh.cpp.o: CXX_COMPILER__yurr
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/model.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/model.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/model.cpp.o.d
@@ -132,6 +154,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/model.cpp.o: CXX_COMPILER__yur
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/mesh.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o.d
@@ -139,6 +163,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o: CXX_COMPIL
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/objects
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/objects/model.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o.d
@@ -146,6 +172,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/objects
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/cubemap.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o.d
@@ -153,6 +181,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o: CXX_C
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/light.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o.d
@@ -160,6 +190,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o: CXX_COM
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/material.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o.d
@@ -167,6 +199,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o: CXX_
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/shader.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o.d
@@ -174,6 +208,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o: CXX_CO
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/text.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o.d
@@ -181,6 +217,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o: CXX_COMP
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/rendering/texture.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o.d
@@ -188,6 +226,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o: CXX_C
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/shader_pipeline.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o.d
@@ -195,6 +235,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o: CXX_COM
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/simple_render_system.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o.d
@@ -202,6 +244,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o: CX
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_buffer.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o.d
@@ -209,6 +253,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_descriptors.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_descriptors.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_descriptors.cpp.o.d
@@ -216,6 +262,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_descriptors.cpp.o: CXX_
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_device.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o.d
@@ -223,6 +271,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_pipeline.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_pipeline.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_pipeline.cpp.o.d
@@ -230,6 +280,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_pipeline.cpp.o: CXX_COM
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_renderer.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_renderer.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_renderer.cpp.o.d
@@ -237,6 +289,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_renderer.cpp.o: CXX_COM
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_swap_chain.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_swap_chain.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_swap_chain.cpp.o.d
@@ -244,6 +298,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_swap_chain.cpp.o: CXX_C
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_window.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_window.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_window.cpp.o.d
@@ -251,13 +307,17 @@ build CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_window.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/graphics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
-build CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp || cmake_object_order_depends_target_yurrgoht_engine
-  DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o.d
+build CMakeFiles/yurrgoht_engine.dir/src/io/camera_movement_controller.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera_movement_controller.cpp || cmake_object_order_depends_target_yurrgoht_engine
+  DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/camera_movement_controller.cpp.o.d
   FLAGS = -g -std=gnu++20
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/joystick.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o.d
@@ -265,13 +325,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o: CXX_COMPILER__yurrgo
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
-
-build CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard.cpp || cmake_object_order_depends_target_yurrgoht_engine
-  DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o.d
-  FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
-  OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
-  OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard_movement_controller.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o.d
@@ -279,13 +334,17 @@ build CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o: 
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
-build CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse.cpp || cmake_object_order_depends_target_yurrgoht_engine
-  DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o.d
+build CMakeFiles/yurrgoht_engine.dir/src/io/mouse_movement_controller.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse_movement_controller.cpp || cmake_object_order_depends_target_yurrgoht_engine
+  DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/mouse_movement_controller.cpp.o.d
   FLAGS = -g -std=gnu++20
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/io/vulkan_camera.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o.d
@@ -293,6 +352,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o: CXX_COMPILER__y
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/io
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmesh.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o.d
@@ -300,6 +361,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o: CXX_COMPIL
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/physics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/physics/collisionmodel.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o.d
@@ -307,6 +370,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o: CXX_COMPI
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/physics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/physics/environment.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o.d
@@ -314,6 +379,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o: CXX_COMPILER
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/physics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 build CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o: CXX_COMPILER__yurrgoht_engine_unscanned_Debug /home/mk/Documents/YURRGOHT_ENGINE/src/physics/rigidbody.cpp || cmake_object_order_depends_target_yurrgoht_engine
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o.d
@@ -321,6 +388,8 @@ build CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o: CXX_COMPILER__
   INCLUDES = -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/yurrgoht_engine.dir/src/physics
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
+  TARGET_PDB = yurrgoht_engine.pdb
 
 
 # =============================================================================
@@ -330,16 +399,17 @@ build CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o: CXX_COMPILER__
 #############################################
 # Link the executable yurrgoht_engine
 
-build yurrgoht_engine: CXX_EXECUTABLE_LINKER__yurrgoht_engine_Debug CMakeFiles/yurrgoht_engine.dir/src/main.cpp.o CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/mesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/model.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_descriptors.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_pipeline.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_renderer.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_swap_chain.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_window.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o | /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3000.9
+build yurrgoht_engine: CXX_EXECUTABLE_LINKER__yurrgoht_engine_Debug CMakeFiles/yurrgoht_engine.dir/src/main.cpp.o CMakeFiles/yurrgoht_engine.dir/src/scene.cpp.o CMakeFiles/yurrgoht_engine.dir/src/vulkan.c.o CMakeFiles/yurrgoht_engine.dir/lib/stb.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/bounds.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/math/linalg.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/octree.cpp.o CMakeFiles/yurrgoht_engine.dir/src/algorithms/ray.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/mesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/model.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/mesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/objects/model.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/cubemap.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/light.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/material.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/shader.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/text.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/rendering/texture.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/shader_pipeline.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/simple_render_system.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_descriptors.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_pipeline.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_renderer.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_swap_chain.cpp.o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_window.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/camera_movement_controller.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/joystick.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/mouse_movement_controller.cpp.o CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmesh.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/collisionmodel.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/environment.cpp.o CMakeFiles/yurrgoht_engine.dir/src/physics/rigidbody.cpp.o | /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3000.9
   DEP_FILE = CMakeFiles/yurrgoht_engine.dir/link.d
   FLAGS = -g
-  LINK_FLAGS = -Wl,--dependency-file,CMakeFiles/yurrgoht_engine.dir/link.d
+  LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/yurrgoht_engine.dir/link.d
   LINK_LIBRARIES = /usr/lib/libSDL2main.a  /usr/lib/libSDL2-2.0.so.0.3000.9  -lassimp  -lfreetype  -lVulkan  -lglslang
   OBJECT_DIR = CMakeFiles/yurrgoht_engine.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/yurrgoht_engine.dir/
   TARGET_FILE = yurrgoht_engine
-  TARGET_PDB = yurrgoht_engine.dbg
+  TARGET_PDB = yurrgoht_engine.pdb
 
 
 #############################################
@@ -385,14 +455,14 @@ build all: phony yurrgoht_engine
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/mk/Documents/YURRGOHT_ENGINE/CMakeLists.txt /usr/lib/cmake/SDL2/SDL2Config.cmake /usr/lib/cmake/SDL2/SDL2ConfigVersion.cmake /usr/lib/cmake/SDL2/SDL2Targets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2Targets.cmake /usr/lib/cmake/SDL2/SDL2mainTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2mainTargets.cmake /usr/lib/cmake/SDL2/SDL2testTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2testTargets.cmake /usr/lib/cmake/SDL2/sdlfind.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-none.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-none.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake /usr/lib/cmake/assimp-5.4/assimpConfig.cmake /usr/lib/cmake/assimp-5.4/assimpConfigVersion.cmake /usr/lib/cmake/assimp-5.4/assimpTargets-release.cmake /usr/lib/cmake/assimp-5.4/assimpTargets.cmake /usr/lib/cmake/glslang/glslang-config-version.cmake /usr/lib/cmake/glslang/glslang-config.cmake /usr/lib/cmake/glslang/glslang-targets-none.cmake /usr/lib/cmake/glslang/glslang-targets.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FeatureSummary.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindVulkan.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.1/CMakeCCompiler.cmake CMakeFiles/3.31.1/CMakeCXXCompiler.cmake CMakeFiles/3.31.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/mk/Documents/YURRGOHT_ENGINE/CMakeLists.txt /usr/lib/cmake/SDL2/SDL2Config.cmake /usr/lib/cmake/SDL2/SDL2ConfigVersion.cmake /usr/lib/cmake/SDL2/SDL2Targets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2Targets.cmake /usr/lib/cmake/SDL2/SDL2mainTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2mainTargets.cmake /usr/lib/cmake/SDL2/SDL2testTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2testTargets.cmake /usr/lib/cmake/SDL2/sdlfind.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-none.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-none.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake /usr/lib/cmake/assimp-5.4/assimpConfig.cmake /usr/lib/cmake/assimp-5.4/assimpConfigVersion.cmake /usr/lib/cmake/assimp-5.4/assimpTargets-release.cmake /usr/lib/cmake/assimp-5.4/assimpTargets.cmake /usr/lib/cmake/glslang/glslang-config-version.cmake /usr/lib/cmake/glslang/glslang-config.cmake /usr/lib/cmake/glslang/glslang-targets-none.cmake /usr/lib/cmake/glslang/glslang-targets.cmake /usr/share/cmake/Modules/CMakeCCompiler.cmake.in /usr/share/cmake/Modules/CMakeCCompilerABI.c /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake /usr/share/cmake/Modules/CMakeDetermineSystem.cmake /usr/share/cmake/Modules/CMakeFindBinUtils.cmake /usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake/Modules/CMakeSystem.cmake.in /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CMakeTestCCompiler.cmake /usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/FeatureSummary.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindVulkan.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Internal/FeatureTesting.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.2/CMakeCCompiler.cmake CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/mk/Documents/YURRGOHT_ENGINE/CMakeLists.txt /usr/lib/cmake/SDL2/SDL2Config.cmake /usr/lib/cmake/SDL2/SDL2ConfigVersion.cmake /usr/lib/cmake/SDL2/SDL2Targets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2Targets.cmake /usr/lib/cmake/SDL2/SDL2mainTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2mainTargets.cmake /usr/lib/cmake/SDL2/SDL2testTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2testTargets.cmake /usr/lib/cmake/SDL2/sdlfind.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-none.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-none.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake /usr/lib/cmake/assimp-5.4/assimpConfig.cmake /usr/lib/cmake/assimp-5.4/assimpConfigVersion.cmake /usr/lib/cmake/assimp-5.4/assimpTargets-release.cmake /usr/lib/cmake/assimp-5.4/assimpTargets.cmake /usr/lib/cmake/glslang/glslang-config-version.cmake /usr/lib/cmake/glslang/glslang-config.cmake /usr/lib/cmake/glslang/glslang-targets-none.cmake /usr/lib/cmake/glslang/glslang-targets.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FeatureSummary.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindVulkan.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.1/CMakeCCompiler.cmake CMakeFiles/3.31.1/CMakeCXXCompiler.cmake CMakeFiles/3.31.1/CMakeSystem.cmake: phony
+build /home/mk/Documents/YURRGOHT_ENGINE/CMakeLists.txt /usr/lib/cmake/SDL2/SDL2Config.cmake /usr/lib/cmake/SDL2/SDL2ConfigVersion.cmake /usr/lib/cmake/SDL2/SDL2Targets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2Targets.cmake /usr/lib/cmake/SDL2/SDL2mainTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2mainTargets.cmake /usr/lib/cmake/SDL2/SDL2testTargets-noconfig.cmake /usr/lib/cmake/SDL2/SDL2testTargets.cmake /usr/lib/cmake/SDL2/sdlfind.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-none.cmake /usr/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-none.cmake /usr/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake /usr/lib/cmake/assimp-5.4/assimpConfig.cmake /usr/lib/cmake/assimp-5.4/assimpConfigVersion.cmake /usr/lib/cmake/assimp-5.4/assimpTargets-release.cmake /usr/lib/cmake/assimp-5.4/assimpTargets.cmake /usr/lib/cmake/glslang/glslang-config-version.cmake /usr/lib/cmake/glslang/glslang-config.cmake /usr/lib/cmake/glslang/glslang-targets-none.cmake /usr/lib/cmake/glslang/glslang-targets.cmake /usr/share/cmake/Modules/CMakeCCompiler.cmake.in /usr/share/cmake/Modules/CMakeCCompilerABI.c /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake /usr/share/cmake/Modules/CMakeDetermineSystem.cmake /usr/share/cmake/Modules/CMakeFindBinUtils.cmake /usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake/Modules/CMakeSystem.cmake.in /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CMakeTestCCompiler.cmake /usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/FeatureSummary.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindVulkan.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Internal/FeatureTesting.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.2/CMakeCCompiler.cmake CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake: phony
 
 
 #############################################

@@ -117,8 +117,7 @@
 				34,
 				35,
 				36,
-				37,
-				38
+				37
 			]
 		},
 		{
@@ -158,10 +157,6 @@
 			},
 			{
 				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-Wl,--dependency-file,CMakeFiles/yurrgoht_engine.dir/link.d",
 				"role" : "flags"
 			},
 			{
@@ -247,8 +242,7 @@
 				34,
 				35,
 				36,
-				37,
-				38
+				37
 			]
 		}
 	],
@@ -431,7 +425,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/io/camera.cpp",
+			"path" : "src/io/camera_movement_controller.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -443,19 +437,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/io/keyboard.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/io/keyboard_movement_controller.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/io/mouse.cpp",
+			"path" : "src/io/mouse_movement_controller.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

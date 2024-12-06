@@ -1,7 +1,7 @@
 #ifndef COLLISIONMODEL_H
 #define COLLISIONMODEL_H
 
-#include "collisionmesh.h"
+#include "collisionmesh.hpp"
 
 #include <vector>
 

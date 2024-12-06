@@ -1,7 +1,7 @@
-#include "avl.h"
+#include "avl.hpp"
 
-#include <stdlib.h>
-#include <string.h>
+#include <cstring>
+#include <string>
 
 /*
     allocation

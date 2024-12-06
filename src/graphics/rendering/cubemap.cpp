@@ -1,4 +1,4 @@
-#include "cubemap.h"
+#include "cubemap.hpp"
 
 #include "../../scene.hpp"
 

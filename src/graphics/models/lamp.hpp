@@ -2,7 +2,7 @@
 #define LAMP_HPP
 
 #include "cube.hpp"
-#include "../rendering/material.h"
+#include "../rendering/material.hpp"
 
 #include <glm/glm.hpp>
 

@@ -1,6 +1,3 @@
-#ifndef CUBEMAP_H
-#define CUBEMAP_H
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -49,5 +46,3 @@ private:
 	// cube object
 	ArrayObject VAO;
 };
-
-#endif

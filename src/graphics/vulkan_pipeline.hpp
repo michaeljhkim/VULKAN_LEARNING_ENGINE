@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vulkan_device.hpp"
+#include <vulkan/vulkan.hpp>
 
 // std
 #include <string>
@@ -40,6 +41,8 @@ struct PipelineConfigInfo {
 	VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
 	std::vector<VkDynamicState> dynamicStateEnables;
 	VkPipelineDynamicStateCreateInfo dynamicStateInfo;
+	//VkPipelineLayout pipelineLayout = VK_NULL_HANDLE;
+	//VkRenderPass renderPass = VK_NULL_HANDLE;
 	VkPipelineLayout pipelineLayout = nullptr;
 	VkRenderPass renderPass = nullptr;
 	uint32_t subpass = 0;
@@ -88,7 +91,7 @@ class VulkanPipeline {
 		const std::string& geoFilepath = "");
 
 	void createShaderModule(const std::vector<char>& code, VkShaderModule* shaderModule);
-    bool includeDefaultHeader = false;
+    static const bool includeDefaultHeader = false;
 
 	VulkanDevice& vulkanDevice;
 	VkPipeline graphicsPipeline;

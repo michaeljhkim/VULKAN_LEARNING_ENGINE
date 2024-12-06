@@ -1,10 +1,7 @@
-#ifndef BOUNDS_H
-#define BOUNDS_H
-
 #include <glm/glm.hpp>
 #include <memory>
 
-#include "../physics/rigidbody.h"
+#include "../physics/rigidbody.hpp"
 
 // forward declaration
 namespace Octree {
@@ -94,5 +91,3 @@ public:
     // operator overload
     bool operator==(BoundingRegion br);
 };
-
-#endif

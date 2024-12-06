@@ -1,4 +1,4 @@
-#include "linalg.h"
+#include "linalg.hpp"
 
 #include <limits>
 #include <glm/glm.hpp>

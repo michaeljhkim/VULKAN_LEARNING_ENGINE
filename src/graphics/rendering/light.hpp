@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 
 #include "shader.h"
-#include "../../algorithms/bounds.h"
+#include "../../algorithms/bounds.hpp"
 #include "../memory/framememory.hpp"
 
 /*

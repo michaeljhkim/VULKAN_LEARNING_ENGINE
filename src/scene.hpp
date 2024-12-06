@@ -37,17 +37,17 @@
 //#include "graphics/objects/model.h"
 #include "graphics/model.hpp"
 
-#include "graphics/rendering/light.h"
-#include "graphics/rendering/shader.h"
-#include "graphics/rendering/text.h"
+#include "graphics/rendering/light.hpp"
+#include "graphics/rendering/shader.hpp"
+#include "graphics/rendering/text.hpp"
 
-#include "io/camera.h"
-#include "io/keyboard.h"
+#include "io/camera.hpp"
+#include "io/keyboard.hpp"
 #include "io/mouse.hpp"
 
 #include "algorithms/states.hpp"
-#include "algorithms/avl.h"
-#include "algorithms/octree.h"
+#include "algorithms/avl.hpp"
+#include "algorithms/octree.hpp"
 #include "algorithms/trie.hpp"
 
 // forward declarations

@@ -1,11 +1,9 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-#include "../graphics/game_object.hpp"
-#include "../graphics/vulkan_window.hpp"
 
 //namespace lve {
-class KeyboardMovementController {
+class Keyboard {
  public:
 	struct KeyMappings {
 		SDL_Scancode moveForward = SDL_SCANCODE_W;
@@ -24,39 +22,25 @@ class KeyboardMovementController {
 	/*
 			static callback
 	*/
-	//Keyboard() {}
 
 	// key state changed
-	static void keyCallback(SDL_Event keyboard_event);
+	static void keyCallback(const SDL_Event& event);
 
 	/*
 			static accessors
 	*/
 
-	// get key state
+	// get key state 
 	static bool key(SDL_Scancode key);
 
-	// get if key recently changed
+	//get key changes
 	static bool keyChanged(SDL_Scancode key);
-
-	// get if key recently changed and is up
 	static bool keyWentUp(SDL_Scancode key);
-
-	// get if key recently changed and is down
 	static bool keyWentDown(SDL_Scancode key);
 
-
-	void moveInPlaneXZ(float dt, GameObject& gameObject);
-
-	KeyMappings key_mappings{};
-	float moveSpeed{3.f};
-	float lookSpeed{1.5f};
+	static const KeyMappings key_mappings;
 
 private:
-	/*
-			static keyboard values
-	*/
-
 	// key state array (true for down, false for up)
 	static bool keys[];
 

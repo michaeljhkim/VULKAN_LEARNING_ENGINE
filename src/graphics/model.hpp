@@ -20,9 +20,9 @@
 
 
 #include "models/box.hpp"
-#include "../physics/collisionmodel.h"
-#include "../physics/rigidbody.h"
-#include "../algorithms/bounds.h"
+#include "../physics/collisionmodel.hpp"
+#include "../physics/rigidbody.hpp"
+#include "../algorithms/bounds.hpp"
 #include "../algorithms/states.hpp"
 #include "../scene.hpp"
 

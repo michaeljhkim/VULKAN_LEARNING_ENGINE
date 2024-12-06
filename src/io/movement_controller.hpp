@@ -1,10 +1,15 @@
-#ifndef CAMERA_H
-#define CAMERA_H
-
 #include <iostream>
 #include <glad/glad.h>
+
+#include "keyboard.hpp"
+#include "mouse.hpp"
+
+#include "../graphics/game_object.hpp"
+#include "../graphics/vulkan_window.hpp"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
 
 /*
     enum to represent directions for movement
@@ -24,7 +29,7 @@ enum class CameraDirection {
     camera class to help display from POV of camera
 */
 
-class Camera {
+class MovementController {
 public:
     /*
         camera values
@@ -52,7 +57,7 @@ public:
     */
 
     // default and initialize with position
-    Camera(glm::vec3 position = glm::vec3(0.0f));
+    MovementController(glm::vec3 position = glm::vec3(0.0f));
 
     /*
         modifiers
@@ -77,6 +82,10 @@ public:
     // get zoom value for camera
     float getZoom();
 
+    void moveInPlaneXZ(float dt, GameObject& gameObject);
+	float moveSpeed{3.f};
+	float lookSpeed{1.5f};
+
 private:
     /*
         private modifier
@@ -85,5 +94,3 @@ private:
     // change camera directional vectors based on movement
     void updateCameraVectors();
 };
-
-#endif

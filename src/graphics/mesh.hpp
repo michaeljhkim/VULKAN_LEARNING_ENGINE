@@ -6,14 +6,14 @@
 #include <vector>
 #include <glm/glm.hpp>
 
-#include "rendering/shader.h"
-#include "rendering/texture.h"
-#include "rendering/material.h"
+#include "shader_pipeline.hpp"
+#include "rendering/texture.hpp"
+#include "rendering/material.hpp"
 
 #include "memory/vertexmemory.hpp"
 #include "models/box.hpp"
-#include "../algorithms/bounds.h"
-#include "../physics/collisionmesh.h"
+#include "../algorithms/bounds.hpp"
+#include "../physics/collisionmesh.hpp"
 
 /*
     structure storing values for each vertex

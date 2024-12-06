@@ -1,9 +1,10 @@
-#ifndef MOUSE_HPP
-#define MOUSE_HPP
-
 #include <iostream>
 #include <glad/glad.h>
 #include <SDL2/SDL.h>
+
+#include <memory>
+#include <utility>
+#include "../graphics/game_object.hpp"
 
 /*
     mouse class to handle mouse callbacks
@@ -15,12 +16,10 @@ public:
         callbacks
     */
 
-    // cursor position changed
-    static void cursorPosCallback(SDL_Event event);
-    // mouse button state changed
-    static void mouseButtonCallback(SDL_Event event);
-    // scroll wheel moved
-    static void mouseWheelCallback(SDL_Event event);
+    // Change in cursor position, mouse buttons, and mouse wheel
+    static void cursorPosCallback(const SDL_Event& event);
+    static void mouseButtonCallback(const SDL_Event& event);
+    static void mouseWheelCallback(const SDL_Event& event);
 
     // any mouse button is being held down
     static void mouseButtonRepeat();
@@ -28,32 +27,15 @@ public:
     /*
         accessors
     */
-    // Helper function to get and reset a value
-    template <typename T>
-    static T getAndReset(T& value);
+    // Get member variables 
+    static double getDX() noexcept { return std::exchange(dx, 0.0); }
+    static double getDY() noexcept { return std::exchange(dy, 0.0); }
+    static double getScrollDX() noexcept { return std::exchange(scrollDx, 0.0); }
+    static double getScrollDY() noexcept { return std::exchange(scrollDy, 0.0); }
 
-    // get mouse x position
-    static double getMouseX();
-    // get mouse y position
-    static double getMouseY();
-
-    // get mouse change in x
-    static double getDX();
-    // get mouse change in y
-    static double getDY();
-
-    // get scroll value in x
-    static double getScrollDX();
-    // get scroll value in y
-    static double getScrollDY();
-
-    // get button state
-    static bool button_state(Uint8 button);
     // return if button changed then reset it in the changed array
     static bool buttonChanged(Uint8 button);
-    // return if button changed and is now up
     static bool buttonWentUp(Uint8 button);
-    // return if button changed and is now down
     static bool buttonWentDown(Uint8 button);
 
 private:
@@ -61,24 +43,20 @@ private:
         static mouse values
     */
 
-    // x posiiton
-    static double x;
-    // y position
-    static double y;
+    // x and y positon
+    //static double x;
+    //static double y;
 
-    // previous x position
+    // previous x and y position
     static double lastX;
-    // previous y position
     static double lastY;
 
-    // change in x position from lastX
+    // change in x position from lastX and y position from lastY
     static double dx;
-    // change in y position from lastY
     static double dy;
 
-    // change in scroll x
+    // change in scroll x and y
     static double scrollDx;
-    // change in scroll y
     static double scrollDy;
 
     // if this is the first change in the mouse position
@@ -89,5 +67,3 @@ private:
     // button changed array (true if changed)
     static bool buttonsChanged[];
 };
-
-#endif

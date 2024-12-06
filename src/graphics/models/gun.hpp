@@ -1,11 +1,11 @@
 #include "../objects/model.h"
 
-#include "../../io/camera.h"
-#include "../../io/keyboard.h"
+#include "../../io/camera.hpp"
+#include "../../io/keyboard.hpp"
 
 #include "../../scene.hpp"
 
-#include "../../physics/environment.h"
+#include "../../physics/environment.hpp"
 
 class Gun : public Model {
 public:

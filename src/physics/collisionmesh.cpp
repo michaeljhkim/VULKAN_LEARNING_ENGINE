@@ -1,6 +1,6 @@
-#include "collisionmesh.h"
-#include "collisionmodel.h"
-#include "rigidbody.h"
+#include "collisionmesh.hpp"
+#include "collisionmodel.hpp"
+#include "rigidbody.hpp"
 
 #include "../algorithms/math/linalg.h"
 #include <iostream>

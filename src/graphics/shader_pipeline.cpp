@@ -30,16 +30,27 @@ struct SimplePushConstantData {
 ShaderPipline::ShaderPipline(VulkanDevice& device, 
                             VkRenderPass renderPass, 
                             VkDescriptorSetLayout globalSetLayout,
+                            const std::string& vertexShaderPath, 
+                            const std::string& fragShaderPath, 
+                            const std::string& geoShaderPath = "") : vulkanDevice{device} {
+    this->vertexShaderPath = vertexShaderPath;
+    this->fragShaderPath = fragShaderPath;
+    this->geoShaderPath = geoShaderPath;
+	createPipelineLayout(globalSetLayout);
+	createPipeline(renderPass);
+}
+
+ShaderPipline::ShaderPipline(VulkanDevice& device, 
+                            VkRenderPass renderPass, 
+                            VkDescriptorSetLayout globalSetLayout,
                             bool includeDefaultHeader, 
                             const std::string& vertexShaderPath, 
                             const std::string& fragShaderPath, 
                             const std::string& geoShaderPath = "") : vulkanDevice{device} {
-
-    this->includeDefaultHeader = includeDefaultHeader;
+    includeDefaultHeader = includeDefaultHeader;
     this->vertexShaderPath = vertexShaderPath;
     this->fragShaderPath = fragShaderPath;
     this->geoShaderPath = geoShaderPath;
-
 	createPipelineLayout(globalSetLayout);
 	createPipeline(renderPass);
 }
@@ -74,9 +85,20 @@ void ShaderPipline::createPipeline(VkRenderPass renderPass) {
 	pipelineConfig.pipelineLayout = pipelineLayout;
 	vulkanPipeline = std::make_unique<VulkanPipeline>(
 			vulkanDevice,
+			pipelineConfig,
+            includeDefaultHeader,
 			vertexShaderPath,
 			fragShaderPath,
-			pipelineConfig);
+            geoShaderPath);
+    
+    /*
+	vulkanPipeline = std::make_unique<VulkanPipeline>(
+			vulkanDevice,
+			pipelineConfig,
+			vertexShaderPath,
+			fragShaderPath,
+            geoShaderPath);
+    */
 }
 
 

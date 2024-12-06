@@ -2,8 +2,8 @@
 #define CUBE_H
 
 #include "../objects/model.h"
-#include "../rendering/texture.h"
-#include "../rendering/material.h"
+#include "../rendering/texture.hpp"
+#include "../rendering/material.hpp"
 
 class Cube : public Model {
 public:

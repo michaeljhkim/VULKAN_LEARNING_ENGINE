@@ -1,6 +1,6 @@
-#include "bounds.h"
-#include "octree.h"
-#include "../physics/collisionmesh.h"
+#include "bounds.hpp"
+#include "octree.hpp"
+#include "../physics/collisionmesh.hpp"
 
 /*
         Constructors

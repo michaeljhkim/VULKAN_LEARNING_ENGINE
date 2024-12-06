@@ -3,61 +3,55 @@
 //namespace lve {
 
 glm::mat4 TransformComponent::mat4() {
-  const float c3 = glm::cos(rotation.z);
-  const float s3 = glm::sin(rotation.z);
-  const float c2 = glm::cos(rotation.x);
-  const float s2 = glm::sin(rotation.x);
-  const float c1 = glm::cos(rotation.y);
-  const float s1 = glm::sin(rotation.y);
-  return glm::mat4{
-      {
-          scale.x * (c1 * c3 + s1 * s2 * s3),
-          scale.x * (c2 * s3),
-          scale.x * (c1 * s2 * s3 - c3 * s1),
-          0.0f,
-      },
-      {
-          scale.y * (c3 * s1 * s2 - c1 * s3),
-          scale.y * (c2 * c3),
-          scale.y * (c1 * c3 * s2 + s1 * s3),
-          0.0f,
-      },
-      {
-          scale.z * (c2 * s1),
-          scale.z * (-s2),
-          scale.z * (c1 * c2),
-          0.0f,
-      },
-      {translation.x, translation.y, translation.z, 1.0f}};
+    // Precompute trigonometric values
+    const float cX = glm::cos(rotation.x), sX = glm::sin(rotation.x);
+    const float cY = glm::cos(rotation.y), sY = glm::sin(rotation.y);
+    const float cZ = glm::cos(rotation.z), sZ = glm::sin(rotation.z);
+
+    // Compute common terms
+    const float cYcZ = cY * cZ, cYsZ = cY * sZ;
+    const float sYsZ = sY * sZ, sYcZ = sY * cZ;
+    const float sXcZ = sX * cZ, sXsZ = sX * sZ;
+    const float cXsY = cX * sY, cXcY = cX * cY;
+
+    // Construct the transformation matrix
+    return glm::mat4{
+        // First column
+        {scale.x * (cYcZ + sYsZ * sX), scale.x * (cX * sZ), scale.x * (sYcZ * sX - cYsZ), 0.0f},
+        // Second column
+        {scale.y * (sYsZ * cX - cYcZ * sX), scale.y * (cX * cZ), scale.y * (cYsZ * sX + sYcZ), 0.0f},
+        // Third column
+        {scale.z * (cXsY), scale.z * (-sX), scale.z * (cXcY), 0.0f},
+        // Fourth column (translation)
+        {translation.x, translation.y, translation.z, 1.0f}};
 }
 
 glm::mat3 TransformComponent::normalMatrix() {
-  const float c3 = glm::cos(rotation.z);
-  const float s3 = glm::sin(rotation.z);
-  const float c2 = glm::cos(rotation.x);
-  const float s2 = glm::sin(rotation.x);
-  const float c1 = glm::cos(rotation.y);
-  const float s1 = glm::sin(rotation.y);
-  const glm::vec3 invScale = 1.0f / scale;
+    // Precompute trigonometric values
+    const float cX = glm::cos(rotation.x), sX = glm::sin(rotation.x);
+    const float cY = glm::cos(rotation.y), sY = glm::sin(rotation.y);
+    const float cZ = glm::cos(rotation.z), sZ = glm::sin(rotation.z);
 
-  return glm::mat3{
-      {
-          invScale.x * (c1 * c3 + s1 * s2 * s3),
-          invScale.x * (c2 * s3),
-          invScale.x * (c1 * s2 * s3 - c3 * s1),
-      },
-      {
-          invScale.y * (c3 * s1 * s2 - c1 * s3),
-          invScale.y * (c2 * c3),
-          invScale.y * (c1 * c3 * s2 + s1 * s3),
-      },
-      {
-          invScale.z * (c2 * s1),
-          invScale.z * (-s2),
-          invScale.z * (c1 * c2),
-      },
-  };
+    // Inverse scale factors
+    const glm::vec3 invScale = 1.0f / scale;
+
+    // Precompute common terms
+    const float cYcZ = cY * cZ, cYsZ = cY * sZ;
+    const float sYsZ = sY * sZ, sYcZ = sY * cZ;
+    const float sXcZ = sX * cZ, sXsZ = sX * sZ;
+    const float cXsY = cX * sY, cXcY = cX * cY;
+
+    // Return the normal matrix
+    return glm::mat3{
+        // First row
+        {invScale.x * (cYcZ + sYsZ * sX), invScale.x * (cX * sZ), invScale.x * (sYcZ * sX - cYsZ)},
+        // Second row
+        {invScale.y * (sYsZ * cX - cYcZ * sX), invScale.y * (cX * cZ), invScale.y * (cYsZ * sX + sYcZ)},
+        // Third row
+        {invScale.z * (cXsY), invScale.z * (-sX), invScale.z * (cXcY)},
+    };
 }
+
 
 GameObject GameObject::makePointLight(float intensity, float radius, glm::vec3 color) {
   GameObject gameObj = GameObject::createGameObject();

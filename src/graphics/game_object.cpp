@@ -1,8 +1,9 @@
 #include "game_object.hpp"
 
-//namespace lve {
 
-
+struct SimplePushConstantData {
+	Material material;
+};
 
 // initialize with parameters
 /*
@@ -31,7 +32,7 @@ void GameObject::enableCollisionModel() {
 
 
 // render instance(s)
-void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer commandBuffer) {
+void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer& commandBuffer) {
     if (!States::isActive(&switches, CONST_INSTANCES)) {
         // dynamic instances - update VBO data
 
@@ -45,9 +46,8 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
         // iterate through each instance
         for (int i = 0; i < currentNumInstances; i++) {
             if (doUpdate) {
-                // update Rigid Body
+                // update Rigid Body and activate moved switch
                 instances[i]->update(dt);
-                // activate moved switch
                 States::activate(&instances[i]->state, INSTANCE_MOVED);
             }
             else {
@@ -63,20 +63,28 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
         if (currentNumInstances) {
             // set transformation data
             instanceBuffer->map();
-            instanceBuffer->writeToBuffer((void*) (sizeof(glm::mat4) * currentNumInstances) );
+            instanceBuffer->writeToBuffer((void*)models.data() );
 
             normalInstanceBuffer->map();
-            normalInstanceBuffer->writeToBuffer((void*) (sizeof(glm::mat3) * currentNumInstances) );
+            normalInstanceBuffer->writeToBuffer((void*)normalModels.data() );
 
-            // set attribute pointers for each mesh
-            for (unsigned int i = 0; i < model->meshes.size(); i++) {
+            for (unsigned int i = 0, numMeshes = model->meshes.size(); i < numMeshes; i++) {
                 model->meshes[i]->bind(commandBuffer, instanceBuffer->getBuffer(), normalInstanceBuffer->getBuffer());
                 model->meshes[i]->draw(commandBuffer, currentNumInstances);
             }
         }
     }
     // set shininess
-    shader_pipeline.setFloat("material.shininess", 0.5f);
+    //shader_pipeline.setFloat("material.shininess", 0.5f);
+    SimplePushConstantData push{};
+    push.material.shininess = 0.5f;     //Temp value for testing - change later
+    vkCmdPushConstants(
+            commandBuffer,
+            shader_pipeline.getPipelineLayout(),
+            VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+            0,
+            sizeof(SimplePushConstantData),
+            &push);
 
     // render each mesh
     for (unsigned int i = 0, numMeshes = model->meshes.size(); i < numMeshes; i++) {
@@ -186,5 +194,3 @@ GameObject GameObject::makePointLight(float intensity, float radius, glm::vec3 c
   return gameObj;
 }
 */
-
-//}  // namespace lve

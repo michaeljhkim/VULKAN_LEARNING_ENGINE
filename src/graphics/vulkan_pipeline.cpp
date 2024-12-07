@@ -377,4 +377,3 @@ std::vector<char> VulkanPipeline::getOrCompileSPIRV(const std::string& filePath,
 
 
 
-//}	// namespace lve

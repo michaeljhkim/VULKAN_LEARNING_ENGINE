@@ -23,8 +23,6 @@
 
 
 
-//namespace lve {
-
 struct PipelineConfigInfo {
 	PipelineConfigInfo() = default;
 	PipelineConfigInfo(const PipelineConfigInfo&) = delete;
@@ -41,10 +39,10 @@ struct PipelineConfigInfo {
 	VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
 	std::vector<VkDynamicState> dynamicStateEnables;
 	VkPipelineDynamicStateCreateInfo dynamicStateInfo;
-	//VkPipelineLayout pipelineLayout = VK_NULL_HANDLE;
-	//VkRenderPass renderPass = VK_NULL_HANDLE;
-	VkPipelineLayout pipelineLayout = nullptr;
-	VkRenderPass renderPass = nullptr;
+	VkPipelineLayout pipelineLayout = VK_NULL_HANDLE;
+	VkRenderPass renderPass = VK_NULL_HANDLE;
+	//VkPipelineLayout pipelineLayout = nullptr;
+	//VkRenderPass renderPass = nullptr;
 	uint32_t subpass = 0;
 };
 
@@ -100,4 +98,3 @@ class VulkanPipeline {
 	static VkShaderModule geoShaderModule;
 };
 
-//}	// namespace lve

@@ -25,6 +25,12 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/lib/vkbootstrap/VkBootstrap.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/lib/vkbootstrap/VkBootstrap.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/lib/vkbootstrap/VkBootstrap.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/lib/vkbootstrap/VkBootstrap.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/avl.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/algorithms/avl.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/algorithms/avl.cpp.o"
@@ -175,9 +181,9 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/camera_movement_controller.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera_movement_controller.cpp",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/camera_movement_controller.cpp",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/camera_movement_controller.cpp.o"
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/camera.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/camera.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
@@ -187,21 +193,21 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard_movement_controller.cpp",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard_movement_controller.cpp",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/keyboard_movement_controller.cpp.o"
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/keyboard.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/keyboard.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/mouse_movement_controller.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse_movement_controller.cpp",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse_movement_controller.cpp",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/mouse_movement_controller.cpp.o"
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/mouse.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/mouse.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/vulkan_camera.cpp",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/vulkan_camera.cpp",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/vulkan_camera.cpp.o"
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/io/movement_controller.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/io/movement_controller.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/io/movement_controller.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/io/movement_controller.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",

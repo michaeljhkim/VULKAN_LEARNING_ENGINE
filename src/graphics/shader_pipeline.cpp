@@ -78,13 +78,14 @@ void ShaderPipline::createPipelineLayout(VkDescriptorSetLayout globalSetLayout) 
 
 //CONSIDER HOW TO UPLOAD DATA TO SHADERS IN ORDER FOR SHADERS TO WORK
 void ShaderPipline::createPipeline(VkRenderPass renderPass) {
-	assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
+	//assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
+	assert(pipelineLayout != VK_NULL_HANDLE && "Cannot create pipeline before pipeline layout");
 
 	PipelineConfigInfo pipelineConfig{};
 	VulkanPipeline::defaultPipelineConfigInfo(pipelineConfig);
 	pipelineConfig.renderPass = renderPass;
 	pipelineConfig.pipelineLayout = pipelineLayout;
-	vulkanPipeline = std::make_unique<VulkanPipeline>(
+	shaderPipeline = std::make_unique<VulkanPipeline>(
 			vulkanDevice,
 			pipelineConfig,
             includeDefaultHeader,
@@ -108,44 +109,53 @@ void ShaderPipline::createPipeline(VkRenderPass renderPass) {
     set uniform variables
 */
 
-void ShaderPipline::setBool(const std::string& name, bool value) {
-    glUniform1i(glGetUniformLocation(id, name.c_str()), (int)value);
-}
-
-void ShaderPipline::setInt(const std::string& name, int value) {
-    glUniform1i(glGetUniformLocation(id, name.c_str()), value);
-}
-
-void ShaderPipline::setFloat(const std::string& name, float value) {
-    glUniform1f(glGetUniformLocation(id, name.c_str()), value);
+template<typename T>
+void ShaderPipline::setData(const std::string& name, T value) {
+    vkCmdPushConstants(commandBuffer, pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(T), &value);
 }
 
 void ShaderPipline::set3Float(const std::string& name, float v1, float v2, float v3) {
     glUniform3f(glGetUniformLocation(id, name.c_str()), v1, v2, v3);
 }
 
-void ShaderPipline::set3Float(const std::string& name, glm::vec3 v) {
-    glUniform3f(glGetUniformLocation(id, name.c_str()), v.x, v.y, v.z);
-}
-
 void ShaderPipline::set4Float(const std::string& name, float v1, float v2, float v3, float v4) {
     glUniform4f(glGetUniformLocation(id, name.c_str()), v1, v2, v3, v4);
 }
 
-void ShaderPipline::set4Float(const std::string& name, aiColor4D color) {
-    glUniform4f(glGetUniformLocation(id, name.c_str()), color.r, color.g, color.b, color.a);
-}
 
-void ShaderPipline::set4Float(const std::string& name, glm::vec4 v) {
-    glUniform4f(glGetUniformLocation(id, name.c_str()), v.x, v.y, v.z, v.w);
-}
 
-void ShaderPipline::setMat3(const std::string& name, glm::mat3 val) {
-    glUniformMatrix3fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
-}
+void ShaderPipline::renderGameObjects(FrameInfo& frameInfo) {
+    shaderPipeline->bind(frameInfo.commandBuffer);
 
-void ShaderPipline::setMat4(const std::string& name, glm::mat4 val) {
-    glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
+    vkCmdBindDescriptorSets(
+        frameInfo.commandBuffer,
+        VK_PIPELINE_BIND_POINT_GRAPHICS,
+        pipelineLayout,
+        0,
+        1,
+        &frameInfo.globalDescriptorSet,
+        0,
+        nullptr);
+
+    for (auto& kv : frameInfo.gameObjects) {
+        auto& obj = kv.second;
+        if (obj.model == nullptr) continue;
+        //HERE IS WHERE PHYSICS TRANSFORMATIONS MUST BE
+        SimplePushConstantData push{};
+        push.modelMatrix = obj.transform.mat4();
+        push.normalMatrix = obj.transform.normalMatrix();
+
+        vkCmdPushConstants(
+            frameInfo.commandBuffer,
+            pipelineLayout,
+            VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT | (geoShaderPath.empty() ? 0 : VK_SHADER_STAGE_GEOMETRY_BIT),
+            0,
+            sizeof(SimplePushConstantData),
+            &push);
+        //obj.render(shader_pipeline, dt, frameInfo.commandBuffer);
+        //obj.model->bind(frameInfo.commandBuffer);
+        //obj.model->draw(frameInfo.commandBuffer);
+    }
 }
 
 

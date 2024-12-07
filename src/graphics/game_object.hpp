@@ -107,7 +107,7 @@ class GameObject {
 	void enableCollisionModel();
 
 	RigidBody* generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot);
-	void render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer commandBuffer);
+	void render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer& commandBuffer);
 
  private:
 	//GameObject(id_t objId) : id{objId} {}

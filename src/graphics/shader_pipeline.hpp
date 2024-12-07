@@ -1,27 +1,10 @@
 #pragma once
 
-#include "../io/camera.hpp"
 #include "vulkan_device.hpp"
 #include "vulkan_frame_info.hpp"
 #include "vulkan_pipeline.hpp"
-#include "game_object.hpp"
 
 
-#include <glad/glad.h>
-
-#include <string>
-#include <sstream>
-#include <iostream>
-
-#include <assimp/scene.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
-#include <glslang/Public/ShaderLang.h>
-#include <glslang/SPIRV/GlslangToSpv.h>
-#include <filesystem>
 
 /*
     class to represent shader program
@@ -69,17 +52,10 @@ class ShaderPipline {
     /*
         set uniform variables
     */
-
-    void setBool(const std::string& name, bool value);
-    void setInt(const std::string& name, int value);
-    void setFloat(const std::string& name, float value);
+    template<typename T>
+    void ShaderPipline::setData(const std::string& name, T value);
     void set3Float(const std::string& name, float v1, float v2, float v3);
-    void set3Float(const std::string& name, glm::vec3 v);
     void set4Float(const std::string& name, float v1, float v2, float v3, float v4);
-    void set4Float(const std::string& name, aiColor4D color);
-    void set4Float(const std::string& name, glm::vec4 v);
-    void setMat3(const std::string& name, glm::mat3 val);
-    void setMat4(const std::string& name, glm::mat4 val);
 
     /*
         static
@@ -100,17 +76,13 @@ class ShaderPipline {
     // load string from file
     static std::string ReadFile(const std::string& filePath);
     static std::vector<uint32_t> getOrCompileSPIRV(const std::string& glslFile, EShLanguage shaderType);
-    
+    void renderGameObjects(FrameInfo& frameInfo);
+
+    VkPipelineLayout getPipelineLayout() { return pipelineLayout; };
 
  private:
     void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);
-    void createPipeline(
-        VkRenderPass renderPass);
-    void createGraphicsPipeline(
-        const PipelineConfigInfo& configInfo,
-		const std::string& vertFilepath,
-		const std::string& fragFilepath,
-		const std::string& geoFilepath = "");
+    void createPipeline(VkRenderPass renderPass);
 
     VulkanDevice &vulkanDevice;
     static const bool includeDefaultHeader = false;
@@ -119,7 +91,7 @@ class ShaderPipline {
     static std::string& fragShaderPath;
     static std::string& geoShaderPath;
 
-    std::unique_ptr<VulkanPipeline> vulkanPipeline;
+    std::unique_ptr<VulkanPipeline> shaderPipeline;
     VkPipelineLayout pipelineLayout;
     
 };

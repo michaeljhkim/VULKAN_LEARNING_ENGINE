@@ -19,6 +19,7 @@ add_executable(yurrgoht_engine
     src/scene.cpp
     src/vulkan.c
     lib/stb.cpp
+    lib/vkbootstrap/VkBootstrap.cpp
 
     ${ALGORITHIMS_SOURCES}  # Add all gathered files here
     ${GRAPHICS_SOURCES}  # Add all gathered files here

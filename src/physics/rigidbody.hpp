@@ -1,10 +1,10 @@
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
-
 #include <glm/glm.hpp>
 
 #include <iostream>
 #include <string>
+
+#include "../graphics/vulkan_utils.hpp"
+
 
 // switches for instance states
 #define INSTANCE_DEAD		(unsigned char)0b00000001
@@ -91,6 +91,7 @@ public:
         collisions
     */
     void handleCollision(RigidBody* inst, glm::vec3 norm);
-};
 
-#endif
+
+	TransformComponent rigid_body_transform{};
+};

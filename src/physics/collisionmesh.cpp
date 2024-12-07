@@ -2,7 +2,7 @@
 #include "collisionmodel.hpp"
 #include "rigidbody.hpp"
 
-#include "../algorithms/math/linalg.h"
+#include "../algorithms/math/linalg.hpp"
 #include <iostream>
 
 bool Face::collidesWithFace(RigidBody* thisRB, Face& face, RigidBody* faceRB, glm::vec3& retNorm) {

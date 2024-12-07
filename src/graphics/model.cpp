@@ -20,7 +20,7 @@
 #include <limits>
 #include <span>
 
-#include "../scene.hpp"
+//#include "../scene.hpp"
 
 
 #ifndef ENGINE_DIR
@@ -68,8 +68,7 @@ void Model::cleanup() {
 */
 
 // initialize with parameters
-Model::Model(VulkanDevice &device, std::string id, unsigned int maxNumInstances, unsigned int flags)
-    : vulkanDevice{device}, id(id), switches(flags), currentNumInstances(0), maxNumInstances(maxNumInstances), instances(maxNumInstances), collision(nullptr) {}
+Model::Model(VulkanDevice &vulkanDevice, unsigned int flags = 0) : vulkanDevice{vulkanDevice}, switches{flags} {}
 
 /*
     process functions
@@ -77,121 +76,6 @@ Model::Model(VulkanDevice &device, std::string id, unsigned int maxNumInstances,
 
 // initialize method (to be overriden)
 void Model::init() {}
-
-// render instance(s)
-void Model::render(Shader shader, float dt, Scene* scene) {
-    if (!States::isActive(&switches, CONST_INSTANCES)) {
-        // dynamic instances - update VBO data
-
-        // create list of each
-        std::vector<glm::mat4> models(currentNumInstances);
-        std::vector<glm::mat3> normalModels(currentNumInstances);
-
-        // determine if instances are moving
-        bool doUpdate = States::isActive(&switches, DYNAMIC);
-
-        // iterate through each instance
-        for (int i = 0; i < currentNumInstances; i++) {
-            if (doUpdate) {
-                // update Rigid Body
-                instances[i]->update(dt);
-                // activate moved switch
-                States::activate(&instances[i]->state, INSTANCE_MOVED);
-            }
-            else {
-                // deactivate moved switch
-                States::deactivate(&instances[i]->state, INSTANCE_MOVED);
-            }
-
-            // add updated matrices
-            models[i] = instances[i]->model;
-            normalModels[i] = instances[i]->normalModel;
-        }
-
-        if (currentNumInstances) {
-            // set transformation data
-            instanceBuffer->map();
-            instanceBuffer->writeToBuffer((void*) (sizeof(glm::mat4) * currentNumInstances) );
-
-            normalInstanceBuffer->map();
-            normalInstanceBuffer->writeToBuffer((void*) (sizeof(glm::mat3) * currentNumInstances) );
-
-            // set attribute pointers for each mesh
-            for (unsigned int i = 0; i < meshes.size(); i++) {
-                //meshes[i]->bind(commandBuffer, instanceBuffer, normalInstanceBuffer)
-                //meshes[i]->draw(commandBuffer, currentNumInstances)
-            }
-        }
-    }
-
-	/*
-    // set shininess
-    shader.setFloat("material.shininess", 0.5f);
-
-    // render each mesh
-    for (unsigned int i = 0, noMeshes = meshes.size(); i < noMeshes; i++) {
-        meshes[i].render(shader, currentNumInstances);
-    }
-	*/
-}
-
-// generate instance with parameters
-RigidBody* Model::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
-    // all slots filled
-    if (currentNumInstances >= maxNumInstances) {
-        return nullptr;
-    }
-
-    // instantiate new instance
-    instances[currentNumInstances] = new RigidBody(id, size, mass, pos, rot);
-    return instances[currentNumInstances++];
-}
-
-
-//Later, MAYBE make it so that it only binds and draws if the instances exists IDK I gotta do some more digging
-void Model::initInstances() {
-    // default values
-    std::unique_ptr<glm::mat4> modelData = nullptr;
-    std::unique_ptr<glm::mat3> normalModelData = nullptr;
-
-    std::vector<glm::mat4> models(currentNumInstances);
-    std::vector<glm::mat3> normalModels(currentNumInstances);
-
-    if (States::isActive(&switches, CONST_INSTANCES)) {
-        // instances won't change, set data pointers
-
-        for (unsigned int i = 0; i < currentNumInstances; i++) {
-            models[i] = instances[i]->model;
-            normalModels[i] = instances[i]->normalModel;
-        }
-
-        if (currentNumInstances) {
-            modelData = std::make_unique<glm::mat4>(&models[0]);
-            normalModelData = std::make_unique<glm::mat3>(&normalModels[0]);
-        }
-    }
-
-    uint32_t max_instances = static_cast<uint32_t>(maxNumInstances);
-	assert(max_instances >= 1 && "Max instance count must be at least 1");
-
-	uint32_t dataSize = sizeof(modelData);
-	instanceBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			dataSize,
-			max_instances,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	uint32_t normalDataSize = sizeof(normalModelData);
-    normalInstanceBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			normalDataSize,
-			max_instances,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-}
-
-
 
 
 // load model from path

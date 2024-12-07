@@ -82,7 +82,7 @@ void Vertex::calcTanVectors(std::vector<Vertex>& list, std::vector<unsigned int>
 */
 
 // default
-Mesh::Mesh(VulkanDevice &device) : vulkanDevice{device}, collision(NULL) {}
+Mesh::Mesh(VulkanDevice &device) : vulkanDevice{device} {}
 
 // Constructor with bounding region
 Mesh::Mesh(VulkanDevice &device, BoundingRegion br) : Mesh(device) {
@@ -116,7 +116,7 @@ void Mesh::loadData(std::vector<Vertex> _vertices, std::vector<unsigned int> _in
 
 // setup collision mesh
 void Mesh::loadCollisionMesh(unsigned int numPoints, float* coordinates, unsigned int numFaces, unsigned int* indices) {
-    this->collision = new CollisionMesh(numPoints, coordinates, numFaces, indices);
+    this->collision = std::make_unique<CollisionMesh>(numPoints, coordinates, numFaces, indices);
     this->br = this->collision->br;
 }
 
@@ -141,14 +141,14 @@ void Mesh::setupMaterial(Material mat) {
 }
 
 // render number of instances using shader
-void Mesh::render(Shader shader, unsigned int numInstances) {
-    shader.setBool("noNormalMap", true);
+void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
+    shader_pipeline.setBool("noNormalMap", true);
 
     if (TexExists) {
         // materials
-        shader.set4Float("material.diffuse", diffuse);
-        shader.set4Float("material.specular", specular);
-        shader.setBool("TexExists", true);
+        shader_pipeline.set4Float("material.diffuse", diffuse);
+        shader_pipeline.set4Float("material.specular", specular);
+        shader_pipeline.setBool("TexExists", true);
     }
     else {
         // textures
@@ -168,7 +168,7 @@ void Mesh::render(Shader shader, unsigned int numInstances) {
                 break;
             case aiTextureType_NORMALS:
                 name = "normal" + std::to_string(normalIdx++);
-                shader.setBool("noNormalMap", false);
+                shader_pipeline.setBool("noNormalMap", false);
                 break;
             case aiTextureType_SPECULAR:
                 name = "specular" + std::to_string(specularIdx++);
@@ -178,13 +178,12 @@ void Mesh::render(Shader shader, unsigned int numInstances) {
                 break;
             }
 
-            // set the shader value
-            shader.setInt(name, i);
-            // bind texture
+            // set the shader value and bind texture
+            shader_pipeline.setInt(name, i);
             textures[i].bind();
         }
 
-        shader.setBool("TexExists", false);
+        shader_pipeline.setBool("TexExists", false);
     }
     
     VAO.bind();

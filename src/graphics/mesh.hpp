@@ -97,7 +97,7 @@ public:
     // Bounding region for mesh
     BoundingRegion br;
     // pointer to the attached collision mesh
-    CollisionMesh* collision;
+    std::unique_ptr<CollisionMesh> collision;
 
     // list of vertices
     std::vector<Vertex> vertices;
@@ -148,7 +148,7 @@ public:
     void setupMaterial(Material mat);
 
     // render number of instances using shader
-    void render(Shader shader, unsigned int noInstances);
+    void render(ShaderPipline& shader_pipeline, unsigned int noInstances);
 
     // free up memory
     void cleanup();

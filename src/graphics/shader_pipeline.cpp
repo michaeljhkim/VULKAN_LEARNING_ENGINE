@@ -76,6 +76,7 @@ void ShaderPipline::createPipelineLayout(VkDescriptorSetLayout globalSetLayout) 
 	}
 }
 
+//CONSIDER HOW TO UPLOAD DATA TO SHADERS IN ORDER FOR SHADERS TO WORK
 void ShaderPipline::createPipeline(VkRenderPass renderPass) {
 	assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
 

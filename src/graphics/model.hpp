@@ -24,7 +24,7 @@
 #include "../physics/rigidbody.hpp"
 #include "../algorithms/bounds.hpp"
 #include "../algorithms/states.hpp"
-#include "../scene.hpp"
+//#include "../scene.hpp"
 
 
 // model switches
@@ -36,26 +36,11 @@
 
 class Model {
  public:
-    // id of model in scene
-    std::string id;
 	
 	// list of meshes
 	static std::vector<std::unique_ptr<Mesh>> meshes;
 
-    // list of instances
-    std::vector<RigidBody*> instances;
-
-    // maximum number of instances
-    unsigned int maxNumInstances;
-    // current number of instances
-    unsigned int currentNumInstances;
-
-    // combination of switches above
-    unsigned int switches;
-	void initInstances();
-
-	RigidBody* generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot);
-	void render(Shader shader, float dt, Scene* scene);
+	//void render(Shader shader, float dt, Scene* scene);
 
 
     /*
@@ -63,7 +48,7 @@ class Model {
     */
 
     // initialize with parameters
-    Model(VulkanDevice &device, std::string id, unsigned int maxNumInstances, unsigned int flags = 0);
+    Model(VulkanDevice &vulkanDevice, unsigned int flags = 0);
 
 	~Model();
 
@@ -80,11 +65,6 @@ class Model {
 
 	std::vector<Vertex> vertices{};
 	std::vector<uint32_t> indices{};
-	
-	// pointer to the collision model
-	CollisionModel* collision;
-	// list of bounding regions (1 for each mesh)
-	std::vector<BoundingRegion> boundingRegions;
 
 	// directory containing object file
 	std::string directory;
@@ -99,18 +79,14 @@ class Model {
 	std::vector<Texture> loadTextures(aiMaterial* mat, aiTextureType type);
 
 
+	// list of bounding regions (1 for each mesh)
+	std::vector<BoundingRegion> boundingRegions;
 
 	static std::unique_ptr<Model> createModelFromFile(
 			VulkanDevice &device, const std::string &filepath);
 
-
  private:
 	VulkanDevice &vulkanDevice;
-
-	std::unique_ptr<VulkanBuffer> instanceBuffer;
-	//uint32_t instanceCount;
-	std::unique_ptr<VulkanBuffer> normalInstanceBuffer;
-	//uint32_t normalInstanceCount;
 };
 
 //}	// namespace lve

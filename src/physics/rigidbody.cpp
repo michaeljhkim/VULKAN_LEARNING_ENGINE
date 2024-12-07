@@ -36,6 +36,7 @@ void RigidBody::update(float dt) {
     velocity += acceleration * dt;
 
     // calculate rotation matrix
+    /*
     glm::mat4 rotationX = glm::rotate(glm::mat4(1.0f), rot.x, glm::vec3(1, 0, 0));
     glm::mat4 rotationY = glm::rotate(glm::mat4(1.0f), rot.y, glm::vec3(0, 1, 0));
     glm::mat4 rotationZ = glm::rotate(glm::mat4(1.0f), rot.z, glm::vec3(0, 0, 1));
@@ -45,8 +46,17 @@ void RigidBody::update(float dt) {
     model = glm::translate(glm::mat4(1.0f), pos); // M = I * T = T
     model = model * rotMat; // M = M * R = T * R
     model = glm::scale(model, size); // M = M * S = T * R * S
+    transform.scale = size;
 
     normalModel = glm::transpose(glm::inverse(glm::mat3(model)));
+    */
+    rigid_body_transform.rotation.x = rot.x;
+    rigid_body_transform.rotation.y = rot.y;
+    rigid_body_transform.rotation.z = rot.z;
+    rigid_body_transform.translation = pos;
+
+    model = rigid_body_transform.mat4();
+    normalModel = rigid_body_transform.normalMatrix();
 
     lastCollision += dt;
 }

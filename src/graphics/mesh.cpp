@@ -82,36 +82,38 @@ void Vertex::calcTanVectors(std::vector<Vertex>& list, std::vector<unsigned int>
 */
 
 // default
-Mesh::Mesh(VulkanDevice &device) : vulkanDevice{device} {}
+Mesh::Mesh() {
+    this->collision = std::make_unique<CollisionMesh>(NULL);
+}
 
 // Constructor with bounding region
-Mesh::Mesh(VulkanDevice &device, BoundingRegion br) : Mesh(device) {
+Mesh::Mesh(BoundingRegion br) {
     this->br = br;
+    this->collision = std::make_unique<CollisionMesh>(NULL);
 }
 
 // initialize as textured object
-Mesh::Mesh(VulkanDevice &device, BoundingRegion br, std::vector<Texture> textures) : Mesh(device, br) {
+Mesh::Mesh(BoundingRegion br, std::vector<Texture> textures) : Mesh(br) {
     setupTextures(textures);
 }
 
 // initialize as material object
-Mesh::Mesh(VulkanDevice &device, BoundingRegion br, aiColor4D diff, aiColor4D spec) : Mesh(device, br) {
+Mesh::Mesh(BoundingRegion br, aiColor4D diff, aiColor4D spec) : Mesh(br) {
     setupColors(diff, spec);
 }
 
 // initialize with a material
-Mesh::Mesh(VulkanDevice &device, BoundingRegion br, Material m) : Mesh(device, br) {
+Mesh::Mesh(BoundingRegion br, Material m) : Mesh(br) {
     setupMaterial(m);
 }
+
+
 
 
 // load vertex and index data
 void Mesh::loadData(std::vector<Vertex> _vertices, std::vector<unsigned int> _indices, bool pad) {
     this->vertices = _vertices;
     this->indices = _indices;
-
-    createVertexBuffers();
-    createIndexBuffers();
 }
 
 // setup collision mesh
@@ -157,9 +159,6 @@ void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
         unsigned int specularIdx = 0;
 
         for (unsigned int i = 0; i < textures.size(); i++) {
-            // activate texture
-            glActiveTexture(GL_TEXTURE0 + i);
-
             // retrieve texture info
             std::string name;
             switch (textures[i].type) {
@@ -185,12 +184,37 @@ void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
 
         shader_pipeline.setBool("TexExists", false);
     }
-    
-    VAO.bind();
-    VAO.draw(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0, numInstances);
-    ArrayObject::clear();
+}
 
-    glActiveTexture(GL_TEXTURE0);
+
+
+// Not done, must create a material buffers. 
+
+void Mesh::createMaterialBuffers() {
+	uint32_t vertexCount = static_cast<uint32_t>(combinedVertices.size());
+	assert(vertexCount >= 3 && "Vertex count must be at least 3");
+	VkDeviceSize bufferSize = sizeof(combinedVertices[0]) * vertexCount;
+	uint32_t vertexSize = sizeof(combinedVertices[0]);
+
+	VulkanBuffer stagingBuffer{
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+	};
+
+	stagingBuffer.map();
+	stagingBuffer.writeToBuffer((void *)combinedVertices.data());
+
+	vertexBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), vertexBuffer->getBuffer(), bufferSize);
 }
 
 // free up memory
@@ -204,92 +228,6 @@ void Mesh::cleanup() {
 
 
 
-
-
-
-
-
-void Mesh::createVertexBuffers() {
-	uint32_t vertexCount = static_cast<uint32_t>(vertices.size());
-	assert(vertexCount >= 3 && "Vertex count must be at least 3");
-	VkDeviceSize bufferSize = sizeof(vertices[0]) * vertexCount;
-	uint32_t vertexSize = sizeof(vertices[0]);
-
-	VulkanBuffer stagingBuffer{
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-	};
-
-	stagingBuffer.map();
-	stagingBuffer.writeToBuffer((void *)vertices.data());
-
-	std::unique_ptr<VulkanBuffer> vertexBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), vertexBuffer->getBuffer(), bufferSize);
-}
-
-void Mesh::createIndexBuffers() {
-	indexCount = static_cast<uint32_t>(indices.size());
-    hasIndexBuffer = indexCount > 0;
-	if (!hasIndexBuffer) {
-		return;
-	}
-
-	VkDeviceSize bufferSize = sizeof(indices[0]) * indexCount;
-	uint32_t indexSize = sizeof(indices[0]);
-
-	VulkanBuffer stagingBuffer{
-			vulkanDevice,
-			indexSize,
-			indexCount,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-	};
-
-	stagingBuffer.map();
-	stagingBuffer.writeToBuffer((void *)indices.data());
-
-	indexBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			indexSize,
-			indexCount,
-			VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), indexBuffer->getBuffer(), bufferSize);
-}
-
-
-
-
-void Mesh::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {
-    // Bind the mesh's vertex buffer, the instance and normalized instance buffers (shared across meshes)
-    VkBuffer buffers[] = { vertexBuffer->getBuffer(), instanceBuffer, normalizedInstanceBuffer };
-    VkDeviceSize offsets[] = { 0, 0, 0 };
-    vkCmdBindVertexBuffers(commandBuffer, 0, 3, buffers, offsets);
-
-    // Bind the mesh's index buffer if it exists
-    if (hasIndexBuffer) {
-        vkCmdBindIndexBuffer(commandBuffer, indexBuffer->getBuffer(), 0, VK_INDEX_TYPE_UINT32);
-    }
-}
-
-
-void Mesh::draw(VkCommandBuffer commandBuffer, uint32_t instanceCount) {
-    if (hasIndexBuffer) {
-        vkCmdDrawIndexed(commandBuffer, indexCount, instanceCount, 0, 0, 0);
-    } else {
-        vkCmdDraw(commandBuffer, vertexCount, instanceCount, 0, 0);
-    }
-}
 
 
 // setup data with buffers

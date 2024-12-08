@@ -103,6 +103,7 @@ public:
     std::vector<Vertex> vertices;
     // list of indices
     std::vector<unsigned int> indices;
+
     // vertex array object pointing to all data for the mesh
     ArrayObject VAO;
 
@@ -118,19 +119,19 @@ public:
     */
 
     // default
-    Mesh(VulkanDevice &device);
+    Mesh();
 
     // intialize with a bounding region
-    Mesh(VulkanDevice &device, BoundingRegion br);
+    Mesh(BoundingRegion br);
 
     // initialize as textured object
-    Mesh(VulkanDevice &device, BoundingRegion br, std::vector<Texture> textures);
+    Mesh(BoundingRegion br, std::vector<Texture> textures);
 
     // initialize as material object
-    Mesh(VulkanDevice &device, BoundingRegion br, aiColor4D diff, aiColor4D spec);
+    Mesh(BoundingRegion br, aiColor4D diff, aiColor4D spec);
 
     // initialize with a material
-    Mesh(VulkanDevice &device, BoundingRegion br, Material m);
+    Mesh(BoundingRegion br, Material m);
 
     // load vertex and index data
     void loadData(std::vector<Vertex> vertices, std::vector<unsigned int> indices, bool pad = false);
@@ -153,25 +154,11 @@ public:
     // free up memory
     void cleanup();
 
-	void bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer);
-	void draw(VkCommandBuffer commandBuffer, uint32_t instanceCount);
-
 private:
-	void createVertexBuffers();
-	void createIndexBuffers();
-
     // true if has only materials
     bool TexExists;
+    void createMaterialBuffers();
 
     // setup data with buffers
     //void setup();
-
-	VulkanDevice &vulkanDevice;
-
-	std::unique_ptr<VulkanBuffer> vertexBuffer;
-	uint32_t vertexCount;
-
-  	bool hasIndexBuffer = false;
-	std::unique_ptr<VulkanBuffer> indexBuffer;
-	uint32_t indexCount;
 };

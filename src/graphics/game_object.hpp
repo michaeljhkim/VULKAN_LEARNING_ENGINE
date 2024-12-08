@@ -90,9 +90,10 @@ class GameObject {
 	std::unique_ptr<CollisionModel> collision;
 	// list of bounding regions (1 for each mesh)
 	std::vector<BoundingRegion> boundingRegions;
-
     // list of instances
     std::vector<RigidBody*> instances;
+	// list of indexed indirect Commands (1 for each mesh)
+	std::vector<std::unique_ptr<VkDrawIndexedIndirectCommand>> indirectCommands;
 
     // maximum number of instances and current number of instances
     unsigned int maxNumInstances;
@@ -118,6 +119,7 @@ class GameObject {
 
 	std::unique_ptr<VulkanBuffer> instanceBuffer;
 	std::unique_ptr<VulkanBuffer> normalInstanceBuffer;
+	std::unique_ptr<VulkanBuffer> indirectCommandBuffer;
 	//uint32_t instanceCount;
 	//uint32_t normalInstanceCount;
 };

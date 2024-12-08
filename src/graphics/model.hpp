@@ -40,6 +40,15 @@ class Model {
 	// list of meshes
 	static std::vector<std::unique_ptr<Mesh>> meshes;
 
+	//std::vector<Vertex> vertices{};
+	//std::vector<uint32_t> indices{};
+    std::vector<Vertex> combinedVertices;
+    std::vector<uint32_t> combinedIndices;
+	std::vector<uint32_t> vertexOffsets;
+	std::vector<uint32_t> indexOffsets;
+
+	std::vector<std::unique_ptr<VkDrawIndexedIndirectCommand>> indirectCommands;
+
 	//void render(Shader shader, float dt, Scene* scene);
 
 
@@ -63,15 +72,9 @@ class Model {
     // initialize method (to be overriden)
     virtual void init();
 
-	std::vector<Vertex> vertices{};
-	std::vector<uint32_t> indices{};
-
-	// directory containing object file
-	std::string directory;
-	// list of loaded textures
-	std::vector<Texture> textures_loaded;
-	// combination of switches above
-	unsigned int switches;
+	std::string directory;					// directory containing object file
+	std::vector<Texture> textures_loaded;	// list of loaded textures
+	unsigned int switches;					// combination of switches above
 
 	void loadModel(const std::string filepath);
 	void processNode(aiNode* node, const aiScene* scene);
@@ -82,11 +85,23 @@ class Model {
 	// list of bounding regions (1 for each mesh)
 	std::vector<BoundingRegion> boundingRegions;
 
-	static std::unique_ptr<Model> createModelFromFile(
-			VulkanDevice &device, const std::string &filepath);
+	static std::unique_ptr<Model> createModelFromFile(VulkanDevice &device, const std::string &filepath);
+
+	void bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer);
+	void draw(VkCommandBuffer commandBuffer, VkBuffer indirectBuffer, uint32_t instanceCount);
 
  private:
+	void createVertexBuffers();
+	void createIndexBuffers();
+
 	VulkanDevice &vulkanDevice;
+
+	std::unique_ptr<VulkanBuffer> vertexBuffer;
+	uint32_t vertexCount;
+
+  	bool hasIndexBuffer = false;
+	std::unique_ptr<VulkanBuffer> indexBuffer;
+	uint32_t indexCount;
 };
 
 //}	// namespace lve

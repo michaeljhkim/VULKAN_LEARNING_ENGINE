@@ -3,6 +3,8 @@
 
 struct SimplePushConstantData {
 	Material material;
+    bool noNormalMap;
+    bool TexExists;
 };
 
 // initialize with parameters
@@ -21,6 +23,7 @@ void GameObject::attachModel(std::string name, std::string filePath, unsigned in
     this->currentNumInstances = 0;
     this->instances.reserve(maxNumInstances);
     this->collision = nullptr;
+    this->indirectCommands = std::move(model->indirectCommands);
 }
 
 // enable a collision model
@@ -69,11 +72,12 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
             normalInstanceBuffer->writeToBuffer((void*)normalModels.data() );
 
             for (unsigned int i = 0, numMeshes = model->meshes.size(); i < numMeshes; i++) {
-                model->meshes[i]->bind(commandBuffer, instanceBuffer->getBuffer(), normalInstanceBuffer->getBuffer());
-                model->meshes[i]->draw(commandBuffer, currentNumInstances);
+                model->bind(commandBuffer, instanceBuffer->getBuffer(), normalInstanceBuffer->getBuffer());
+                model->draw(commandBuffer, indirectCommandBuffer->getBuffer(), currentNumInstances);
             }
         }
     }
+
     // set shininess
     //shader_pipeline.setFloat("material.shininess", 0.5f);
     SimplePushConstantData push{};
@@ -99,11 +103,15 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
 RigidBody* GameObject::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
     // all slots filled
     if (currentNumInstances >= maxNumInstances) {
-        return nullptr;
+        return nullptr; 
     }
+    instances[currentNumInstances] = new RigidBody(model_name, size, mass, pos, rot);   // instantiate new instance
 
-    // instantiate new instance
-    instances[currentNumInstances] = new RigidBody(model_name, size, mass, pos, rot);
+    // Optimize this later if possible
+    for (unsigned int i = 0; i < model->meshes.size(); i++) {
+        //indirectCommands[currentNumInstances]->indexCount = model->meshes[currentNumInstances]->indices.size();   //Already defined
+        indirectCommands[i]->instanceCount = currentNumInstances;       // Dynamic count based on the frame
+    }
     return instances[currentNumInstances++];
 }
 
@@ -149,6 +157,14 @@ void GameObject::initInstances() {
 			max_instances,
 			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	uint32_t indirectCommandSize = sizeof(VkDrawIndexedIndirectCommand);
+    indirectCommandBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			indirectCommandSize,
+			max_instances,
+			VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
+			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 }
 
 
@@ -161,6 +177,9 @@ void GameObject::removeInstance(unsigned int idx) {
             instances[i - 1] = instances[i];
         }
         currentNumInstances--;
+        for (unsigned int i = 0; i < model->meshes.size(); i++) {
+            indirectCommands[i]->instanceCount = currentNumInstances;       // Dynamic count based on the frame
+        }
     }
 }
 

@@ -23,3 +23,7 @@
 - Mesh only holds onto diffuse and specular, just so that the model knows how to light up a texture
 
 - Textures are stored in an array globally in model. Texture is it's own thing from materials
+
+- this descriptors code accomodate more than just VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, without modifications
+- However, it will depend on how many addBinding you call on build  
+- check main and remember why you did that as a test

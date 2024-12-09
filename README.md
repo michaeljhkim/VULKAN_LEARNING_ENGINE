@@ -32,12 +32,11 @@ Like GZDoom, but the issue there is getting custom functions to work. This is st
 
 IMMEDIATE TODO LIST (might as well just put it here):
 - convert from opengl to vulkan
+- make the engine run primarily with async, so input will always feels smooth regardless of framerates
 - figure out how the light system works
-- figure out how the textures works
 - figure out how the physics works
 - figure out how the collisions works
 - figure out how the skybox works
-- figure out how the shaders works
 - (maybe) figure out dynamic shaders
 - After figuring out above, find ways to improve and make more useful towards goals
 - possibly figure out better name for this game engine

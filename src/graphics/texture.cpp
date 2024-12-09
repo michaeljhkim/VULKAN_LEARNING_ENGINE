@@ -89,7 +89,12 @@ void Texture::createTextureSampler() {
 	}
 }
 
-//maybe the big texture array holds both textureSampler and the imageView
+// maybe the big texture array holds both textureSampler and the imageView
+// Perhaps put this inside of sampler, and make this take in a texture array of somekind
+// loop over all discriptor sets
+// still need to figure out how to incorporate this with the overall vulkan descriptors class
+// part I want this to interact with is writeImage in VulkanDescriptorWriter
+
 void Texture::updateTextureSampler(VkDescriptorSet descriptorSet) {
     /*
 	VkPhysicalDeviceProperties properties{};
@@ -116,16 +121,16 @@ void Texture::updateTextureSampler(VkDescriptorSet descriptorSet) {
     */
     for (size_t i = 0; i < textureArray.size(); ++i) {
         VkDescriptorImageInfo imageInfo = {};
-        imageInfo.sampler = textureSamplerArray[i].textureSampler;
-        imageInfo.imageView = textureArray[i].imageView;
         imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        imageInfo.sampler = textureArray[i].textureSampler;
+        imageInfo.imageView = textureArray[i].textureImageView;
 
-        VkWriteDescriptorSet descriptorWrite = {};
+        VkWriteDescriptorSet descriptorWrite = {};  // "write" instead of "descriptorWrite" in the descriptors cpp file
         descriptorWrite.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
         descriptorWrite.dstSet = descriptorSet;
         descriptorWrite.dstBinding = 0;
         descriptorWrite.dstArrayElement = static_cast<uint32_t>(i);
-        descriptorWrite.descriptorType = VK_DESCRIPTOR_TYPE_SAMPLER;
+        descriptorWrite.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
         descriptorWrite.descriptorCount = 1;
         descriptorWrite.pImageInfo = &imageInfo;
 

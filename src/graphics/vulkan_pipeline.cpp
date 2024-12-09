@@ -312,8 +312,7 @@ std::vector<char> VulkanPipeline::readFile(const std::string& filepath) {
     file.seekg(0, std::ios::beg); // Move back to the start of the file
 
     // Handle files with default headers (non-SPIR-V)
-    if (includeDefaultHeader && 
-		(std::filesystem::path(filepath).extension().string() != ".spv") ) {
+    if (includeDefaultHeader && (std::filesystem::path(filepath).extension().string() != ".spv") ) {
 
         const std::string& headers = VulkanPipeline::defaultHeaders.str();
         size_t totalSize = fileSize + headers.size() + 1;

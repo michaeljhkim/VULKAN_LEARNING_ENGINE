@@ -6,8 +6,7 @@
     constructor
 */
 
-Texture::Texture(std::string name)
-    : name(name), type(aiTextureType_NONE) {
+Texture::Texture(std::string name): name(name), type(aiTextureType_NONE) {
     generate();
 }
 

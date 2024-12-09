@@ -58,7 +58,6 @@ ShaderPipline::ShaderPipline(VulkanDevice& device,
 
 void ShaderPipline::createPipelineLayout(VkDescriptorSetLayout globalSetLayout) {
 	VkPushConstantRange pushConstantRange{};
-    //pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
     pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT | (geoShaderPath.empty() ? 0 : VK_SHADER_STAGE_GEOMETRY_BIT);
 	pushConstantRange.offset = 0;
 	pushConstantRange.size = sizeof(SimplePushConstantData);
@@ -126,6 +125,7 @@ void ShaderPipline::set4Float(const std::string& name, float v1, float v2, float
 
 void ShaderPipline::renderGameObjects(FrameInfo& frameInfo) {
     shaderPipeline->bind(frameInfo.commandBuffer);
+    //obj.render(shader_pipeline, dt, frameInfo.commandBuffer);
 
     vkCmdBindDescriptorSets(
         frameInfo.commandBuffer,
@@ -152,7 +152,6 @@ void ShaderPipline::renderGameObjects(FrameInfo& frameInfo) {
             0,
             sizeof(SimplePushConstantData),
             &push);
-        //obj.render(shader_pipeline, dt, frameInfo.commandBuffer);
         //obj.model->bind(frameInfo.commandBuffer);
         //obj.model->draw(frameInfo.commandBuffer);
     }

@@ -1,6 +1,7 @@
 #include "mesh.hpp"
 #include <iostream>
 
+
 // generate list of vertices
 std::vector<Vertex> Vertex::genList(float* vertices, int numVertices) {
     std::vector<Vertex> ret(numVertices);
@@ -124,20 +125,20 @@ void Mesh::loadCollisionMesh(unsigned int numPoints, float* coordinates, unsigne
 
 // setup textures
 void Mesh::setupTextures(std::vector<Texture> textures) {
-    this->TexExists = false;
+    this->noTextures = false;
     this->textures.insert(this->textures.end(), textures.begin(), textures.end());
 }
 
 // setup material colors
 void Mesh::setupColors(aiColor4D diff, aiColor4D spec) {
-    this->TexExists = true;
+    this->noTextures = true;
     this->diffuse = diff;
     this->specular = spec;
 }
 
 // set material structure
 void Mesh::setupMaterial(Material mat) {
-    this->TexExists = true;
+    this->noTextures = true;
     this->diffuse = { mat.diffuse.r, mat.diffuse.g, mat.diffuse.b, 1.0f };
     this->specular = { mat.specular.r, mat.specular.g, mat.specular.b, 1.0f };
 }
@@ -146,11 +147,11 @@ void Mesh::setupMaterial(Material mat) {
 void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
     shader_pipeline.setBool("noNormalMap", true);
 
-    if (TexExists) {
+    if (noTextures) {
         // materials
         shader_pipeline.set4Float("material.diffuse", diffuse);
         shader_pipeline.set4Float("material.specular", specular);
-        shader_pipeline.setBool("TexExists", true);
+        shader_pipeline.setBool("noTextures", true);
     }
     else {
         // textures
@@ -182,40 +183,11 @@ void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
             textures[i].bind();
         }
 
-        shader_pipeline.setBool("TexExists", false);
+        shader_pipeline.setBool("noTextures", false);
     }
 }
 
 
-
-// Not done, must create a material buffers. 
-
-void Mesh::createMaterialBuffers() {
-	uint32_t vertexCount = static_cast<uint32_t>(combinedVertices.size());
-	assert(vertexCount >= 3 && "Vertex count must be at least 3");
-	VkDeviceSize bufferSize = sizeof(combinedVertices[0]) * vertexCount;
-	uint32_t vertexSize = sizeof(combinedVertices[0]);
-
-	VulkanBuffer stagingBuffer{
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-	};
-
-	stagingBuffer.map();
-	stagingBuffer.writeToBuffer((void *)combinedVertices.data());
-
-	vertexBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), vertexBuffer->getBuffer(), bufferSize);
-}
 
 // free up memory
 void Mesh::cleanup() {

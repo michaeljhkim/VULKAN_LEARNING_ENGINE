@@ -110,7 +110,7 @@ void Model::processNode(aiNode* node, const aiScene* scene) {
 		//we add the mesh to the meshes list
         meshes.push_back(processMesh(mesh, scene));
 		//meshes.back() is the mesh we just processed the line above
-        boundingRegions.push_back(meshes.back()->br); // Push bounding region
+        boundingRegions.push_back(meshes.back()->meshBoundingRegion); // Push bounding region
     }
 
     // Recursively process child nodes
@@ -188,6 +188,7 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 
     // Process material
     std::unique_ptr<Mesh> ret;
+    ret->meshBoundingRegion = br;    //Set bounding region
     if (mesh->mMaterialIndex >= 0) {
         aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
@@ -196,7 +197,9 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
             aiColor4D diff(1.0f), spec(1.0f);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diff);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_SPECULAR, &spec);
-            ret = std::make_unique<Mesh>(vulkanDevice, br, diff, spec);
+            //ret = std::make_unique<Mesh>(br, diff, spec);
+            ret->diffuse = diff;
+            ret->specular = spec;
         } else {
             // Load textures
             auto loadAndInsert = [&](aiTextureType type) {
@@ -206,11 +209,15 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
             loadAndInsert(aiTextureType_DIFFUSE);
             loadAndInsert(aiTextureType_SPECULAR);
             loadAndInsert(aiTextureType_NORMALS); // Use HEIGHT for .obj files if needed
-            ret = std::make_unique<Mesh>(vulkanDevice, br, textures);
+            //ret = std::make_unique<Mesh>(br, textures);
+            //combinedTextures.insert(combinedTextures.end(), textures.begin(), textures.end());
+            ret->textures = textures;
         }
     }
     // Load vertex and index data
-    ret->loadData(vertices, indices);
+    //ret->loadData(vertices, indices);
+    ret->vertices = vertices;
+    ret->indices = indices;
 
     // Add indirect command to the total list 
     std::unique_ptr<VkDrawIndexedIndirectCommand> command = std::make_unique<VkDrawIndexedIndirectCommand>();
@@ -239,36 +246,38 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 // load list of textures
 std::vector<Texture> Model::loadTextures(aiMaterial* mat, aiTextureType type) {
     std::vector<Texture> textures;
-    std::unordered_map<std::string, Texture> textureMap;
+    std::unordered_set<std::string> loadedPaths; // Fast lookup for already loaded paths
 
-    // Build a map of already loaded textures for fast lookup
+    // Populate the set with paths of already loaded textures
     for (const auto& loadedTex : textures_loaded) {
-        textureMap.emplace(loadedTex.path, loadedTex);
+        loadedPaths.insert(loadedTex.path);
     }
 
-    // Load new textures
+    // Load textures from the material
     for (unsigned int i = 0; i < mat->GetTextureCount(type); ++i) {
         aiString str;
         mat->GetTexture(type, i, &str);
         std::string texturePath = str.C_Str();
 
-        // Check if texture is already loaded
-        if (auto it = textureMap.find(texturePath); it != textureMap.end()) {
-            textures.push_back(it->second);
+        // Check if the texture is already loaded
+        auto it = std::find_if(
+            textures_loaded.begin(), textures_loaded.end(),
+            [&texturePath](const Texture& tex) { return tex.path == texturePath; });
+
+        if (it != textures_loaded.end()) {
+            textures.push_back(*it);    // Add the existing texture
         } 
-		else {
-            // Texture not loaded yet
-            Texture tex(directory, texturePath, type);
+        else {
+            Texture tex(directory, texturePath, type);  // Load and add the new texture
             tex.load(false);
             textures.push_back(tex);
-            textures_loaded.push_back(tex); // Add to loaded textures
-            textureMap.emplace(texturePath, tex); // Update the map
+            loadedPaths.insert(texturePath);
+            textures_loaded.push_back(tex);             // Store in the global loaded textures
         }
     }
 
     return textures;
 }
-
 
 
 
@@ -335,6 +344,12 @@ void Model::createIndexBuffers() {
 
 	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), indexBuffer->getBuffer(), bufferSize);
 }
+
+
+
+void Model::createTextureBuffers() {
+}
+
 
 
 

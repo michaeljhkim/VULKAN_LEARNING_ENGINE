@@ -19,24 +19,32 @@
     structure storing values for each vertex
 */
 
+
+struct Mesh {
+    BoundingRegion br;
+    std::unique_ptr<CollisionMesh> collision;
+    std::vector<Vertex> vertices;
+    std::vector<uint32_t> indices;
+
+    // materialAssets
+    bool noTextures;
+    bool noNormalMap;
+    std::vector<Texture> textures;
+	//Material material;
+    aiColor4D diffuse;
+    aiColor4D specular;
+};
+
 struct Vertex {
     /*
         vertex values
     */
-    // position
-    glm::vec3 position{};
+    glm::vec3 position{};   // position
+    glm::vec3 color{};      // color
+    glm::vec3 normal{};     // normal vector
+    glm::vec2 texCoord{};   // texture coordinate (also known as UV or uv)
+    glm::vec3 tangent;      // tangent vector
 
-    // color
-    glm::vec3 color{};
-
-    // normal vector
-    glm::vec3 normal{};
-
-    // texture coordinate (also known as UV or uv)
-    glm::vec2 texCoord{};
-
-    // tangent vector
-    glm::vec3 tangent;
     // generate list of vertices
     static std::vector<Vertex> genList(float* vertices, int numVertices);
     // calculate tangent vectors for each face
@@ -44,14 +52,9 @@ struct Vertex {
 
     static std::vector<VkVertexInputBindingDescription> getBindingDescriptions() {
         std::vector<VkVertexInputBindingDescription> bindingDescriptions = {
-            // Binding for vertex data
-            {0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX},
-
-            // Binding for instance data
-            {1, sizeof(glm::mat4), VK_VERTEX_INPUT_RATE_INSTANCE},
-
-            // Binding for normalized instance data (e.g., orientation)
-            {2, sizeof(glm::mat3), VK_VERTEX_INPUT_RATE_INSTANCE}
+            {0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX},           // Binding for vertex data
+            {1, sizeof(glm::mat4), VK_VERTEX_INPUT_RATE_INSTANCE},      // Binding for instance data
+            {2, sizeof(glm::mat3), VK_VERTEX_INPUT_RATE_INSTANCE}       // Binding for normalized instance data (e.g., orientation)
         };
         return bindingDescriptions;
     }
@@ -91,7 +94,7 @@ struct Vertex {
 /*
     class representing Mesh
 */
-
+/*
 class Mesh {
 public:
     // Bounding region for mesh
@@ -114,9 +117,7 @@ public:
     // material specular value
     aiColor4D specular;
 
-    /*
-        constructors
-    */
+    //constructors
 
     // default
     Mesh();
@@ -156,9 +157,9 @@ public:
 
 private:
     // true if has only materials
-    bool TexExists;
-    void createMaterialBuffers();
+    bool noTextures;
 
     // setup data with buffers
     //void setup();
 };
+*/

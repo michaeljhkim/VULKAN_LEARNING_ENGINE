@@ -3,6 +3,7 @@
 - This section is currently the reason why my code is crashing. Newframe is processing and updating the octree, but something causes a segfault when sphere appears
 
 - collision/bounding boxes do not rotate. This is less taxing on cpu
+- considering bounding columns for smoothness (will definitely be more taxing)
 
 - octree update function is where segfault occurs. Not sure why
 
@@ -17,4 +18,8 @@
 
 - the variables in the layout part of the vertex shader indicate that we are taking from the buffer, rather than defining certain variables later 
 
-- CONSIDER SPLITTING UP MESH CLASS AND GIVING CERTAIN FEATUERS TO MODELS AND GAMEOBJECT
+- Vert shader inputs from c++ code, then outputs to frag shader
+
+- Mesh only holds onto diffuse and specular, just so that the model knows how to light up a texture
+
+- Textures are stored in an array globally in model. Texture is it's own thing from materials

@@ -270,12 +270,13 @@ std::vector<const char*> VulkanDevice::getRequiredExtensions() {
     if (!SDL_Vulkan_GetInstanceExtensions(window.getSDL_Window(), &sdlExtensionCount, extensions.data())) {
         throw std::runtime_error("Failed to get Vulkan instance extensions from SDL!");
     }
-
     // Add validation layer extension if enabled
     if (enableValidationLayers) {
         extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
     }
-
+    extensions.push_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+    extensions.push_back(VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME);
+	
     return extensions;
 }
 
@@ -484,8 +485,7 @@ void VulkanDevice::copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSi
 	endSingleTimeCommands(commandBuffer);
 }
 
-void VulkanDevice::copyBufferToImage(
-    VkBuffer buffer, VkImage image, uint32_t width, uint32_t height, uint32_t layerCount) {
+void VulkanDevice::copyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height, uint32_t layerCount) {
 	VkCommandBuffer commandBuffer = beginSingleTimeCommands();
 
 	VkBufferImageCopy region{};

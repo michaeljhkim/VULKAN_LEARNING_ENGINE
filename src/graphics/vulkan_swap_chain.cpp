@@ -154,10 +154,12 @@ void VulkanSwapChain::createSwapChain() {
 	createInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
 
 	QueueFamilyIndices indices = device.findPhysicalQueueFamilies();
+	//uint32_t queueFamilyIndices[] = {indices.graphicsFamily, indices.presentFamily, indices.sparseFamily};
 	uint32_t queueFamilyIndices[] = {indices.graphicsFamily, indices.presentFamily};
 
 	if (indices.graphicsFamily != indices.presentFamily) {
 	createInfo.imageSharingMode = VK_SHARING_MODE_CONCURRENT;
+	//createInfo.queueFamilyIndexCount = 3;
 	createInfo.queueFamilyIndexCount = 2;
 	createInfo.pQueueFamilyIndices = queueFamilyIndices;
 	} else {
@@ -317,6 +319,7 @@ void VulkanSwapChain::createDepthResources() {
 		imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
 		imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
 		imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+		//imageInfo.flags = VK_IMAGE_CREATE_SPARSE_BINDING_BIT;
 		imageInfo.flags = 0;
 
 		device.createImageWithInfo(

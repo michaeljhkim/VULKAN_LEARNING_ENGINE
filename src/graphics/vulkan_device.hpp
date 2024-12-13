@@ -20,9 +20,11 @@ struct SwapChainSupportDetails {
 struct QueueFamilyIndices {
 	uint32_t graphicsFamily;
 	uint32_t presentFamily;
+	uint32_t sparseFamily;
 	bool graphicsFamilyHasValue = false;
 	bool presentFamilyHasValue = false;
-	bool isComplete() { return graphicsFamilyHasValue && presentFamilyHasValue; }
+	bool sparseFamilyHasValue = false;
+	bool isComplete() { return graphicsFamilyHasValue && presentFamilyHasValue && sparseFamilyHasValue; }
 };
 
 class VulkanDevice {
@@ -74,6 +76,19 @@ public:
 		VkImage &image,
 		VkDeviceMemory &imageMemory);
 
+	void createSparseImageWithInfo(
+		const VkImageCreateInfo &imageInfo,
+		VkMemoryPropertyFlags properties,
+		VkImage &sparseImage,
+		VkDeviceMemory &imageMemory);
+		
+	VkResult AllocateOrGetMemoryRange(
+		VkDevice device,
+		const VkMemoryRequirements* memoryRequirements,
+		VkDeviceMemory* pMemory,
+		VkDeviceSize* pMemoryOffset,
+		VkDeviceSize* pSize);
+
 	VkPhysicalDeviceProperties properties;
 
 private:
@@ -104,6 +119,10 @@ private:
 	VkSurfaceKHR surface_;
 	VkQueue graphicsQueue_;
 	VkQueue presentQueue_;
+	VkQueue sparseQueue_;
+
+	// For the sparse images
+	uint32_t MAX_CHUNKS = 64;
 
 	const std::vector<const char *> validationLayers = {"VK_LAYER_KHRONOS_validation"};
 	const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};

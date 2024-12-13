@@ -27,3 +27,18 @@
 - this descriptors code accomodate more than just VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, without modifications
 - However, it will depend on how many addBinding you call on build  
 - check main and remember why you did that as a test
+- textures don't actually get bound and drawn. Vulkan just looks at where the texture is and where it should be. So it is all handled in descriptors
+
+- Must seperate gameobject instances and model instances in scene so that I can load a model without it being a gameobject for performance and modularity
+
+- We are implementing sparse buffers for models and indirect draw right now because we are focusing on dynamic models and it is more efficient,
+- but remember to implement regular buffers and regular draw for static models. For static models, it should be more efficient
+
+- My amd rx 6900xt has 3 queue families, the last one having sparse resource support
+
+- DO NOT JUST USE SPARSE BUFFERS EVERYWHERE!!!!! ONLY USE IT WHEN ABSOLUTELY NESSECARY!!!!!
+- Check sparse_buffer_notes.txt for more details, but generally, it should only be used for massive models and such. 
+
+- Let each model and their instances have their own buffers. Doing some research, having one big buffer for such dynamic models is a bad idea
+- Technically faster, but also so much more overhead. Not worth it
+- Keep sparse buffer and sparse image creation stuff because it will be useful for massive models in the future.

@@ -139,7 +139,7 @@ void VulkanDevice::createLogicalDevice() {
 	QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
 
 	std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
-	std::set<uint32_t> uniqueQueueFamilies = {indices.graphicsFamily, indices.presentFamily};
+	std::set<uint32_t> uniqueQueueFamilies = {indices.graphicsFamily, indices.presentFamily, indices.sparseFamily};
 
 	float queuePriority = 1.0f;
 	for (uint32_t queueFamily : uniqueQueueFamilies) {
@@ -153,6 +153,10 @@ void VulkanDevice::createLogicalDevice() {
 
 	VkPhysicalDeviceFeatures deviceFeatures = {};
 	deviceFeatures.samplerAnisotropy = VK_TRUE;
+	// Enable sparse features only if needed
+	deviceFeatures.sparseBinding = VK_TRUE; // Required for all sparse resources
+	deviceFeatures.sparseResidencyBuffer = VK_TRUE; // Optional, for sparse buffers
+	deviceFeatures.sparseResidencyImage2D = VK_TRUE; // Optional, for 2D sparse images
 
 	VkDeviceCreateInfo createInfo = {};
 	createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
@@ -179,6 +183,7 @@ void VulkanDevice::createLogicalDevice() {
 
 	vkGetDeviceQueue(device_, indices.graphicsFamily, 0, &graphicsQueue_);
 	vkGetDeviceQueue(device_, indices.presentFamily, 0, &presentQueue_);
+	vkGetDeviceQueue(device_, indices.sparseFamily, 0, &sparseQueue_);
 }
 
 void VulkanDevice::createCommandPool() {
@@ -338,6 +343,10 @@ QueueFamilyIndices VulkanDevice::findQueueFamilies(VkPhysicalDevice device) {
 			indices.graphicsFamily = i;
 			indices.graphicsFamilyHasValue = true;
 		}
+		if (queueFamily.queueCount > 0 && queueFamily.queueFlags & VK_QUEUE_SPARSE_BINDING_BIT) {
+			indices.sparseFamily = i;
+			indices.sparseFamilyHasValue = true;
+		}
 		VkBool32 presentSupport = false;
 		vkGetPhysicalDeviceSurfaceSupportKHR(device, i, surface_, &presentSupport);
 		if (queueFamily.queueCount > 0 && presentSupport) {
@@ -438,8 +447,31 @@ void VulkanDevice::createBuffer(
 		throw std::runtime_error("failed to allocate vertex buffer memory!");
 	}
 
-	vkBindBufferMemory(device_, buffer, bufferMemory, 0);
+	// If we want a sparse buffer, we bind it as such
+	if (bufferInfo.flags & VK_BUFFER_CREATE_SPARSE_BINDING_BIT) {
+		VkSparseMemoryBind sparseMemoryBind = {};
+		sparseMemoryBind.resourceOffset = 0;
+		sparseMemoryBind.size = size;
+		sparseMemoryBind.memory = bufferMemory;
+		sparseMemoryBind.memoryOffset = 0;
+
+		VkSparseBufferMemoryBindInfo sparseBufferBindInfo = {};
+		sparseBufferBindInfo.buffer = buffer;
+		sparseBufferBindInfo.bindCount = 1;
+		sparseBufferBindInfo.pBinds = &sparseMemoryBind;
+
+		VkBindSparseInfo bindSparseInfo = {};
+		bindSparseInfo.sType = VK_STRUCTURE_TYPE_BIND_SPARSE_INFO;
+		bindSparseInfo.bufferBindCount = 1;
+		bindSparseInfo.pBufferBinds = &sparseBufferBindInfo;
+
+		vkQueueBindSparse(graphicsQueue_, 1, &bindSparseInfo, VK_NULL_HANDLE);
+	} else {
+		vkBindBufferMemory(device_, buffer, bufferMemory, 0);
+	}
 }
+
+
 
 VkCommandBuffer VulkanDevice::beginSingleTimeCommands() {
 	VkCommandBufferAllocateInfo allocInfo{};
@@ -537,5 +569,122 @@ void VulkanDevice::createImageWithInfo(
 		throw std::runtime_error("failed to bind image memory!");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//THIS CODE HERE HAS NOT BEEN DONE FIGURED OUT
+// MOSTLY JUST CHATGPT, NEED TO DO MORE DIGGING AFTER I ACTUALLY GET EVERYTHING ELSE UP AND RUNNING
+
+
+void VulkanDevice::createSparseImageWithInfo(
+    const VkImageCreateInfo &imageInfo,
+    VkMemoryPropertyFlags properties,
+    VkImage &sparseImage,
+    VkDeviceMemory &imageMemory) {
+
+    VkDeviceSize            offset = 0;
+    VkSparseMemoryBind      binds[MAX_CHUNKS] = {};
+    uint32_t                bindCount = 0;
+
+    if (vkCreateImage(device_, &imageInfo, nullptr, &sparseImage) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create sparse image!"); }
+
+    VkMemoryRequirements memRequirements;
+    vkGetImageMemoryRequirements(device_, sparseImage, &memRequirements);
+
+    if (imageInfo.flags & VK_IMAGE_CREATE_SPARSE_BINDING_BIT) {
+        VkDeviceSize alignment = memRequirements.alignment;
+        while (memRequirements.size > 0 && bindCount < MAX_CHUNKS) {
+            VkDeviceSize chunkSize = std::min(memRequirements.size, alignment);
+
+            VkSparseMemoryBind* pBind = &binds[bindCount];
+            pBind->resourceOffset = offset;
+            AllocateOrGetMemoryRange(device_, &memRequirements, &pBind->memory, &pBind->memoryOffset, &chunkSize);
+
+            // Adjust memory requirements and offsets
+            offset += chunkSize;
+            memRequirements.size -= chunkSize;
+            bindCount++;
+        }
+
+        if (bindCount == 0) {
+            throw std::runtime_error("failed to allocate memory chunks for sparse binding!"); }
+
+        VkSparseImageOpaqueMemoryBindInfo opaqueBindInfo = {sparseImage, bindCount, binds};
+        VkBindSparseInfo bindSparseInfo = {};
+        bindSparseInfo.sType = VK_STRUCTURE_TYPE_BIND_SPARSE_INFO;
+        bindSparseInfo.imageOpaqueBindCount = 1;
+        bindSparseInfo.pImageOpaqueBinds = &opaqueBindInfo;
+
+        VkSemaphore sparseBindSemaphore;
+        VkSemaphoreCreateInfo semaphoreInfo = {};
+        semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
+        if (vkCreateSemaphore(device_, &semaphoreInfo, nullptr, &sparseBindSemaphore) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create semaphore for sparse binding!");
+        }
+        bindSparseInfo.pSignalSemaphores = &sparseBindSemaphore;
+
+        if (vkQueueBindSparse(sparseQueue_, 1, &bindSparseInfo, VK_NULL_HANDLE) != VK_SUCCESS) {
+            throw std::runtime_error("failed to bind sparse memory!");
+        }
+
+        vkDestroySemaphore(device_, sparseBindSemaphore, nullptr);
+
+    } else {
+        VkMemoryAllocateInfo allocInfo{};
+        allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+        allocInfo.allocationSize = memRequirements.size;
+        allocInfo.memoryTypeIndex = findMemoryType(memRequirements.memoryTypeBits, properties);
+
+        if (vkAllocateMemory(device_, &allocInfo, nullptr, &imageMemory) != VK_SUCCESS) {
+            throw std::runtime_error("failed to allocate sparse image memory!");
+        }
+
+        if (vkBindImageMemory(device_, sparseImage, imageMemory, 0) != VK_SUCCESS) {
+            throw std::runtime_error("failed to bind image memory!");
+        }
+    }
+}
+
+
+
+
+VkResult VulkanDevice::AllocateOrGetMemoryRange(
+    VkDevice device,
+    const VkMemoryRequirements* memoryRequirements,
+    VkDeviceMemory* pMemory,
+    VkDeviceSize* pMemoryOffset,
+    VkDeviceSize* pSize) {
+
+    if (*pMemory != VK_NULL_HANDLE) {
+        return VK_SUCCESS; }
+	*pSize = memoryRequirements->size;
+
+    // Create memory allocation info structure
+    VkMemoryAllocateInfo allocateInfo = {};
+    allocateInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    allocateInfo.allocationSize = *pSize;
+    allocateInfo.memoryTypeIndex = findMemoryType(memoryRequirements->memoryTypeBits, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+    // Allocate memory
+    VkResult result = vkAllocateMemory(device, &allocateInfo, nullptr, pMemory);
+    if (result != VK_SUCCESS) {
+        return result; }
+
+    // Set the memory offset (for example, if we are using a single large allocation)
+    *pMemoryOffset = 0;
+
+    return VK_SUCCESS;
+}
+
 
 //}  // namespace lve

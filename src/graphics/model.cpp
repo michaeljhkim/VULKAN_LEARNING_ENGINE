@@ -347,11 +347,6 @@ void Model::createIndexBuffers() {
 
 
 
-void Model::createTextureBuffers() {
-}
-
-
-
 
 
 void Model::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {

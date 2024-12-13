@@ -139,6 +139,12 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/texture.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/texture.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/texture.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/texture.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_buffer.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_buffer.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_buffer.cpp.o"
@@ -154,6 +160,12 @@
   "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_device.cpp",
   "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_device.cpp",
   "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_device.cpp.o"
+},
+{
+  "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_image.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_image.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/vulkan_image.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/vulkan_image.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",

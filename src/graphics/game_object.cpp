@@ -147,7 +147,7 @@ void GameObject::initInstances() {
 			vulkanDevice,
 			dataSize,
 			max_instances,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_CREATE_SPARSE_BINDING_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 
 	uint32_t normalDataSize = sizeof(normalData);
@@ -155,7 +155,7 @@ void GameObject::initInstances() {
 			vulkanDevice,
 			normalDataSize,
 			max_instances,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_CREATE_SPARSE_BINDING_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 
 	uint32_t indirectCommandSize = sizeof(VkDrawIndexedIndirectCommand);

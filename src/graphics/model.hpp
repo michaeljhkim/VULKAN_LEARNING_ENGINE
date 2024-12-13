@@ -122,6 +122,8 @@ struct Vertex {
 
 class Model {
  public:
+    // id of model in scene
+    std::string id;
 	
 	// list of meshes
 	static std::vector<std::unique_ptr<Mesh>> meshes;
@@ -129,9 +131,9 @@ class Model {
 	//std::vector<Vertex> vertices{};
 	//std::vector<uint32_t> indices{};
     std::vector<Vertex> combinedVertices;
+    std::vector<uint32_t> combinedIndices;
     //std::vector<stbi_uc> combinedTextures;
     std::vector<Texture> combinedTextures;
-    std::vector<uint32_t> combinedIndices;
 	std::vector<uint32_t> vertexOffsets;
 	std::vector<uint32_t> indexOffsets;
 
@@ -192,9 +194,6 @@ class Model {
   	bool hasIndexBuffer = false;
 	std::unique_ptr<VulkanBuffer> indexBuffer;
 	uint32_t indexCount;
-
-	std::unique_ptr<VulkanBuffer> textureBuffer;
-	uint32_t textureCount;
 };
 
 //}	// namespace lve

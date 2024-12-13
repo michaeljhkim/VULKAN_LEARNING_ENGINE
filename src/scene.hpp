@@ -67,6 +67,20 @@ public:
     // tries to store models/instances
     avl* models;
     trie::Trie<RigidBody*> instances;
+    /*
+    std::vector<Vertex> globalVertices;
+    std::vector<uint32_t> globalIndices;
+	std::vector<std::unique_ptr<VkDrawIndexedIndirectCommand>> globalIndirectCommands;
+
+    std::unique_ptr<VulkanBuffer> globalVertexBuffer;
+	std::unique_ptr<VulkanBuffer> globalIndexBuffer;
+	uint32_t vertexCount;
+  	bool hasIndexBuffer = false;
+	uint32_t indexCount;
+
+    // to be called after constructor
+    void createGlobalBuffers();
+    */
 
     // list of instances that should be deleted
     std::vector<RigidBody*> instancesToDelete;
@@ -248,8 +262,14 @@ public:
     glm::vec3 cameraPos;
 
 protected:
+	void createVertexSparseBuffers();
+	void createIndexSparseBuffers();
+
     // window object
     SDL_Window* window;
+
+    VulkanWindow vulkanWindow{1920, 1080, "Vulkan test"};
+    VulkanDevice vulkanDevice{vulkanWindow};
 
     // window vals
     const char* title;

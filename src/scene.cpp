@@ -532,9 +532,25 @@ void Scene::setWindowColor(float r, float g, float b, float a) {
 /*
     Model/instance methods
 */
+// For now, we assume all models will be loaded at startup, so we only allocate for those models that we KNOW will be here
+// After getting everything up and running, consider more dynamic options and such
+// Remember, Models can be added or deleted if needed, especially if we don't use it again later
+
+/*
+// Should be called first. 
+void Scene::createGlobalBuffers() {
+    createVertexBuffers();
+    createIndexBuffers();
+}
+*/
 
 // register model into model trie
 void Scene::registerModel(Model* model) {
+    /*
+    globalVertices.insert(globalVertices.end(), model->combinedVertices.begin(), model->combinedVertices.end());
+    globalIndices.insert(globalIndices.end(), model->combinedIndices.begin(), model->combinedIndices.end());
+    globalIndirectCommands.insert(globalIndirectCommands.end(), model->indirectCommands.begin(), model->indirectCommands.end());
+    */
     models = avl_insert(models, (void*)model->id.c_str(), model);
 }
 
@@ -623,3 +639,155 @@ std::string Scene::generateId() {
     }
     return currentId;
 }
+
+
+
+
+
+
+
+// DON'T FOCUS ON THIS SECTION RIGHT NOW!!!! NOT WORTH THE PERFORMANCE COST TO JUST IMPLEMENT IT FOR EVERYTHING
+
+/*
+void Scene::createVertexSparseBuffers() {
+	uint32_t vertexCount = static_cast<uint32_t>(globalVertices.size());
+	assert(vertexCount >= 3 && "Vertex count must be at least 3");
+	VkDeviceSize bufferSize = sizeof(globalVertices[0]) * vertexCount;
+	uint32_t vertexSize = sizeof(globalVertices[0]);
+
+	VulkanBuffer stagingBuffer{
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+	};
+
+	stagingBuffer.map();
+	stagingBuffer.writeToBuffer((void *)globalVertices.data());
+
+	globalVertexBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			vertexSize,
+			vertexCount,
+			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_BUFFER_CREATE_SPARSE_BINDING_BIT | VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), globalVertexBuffer->getBuffer(), bufferSize);
+}
+
+
+
+void Scene::createIndexSparseBuffers() {
+	indexCount = static_cast<uint32_t>(globalIndices.size());
+    hasIndexBuffer = indexCount > 0;
+	if (!hasIndexBuffer) {
+		return;
+	}
+
+	VkDeviceSize bufferSize = sizeof(globalIndices[0]) * indexCount;
+	uint32_t indexSize = sizeof(globalIndices[0]);
+
+	VulkanBuffer stagingBuffer{
+			vulkanDevice,
+			indexSize,
+			indexCount,
+			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+	};
+
+	stagingBuffer.map();
+	stagingBuffer.writeToBuffer((void *)globalIndices.data());
+
+	globalIndexBuffer = std::make_unique<VulkanBuffer>(
+			vulkanDevice,
+			indexSize,
+			indexCount,
+			VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+			VK_BUFFER_CREATE_SPARSE_BINDING_BIT | VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+
+	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), globalIndexBuffer->getBuffer(), bufferSize);
+}
+*/
+
+
+
+
+//NEED TO INCORPORATE - CURRENTLY JUST TAKEN FROM CHATGPT
+
+
+/*
+
+// To track memory offsets and size of each model in the sparse buffer
+struct ModelData {
+    VkDeviceSize offset;
+    VkDeviceSize size;
+};
+
+std::vector<ModelData> modelOffsets;  // Holds the offsets and sizes of models in the buffer
+
+void Scene::addModelToSparseBuffer(const std::vector<Vertex>& modelVertices) {
+    uint32_t vertexCount = static_cast<uint32_t>(modelVertices.size());
+    assert(vertexCount >= 3 && "Vertex count must be at least 3");
+    
+    VkDeviceSize bufferSize = sizeof(modelVertices[0]) * vertexCount;
+    
+    // Allocate memory for the new model in the global vertices buffer
+    VkDeviceSize offset = globalVertices.size() * sizeof(globalVertices[0]);
+    globalVertices.insert(globalVertices.end(), modelVertices.begin(), modelVertices.end());
+
+    // Update modelOffsets to track the model's offset and size in the global buffer
+    modelOffsets.push_back({offset, bufferSize});
+
+    // If the buffer already exists, you may need to re-allocate or update the sparse buffer
+    updateSparseBuffer();
+}
+
+void Scene::removeModelFromSparseBuffer(size_t modelIndex) {
+    assert(modelIndex < modelOffsets.size() && "Model index out of range");
+    
+    // Get model offset and size
+    VkDeviceSize offset = modelOffsets[modelIndex].offset;
+    VkDeviceSize size = modelOffsets[modelIndex].size;
+
+    // Unbind memory for the removed model from the sparse buffer (if bound)
+    // Optionally, you can handle unbinding logic or freeing memory here.
+    
+    // Remove the model's vertices from the global list
+    globalVertices.erase(globalVertices.begin() + offset, globalVertices.begin() + offset + size);
+
+    // Remove the model's offset data from the modelOffsets vector
+    modelOffsets.erase(modelOffsets.begin() + modelIndex);
+
+    // Rebind remaining memory (this step depends on your memory management strategy)
+    updateSparseBuffer();
+}
+
+void Scene::updateSparseBuffer() {
+    // This function handles re-binds for the sparse buffer after models are added or removed
+    // You need to manage memory binding/unbinding when adding/removing models
+    // For simplicity, we assume memory is managed in chunks for now
+    
+    for (size_t i = 0; i < modelOffsets.size(); ++i) {
+        // Bind the appropriate memory regions to the sparse buffer based on modelOffsets
+        VkSparseMemoryBind sparseMemoryBind = {};
+        sparseMemoryBind.resourceOffset = modelOffsets[i].offset;
+        sparseMemoryBind.size = modelOffsets[i].size;
+        sparseMemoryBind.memory = globalVertexBuffer->getMemory();  // Assuming global buffer memory
+        sparseMemoryBind.memoryOffset = modelOffsets[i].offset;
+
+        VkSparseBufferMemoryBindInfo sparseBufferBindInfo = {};
+        sparseBufferBindInfo.buffer = globalVertexBuffer->getBuffer();
+        sparseBufferBindInfo.bindCount = 1;
+        sparseBufferBindInfo.pBinds = &sparseMemoryBind;
+
+        VkBindSparseInfo bindSparseInfo = {};
+        bindSparseInfo.sType = VK_STRUCTURE_TYPE_BIND_SPARSE_INFO;
+        bindSparseInfo.bufferBindCount = 1;
+        bindSparseInfo.pBufferBinds = &sparseBufferBindInfo;
+
+        // Submit sparse memory binding
+        vkQueueBindSparse(graphicsQueue_, 1, &bindSparseInfo, VK_NULL_HANDLE);
+    }
+}
+*/

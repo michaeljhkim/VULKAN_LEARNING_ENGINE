@@ -119,6 +119,8 @@ void Texture::updateTextureSampler(VkDescriptorSet descriptorSet) {
 		throw std::runtime_error("failed to create texture sampler!");
 	}
     */
+   
+    // For updating, only new VkWriteDescriptorSets need to be added to update function
     for (size_t i = 0; i < textureArray.size(); ++i) {
         VkDescriptorImageInfo imageInfo = {};
         imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;

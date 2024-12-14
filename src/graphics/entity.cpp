@@ -1,33 +1,64 @@
-#include "game_object.hpp"
+#include "entity.hpp"
 
 
-struct SimplePushConstantData {
-	Material material;
-    bool noNormalMap;
-    bool TexExists;
+struct DynamicResizeableEntity {
+	modelTypeFlag model_type;
 };
+
+/*
+struct StaticEntity {
+	modelTypeFlag model_type;
+};
+*/
 
 // initialize with parameters
 /*
-GameObject::GameObject(VulkanDevice &device, std::string name, unsigned int maxNumInstances, unsigned int flags)
+Entity::Entity(VulkanDevice &device, std::string name, unsigned int maxNumInstances, unsigned int flags)
 : vulkanDevice{device}, model_name(name), switches(flags), currentNumInstances(0), maxNumInstances(maxNumInstances), instances(maxNumInstances), collision(nullptr) {}
 */
-GameObject::GameObject(VulkanDevice &device): vulkanDevice{device} {}
+/*
+Entity::Entity(VulkanDevice &device, modelTypeFlag model_type): vulkanDevice{device} {
+    this->model_type = model_type;
+}
+*/
 
-void GameObject::attachModel(std::string name, std::string filePath, unsigned int maxNumInstances, unsigned int flags = 0) {
+void Entity::attachModel(std::string name, std::string filePath, unsigned int maxNumInstances, unsigned int flags = 0, modelTypeFlag model_type) {
     model = std::make_unique<Model>(vulkanDevice, flags);
     model->loadModel(filePath);
 
+    this->model_type = model_type;
     this->model_name = name;
     this->maxNumInstances = maxNumInstances;
     this->currentNumInstances = 0;
     this->instances.reserve(maxNumInstances);
     this->collision = nullptr;
-    this->indirectCommands = std::move(model->indirectCommands);
+    //this->indirectCommands = std::move(model->indirectCommands);
+
+    /*
+    if (model_type & STATIC_INSTANCES) {
+        std::vector<Vertex> static_vertices;
+        std::vector<uint32_t> static_indices;
+        for (const auto& current_mesh : model->meshes) {
+            static_vertices.insert(static_vertices.end(), current_mesh->vertices.begin(), current_mesh->vertices.end()); 
+        }
+        createVertexBuffers(static_vertices);
+        // Consider adding this to scene
+    }
+    else if (model_type & DYNAMIC_FIXED_INSTANCES) {
+        // Consider handling this part in the Scene - for rendering all such models with such types
+    }
+    else if (model_type & DYNAMIC_RESIZABLE_INSTANCES) {
+    }
+    */
+    if (model_type & DYNAMIC_RESIZABLE_INSTANCES) {
+        createVertexBuffers();
+        createIndexBuffers();
+    }
+    
 }
 
 // enable a collision model
-void GameObject::enableCollisionModel() {
+void Entity::enableCollisionModel() {
     if (!this->collision) {
         this->collision = std::make_unique<CollisionModel>(model);
     }
@@ -35,7 +66,7 @@ void GameObject::enableCollisionModel() {
 
 
 // render instance(s)
-void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer& commandBuffer) {
+void Entity::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffer& commandBuffer) {
     if (!States::isActive(&switches, CONST_INSTANCES)) {
         // dynamic instances - update VBO data
 
@@ -67,28 +98,15 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
             // set transformation data
             instanceBuffer->map();
             instanceBuffer->writeToBuffer((void*)models.data() );
-
             normalInstanceBuffer->map();
             normalInstanceBuffer->writeToBuffer((void*)normalModels.data() );
 
-            for (unsigned int i = 0, numMeshes = model->meshes.size(); i < numMeshes; i++) {
-                model->bind(commandBuffer, instanceBuffer->getBuffer(), normalInstanceBuffer->getBuffer());
-                model->draw(commandBuffer, indirectCommandBuffer->getBuffer(), currentNumInstances);
+            for (const std::unique_ptr<Mesh>& current_mesh : model->meshes) {
+                current_mesh->bind(commandBuffer, instanceBuffer->getBuffer(), normalInstanceBuffer->getBuffer());
+                current_mesh->draw(commandBuffer, currentNumInstances);
             }
         }
     }
-
-    // set shininess
-    //shader_pipeline.setFloat("material.shininess", 0.5f);
-    SimplePushConstantData push{};
-    push.material.shininess = 0.5f;     //Temp value for testing - change later
-    vkCmdPushConstants(
-            commandBuffer,
-            shader_pipeline.getPipelineLayout(),
-            VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
-            0,
-            sizeof(SimplePushConstantData),
-            &push);
 
     // render each mesh
     for (unsigned int i = 0, numMeshes = model->meshes.size(); i < numMeshes; i++) {
@@ -100,7 +118,7 @@ void GameObject::render(ShaderPipline& shader_pipeline, float dt, VkCommandBuffe
 //CONSIDER MOVING BOUNDING REGION ARRAY HERE
 
 // generate instance with parameters
-RigidBody* GameObject::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
+RigidBody* Entity::generateInstance(glm::vec3 size, float mass, glm::vec3 pos, glm::vec3 rot) {
     // all slots filled
     if (currentNumInstances >= maxNumInstances) {
         return nullptr; 
@@ -117,7 +135,7 @@ RigidBody* GameObject::generateInstance(glm::vec3 size, float mass, glm::vec3 po
 
 
 //Later, MAYBE make it so that it only binds and draws if the instances exists IDK I gotta do some more digging
-void GameObject::initInstances() {
+void Entity::initInstances() {
     // default values
     std::unique_ptr<glm::mat4> posData = nullptr;
     std::unique_ptr<glm::mat3> normalData = nullptr;
@@ -158,6 +176,7 @@ void GameObject::initInstances() {
 			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_CREATE_SPARSE_BINDING_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 
+    /*
 	uint32_t indirectCommandSize = sizeof(VkDrawIndexedIndirectCommand);
     indirectCommandBuffer = std::make_unique<VulkanBuffer>(
 			vulkanDevice,
@@ -165,12 +184,13 @@ void GameObject::initInstances() {
 			max_instances,
 			VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+    */
 }
 
 
 
 // remove instance at idx
-void GameObject::removeInstance(unsigned int idx) {
+void Entity::removeInstance(unsigned int idx) {
     if (idx < maxNumInstances) {
         // shift down
         for (unsigned int i = idx + 1; i < currentNumInstances; i++) {
@@ -184,7 +204,7 @@ void GameObject::removeInstance(unsigned int idx) {
 }
 
 // remove instance with id
-void GameObject::removeInstance(std::string instanceId) {
+void Entity::removeInstance(std::string instanceId) {
     int idx = getIdx(instanceId);
     if (idx != -1) {
         removeInstance(idx);
@@ -192,7 +212,7 @@ void GameObject::removeInstance(std::string instanceId) {
 }
 
 // get index of instance with id
-unsigned int GameObject::getIdx(std::string id) {
+unsigned int Entity::getIdx(std::string id) {
     // test each instance
     for (int i = 0; i < currentNumInstances; i++) {
         if (instances[i]->instanceId == id) {
@@ -204,8 +224,8 @@ unsigned int GameObject::getIdx(std::string id) {
 
 
 /*
-GameObject GameObject::makePointLight(float intensity, float radius, glm::vec3 color) {
-  GameObject gameObj = GameObject::createGameObject();
+Entity Entity::makePointLight(float intensity, float radius, glm::vec3 color) {
+  Entity gameObj = Entity::createEntity();
   gameObj.color = color;
   gameObj.transform.scale.x = radius;
   gameObj.pointLight = std::make_unique<PointLightComponent>();
@@ -213,3 +233,4 @@ GameObject GameObject::makePointLight(float intensity, float radius, glm::vec3 c
   return gameObj;
 }
 */
+

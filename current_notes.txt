@@ -42,3 +42,10 @@
 - Let each model and their instances have their own buffers. Doing some research, having one big buffer for such dynamic models is a bad idea
 - Technically faster, but also so much more overhead. Not worth it
 - Keep sparse buffer and sparse image creation stuff because it will be useful for massive models in the future.
+
+
+- Consider making a buffer pool, where there is just a massive buffer for data like vertices or index or instances or e.t.c...
+- There can also be multiple buffer pools, each sized according to how predictable a certain amount of objects are on screen
+- Should only use for entities we know will be there constantly
+
+

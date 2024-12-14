@@ -19,22 +19,6 @@
     structure storing values for each vertex
 */
 
-
-struct Mesh {
-    BoundingRegion br;
-    std::unique_ptr<CollisionMesh> collision;
-    std::vector<Vertex> vertices;
-    std::vector<uint32_t> indices;
-
-    // materialAssets
-    bool noTextures;
-    bool noNormalMap;
-    std::vector<Texture> textures;
-	//Material material;
-    aiColor4D diffuse;
-    aiColor4D specular;
-};
-
 struct Vertex {
     /*
         vertex values
@@ -91,14 +75,22 @@ struct Vertex {
     }
 };
 
+
+
+
+
+
+
+
+
 /*
     class representing Mesh
 */
-/*
+
 class Mesh {
 public:
     // Bounding region for mesh
-    BoundingRegion br;
+    BoundingRegion meshBoundingRegion;
     // pointer to the attached collision mesh
     std::unique_ptr<CollisionMesh> collision;
 
@@ -120,19 +112,19 @@ public:
     //constructors
 
     // default
-    Mesh();
+    Mesh(VulkanDevice &device);
 
     // intialize with a bounding region
-    Mesh(BoundingRegion br);
+    Mesh(VulkanDevice &device, BoundingRegion br);
 
     // initialize as textured object
-    Mesh(BoundingRegion br, std::vector<Texture> textures);
+    Mesh(VulkanDevice &device, BoundingRegion br, std::vector<Texture> textures);
 
     // initialize as material object
-    Mesh(BoundingRegion br, aiColor4D diff, aiColor4D spec);
+    Mesh(VulkanDevice &device, BoundingRegion br, aiColor4D diff, aiColor4D spec);
 
     // initialize with a material
-    Mesh(BoundingRegion br, Material m);
+    Mesh(VulkanDevice &device, BoundingRegion br, Material m);
 
     // load vertex and index data
     void loadData(std::vector<Vertex> vertices, std::vector<unsigned int> indices, bool pad = false);
@@ -155,11 +147,26 @@ public:
     // free up memory
     void cleanup();
 
+    void pushConstants(ShaderPipline& shader_pipeline, VkCommandBuffer& commandBuffer);
+	void bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer);
+	void draw(VkCommandBuffer commandBuffer, uint32_t instanceCount);
+
 private:
+	void createVertexBuffers();
+	void createIndexBuffers();
+
+	VulkanDevice &vulkanDevice;
+
     // true if has only materials
     bool noTextures;
+
+	std::unique_ptr<VulkanBuffer> vertexBuffer;
+	uint32_t vertexCount;
+
+  	bool hasIndexBuffer = false;
+	std::unique_ptr<VulkanBuffer> indexBuffer;
+	uint32_t indexCount;
 
     // setup data with buffers
     //void setup();
 };
-*/

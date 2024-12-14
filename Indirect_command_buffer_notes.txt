@@ -1,0 +1,53 @@
+When working with indirect draw commands, whether to use a global indirect command buffer or one per model depends on the specific needs and structure of your game engine. Here are the considerations for both approaches:
+1. Global Indirect Command Buffer
+
+Using a single global indirect command buffer can be efficient in certain scenarios, especially if:
+
+    Models are grouped by type and you are rendering large numbers of instances of similar models in a batch.
+    You are rendering large amounts of data (e.g., the entire scene) in a single draw call or a small number of draw calls.
+    Frequent changes in the scene (e.g., models constantly coming and going) can still be handled efficiently by updating or regenerating indirect draw commands at the beginning of each frame.
+
+Advantages:
+
+    Less overhead: A single global buffer is easier to manage and update.
+    Batching: You can issue commands for multiple models in one draw call if their geometry is grouped together, improving performance by reducing the number of draw calls.
+    Optimized for large scenes: It’s ideal when you have a large number of models in the scene that are all being drawn at once.
+
+Disadvantages:
+
+    Overhead of command generation: If models are frequently added or removed from the scene, regenerating the indirect command buffer each frame could introduce some overhead.
+    Limited flexibility: If different models require different settings (e.g., different shaders, bindings), managing this with a single global buffer might require complex logic.
+
+2. Indirect Command Buffer per Model
+
+Using separate indirect command buffers for each model could be beneficial if:
+
+    Models have unique configurations (e.g., different shaders, different number of instances, etc.).
+    Models come and go frequently, and the indirect draw commands need to be dynamically generated for specific models.
+    You want to keep the command generation more flexible and precise for each model, allowing for updates without regenerating a global command buffer.
+
+Advantages:
+
+    Fine-grained control: Each model’s indirect commands are generated separately, which makes it easier to handle dynamic scenes and varying model configurations.
+    More flexibility: You can manage different shaders, textures, and other resources on a per-model basis without needing to modify a global buffer.
+
+Disadvantages:
+
+    More overhead: Creating and managing multiple command buffers could lead to more overhead in both CPU and GPU, especially if there are many unique models.
+    Increased complexity: More buffers to manage means more complexity in how the engine handles indirect draw commands.
+
+Which to Choose?
+
+    If models have similar configurations (e.g., the same shader, same material), and you're handling a large number of them (such as in an open-world scene), using a global indirect command buffer can be more efficient, as it minimizes CPU overhead by reducing the number of command buffers that need to be generated.
+    If you have highly dynamic models that change frequently (e.g., characters, props), and each has its own specific indirect draw requirements (like different shaders or textures), it may be more efficient to generate indirect command buffers per model.
+
+Hybrid Approach
+
+In many game engines, a hybrid approach works well:
+
+    Use a global indirect command buffer for large groups of models that share similar configurations or need to be drawn together.
+    Use per-model indirect command buffers for more dynamic, unique models that require flexibility.
+
+This allows you to balance performance (through batching) and flexibility (through dynamic command buffers for specific models) in a way that can handle both static and dynamic elements of your scene effectively.
+
+In either case, be sure to reuse and regenerate indirect command buffers as efficiently as possible, especially for dynamic models that frequently enter and exit the scene.

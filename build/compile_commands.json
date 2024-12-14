@@ -61,9 +61,9 @@
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",
-  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/game_object.cpp",
-  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/game_object.cpp",
-  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/game_object.cpp.o"
+  "command": "/usr/bin/g++ -I/home/mk/Documents/YURRGOHT_ENGINE/include -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/yurrgoht_engine.dir/src/graphics/entity.cpp.o -c /home/mk/Documents/YURRGOHT_ENGINE/src/graphics/entity.cpp",
+  "file": "/home/mk/Documents/YURRGOHT_ENGINE/src/graphics/entity.cpp",
+  "output": "CMakeFiles/yurrgoht_engine.dir/src/graphics/entity.cpp.o"
 },
 {
   "directory": "/home/mk/Documents/YURRGOHT_ENGINE/build",

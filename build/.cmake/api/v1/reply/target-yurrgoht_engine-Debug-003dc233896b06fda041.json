@@ -317,7 +317,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/graphics/game_object.cpp",
+			"path" : "src/graphics/entity.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

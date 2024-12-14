@@ -96,10 +96,6 @@ void Model::loadModel(const std::string filepath) {
 
     // Process the root node
     processNode(scene->mRootNode, scene);
-
-    //This is done by default - consider making optional if needed
-    createVertexBuffers();
-    createIndexBuffers();
 }
 
 void Model::processNode(aiNode* node, const aiScene* scene) {
@@ -187,8 +183,7 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 
 
     // Process material
-    std::unique_ptr<Mesh> ret;
-    ret->meshBoundingRegion = br;    //Set bounding region
+    std::unique_ptr<Mesh> ret;     //Set bounding region
     if (mesh->mMaterialIndex >= 0) {
         aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
@@ -197,9 +192,9 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
             aiColor4D diff(1.0f), spec(1.0f);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diff);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_SPECULAR, &spec);
-            //ret = std::make_unique<Mesh>(br, diff, spec);
-            ret->diffuse = diff;
-            ret->specular = spec;
+            //ret->diffuse = diff;
+            //ret->specular = spec;
+            ret = std::make_unique<Mesh>(br, diff, spec);
         } else {
             // Load textures
             auto loadAndInsert = [&](aiTextureType type) {
@@ -209,34 +204,13 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
             loadAndInsert(aiTextureType_DIFFUSE);
             loadAndInsert(aiTextureType_SPECULAR);
             loadAndInsert(aiTextureType_NORMALS); // Use HEIGHT for .obj files if needed
-            //ret = std::make_unique<Mesh>(br, textures);
             //combinedTextures.insert(combinedTextures.end(), textures.begin(), textures.end());
-            ret->textures = textures;
+            //ret->textures = textures;
+            ret = std::make_unique<Mesh>(br, textures);
         }
     }
-    // Load vertex and index data
-    //ret->loadData(vertices, indices);
-    ret->vertices = vertices;
-    ret->indices = indices;
-
-    // Add indirect command to the total list 
-    std::unique_ptr<VkDrawIndexedIndirectCommand> command = std::make_unique<VkDrawIndexedIndirectCommand>();
-    command->indexCount = indices.size();               // Number of indices
-    command->instanceCount = 0;                         // Number of instances this frame
-    command->firstInstance = 0;                         // Start instance
-    command->vertexOffset = combinedVertices.size();    // Offset in vertex buffer
-    //command->firstIndex = combinedIndices.size();     // Offset in index buffer
-    command->firstIndex = 0;                            // Start of index buffer
-    indirectCommands.push_back(std::move(command));
-
-    // Store the current vertex offset and index offset
-    // combinedVertices starts at zero, and as we go through each mesh, it gets the total size before adding current vertices/indices list 
-    vertexOffsets.push_back(combinedVertices.size());
-    indexOffsets.push_back(combinedIndices.size());
-
-    // Add current vertices to the total list
-    combinedVertices.insert(combinedVertices.end(), vertices.begin(), vertices.end());
-    combinedIndices.insert(combinedIndices.end(), indices.begin(), indices.end());
+    // Load vertex and index data (also create buffer)
+    ret->loadData(vertices, indices);
 
     return std::move(ret);
 }
@@ -282,92 +256,3 @@ std::vector<Texture> Model::loadTextures(aiMaterial* mat, aiTextureType type) {
 
 
 
-
-
-
-void Model::createVertexBuffers() {
-	uint32_t vertexCount = static_cast<uint32_t>(combinedVertices.size());
-	assert(vertexCount >= 3 && "Vertex count must be at least 3");
-	VkDeviceSize bufferSize = sizeof(combinedVertices[0]) * vertexCount;
-	uint32_t vertexSize = sizeof(combinedVertices[0]);
-
-	VulkanBuffer stagingBuffer{
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-	};
-
-	stagingBuffer.map();
-	stagingBuffer.writeToBuffer((void *)combinedVertices.data());
-
-	vertexBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			vertexSize,
-			vertexCount,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), vertexBuffer->getBuffer(), bufferSize);
-}
-
-
-
-void Model::createIndexBuffers() {
-	indexCount = static_cast<uint32_t>(combinedIndices.size());
-    hasIndexBuffer = indexCount > 0;
-	if (!hasIndexBuffer) {
-		return;
-	}
-
-	VkDeviceSize bufferSize = sizeof(combinedIndices[0]) * indexCount;
-	uint32_t indexSize = sizeof(combinedIndices[0]);
-
-	VulkanBuffer stagingBuffer{
-			vulkanDevice,
-			indexSize,
-			indexCount,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-	};
-
-	stagingBuffer.map();
-	stagingBuffer.writeToBuffer((void *)combinedIndices.data());
-
-	indexBuffer = std::make_unique<VulkanBuffer>(
-			vulkanDevice,
-			indexSize,
-			indexCount,
-			VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	vulkanDevice.copyBuffer(stagingBuffer.getBuffer(), indexBuffer->getBuffer(), bufferSize);
-}
-
-
-
-
-
-void Model::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {
-    // Bind the mesh's vertex buffer, the instance and normalized instance buffers (shared across meshes)
-    VkBuffer buffers[] = { vertexBuffer->getBuffer(), instanceBuffer, normalizedInstanceBuffer };
-    VkDeviceSize offsets[] = { 0, 0, 0 };
-    vkCmdBindVertexBuffers(commandBuffer, 0, 3, buffers, offsets);
-
-    // Bind the mesh's index buffer if it exists
-    if (hasIndexBuffer) {
-        vkCmdBindIndexBuffer(commandBuffer, indexBuffer->getBuffer(), 0, VK_INDEX_TYPE_UINT32);
-    }
-}
-
-
-void Model::draw(VkCommandBuffer commandBuffer, VkBuffer indirectCommandBuffer, uint32_t instanceCount) {
-    if (hasIndexBuffer) {
-        //vkCmdDrawIndexed(commandBuffer, indexCount, instanceCount, 0, 0, 0);
-        vkCmdDrawIndexedIndirect(commandBuffer, indirectCommandBuffer, 0, meshes.size(), sizeof(VkDrawIndexedIndirectCommand));
-    } else {
-        //vkCmdDraw(commandBuffer, vertexCount, instanceCount, 0, 0);
-        vkCmdDrawIndirect(commandBuffer, indirectCommandBuffer, 0, combinedVertices.size(), sizeof(VkDrawIndirectCommand));
-    }
-}

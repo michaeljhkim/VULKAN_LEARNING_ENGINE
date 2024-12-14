@@ -1,0 +1,45 @@
+When implementing culling in your Vulkan-based game engine, you generally have two options for where to perform the culling calculations: on the CPU or the GPU. Each approach has its pros and cons, so the decision largely depends on the specific needs of your engine and the trade-offs you’re willing to make.
+CPU-Based Culling
+
+Frustum and occlusion culling are commonly done on the CPU in many game engines, including Unreal Engine. Here's why:
+Pros:
+
+    Lower Overhead on the GPU: Performing culling on the CPU ensures that the GPU is only sent the data that will actually be rendered, minimizing the number of unnecessary vertices, fragments, and draw calls.
+    Flexibility: CPU culling can handle complex logic that may involve many objects, layers, or additional game-specific rules, which could be difficult to implement efficiently on the GPU.
+    Memory Efficiency: By using the CPU to filter out objects before sending data to the GPU, you avoid occupying valuable GPU memory with unneeded objects or resources.
+
+Cons:
+
+    CPU Overhead: Performing culling on the CPU requires extra CPU cycles, especially in large scenes with many objects. This could become a bottleneck if you're not careful about optimizing the culling logic.
+    Frequent State Changes: If the culling calculations change frequently (e.g., moving the camera around), the CPU will need to frequently recompute which objects should be rendered.
+
+GPU-Based Culling
+
+Alternatively, you could offload the culling process to the GPU. This is more common in highly parallelized systems or where the data can be processed in large batches.
+Pros:
+
+    Offloads Work from the CPU: By moving the culling work to the GPU, you reduce the computational burden on the CPU, allowing it to focus on other tasks, like physics or AI.
+    Parallel Processing: GPUs excel at parallel processing, so culling large numbers of objects can be done very efficiently in parallel, especially with compute shaders.
+    Minimizing Data Transfer: If culling is performed on the GPU, you may be able to avoid unnecessary transfers of large amounts of data (such as vertex data) from CPU to GPU, especially when objects are culled before the data is ever sent.
+
+Cons:
+
+    Complexity: Implementing GPU-based culling can be more complicated and may require custom shaders, additional GPU-side resources (such as buffers for visibility queries), and more careful management of GPU memory.
+    Potential Latency: While GPUs are great for parallel processing, offloading culling to the GPU could add latency, especially when objects are dynamically loaded or unloaded.
+    Limited Information: The GPU doesn’t always have the same level of contextual information as the CPU. For instance, dynamic occlusion culling based on more complex game logic (such as player position or visibility algorithms) might be more challenging to implement purely on the GPU.
+
+Hybrid Approach
+
+In practice, many modern engines (including Unreal) use a hybrid approach where basic culling (like frustum culling) is done on the CPU, but more complex tasks like occlusion culling are handled on the GPU. This allows the engine to take advantage of both the flexibility of the CPU and the raw parallel power of the GPU.
+
+For example:
+
+    Frustum Culling: Perform frustum culling on the CPU using bounding volumes (AABBs, spheres, etc.) to quickly discard objects that are outside the camera's view.
+    Occlusion Culling: For more complex culling (e.g., checking if objects are behind others), you might use the GPU to perform depth-based occlusion culling or perform an occlusion query (a type of GPU query) to determine visibility.
+
+Conclusion
+
+    For frustum culling, you can generally handle this on the CPU. It’s a simple and fast check that doesn’t require the full power of the GPU.
+    For more complex culling (like occlusion culling), you might want to use a hybrid approach where you use the CPU for high-level decisions (like frustum culling) and offload occlusion culling to the GPU, especially for large, dynamic scenes.
+
+Ultimately, the best choice depends on your engine’s specific requirements and performance goals, but a hybrid approach is common in high-performance engines to balance the strengths of both the CPU and GPU.

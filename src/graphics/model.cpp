@@ -189,11 +189,10 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 
         if (States::isActive<unsigned int>(&switches, NO_TEX)) {
             // Use material colors
-            aiColor4D diff(1.0f), spec(1.0f);
+            aiColor4D diff(1.0f);
+            aiColor4D spec(1.0f);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diff);
             aiGetMaterialColor(material, AI_MATKEY_COLOR_SPECULAR, &spec);
-            //ret->diffuse = diff;
-            //ret->specular = spec;
             ret = std::make_unique<Mesh>(br, diff, spec);
         } else {
             // Load textures
@@ -204,8 +203,6 @@ std::unique_ptr<Mesh> Model::processMesh(aiMesh* mesh, const aiScene* scene) {
             loadAndInsert(aiTextureType_DIFFUSE);
             loadAndInsert(aiTextureType_SPECULAR);
             loadAndInsert(aiTextureType_NORMALS); // Use HEIGHT for .obj files if needed
-            //combinedTextures.insert(combinedTextures.end(), textures.begin(), textures.end());
-            //ret->textures = textures;
             ret = std::make_unique<Mesh>(br, textures);
         }
     }
@@ -242,8 +239,8 @@ std::vector<Texture> Model::loadTextures(aiMaterial* mat, aiTextureType type) {
             textures.push_back(*it);    // Add the existing texture
         } 
         else {
-            Texture tex(directory, texturePath, type);  // Load and add the new texture
-            tex.load(false);
+            Texture tex(vulkanDevice, directory, texturePath, type);  // Load and add the new texture
+            tex.loadTextureImage(false);
             textures.push_back(tex);
             loadedPaths.insert(texturePath);
             textures_loaded.push_back(tex);             // Store in the global loaded textures

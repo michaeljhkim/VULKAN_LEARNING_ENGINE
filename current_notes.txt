@@ -49,3 +49,10 @@
 - Should only use for entities we know will be there constantly
 
 
+- Create a texture tiling system, that breaks up textures into a consistent height x width, then saves the tile in a custom binary file 
+- This is virtual textures or texture streaming
+- I think this is also called sparse textures or sparse images or something
+- Consider mip maps, and texture compressing
+
+- Run a function before anything else (as developer, so should not be on every runtime) that creates the custom file, then stores the textures as tiles
+

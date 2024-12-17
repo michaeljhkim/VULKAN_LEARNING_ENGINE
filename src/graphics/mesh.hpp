@@ -142,7 +142,7 @@ public:
     void setupMaterial(Material mat);
 
     // render number of instances using shader
-    void render(ShaderPipline& shader_pipeline, unsigned int noInstances);
+    void render(ShaderPipline& shader_pipeline, VkCommandBuffer& commandBuffer);
 
     // free up memory
     void cleanup();

@@ -8,6 +8,7 @@ struct PushConstantData {
     //aiColor4D diffuse;
     //aiColor4D specular;
     bool noNormalMap;
+    bool noTextures;
     bool TexExists;
 
 	glm::vec4 diffuse;
@@ -144,6 +145,8 @@ void Mesh::loadCollisionMesh(unsigned int numPoints, float* coordinates, unsigne
 void Mesh::setupTextures(std::vector<Texture> textures) {
     this->noTextures = false;
     this->textures.insert(this->textures.end(), textures.begin(), textures.end());
+
+    
 }
 
 // setup material colors
@@ -160,15 +163,26 @@ void Mesh::setupMaterial(Material mat) {
     this->specular = { mat.specular.r, mat.specular.g, mat.specular.b, 1.0f };
 }
 
+
+void Mesh::pushConstants(ShaderPipline& shader_pipeline, VkCommandBuffer& commandBuffer) {
+}
+
+
 // render number of instances using shader
-void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
-    shader_pipeline.setBool("noNormalMap", true);
+void Mesh::render(ShaderPipline& shader_pipeline, VkCommandBuffer& commandBuffer) {
+    //shader_pipeline.setBool("noNormalMap", true);
+    PushConstantData push{};
+    push.noNormalMap = true;
+
+    //push.diffuse = glm::vec4(diffuse.r, diffuse.g, diffuse.b, diffuse.a);
+    //push.specular = glm::vec4(specular.r, specular.g, specular.b, specular.a);
+    push.shininess = 0.5f;  // Consider making this defined by a function arguement 
 
     if (noTextures) {
         // materials
-        shader_pipeline.set4Float("material.diffuse", diffuse);
-        shader_pipeline.set4Float("material.specular", specular);
-        shader_pipeline.setBool("noTextures", true);
+        push.diffuse = glm::vec4(diffuse.r, diffuse.g, diffuse.b, diffuse.a);
+        push.specular = glm::vec4(specular.r, specular.g, specular.b, specular.a);
+        push.noTextures = true;
     }
     else {
         // textures
@@ -177,22 +191,24 @@ void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
         unsigned int specularIdx = 0;
 
         for (unsigned int i = 0; i < textures.size(); i++) {
+        //for (const auto& texture : textures) {
             // retrieve texture info
             std::string name;
             switch (textures[i].type) {
-            case aiTextureType_DIFFUSE:
-                name = "diffuse" + std::to_string(diffuseIdx++);
-                break;
-            case aiTextureType_NORMALS:
-                name = "normal" + std::to_string(normalIdx++);
-                shader_pipeline.setBool("noNormalMap", false);
-                break;
-            case aiTextureType_SPECULAR:
-                name = "specular" + std::to_string(specularIdx++);
-                break;
-            default:
-                name = textures[i].name;
-                break;
+                case aiTextureType_DIFFUSE:
+                    name = "diffuse" + std::to_string(diffuseIdx++);
+                    break;
+                case aiTextureType_NORMALS:
+                    name = "normal" + std::to_string(normalIdx++);
+                    //shader_pipeline.setBool("noNormalMap", false);
+                    push.noNormalMap = false;
+                    break;
+                case aiTextureType_SPECULAR:
+                    name = "specular" + std::to_string(specularIdx++);
+                    break;
+                default:
+                    name = textures[i].name;
+                    break;
             }
 
             // set the shader value and bind texture
@@ -202,6 +218,14 @@ void Mesh::render(ShaderPipline& shader_pipeline, unsigned int numInstances) {
 
         shader_pipeline.setBool("noTextures", false);
     }
+
+    vkCmdPushConstants(
+        commandBuffer,
+        shader_pipeline.getPipelineLayout(),
+        VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+        0,
+        sizeof(PushConstantData),
+        &push);
 }
 
 
@@ -282,23 +306,6 @@ void Mesh::createIndexBuffers() {
 
 
 
-
-
-void Mesh::pushConstants(ShaderPipline& shader_pipeline, VkCommandBuffer& commandBuffer) {
-    PushConstantData push{};
-    push.noNormalMap = true;
-    push.diffuse = glm::vec4(diffuse.r, diffuse.g, diffuse.b, diffuse.a);
-    push.specular = glm::vec4(specular.r, specular.g, specular.b, specular.a);
-    push.shininess = 0.5f;  // Consider making this defined by a function arguement 
-
-    vkCmdPushConstants(
-        commandBuffer,
-        shader_pipeline.getPipelineLayout(),
-        VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
-        0,
-        sizeof(PushConstantData),
-        &push);
-}
 
 
 void Mesh::bind(VkCommandBuffer commandBuffer, VkBuffer instanceBuffer, VkBuffer normalizedInstanceBuffer) {

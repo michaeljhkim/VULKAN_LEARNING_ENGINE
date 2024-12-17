@@ -6,12 +6,37 @@
 #include <assimp/scene.h>
 #include <stb/stb_image.h>
 
+
+
+struct Tile {
+    int offset;    // File offset of the tile data
+    size_t hash;   // Hash of the tile data
+};
+
+
+struct TextureMetadata {
+    size_t textureHash;   // Hash of the entire texture
+    int offset;           // Offset in the file where the texture data starts
+    int width;            // Texture width
+    int height;           // Texture height
+    int tileCount;        // Total number of tiles for this texture
+};
+
+
 /*
     class to represent texture
 */
 
 class Texture {
 public:
+    // Tile dimensions
+    const int TILE_WIDTH = 128;
+    const int TILE_HEIGHT = 128;
+    const int TILE_SIZE = TILE_WIDTH * TILE_HEIGHT * 4; // RGBA (4 bytes per pixel)
+
+    // texture hash
+    static size_t textureHash;
+
     /*
         constructor
     */
@@ -25,7 +50,10 @@ public:
     void generate();
 
     // load texture from path
-    void load(VulkanDevice &vulkanDevice, bool flip = true);
+    void saveTextureTiles(unsigned char* pixels, int texWidth, int texHeight, std::ofstream& outFile);
+    void packTextures(const std::vector<std::string>& texturePaths, const std::string& outputFile, bool flip);
+    void saveGlobalLookupTable(const std::vector<TextureMetadata>& globalLookupTable, std::ofstream& outFile);
+    std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile);
 
     void allocate(GLenum format, GLuint width, GLuint height, GLenum type);
 
@@ -55,7 +83,6 @@ public:
     // name of image
     std::string path;
 
-
 	VkImage textureImage;
 	VkDeviceMemory textureImageMemory;
 	VkImageView textureImageView;
@@ -76,4 +103,6 @@ public:
     void updateTextureSampler(VkDescriptorSet descriptorSet);
 
 	VulkanDevice &vulkanDevice;
+
+	VkDescriptorImageInfo descriptorImageInfo(VkSampler textureSampler, VkImageView textureImageView);
 };

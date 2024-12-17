@@ -2,7 +2,7 @@
 
 #include "mesh.hpp"
 #include "shader_pipeline.hpp"
-#include "rendering/texture.hpp"
+#include "texture.hpp"
 #include "rendering/material.hpp"
 
 #include "vulkan_buffer.hpp"
@@ -34,13 +34,6 @@
 #define DYNAMIC				(unsigned int)1 // 0b00000001
 #define CONST_INSTANCES		(unsigned int)2 // 0b00000010
 #define NO_TEX				(unsigned int)4	// 0b00000100
-
-
-
-
-
-
-
 
 
 

@@ -160,13 +160,14 @@ VkResult VulkanBuffer::invalidate(VkDeviceSize size, VkDeviceSize offset) {
  *
  * @return VkDescriptorBufferInfo of specified offset and range
  */
-VkDescriptorBufferInfo VulkanBuffer::descriptorInfo(VkDeviceSize size, VkDeviceSize offset) {
+VkDescriptorBufferInfo VulkanBuffer::descriptorBufferInfo(VkDeviceSize size, VkDeviceSize offset) {
 	return VkDescriptorBufferInfo{
 			buffer,
 			offset,
 			size,
 	};
 }
+
 
 /**
  * Copies "instanceSize" bytes of data to the mapped buffer at an offset of index * alignmentSize
@@ -195,7 +196,7 @@ VkResult VulkanBuffer::flushIndex(int index) { return flush(alignmentSize, index
  * @return VkDescriptorBufferInfo for instance at index
  */
 VkDescriptorBufferInfo VulkanBuffer::descriptorInfoForIndex(int index) {
-	return descriptorInfo(alignmentSize, index * alignmentSize);
+	return descriptorBufferInfo(alignmentSize, index * alignmentSize);
 }
 
 /**

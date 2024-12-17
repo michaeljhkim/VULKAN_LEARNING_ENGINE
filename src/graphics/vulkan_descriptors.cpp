@@ -142,8 +142,7 @@ VulkanDescriptorWriter &VulkanDescriptorWriter::writeBuffer(
 
 	auto &bindingDescription = setLayout.bindings[binding];
 
-	assert(
-			bindingDescription.descriptorCount == 1 &&
+	assert(bindingDescription.descriptorCount == 1 &&
 			"Binding single descriptor info, but binding expects multiple");
 
 	VkWriteDescriptorSet write{};

@@ -72,7 +72,7 @@ void TEST() {
     globalPool = VulkanDescriptorPool::Builder(vulkanDevice)
           .setMaxSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
           .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
-          .addPoolSize(VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
           .build();
 
     std::vector<std::unique_ptr<LveBuffer>> uboBuffers(LveSwapChain::MAX_FRAMES_IN_FLIGHT);
@@ -99,11 +99,11 @@ void TEST() {
 
     std::vector<VkDescriptorSet> globalDescriptorSets(LveSwapChain::MAX_FRAMES_IN_FLIGHT);
     for (int i = 0; i < globalDescriptorSets.size(); i++) {
-        auto bufferInfo = uboBuffers[i]->descriptorInfo();
-        auto imageInfo = uboBuffers[i]->descriptorInfo();
+        auto bufferInfo = uboBuffers[i]->descriptorBufferInfo();
+        auto imageInfo = uboBuffers[i]->descriptorImageInfo();
         LveDescriptorWriter(*globalSetLayout, *globalPool)
             .writeBuffer(0, &bufferInfo)
-            .writeImage(0, &bufferInfo)
+            .writeImage(0, &imageInfo)
             .build(globalDescriptorSets[i]);
     }
 }

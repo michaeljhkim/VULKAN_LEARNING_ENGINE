@@ -1,0 +1,3602 @@
+The system is: Linux - 6.1.0-28-amd64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/clang 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/3.25.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/3.25.1/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn
+
+Run Build Command(s):/usr/bin/ninja cmTC_35c8e && [1/2] Building C object CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o
+Debian clang version 14.0.6
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ (in-process)
+ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn -resource-dir /usr/lib/llvm-14/lib/clang/14.0.6 -dependency-file CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.6/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+clang -cc1 version 14.0.6 based upon LLVM 14.0.6 default target x86_64-pc-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/llvm-14/lib/clang/14.0.6/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+[2/2] Linking C executable cmTC_35c8e
+Debian clang version 14.0.6
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ "/usr/bin/ld" -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_35c8e /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/llvm-14/lib/clang/14.0.6/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/llvm-14/lib/clang/14.0.6/include] ==> [/usr/lib/llvm-14/lib/clang/14.0.6/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/llvm-14/lib/clang/14.0.6/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/ninja cmTC_35c8e && [1/2] Building C object CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [Debian clang version 14.0.6]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [ (in-process)]
+  ignore line: [ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn -resource-dir /usr/lib/llvm-14/lib/clang/14.0.6 -dependency-file CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.6/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INKSjn -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 14.0.6 based upon LLVM 14.0.6 default target x86_64-pc-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"]
+  ignore line: [ignoring nonexistent directory "/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/llvm-14/lib/clang/14.0.6/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [[2/2] Linking C executable cmTC_35c8e]
+  ignore line: [Debian clang version 14.0.6]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  link line: [ "/usr/bin/ld" -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_35c8e /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--hash-style=both] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_35c8e] ==> ignore
+    arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+    arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/12] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTC_35c8e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+    arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12] ==> [/usr/lib/gcc/x86_64-linux-gnu/12]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND
+
+Run Build Command(s):/usr/bin/ninja cmTC_2f0cf && [1/2] Building CXX object CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o
+Debian clang version 14.0.6
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ (in-process)
+ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND -resource-dir /usr/lib/llvm-14/lib/clang/14.0.6 -dependency-file CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.6/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 14.0.6 based upon LLVM 14.0.6 default target x86_64-pc-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward
+ /usr/lib/llvm-14/lib/clang/14.0.6/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_2f0cf
+Debian clang version 14.0.6
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ "/usr/bin/ld" -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2f0cf /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12]
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12]
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward]
+    add: [/usr/lib/llvm-14/lib/clang/14.0.6/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12] ==> [/usr/include/c++/12]
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12] ==> [/usr/include/x86_64-linux-gnu/c++/12]
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward] ==> [/usr/include/c++/12/backward]
+  collapse include dir [/usr/lib/llvm-14/lib/clang/14.0.6/include] ==> [/usr/lib/llvm-14/lib/clang/14.0.6/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/c++/12;/usr/include/x86_64-linux-gnu/c++/12;/usr/include/c++/12/backward;/usr/lib/llvm-14/lib/clang/14.0.6/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/ninja cmTC_2f0cf && [1/2] Building CXX object CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [Debian clang version 14.0.6]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [ (in-process)]
+  ignore line: [ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND -resource-dir /usr/lib/llvm-14/lib/clang/14.0.6 -dependency-file CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.6/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nSdFND -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 14.0.6 based upon LLVM 14.0.6 default target x86_64-pc-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"]
+  ignore line: [ignoring nonexistent directory "/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward]
+  ignore line: [ /usr/lib/llvm-14/lib/clang/14.0.6/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [[2/2] Linking CXX executable cmTC_2f0cf]
+  ignore line: [Debian clang version 14.0.6]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  link line: [ "/usr/bin/ld" -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2f0cf /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--hash-style=both] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_2f0cf] ==> ignore
+    arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+    arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/12] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTC_2f0cf.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+    arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12] ==> [/usr/lib/gcc/x86_64-linux-gnu/12]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+  implicit fwks: []
+
+
+Determining if the __GLIBC__ exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lIXrmL
+
+Run Build Command(s):/usr/bin/ninja cmTC_97483 && [1/2] Building C object CMakeFiles/cmTC_97483.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_97483
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __GLIBC__
+  return ((int*)(&__GLIBC__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_X64 succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-QtlARE
+
+Run Build Command(s):/usr/bin/ninja cmTC_c8b6b && [1/2] Building C object CMakeFiles/cmTC_c8b6b.dir/src.c.o
+[2/2] Linking C executable cmTC_c8b6b
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64) || defined(_M_X64) || defined(_M_AMD64)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test HAVE_GCC_WALL succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BwvnEw
+
+Run Build Command(s):/usr/bin/ninja cmTC_b8f43 && [1/2] Building C object CMakeFiles/cmTC_b8f43.dir/src.c.o
+[2/2] Linking C executable cmTC_b8f43
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WUNDEF succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-JPfLea
+
+Run Build Command(s):/usr/bin/ninja cmTC_a33ff && [1/2] Building C object CMakeFiles/cmTC_a33ff.dir/src.c.o
+[2/2] Linking C executable cmTC_a33ff
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_NO_STRICT_ALIASING succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-WMli6n
+
+Run Build Command(s):/usr/bin/ninja cmTC_4d436 && [1/2] Building C object CMakeFiles/cmTC_4d436.dir/src.c.o
+[2/2] Linking C executable cmTC_4d436
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WDOCUMENTATION succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-xctIAb
+
+Run Build Command(s):/usr/bin/ninja cmTC_44070 && [1/2] Building C object CMakeFiles/cmTC_44070.dir/src.c.o
+[2/2] Linking C executable cmTC_44070
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WDOCUMENTATION_UNKNOWN_COMMAND succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Qv9vjE
+
+Run Build Command(s):/usr/bin/ninja cmTC_9a775 && [1/2] Building C object CMakeFiles/cmTC_9a775.dir/src.c.o
+[2/2] Linking C executable cmTC_9a775
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_COMMENT_BLOCK_COMMANDS succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-RWp9b3
+
+Run Build Command(s):/usr/bin/ninja cmTC_658c0 && [1/2] Building C object CMakeFiles/cmTC_658c0.dir/src.c.o
+[2/2] Linking C executable cmTC_658c0
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WDECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-RKRCNf
+
+Run Build Command(s):/usr/bin/ninja cmTC_67fc7 && [1/2] Building C object CMakeFiles/cmTC_67fc7.dir/src.c.o
+[2/2] Linking C executable cmTC_67fc7
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_ATOMICS succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bkLFHv
+
+Run Build Command(s):/usr/bin/ninja cmTC_86e6f && [1/2] Building C object CMakeFiles/cmTC_86e6f.dir/src.c.o
+[2/2] Linking C executable cmTC_86e6f
+
+
+Source file was:
+int main(int argc, char **argv) {
+        int a;
+        void *x, *y, *z;
+        __sync_lock_test_and_set(&a, 4);
+        __sync_lock_test_and_set(&x, y);
+        __sync_fetch_and_add(&a, 1);
+        __sync_bool_compare_and_swap(&a, 5, 10);
+        __sync_bool_compare_and_swap(&x, y, z);
+        return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_FVISIBILITY succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-osYBJa
+
+Run Build Command(s):/usr/bin/ninja cmTC_572d8 && [1/2] Building C object CMakeFiles/cmTC_572d8.dir/src.c.o
+[2/2] Linking C executable cmTC_572d8
+
+
+Source file was:
+
+      #if !defined(__GNUC__) || __GNUC__ < 4
+      #error SDL only uses visibility attributes in GCC 4 or newer
+      #endif
+      int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WSHADOW succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-7F8eXK
+
+Run Build Command(s):/usr/bin/ninja cmTC_8857d && [1/2] Building C object CMakeFiles/cmTC_8857d.dir/src.c.o
+[2/2] Linking C executable cmTC_8857d
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Xtk852
+
+Run Build Command(s):/usr/bin/ninja cmTC_ef63b && [1/2] Building C object CMakeFiles/cmTC_ef63b.dir/src.c.o
+[2/2] Linking C executable cmTC_ef63b
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_NO_UNDEFINED succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-4UGpk0
+
+Run Build Command(s):/usr/bin/ninja cmTC_02385 && [1/2] Building C object CMakeFiles/cmTC_02385.dir/src.c.o
+clang: warning: -Wl,--no-undefined: 'linker' input unused [-Wunused-command-line-argument]
+[2/2] Linking C executable cmTC_02385
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_MMX succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-1NGQm8
+
+Run Build Command(s):/usr/bin/ninja cmTC_27120 && [1/2] Building C object CMakeFiles/cmTC_27120.dir/src.c.o
+[2/2] Linking C executable cmTC_27120
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <mmintrin.h>
+          #endif
+          #else
+          #include <mmintrin.h>
+          #endif
+          #ifndef __MMX__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_SSE succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-mngqk0
+
+Run Build Command(s):/usr/bin/ninja cmTC_d3179 && [1/2] Building C object CMakeFiles/cmTC_d3179.dir/src.c.o
+[2/2] Linking C executable cmTC_d3179
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #ifndef __SSE__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test CPU_SUPPORTS_SSE2 succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-QPSqrs
+
+Run Build Command(s):/usr/bin/ninja cmTC_5011a && [1/2] Building C object CMakeFiles/cmTC_5011a.dir/src.c.o
+[2/2] Linking C executable cmTC_5011a
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <emmintrin.h>
+          #endif
+          #else
+          #include <emmintrin.h>
+          #endif
+          #ifndef __SSE2__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test CPU_SUPPORTS_SSE3 succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-FfPPnk
+
+Run Build Command(s):/usr/bin/ninja cmTC_8a2fd && [1/2] Building C object CMakeFiles/cmTC_8a2fd.dir/src.c.o
+[2/2] Linking C executable cmTC_8a2fd
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <pmmintrin.h>
+          #endif
+          #else
+          #include <pmmintrin.h>
+          #endif
+          #ifndef __SSE3__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+
+Determining if the include file immintrin.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ALgItq
+
+Run Build Command(s):/usr/bin/ninja cmTC_5148d && [1/2] Building C object CMakeFiles/cmTC_5148d.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_5148d
+
+
+
+Determining if the include file ctype.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-NlUB5y
+
+Run Build Command(s):/usr/bin/ninja cmTC_4a288 && [1/2] Building C object CMakeFiles/cmTC_4a288.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_4a288
+
+
+
+Determining if the include file float.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TyL4KM
+
+Run Build Command(s):/usr/bin/ninja cmTC_081a6 && [1/2] Building C object CMakeFiles/cmTC_081a6.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_081a6
+
+
+
+Determining if the include file iconv.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-t2gTHM
+
+Run Build Command(s):/usr/bin/ninja cmTC_d9d9a && [1/2] Building C object CMakeFiles/cmTC_d9d9a.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_d9d9a
+
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-AsrCnk
+
+Run Build Command(s):/usr/bin/ninja cmTC_516b0 && [1/2] Building C object CMakeFiles/cmTC_516b0.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_516b0
+
+
+
+Determining if the include file limits.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-vwzqp6
+
+Run Build Command(s):/usr/bin/ninja cmTC_423ac && [1/2] Building C object CMakeFiles/cmTC_423ac.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_423ac
+
+
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-D9SbRX
+
+Run Build Command(s):/usr/bin/ninja cmTC_6527a && [1/2] Building C object CMakeFiles/cmTC_6527a.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_6527a
+
+
+
+Determining if the include file math.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-NNCQ2p
+
+Run Build Command(s):/usr/bin/ninja cmTC_6f9dc && [1/2] Building C object CMakeFiles/cmTC_6f9dc.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_6f9dc
+
+
+
+Determining if the include file memory.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-8rNZHX
+
+Run Build Command(s):/usr/bin/ninja cmTC_974e1 && [1/2] Building C object CMakeFiles/cmTC_974e1.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_974e1
+
+
+
+Determining if the include file signal.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OgYXiE
+
+Run Build Command(s):/usr/bin/ninja cmTC_3c8d3 && [1/2] Building C object CMakeFiles/cmTC_3c8d3.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_3c8d3
+
+
+
+Determining if the include file stdarg.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-wxiCeg
+
+Run Build Command(s):/usr/bin/ninja cmTC_8b543 && [1/2] Building C object CMakeFiles/cmTC_8b543.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_8b543
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2Zk2ZO
+
+Run Build Command(s):/usr/bin/ninja cmTC_e3a35 && [1/2] Building C object CMakeFiles/cmTC_e3a35.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_e3a35
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-U34XWy
+
+Run Build Command(s):/usr/bin/ninja cmTC_2ca36 && [1/2] Building C object CMakeFiles/cmTC_2ca36.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_2ca36
+
+
+
+Determining if the include file stdio.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HrE8UW
+
+Run Build Command(s):/usr/bin/ninja cmTC_7d1c7 && [1/2] Building C object CMakeFiles/cmTC_7d1c7.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_7d1c7
+
+
+
+Determining if the include file stdlib.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-S6s2Cq
+
+Run Build Command(s):/usr/bin/ninja cmTC_ab741 && [1/2] Building C object CMakeFiles/cmTC_ab741.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_ab741
+
+
+
+Determining if the include file string.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-pWhyoM
+
+Run Build Command(s):/usr/bin/ninja cmTC_549fe && [1/2] Building C object CMakeFiles/cmTC_549fe.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_549fe
+
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BvHUTJ
+
+Run Build Command(s):/usr/bin/ninja cmTC_14417 && [1/2] Building C object CMakeFiles/cmTC_14417.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_14417
+
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-96UkSo
+
+Run Build Command(s):/usr/bin/ninja cmTC_58755 && [1/2] Building C object CMakeFiles/cmTC_58755.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_58755
+
+
+
+Determining if the include file wchar.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-rLUJzp
+
+Run Build Command(s):/usr/bin/ninja cmTC_e9071 && [1/2] Building C object CMakeFiles/cmTC_e9071.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_e9071
+
+
+
+Determining if files stddef.h;stdarg.h;stdlib.h;string.h;stdio.h;wchar.h;float.h exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-YNeuBH
+
+Run Build Command(s):/usr/bin/ninja cmTC_5eb59 && [1/2] Building C object CMakeFiles/cmTC_5eb59.dir/STDC_HEADERS.c.o
+[2/2] Linking C executable cmTC_5eb59
+
+
+
+Determining if the M_PI exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-fZXAPZ
+
+Run Build Command(s):/usr/bin/ninja cmTC_a66d7 && [1/2] Building C object CMakeFiles/cmTC_a66d7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a66d7
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef M_PI
+  return ((int*)(&M_PI))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_MPROTECT succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Ae26tH
+
+Run Build Command(s):/usr/bin/ninja cmTC_9ef55 && [1/2] Building C object CMakeFiles/cmTC_9ef55.dir/src.c.o
+[2/2] Linking C executable cmTC_9ef55
+
+
+Source file was:
+#include <sys/types.h>
+                             #include <sys/mman.h>
+                             int main(void) { return 0; }
+
+Determining if the strtod exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-tfboOV
+
+Run Build Command(s):/usr/bin/ninja cmTC_0d138 && [1/2] Building C object CMakeFiles/cmTC_0d138.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0d138
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtod
+  return ((int*)(&strtod))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the malloc exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-eRUoqP
+
+Run Build Command(s):/usr/bin/ninja cmTC_68a1e && [1/2] Building C object CMakeFiles/cmTC_68a1e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_68a1e
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef malloc
+  return ((int*)(&malloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the calloc exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HnyJ2L
+
+Run Build Command(s):/usr/bin/ninja cmTC_dafc8 && [1/2] Building C object CMakeFiles/cmTC_dafc8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_dafc8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef calloc
+  return ((int*)(&calloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the realloc exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BZrmcu
+
+Run Build Command(s):/usr/bin/ninja cmTC_da053 && [1/2] Building C object CMakeFiles/cmTC_da053.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_da053
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef realloc
+  return ((int*)(&realloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the free exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lB6adE
+
+Run Build Command(s):/usr/bin/ninja cmTC_dc52a && [1/2] Building C object CMakeFiles/cmTC_dc52a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_dc52a
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef free
+  return ((int*)(&free))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getenv exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ZjmG44
+
+Run Build Command(s):/usr/bin/ninja cmTC_d75ca && [1/2] Building C object CMakeFiles/cmTC_d75ca.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d75ca
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getenv
+  return ((int*)(&getenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setenv exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-sbVkw3
+
+Run Build Command(s):/usr/bin/ninja cmTC_056f7 && [1/2] Building C object CMakeFiles/cmTC_056f7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_056f7
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setenv
+  return ((int*)(&setenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the putenv exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-fP4Ox4
+
+Run Build Command(s):/usr/bin/ninja cmTC_a119a && [1/2] Building C object CMakeFiles/cmTC_a119a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a119a
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef putenv
+  return ((int*)(&putenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the unsetenv exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-MQ0Gz5
+
+Run Build Command(s):/usr/bin/ninja cmTC_bb4dc && [1/2] Building C object CMakeFiles/cmTC_bb4dc.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_bb4dc
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef unsetenv
+  return ((int*)(&unsetenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the bsearch exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-pX2fUK
+
+Run Build Command(s):/usr/bin/ninja cmTC_722ab && [1/2] Building C object CMakeFiles/cmTC_722ab.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_722ab
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef bsearch
+  return ((int*)(&bsearch))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the qsort exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-tUkwEL
+
+Run Build Command(s):/usr/bin/ninja cmTC_6888b && [1/2] Building C object CMakeFiles/cmTC_6888b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_6888b
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef qsort
+  return ((int*)(&qsort))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the abs exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bYiYIH
+
+Run Build Command(s):/usr/bin/ninja cmTC_c66f8 && [1/2] Building C object CMakeFiles/cmTC_c66f8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c66f8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef abs
+  return ((int*)(&abs))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the bcopy exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qmXtMz
+
+Run Build Command(s):/usr/bin/ninja cmTC_1e6a3 && [1/2] Building C object CMakeFiles/cmTC_1e6a3.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1e6a3
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef bcopy
+  return ((int*)(&bcopy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memset exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-DFbiE5
+
+Run Build Command(s):/usr/bin/ninja cmTC_722be && [1/2] Building C object CMakeFiles/cmTC_722be.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_722be
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memset
+  return ((int*)(&memset))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memcpy exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CJNIhn
+
+Run Build Command(s):/usr/bin/ninja cmTC_d2ff5 && [1/2] Building C object CMakeFiles/cmTC_d2ff5.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d2ff5
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memcpy
+  return ((int*)(&memcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memmove exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Dq2Beq
+
+Run Build Command(s):/usr/bin/ninja cmTC_0f5aa && [1/2] Building C object CMakeFiles/cmTC_0f5aa.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0f5aa
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memmove
+  return ((int*)(&memmove))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memcmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-AOabER
+
+Run Build Command(s):/usr/bin/ninja cmTC_3934a && [1/2] Building C object CMakeFiles/cmTC_3934a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3934a
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memcmp
+  return ((int*)(&memcmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlen exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-KodORO
+
+Run Build Command(s):/usr/bin/ninja cmTC_35ec6 && [1/2] Building C object CMakeFiles/cmTC_35ec6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_35ec6
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlen
+  return ((int*)(&strlen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the index exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9iN2YG
+
+Run Build Command(s):/usr/bin/ninja cmTC_b8bf8 && [1/2] Building C object CMakeFiles/cmTC_b8bf8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b8bf8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef index
+  return ((int*)(&index))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the rindex exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CMKWOJ
+
+Run Build Command(s):/usr/bin/ninja cmTC_4bfa4 && [1/2] Building C object CMakeFiles/cmTC_4bfa4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4bfa4
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef rindex
+  return ((int*)(&rindex))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strchr exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LaAlGI
+
+Run Build Command(s):/usr/bin/ninja cmTC_9ce48 && [1/2] Building C object CMakeFiles/cmTC_9ce48.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_9ce48
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strchr
+  return ((int*)(&strchr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strrchr exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-5YOg5Z
+
+Run Build Command(s):/usr/bin/ninja cmTC_f811c && [1/2] Building C object CMakeFiles/cmTC_f811c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f811c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strrchr
+  return ((int*)(&strrchr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strstr exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-a0nnmw
+
+Run Build Command(s):/usr/bin/ninja cmTC_5a615 && [1/2] Building C object CMakeFiles/cmTC_5a615.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5a615
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strstr
+  return ((int*)(&strstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtok_r exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0bpZma
+
+Run Build Command(s):/usr/bin/ninja cmTC_1b504 && [1/2] Building C object CMakeFiles/cmTC_1b504.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1b504
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtok_r
+  return ((int*)(&strtok_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtol exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bTSFo1
+
+Run Build Command(s):/usr/bin/ninja cmTC_96c31 && [1/2] Building C object CMakeFiles/cmTC_96c31.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_96c31
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtol
+  return ((int*)(&strtol))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoul exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TotQlT
+
+Run Build Command(s):/usr/bin/ninja cmTC_0ec1c && [1/2] Building C object CMakeFiles/cmTC_0ec1c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0ec1c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoul
+  return ((int*)(&strtoul))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoll exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-7fnHsH
+
+Run Build Command(s):/usr/bin/ninja cmTC_7c97e && [1/2] Building C object CMakeFiles/cmTC_7c97e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7c97e
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoull exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CyYE2E
+
+Run Build Command(s):/usr/bin/ninja cmTC_58a72 && [1/2] Building C object CMakeFiles/cmTC_58a72.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_58a72
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoull
+  return ((int*)(&strtoull))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atoi exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-nlhvH4
+
+Run Build Command(s):/usr/bin/ninja cmTC_7a55d && [1/2] Building C object CMakeFiles/cmTC_7a55d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7a55d
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atoi
+  return ((int*)(&atoi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atof exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-sGXNCb
+
+Run Build Command(s):/usr/bin/ninja cmTC_0012c && [1/2] Building C object CMakeFiles/cmTC_0012c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0012c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atof
+  return ((int*)(&atof))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yB7ZTn
+
+Run Build Command(s):/usr/bin/ninja cmTC_e1c2c && [1/2] Building C object CMakeFiles/cmTC_e1c2c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e1c2c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmp
+  return ((int*)(&strcmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ISYsOo
+
+Run Build Command(s):/usr/bin/ninja cmTC_1dbee && [1/2] Building C object CMakeFiles/cmTC_1dbee.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1dbee
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmp
+  return ((int*)(&strncmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcasecmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lbJoy4
+
+Run Build Command(s):/usr/bin/ninja cmTC_f1cd7 && [1/2] Building C object CMakeFiles/cmTC_f1cd7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f1cd7
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcasecmp
+  return ((int*)(&strcasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncasecmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-NfU7CT
+
+Run Build Command(s):/usr/bin/ninja cmTC_dc94c && [1/2] Building C object CMakeFiles/cmTC_dc94c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_dc94c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncasecmp
+  return ((int*)(&strncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcasestr exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-QIpBrZ
+
+Run Build Command(s):/usr/bin/ninja cmTC_b97e4 && [1/2] Building C object CMakeFiles/cmTC_b97e4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b97e4
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcasestr
+  return ((int*)(&strcasestr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcscmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-3bSKSy
+
+Run Build Command(s):/usr/bin/ninja cmTC_8f27d && [1/2] Building C object CMakeFiles/cmTC_8f27d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8f27d
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcscmp
+  return ((int*)(&wcscmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsdup exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-7fl7Fn
+
+Run Build Command(s):/usr/bin/ninja cmTC_79a4a && [1/2] Building C object CMakeFiles/cmTC_79a4a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_79a4a
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsdup
+  return ((int*)(&wcsdup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcslen exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Hcw9XT
+
+Run Build Command(s):/usr/bin/ninja cmTC_eaf0a && [1/2] Building C object CMakeFiles/cmTC_eaf0a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_eaf0a
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcslen
+  return ((int*)(&wcslen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsncmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OUyheu
+
+Run Build Command(s):/usr/bin/ninja cmTC_30e9b && [1/2] Building C object CMakeFiles/cmTC_30e9b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_30e9b
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsncmp
+  return ((int*)(&wcsncmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsstr exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yncW4h
+
+Run Build Command(s):/usr/bin/ninja cmTC_068a2 && [1/2] Building C object CMakeFiles/cmTC_068a2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_068a2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsstr
+  return ((int*)(&wcsstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcscasecmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-wtf2Cp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c04f8 && [1/2] Building C object CMakeFiles/cmTC_c04f8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c04f8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcscasecmp
+  return ((int*)(&wcscasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsncasecmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Lp0LtS
+
+Run Build Command(s):/usr/bin/ninja cmTC_e05e4 && [1/2] Building C object CMakeFiles/cmTC_e05e4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e05e4
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsncasecmp
+  return ((int*)(&wcsncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sscanf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-UdEpAv
+
+Run Build Command(s):/usr/bin/ninja cmTC_3f9f0 && [1/2] Building C object CMakeFiles/cmTC_3f9f0.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3f9f0
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sscanf
+  return ((int*)(&sscanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the vsscanf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9UGjUP
+
+Run Build Command(s):/usr/bin/ninja cmTC_ebbce && [1/2] Building C object CMakeFiles/cmTC_ebbce.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ebbce
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsscanf
+  return ((int*)(&vsscanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the vsnprintf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-DaRlyc
+
+Run Build Command(s):/usr/bin/ninja cmTC_754c6 && [1/2] Building C object CMakeFiles/cmTC_754c6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_754c6
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsnprintf
+  return ((int*)(&vsnprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fopen64 exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-f5zple
+
+Run Build Command(s):/usr/bin/ninja cmTC_1c02e && [1/2] Building C object CMakeFiles/cmTC_1c02e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1c02e
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fopen64
+  return ((int*)(&fopen64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fseeko exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LHVgxs
+
+Run Build Command(s):/usr/bin/ninja cmTC_4fbfe && [1/2] Building C object CMakeFiles/cmTC_4fbfe.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4fbfe
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fseeko
+  return ((int*)(&fseeko))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fseeko64 exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lFl253
+
+Run Build Command(s):/usr/bin/ninja cmTC_710db && [1/2] Building C object CMakeFiles/cmTC_710db.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_710db
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fseeko64
+  return ((int*)(&fseeko64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _Exit exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-IJr1F7
+
+Run Build Command(s):/usr/bin/ninja cmTC_e479c && [1/2] Building C object CMakeFiles/cmTC_e479c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e479c
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _Exit
+  return ((int*)(&_Exit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sigaction exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-3qVefY
+
+Run Build Command(s):/usr/bin/ninja cmTC_b8cea && [1/2] Building C object CMakeFiles/cmTC_b8cea.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b8cea
+
+
+File CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sigaction
+  return ((int*)(&sigaction))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setjmp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-PQQ3uU
+
+Run Build Command(s):/usr/bin/ninja cmTC_0af59 && [1/2] Building C object CMakeFiles/cmTC_0af59.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0af59
+
+
+File CheckSymbolExists.c:
+/* */
+#include <setjmp.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setjmp
+  return ((int*)(&setjmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the nanosleep exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-wKnN0q
+
+Run Build Command(s):/usr/bin/ninja cmTC_3cd79 && [1/2] Building C object CMakeFiles/cmTC_3cd79.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3cd79
+
+
+File CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef nanosleep
+  return ((int*)(&nanosleep))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysconf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-VZJzcq
+
+Run Build Command(s):/usr/bin/ninja cmTC_2bbb8 && [1/2] Building C object CMakeFiles/cmTC_2bbb8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2bbb8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getauxval exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-xKHrI2
+
+Run Build Command(s):/usr/bin/ninja cmTC_88902 && [1/2] Building C object CMakeFiles/cmTC_88902.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_88902
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/auxv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getauxval
+  return ((int*)(&getauxval))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the poll exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-GDUMaw
+
+Run Build Command(s):/usr/bin/ninja cmTC_1613d && [1/2] Building C object CMakeFiles/cmTC_1613d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1613d
+
+
+File CheckSymbolExists.c:
+/* */
+#include <poll.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef poll
+  return ((int*)(&poll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memfd_create exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-d9SuCL
+
+Run Build Command(s):/usr/bin/ninja cmTC_5c811 && [1/2] Building C object CMakeFiles/cmTC_5c811.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5c811
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memfd_create
+  return ((int*)(&memfd_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the posix_fallocate exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-DyjyHX
+
+Run Build Command(s):/usr/bin/ninja cmTC_8ce21 && [1/2] Building C object CMakeFiles/cmTC_8ce21.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8ce21
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_fallocate
+  return ((int*)(&posix_fallocate))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function pow exists in the m passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-hRtjqj
+
+Run Build Command(s):/usr/bin/ninja cmTC_0aa55 && [1/2] Building C object CMakeFiles/cmTC_0aa55.dir/CheckFunctionExists.c.o
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-hRtjqj/CheckFunctionExists.c:7:3: warning: incompatible redeclaration of library function 'pow' [-Wincompatible-library-redeclaration]
+  CHECK_FUNCTION_EXISTS(void);
+  ^
+<command line>:1:31: note: expanded from here
+#define CHECK_FUNCTION_EXISTS pow
+                              ^
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-hRtjqj/CheckFunctionExists.c:7:3: note: 'pow' is a builtin with type 'double (double, double)'
+<command line>:1:31: note: expanded from here
+#define CHECK_FUNCTION_EXISTS pow
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTC_0aa55
+
+
+
+Determining if the atan exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qKVl7P
+
+Run Build Command(s):/usr/bin/ninja cmTC_83c33 && [1/2] Building C object CMakeFiles/cmTC_83c33.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_83c33
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan
+  return ((int*)(&atan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atan2 exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-JV85wA
+
+Run Build Command(s):/usr/bin/ninja cmTC_fbda6 && [1/2] Building C object CMakeFiles/cmTC_fbda6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_fbda6
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan2
+  return ((int*)(&atan2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atanf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-NdcIpz
+
+Run Build Command(s):/usr/bin/ninja cmTC_aefe2 && [1/2] Building C object CMakeFiles/cmTC_aefe2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_aefe2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atanf
+  return ((int*)(&atanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atan2f exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-MZ0wfB
+
+Run Build Command(s):/usr/bin/ninja cmTC_8107b && [1/2] Building C object CMakeFiles/cmTC_8107b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8107b
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan2f
+  return ((int*)(&atan2f))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the ceil exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bzQTGM
+
+Run Build Command(s):/usr/bin/ninja cmTC_98b06 && [1/2] Building C object CMakeFiles/cmTC_98b06.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_98b06
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ceil
+  return ((int*)(&ceil))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the ceilf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-4sXc2z
+
+Run Build Command(s):/usr/bin/ninja cmTC_ec697 && [1/2] Building C object CMakeFiles/cmTC_ec697.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ec697
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ceilf
+  return ((int*)(&ceilf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the copysign exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9FuBHL
+
+Run Build Command(s):/usr/bin/ninja cmTC_a6b81 && [1/2] Building C object CMakeFiles/cmTC_a6b81.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a6b81
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef copysign
+  return ((int*)(&copysign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the copysignf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BS9sFx
+
+Run Build Command(s):/usr/bin/ninja cmTC_0c676 && [1/2] Building C object CMakeFiles/cmTC_0c676.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0c676
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef copysignf
+  return ((int*)(&copysignf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the cos exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-I36a8Z
+
+Run Build Command(s):/usr/bin/ninja cmTC_41de8 && [1/2] Building C object CMakeFiles/cmTC_41de8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_41de8
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef cos
+  return ((int*)(&cos))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the cosf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ov5yCp
+
+Run Build Command(s):/usr/bin/ninja cmTC_a8b08 && [1/2] Building C object CMakeFiles/cmTC_a8b08.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a8b08
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef cosf
+  return ((int*)(&cosf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the exp exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-94ENrT
+
+Run Build Command(s):/usr/bin/ninja cmTC_5688b && [1/2] Building C object CMakeFiles/cmTC_5688b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5688b
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef exp
+  return ((int*)(&exp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the expf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HPIN9i
+
+Run Build Command(s):/usr/bin/ninja cmTC_057f4 && [1/2] Building C object CMakeFiles/cmTC_057f4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_057f4
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef expf
+  return ((int*)(&expf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fabs exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-kcm6UO
+
+Run Build Command(s):/usr/bin/ninja cmTC_566b0 && [1/2] Building C object CMakeFiles/cmTC_566b0.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_566b0
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fabs
+  return ((int*)(&fabs))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fabsf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-5WDZIh
+
+Run Build Command(s):/usr/bin/ninja cmTC_73f5e && [1/2] Building C object CMakeFiles/cmTC_73f5e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_73f5e
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fabsf
+  return ((int*)(&fabsf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the floor exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0iXdHg
+
+Run Build Command(s):/usr/bin/ninja cmTC_7e5e6 && [1/2] Building C object CMakeFiles/cmTC_7e5e6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7e5e6
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef floor
+  return ((int*)(&floor))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the floorf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yF1vKP
+
+Run Build Command(s):/usr/bin/ninja cmTC_4de30 && [1/2] Building C object CMakeFiles/cmTC_4de30.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4de30
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef floorf
+  return ((int*)(&floorf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fmod exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-1RlYwE
+
+Run Build Command(s):/usr/bin/ninja cmTC_b5426 && [1/2] Building C object CMakeFiles/cmTC_b5426.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b5426
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fmod
+  return ((int*)(&fmod))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fmodf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-D96urg
+
+Run Build Command(s):/usr/bin/ninja cmTC_892f2 && [1/2] Building C object CMakeFiles/cmTC_892f2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_892f2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fmodf
+  return ((int*)(&fmodf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-u3LJT5
+
+Run Build Command(s):/usr/bin/ninja cmTC_f1711 && [1/2] Building C object CMakeFiles/cmTC_f1711.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f1711
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log
+  return ((int*)(&log))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the logf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-KyoXpu
+
+Run Build Command(s):/usr/bin/ninja cmTC_cc1bb && [1/2] Building C object CMakeFiles/cmTC_cc1bb.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_cc1bb
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef logf
+  return ((int*)(&logf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log10 exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-NgdnI3
+
+Run Build Command(s):/usr/bin/ninja cmTC_8de67 && [1/2] Building C object CMakeFiles/cmTC_8de67.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8de67
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log10
+  return ((int*)(&log10))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log10f exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-PQxUOH
+
+Run Build Command(s):/usr/bin/ninja cmTC_993f2 && [1/2] Building C object CMakeFiles/cmTC_993f2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_993f2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log10f
+  return ((int*)(&log10f))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the lround exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-eXbgxF
+
+Run Build Command(s):/usr/bin/ninja cmTC_c61f6 && [1/2] Building C object CMakeFiles/cmTC_c61f6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c61f6
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lround
+  return ((int*)(&lround))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the lroundf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CkX0QB
+
+Run Build Command(s):/usr/bin/ninja cmTC_55033 && [1/2] Building C object CMakeFiles/cmTC_55033.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_55033
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lroundf
+  return ((int*)(&lroundf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the pow exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-h7ua3l
+
+Run Build Command(s):/usr/bin/ninja cmTC_f85fd && [1/2] Building C object CMakeFiles/cmTC_f85fd.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f85fd
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pow
+  return ((int*)(&pow))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the powf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-I5QPP4
+
+Run Build Command(s):/usr/bin/ninja cmTC_de3a9 && [1/2] Building C object CMakeFiles/cmTC_de3a9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_de3a9
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef powf
+  return ((int*)(&powf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the round exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-cUeQmb
+
+Run Build Command(s):/usr/bin/ninja cmTC_a0fea && [1/2] Building C object CMakeFiles/cmTC_a0fea.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a0fea
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef round
+  return ((int*)(&round))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the roundf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-80t1wt
+
+Run Build Command(s):/usr/bin/ninja cmTC_2ee6b && [1/2] Building C object CMakeFiles/cmTC_2ee6b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2ee6b
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef roundf
+  return ((int*)(&roundf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the scalbn exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-zoahsG
+
+Run Build Command(s):/usr/bin/ninja cmTC_d0014 && [1/2] Building C object CMakeFiles/cmTC_d0014.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d0014
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef scalbn
+  return ((int*)(&scalbn))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the scalbnf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ZLyEwm
+
+Run Build Command(s):/usr/bin/ninja cmTC_97bc7 && [1/2] Building C object CMakeFiles/cmTC_97bc7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_97bc7
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef scalbnf
+  return ((int*)(&scalbnf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sin exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-UlMthS
+
+Run Build Command(s):/usr/bin/ninja cmTC_adb82 && [1/2] Building C object CMakeFiles/cmTC_adb82.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_adb82
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sin
+  return ((int*)(&sin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sinf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-AbkFAn
+
+Run Build Command(s):/usr/bin/ninja cmTC_88cc7 && [1/2] Building C object CMakeFiles/cmTC_88cc7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_88cc7
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sinf
+  return ((int*)(&sinf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sqrt exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ub92FJ
+
+Run Build Command(s):/usr/bin/ninja cmTC_c55e5 && [1/2] Building C object CMakeFiles/cmTC_c55e5.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c55e5
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sqrt
+  return ((int*)(&sqrt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sqrtf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-t4QdRA
+
+Run Build Command(s):/usr/bin/ninja cmTC_a2438 && [1/2] Building C object CMakeFiles/cmTC_a2438.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a2438
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sqrtf
+  return ((int*)(&sqrtf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the tan exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HAQiqW
+
+Run Build Command(s):/usr/bin/ninja cmTC_fa635 && [1/2] Building C object CMakeFiles/cmTC_fa635.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_fa635
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef tan
+  return ((int*)(&tan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the tanf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-QpbZji
+
+Run Build Command(s):/usr/bin/ninja cmTC_8bfcd && [1/2] Building C object CMakeFiles/cmTC_8bfcd.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8bfcd
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef tanf
+  return ((int*)(&tanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the acos exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ba5ile
+
+Run Build Command(s):/usr/bin/ninja cmTC_3b7a1 && [1/2] Building C object CMakeFiles/cmTC_3b7a1.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3b7a1
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef acos
+  return ((int*)(&acos))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the acosf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-hNBVqj
+
+Run Build Command(s):/usr/bin/ninja cmTC_cd536 && [1/2] Building C object CMakeFiles/cmTC_cd536.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_cd536
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef acosf
+  return ((int*)(&acosf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the asin exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-xZvo3z
+
+Run Build Command(s):/usr/bin/ninja cmTC_8084d && [1/2] Building C object CMakeFiles/cmTC_8084d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8084d
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef asin
+  return ((int*)(&asin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the asinf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-aGQ84C
+
+Run Build Command(s):/usr/bin/ninja cmTC_34121 && [1/2] Building C object CMakeFiles/cmTC_34121.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_34121
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef asinf
+  return ((int*)(&asinf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the trunc exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LXvgrg
+
+Run Build Command(s):/usr/bin/ninja cmTC_15ee3 && [1/2] Building C object CMakeFiles/cmTC_15ee3.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_15ee3
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef trunc
+  return ((int*)(&trunc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the truncf exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-JqOQTm
+
+Run Build Command(s):/usr/bin/ninja cmTC_b85ee && [1/2] Building C object CMakeFiles/cmTC_b85ee.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b85ee
+
+
+File CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef truncf
+  return ((int*)(&truncf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test ICONV_IN_LIBC succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-d7bmjS
+
+Run Build Command(s):/usr/bin/ninja cmTC_d0d1e && [1/2] Building C object CMakeFiles/cmTC_d0d1e.dir/src.c.o
+[2/2] Linking C executable cmTC_d0d1e
+
+
+Source file was:
+
+        #define LIBICONV_PLUG 1 /* in case libiconv header is in include path */
+        #include <stddef.h>
+        #include <iconv.h>
+        int main(int argc, char **argv) {
+            return !iconv_open(NULL,NULL);
+        }
+
+Determining if the include file alloca.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HSWsZK
+
+Run Build Command(s):/usr/bin/ninja cmTC_25744 && [1/2] Building C object CMakeFiles/cmTC_25744.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_25744
+
+
+
+Determining if the alloca exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yXUjcH
+
+Run Build Command(s):/usr/bin/ninja cmTC_35315 && [1/2] Building C object CMakeFiles/cmTC_35315.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_35315
+
+
+File CheckSymbolExists.c:
+/* */
+#include <alloca.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the alloca exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-oSa7b1
+
+Run Build Command(s):/usr/bin/ninja cmTC_5b944 && [1/2] Building C object CMakeFiles/cmTC_5b944.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5b944
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_SA_SIGACTION succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-IohJHz
+
+Run Build Command(s):/usr/bin/ninja cmTC_40e7f && [1/2] Building C object CMakeFiles/cmTC_40e7f.dir/src.c.o
+[2/2] Linking C executable cmTC_40e7f
+
+
+Source file was:
+
+#include <signal.h>
+
+int main()
+{
+  (void)sizeof(((struct sigaction *)0)->sa_sigaction);
+  return 0;
+}
+
+
+Determining if the dlopen exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CotyQK
+
+Run Build Command(s):/usr/bin/ninja cmTC_f3d9d && [1/2] Building C object CMakeFiles/cmTC_f3d9d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f3d9d
+
+
+File CheckSymbolExists.c:
+/* */
+#include <dlfcn.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dlopen
+  return ((int*)(&dlopen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_O_CLOEXEC succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qJpfou
+
+Run Build Command(s):/usr/bin/ninja cmTC_3dc09 && [1/2] Building C object CMakeFiles/cmTC_3dc09.dir/src.c.o
+[2/2] Linking C executable cmTC_3dc09
+
+
+Source file was:
+
+    #include <fcntl.h>
+    int flag = O_CLOEXEC;
+    int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_OSS_SYS_SOUNDCARD_H succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-elJI1c
+
+Run Build Command(s):/usr/bin/ninja cmTC_2492e && [1/2] Building C object CMakeFiles/cmTC_2492e.dir/src.c.o
+[2/2] Linking C executable cmTC_2492e
+
+
+Source file was:
+
+        #include <sys/soundcard.h>
+        int main(int argc, char **argv) { int arg = SNDCTL_DSP_SETFRAGMENT; return 0; }
+
+Performing C SOURCE FILE Test HAVE_OPENGL_EGL succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-drsdQT
+
+Run Build Command(s):/usr/bin/ninja cmTC_551a4 && [1/2] Building C object CMakeFiles/cmTC_551a4.dir/src.c.o
+[2/2] Linking C executable cmTC_551a4
+
+
+Source file was:
+
+        #define EGL_API_FB
+        #define MESA_EGL_NO_X11_HEADERS
+        #define EGL_NO_X11
+        #include <EGL/egl.h>
+        #include <EGL/eglext.h>
+        int main (int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_OPENGLES_V2 succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OjkpFQ
+
+Run Build Command(s):/usr/bin/ninja cmTC_f0762 && [1/2] Building C object CMakeFiles/cmTC_f0762.dir/src.c.o
+[2/2] Linking C executable cmTC_f0762
+
+
+Source file was:
+
+        #include <GLES2/gl2.h>
+        #include <GLES2/gl2ext.h>
+        int main (int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_LINUX_INPUT_H succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0DEOhH
+
+Run Build Command(s):/usr/bin/ninja cmTC_ecfb2 && [1/2] Building C object CMakeFiles/cmTC_ecfb2.dir/src.c.o
+[2/2] Linking C executable cmTC_ecfb2
+
+
+Source file was:
+
+        #include <linux/input.h>
+        #ifndef EVIOCGNAME
+        #error EVIOCGNAME() ioctl not available
+        #endif
+        int main(int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_INPUT_KD succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-h3EIiM
+
+Run Build Command(s):/usr/bin/ninja cmTC_d1105 && [1/2] Building C object CMakeFiles/cmTC_d1105.dir/src.c.o
+[2/2] Linking C executable cmTC_d1105
+
+
+Source file was:
+
+          #include <linux/kd.h>
+          #include <linux/keyboard.h>
+          #include <sys/ioctl.h>
+          int main(int argc, char **argv) {
+              struct kbentry kbe;
+              kbe.kb_table = KG_CTRL;
+              ioctl(0, KDGKBENT, &kbe);
+              return 0;
+          }
+
+Determining if the include file sys/inotify.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-HewIIa
+
+Run Build Command(s):/usr/bin/ninja cmTC_6040c && [1/2] Building C object CMakeFiles/cmTC_6040c.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_6040c
+
+
+
+Determining if the inotify_init exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CE08p6
+
+Run Build Command(s):/usr/bin/ninja cmTC_05d5e && [1/2] Building C object CMakeFiles/cmTC_05d5e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_05d5e
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/inotify.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inotify_init
+  return ((int*)(&inotify_init))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inotify_init1 exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-CHW7B6
+
+Run Build Command(s):/usr/bin/ninja cmTC_5dcda && [1/2] Building C object CMakeFiles/cmTC_5dcda.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5dcda
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/inotify.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inotify_init1
+  return ((int*)(&inotify_init1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_PTHREADS succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-1mmuy9
+
+Run Build Command(s):/usr/bin/ninja cmTC_08229 && [1/2] Building C object CMakeFiles/cmTC_08229.dir/src.c.o
+[2/2] Linking C executable cmTC_08229
+
+
+Source file was:
+
+      #include <pthread.h>
+      int main(int argc, char** argv) {
+        pthread_attr_t type;
+        pthread_attr_init(&type);
+        return 0;
+      }
+
+Performing C SOURCE FILE Test HAVE_RECURSIVE_MUTEXES succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-kHX24h
+
+Run Build Command(s):/usr/bin/ninja cmTC_6da7d && [1/2] Building C object CMakeFiles/cmTC_6da7d.dir/src.c.o
+[2/2] Linking C executable cmTC_6da7d
+
+
+Source file was:
+
+        #include <pthread.h>
+        int main(int argc, char **argv) {
+          pthread_mutexattr_t attr;
+          pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
+          return 0;
+        }
+
+Performing C SOURCE FILE Test HAVE_PTHREADS_SEM succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-u4xebt
+
+Run Build Command(s):/usr/bin/ninja cmTC_bc082 && [1/2] Building C object CMakeFiles/cmTC_bc082.dir/src.c.o
+[2/2] Linking C executable cmTC_bc082
+
+
+Source file was:
+#include <pthread.h>
+                                 #include <semaphore.h>
+                                 int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_SEM_TIMEDWAIT succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-swWx18
+
+Run Build Command(s):/usr/bin/ninja cmTC_9342d && [1/2] Building C object CMakeFiles/cmTC_9342d.dir/src.c.o
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-swWx18/src.c:5:43: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                  sem_timedwait(NULL, NULL);
+                                ~~~~      ^
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-swWx18/src.c:5:43: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                  sem_timedwait(NULL, NULL);
+                                      ~~~~^
+2 warnings generated.
+[2/2] Linking C executable cmTC_9342d
+
+
+Source file was:
+
+              #include <pthread.h>
+              #include <semaphore.h>
+              int main(int argc, char **argv) {
+                  sem_timedwait(NULL, NULL);
+                  return 0;
+              }
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-arw2a3
+
+Run Build Command(s):/usr/bin/ninja cmTC_9cf6f && [1/2] Building C object CMakeFiles/cmTC_9cf6f.dir/HAVE_PTHREAD_H.c.o
+[2/2] Linking C executable cmTC_9cf6f
+
+
+
+Performing C SOURCE FILE Test HAVE_PTHREAD_SETNAME_NP succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-8lwpDt
+
+Run Build Command(s):/usr/bin/ninja cmTC_f8091 && [1/2] Building C object CMakeFiles/cmTC_f8091.dir/src.c.o
+[2/2] Linking C executable cmTC_f8091
+
+
+Source file was:
+
+            #include <pthread.h>
+            int main(int argc, char **argv) {
+              #ifdef __APPLE__
+              pthread_setname_np("");
+              #else
+              pthread_setname_np(pthread_self(),"");
+              #endif
+              return 0;
+            }
+
+Determining if the function clock_gettime exists in the c passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-INOY19
+
+Run Build Command(s):/usr/bin/ninja cmTC_6366c && [1/2] Building C object CMakeFiles/cmTC_6366c.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_6366c
+
+
+
+Determining if the include file linux/version.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Pj8E9a
+
+Run Build Command(s):/usr/bin/ninja cmTC_87854 && [1/2] Building C object CMakeFiles/cmTC_87854.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_87854
+
+
+
+Performing C SOURCE FILE Test HAVE_ENABLE_NEW_DTAGS succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-z1dJ2o
+
+Run Build Command(s):/usr/bin/ninja cmTC_8de92 && [1/2] Building C object CMakeFiles/cmTC_8de92.dir/src.c.o
+clang: warning: -Wl,--enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+[2/2] Linking C executable cmTC_8de92
+
+
+Source file was:
+int main(void) { return 0; }
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Tjg2gP
+
+Run Build Command(s):/usr/bin/ninja cmTC_5ff2f && [1/2] Building C object CMakeFiles/cmTC_5ff2f.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_5ff2f
+
+
+
+Determining if the include file fcntl.h exists passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-h7wy1p
+
+Run Build Command(s):/usr/bin/ninja cmTC_e903e && [1/2] Building C object CMakeFiles/cmTC_e903e.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_e903e
+
+
+
+Determining if the BZ2_bzCompressInit exist passed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-SxmJ3b
+
+Run Build Command(s):/usr/bin/ninja cmTC_bebda && [1/2] Building C object CMakeFiles/cmTC_bebda.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_bebda
+
+
+File CheckSymbolExists.c:
+/* */
+#include <bzlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef BZ2_bzCompressInit
+  return ((int*)(&BZ2_bzCompressInit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-dNVje6
+
+Run Build Command(s):/usr/bin/ninja cmTC_d6265 && [1/2] Building C object CMakeFiles/cmTC_d6265.dir/src.c.o
+[2/2] Linking C executable cmTC_d6265
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+

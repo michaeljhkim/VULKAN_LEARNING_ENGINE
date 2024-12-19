@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/CMakeFiles/glm-populate"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/CMakeFiles/glm-populate.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/CMakeFiles/glm-populate-complete.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-build.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-download.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-install.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-test.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glm-populate"
+		],
+		"name" : "glm-populate"
+	}
+}

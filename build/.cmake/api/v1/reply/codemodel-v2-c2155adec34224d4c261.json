@@ -1,0 +1,332 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						6,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "_deps/sdl2-build",
+					"jsonFile" : "directory-_deps.sdl2-build-Debug-cd006e24a7567a80ef7e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "build/_deps/sdl2-src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						7,
+						8
+					]
+				},
+				{
+					"build" : "_deps/assimp-build",
+					"childIndexes" : 
+					[
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.assimp-build-Debug-db8354db9837626c6475.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "build/_deps/assimp-src"
+				},
+				{
+					"build" : "_deps/assimp-build/code",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.assimp-build.code-Debug-2f10eb3bd7278e6481e2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "build/_deps/assimp-src/code",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "_deps/assimp-build/test",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-_deps.assimp-build.test-Debug-5351ff88c72948620902.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "build/_deps/assimp-src/test",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "_deps/assimp-build/test/headercheck",
+					"jsonFile" : "directory-_deps.assimp-build.test.headercheck-Debug-67b32f36013aabd0512c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 2,
+					"source" : "build/_deps/assimp-src/test/headercheck"
+				},
+				{
+					"build" : "_deps/glm-build",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-_deps.glm-build-Debug-201ada10ea0a1b5f163e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "build/_deps/glm-src"
+				},
+				{
+					"build" : "_deps/glm-build/glm",
+					"jsonFile" : "directory-_deps.glm-build.glm-Debug-894397eaf2e95b475181.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 3,
+					"source" : "build/_deps/glm-src/glm",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "_deps/freetype-build",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.freetype-build-Debug-dc6010d2e4ed388e7de3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "build/_deps/freetype-src",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "yurrgoht_engine",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						7,
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "Assimp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4,
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6,
+						7
+					],
+					"name" : "glm",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "freetype",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2::@45bd952f1071c035638d",
+					"jsonFile" : "target-SDL2-Debug-c042d0c299aacac285c9.json",
+					"name" : "SDL2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2-static::@45bd952f1071c035638d",
+					"jsonFile" : "target-SDL2-static-Debug-1d7fbb30d586c0c5dfe9.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2_test::@45bd952f1071c035638d",
+					"jsonFile" : "target-SDL2_test-Debug-94500f1eb4c296a27e47.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2main::@45bd952f1071c035638d",
+					"jsonFile" : "target-SDL2main-Debug-350178c14055410ea0a3.json",
+					"name" : "SDL2main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "assimp::@b1ea6f5c2178ebc90389",
+					"jsonFile" : "target-assimp-Debug-958e697ef3aa77d6bdab.json",
+					"name" : "assimp",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "freetype::@d06f9f5ffc3cc0b4bd77",
+					"jsonFile" : "target-freetype-Debug-8959d676abcfdc8c4705.json",
+					"name" : "freetype",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "glm::@ce54d98d7b326a3e12a8",
+					"jsonFile" : "target-glm-Debug-daa5960a528880ac8689.json",
+					"name" : "glm",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl_headers_copy::@45bd952f1071c035638d",
+					"jsonFile" : "target-sdl_headers_copy-Debug-2c496f0de82b3c8474ea.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@45bd952f1071c035638d",
+					"jsonFile" : "target-uninstall-Debug-5579f0fc38bfdad04c3c.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "unit::@793d8fb20316ba2f33fd",
+					"jsonFile" : "target-unit-Debug-b8cfb1750932da459999.json",
+					"name" : "unit",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "yurrgoht_engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yurrgoht_engine-Debug-7fc2e1d62966e325eca6.json",
+					"name" : "yurrgoht_engine",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/michael/Documents/YURRGOHT_ENGINE/build",
+		"source" : "/home/michael/Documents/YURRGOHT_ENGINE"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

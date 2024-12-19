@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/CMakeFiles/glslang-populate"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/CMakeFiles/glslang-populate.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/CMakeFiles/glslang-populate-complete.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-build.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-configure.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-download.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-install.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-patch.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-test.rule"
+		},
+		{
+			"file" : "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/glslang-subbuild/glslang-populate-prefix/src/glslang-populate-stamp/glslang-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glslang-populate"
+		],
+		"name" : "glslang-populate"
+	}
+}

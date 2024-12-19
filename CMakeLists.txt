@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.15)
+
+# Include the library builder to fetch dependencies
+include(LibraryBuilder.cmake)
+
 project(yurrgoht_engine)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,25 +21,25 @@ file(GLOB_RECURSE VULKAN_SOURCES ${CMAKE_SOURCE_DIR}/src/vulkan_core/*.cpp)
 add_executable(yurrgoht_engine
     src/main.cpp
     src/scene.cpp
-    src/vulkan.c
-    lib/stb.cpp
-    lib/vkbootstrap/VkBootstrap.cpp
+    #lib/stb.cpp
 
-    ${ALGORITHIMS_SOURCES}  # Add all gathered files here
-    ${GRAPHICS_SOURCES}  # Add all gathered files here
-    ${IO_SOURCES}  # Add all gathered files here
-    ${PHYSICS_SOURCES}  # Add all gathered files here
-    ${VULKAN_SOURCES}  # Add all gathered files here
+    ${ALGORITHIMS_SOURCES}
+    ${GRAPHICS_SOURCES}
+    ${IO_SOURCES}
+    ${PHYSICS_SOURCES}
+    ${VULKAN_SOURCES}
 )
 
-# Find SDL2 package
-find_package(SDL2 REQUIRED)
-# Include SDL2 headers
-include_directories(${SDL2_INCLUDE_DIRS})
-
-find_package(assimp REQUIRED)
+# Find Assimp, Vulkan, and other dependencies
 find_package(Vulkan REQUIRED)
-find_package(glslang REQUIRED)
 
-# Link SDL2 library
-target_link_libraries(yurrgoht_engine ${SDL2_LIBRARIES} assimp freetype Vulkan glslang)
+# Link the libraries
+target_link_libraries(yurrgoht_engine
+    #${SDL2_LIBRARIES}
+    SDL2
+    GLM
+    ASSIMP  # Assimp target
+    FREETYPE
+    Vulkan
+    glslang
+)

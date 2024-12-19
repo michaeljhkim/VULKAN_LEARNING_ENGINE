@@ -1,0 +1,1127 @@
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_X86 failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qiThE8
+
+Run Build Command(s):/usr/bin/ninja cmTC_cea41 && [1/2] Building C object CMakeFiles/cmTC_cea41.dir/src.c.o
+FAILED: CMakeFiles/cmTC_cea41.dir/src.c.o 
+/usr/bin/clang -DCHECK_CPU_ARCHITECTURE_X86   -MD -MT CMakeFiles/cmTC_cea41.dir/src.c.o -MF CMakeFiles/cmTC_cea41.dir/src.c.o.d -o CMakeFiles/cmTC_cea41.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qiThE8/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qiThE8/src.c:6:3: error: use of undeclared identifier 'choke'
+  choke
+  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__i386__) || defined(__i486__) || defined(__i586__) || defined(__i686__) ||defined( __i386) || defined(_M_IX86)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_ARM32 failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-PBPz6S
+
+Run Build Command(s):/usr/bin/ninja cmTC_f4423 && [1/2] Building C object CMakeFiles/cmTC_f4423.dir/src.c.o
+FAILED: CMakeFiles/cmTC_f4423.dir/src.c.o 
+/usr/bin/clang -DCHECK_CPU_ARCHITECTURE_ARM32   -MD -MT CMakeFiles/cmTC_f4423.dir/src.c.o -MF CMakeFiles/cmTC_f4423.dir/src.c.o.d -o CMakeFiles/cmTC_f4423.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-PBPz6S/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-PBPz6S/src.c:6:3: error: use of undeclared identifier 'choke'
+  choke
+  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__arm__) || defined(_M_ARM)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_ARM64 failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ErkiSM
+
+Run Build Command(s):/usr/bin/ninja cmTC_dd50b && [1/2] Building C object CMakeFiles/cmTC_dd50b.dir/src.c.o
+FAILED: CMakeFiles/cmTC_dd50b.dir/src.c.o 
+/usr/bin/clang -DCHECK_CPU_ARCHITECTURE_ARM64   -MD -MT CMakeFiles/cmTC_dd50b.dir/src.c.o -MF CMakeFiles/cmTC_dd50b.dir/src.c.o.d -o CMakeFiles/cmTC_dd50b.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ErkiSM/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ErkiSM/src.c:6:3: error: use of undeclared identifier 'choke'
+  choke
+  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__aarch64__) || defined(_M_ARM64)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_LOONGARCH64 failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lfm5o6
+
+Run Build Command(s):/usr/bin/ninja cmTC_83145 && [1/2] Building C object CMakeFiles/cmTC_83145.dir/src.c.o
+FAILED: CMakeFiles/cmTC_83145.dir/src.c.o 
+/usr/bin/clang -DCHECK_CPU_ARCHITECTURE_LOONGARCH64   -MD -MT CMakeFiles/cmTC_83145.dir/src.c.o -MF CMakeFiles/cmTC_83145.dir/src.c.o.d -o CMakeFiles/cmTC_83145.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lfm5o6/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-lfm5o6/src.c:6:3: error: use of undeclared identifier 'choke'
+  choke
+  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__loongarch64)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test HAVE_ALTIVEC_H_HDR failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-RqY9Ht
+
+Run Build Command(s):/usr/bin/ninja cmTC_eab12 && [1/2] Building C object CMakeFiles/cmTC_eab12.dir/src.c.o
+FAILED: CMakeFiles/cmTC_eab12.dir/src.c.o 
+/usr/bin/clang -DHAVE_ALTIVEC_H_HDR  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos" -maltivec -MD -MT CMakeFiles/cmTC_eab12.dir/src.c.o -MF CMakeFiles/cmTC_eab12.dir/src.c.o.d -o CMakeFiles/cmTC_eab12.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-RqY9Ht/src.c
+clang: warning: argument unused during compilation: '-maltivec' [-Wunused-command-line-argument]
+In file included from /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-RqY9Ht/src.c:2:
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:13:2: error: "AltiVec support not enabled"
+#error "AltiVec support not enabled"
+ ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:50:19: error: unknown type name 'vector'
+static __inline__ vector signed char __ATTRS_o_ai vec_perm(
+                  ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:51:5: error: unknown type name 'vector'
+    vector signed char __a, vector signed char __b, vector unsigned char __c);
+    ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:51:29: error: unknown type name 'vector'
+    vector signed char __a, vector signed char __b, vector unsigned char __c);
+                            ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:51:53: error: unknown type name 'vector'
+    vector signed char __a, vector signed char __b, vector unsigned char __c);
+                                                    ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:53:19: error: unknown type name 'vector'
+static __inline__ vector unsigned char __ATTRS_o_ai
+                  ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:54:10: error: unknown type name 'vector'
+vec_perm(vector unsigned char __a, vector unsigned char __b,
+         ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:54:36: error: unknown type name 'vector'
+vec_perm(vector unsigned char __a, vector unsigned char __b,
+                                   ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:55:10: error: unknown type name 'vector'
+         vector unsigned char __c);
+         ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:57:19: error: unknown type name 'vector'
+static __inline__ vector bool char __ATTRS_o_ai
+                  ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:57:8: error: 'inline' can only appear on functions
+static __inline__ vector bool char __ATTRS_o_ai
+       ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:57:30: error: expected ';' after top level declarator
+static __inline__ vector bool char __ATTRS_o_ai
+                             ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:58:10: error: unknown type name 'vector'
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+         ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:58:22: error: expected ')'
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+                     ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:58:9: note: to match this '('
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+        ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:60:19: error: unknown type name 'vector'
+static __inline__ vector short __ATTRS_o_ai vec_perm(vector signed short __a,
+                  ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:60:54: error: unknown type name 'vector'
+static __inline__ vector short __ATTRS_o_ai vec_perm(vector signed short __a,
+                                                     ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:61:54: error: unknown type name 'vector'
+                                                     vector signed short __b,
+                                                     ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:62:54: error: unknown type name 'vector'
+                                                     vector unsigned char __c);
+                                                     ^
+/usr/lib/llvm-14/lib/clang/14.0.6/include/altivec.h:64:19: error: unknown type name 'vector'
+static __inline__ vector unsigned short __ATTRS_o_ai
+                  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+          #include <altivec.h>
+          vector unsigned int vzero() {
+              return vec_splat_u32(0);
+          }
+          int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test CPU_SUPPORTS_ALTIVEC failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TkAmpx
+
+Run Build Command(s):/usr/bin/ninja cmTC_cec78 && [1/2] Building C object CMakeFiles/cmTC_cec78.dir/src.c.o
+FAILED: CMakeFiles/cmTC_cec78.dir/src.c.o 
+/usr/bin/clang -DCPU_SUPPORTS_ALTIVEC  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos" -maltivec -MD -MT CMakeFiles/cmTC_cec78.dir/src.c.o -MF CMakeFiles/cmTC_cec78.dir/src.c.o.d -o CMakeFiles/cmTC_cec78.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TkAmpx/src.c
+clang: warning: argument unused during compilation: '-maltivec' [-Wunused-command-line-argument]
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TkAmpx/src.c:2:11: error: unknown type name 'vector'
+          vector unsigned int vzero() {
+          ^
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-TkAmpx/src.c:3:22: warning: implicit declaration of function 'vec_splat_u32' is invalid in C99 [-Wimplicit-function-declaration]
+              return vec_splat_u32(0);
+                     ^
+1 warning and 1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+          vector unsigned int vzero() {
+              return vec_splat_u32(0);
+          }
+          int main(int argc, char **argv) { return 0; }
+
+Determining if the strlcpy exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-pbuyEQ
+
+Run Build Command(s):/usr/bin/ninja cmTC_511a6 && [1/2] Building C object CMakeFiles/cmTC_511a6.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_511a6.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_511a6.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_511a6.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_511a6.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-pbuyEQ/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-pbuyEQ/CheckSymbolExists.c:14:19: error: use of undeclared identifier 'strlcpy'
+  return ((int*)(&strlcpy))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcpy
+  return ((int*)(&strlcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-k10AHJ
+
+Run Build Command(s):/usr/bin/ninja cmTC_6097b && [1/2] Building C object CMakeFiles/cmTC_6097b.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_6097b.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_6097b.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_6097b.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_6097b.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-k10AHJ/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-k10AHJ/CheckSymbolExists.c:14:19: error: use of undeclared identifier 'strlcat'
+  return ((int*)(&strlcat))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strrev exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OogTeZ
+
+Run Build Command(s):/usr/bin/ninja cmTC_e0e8b && [1/2] Building C object CMakeFiles/cmTC_e0e8b.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_e0e8b.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_e0e8b.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_e0e8b.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_e0e8b.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OogTeZ/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-OogTeZ/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_strrev'
+  return ((int*)(&_strrev))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strrev
+  return ((int*)(&_strrev))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strupr exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-em4CIN
+
+Run Build Command(s):/usr/bin/ninja cmTC_13e21 && [1/2] Building C object CMakeFiles/cmTC_13e21.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_13e21.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_13e21.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_13e21.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_13e21.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-em4CIN/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-em4CIN/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_strupr'
+  return ((int*)(&_strupr))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strupr
+  return ((int*)(&_strupr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strlwr exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gENhAc
+
+Run Build Command(s):/usr/bin/ninja cmTC_84494 && [1/2] Building C object CMakeFiles/cmTC_84494.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_84494.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_84494.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_84494.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_84494.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gENhAc/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gENhAc/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_strlwr'
+  return ((int*)(&_strlwr))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strlwr
+  return ((int*)(&_strlwr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the itoa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-MKljrE
+
+Run Build Command(s):/usr/bin/ninja cmTC_2f206 && [1/2] Building C object CMakeFiles/cmTC_2f206.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_2f206.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_2f206.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_2f206.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_2f206.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-MKljrE/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-MKljrE/CheckSymbolExists.c:14:19: error: use of undeclared identifier 'itoa'
+  return ((int*)(&itoa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef itoa
+  return ((int*)(&itoa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _ltoa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-6SL25z
+
+Run Build Command(s):/usr/bin/ninja cmTC_296f5 && [1/2] Building C object CMakeFiles/cmTC_296f5.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_296f5.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_296f5.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_296f5.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_296f5.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-6SL25z/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-6SL25z/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_ltoa'
+  return ((int*)(&_ltoa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _ltoa
+  return ((int*)(&_ltoa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _uitoa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-eIWvOX
+
+Run Build Command(s):/usr/bin/ninja cmTC_eda13 && [1/2] Building C object CMakeFiles/cmTC_eda13.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_eda13.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_eda13.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_eda13.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_eda13.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-eIWvOX/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-eIWvOX/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_uitoa'
+  return ((int*)(&_uitoa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _uitoa
+  return ((int*)(&_uitoa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _ultoa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gJYihO
+
+Run Build Command(s):/usr/bin/ninja cmTC_9dbb9 && [1/2] Building C object CMakeFiles/cmTC_9dbb9.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_9dbb9.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_9dbb9.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_9dbb9.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_9dbb9.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gJYihO/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-gJYihO/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_ultoa'
+  return ((int*)(&_ultoa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _ultoa
+  return ((int*)(&_ultoa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _i64toa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XEwtT9
+
+Run Build Command(s):/usr/bin/ninja cmTC_dbcf5 && [1/2] Building C object CMakeFiles/cmTC_dbcf5.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_dbcf5.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_dbcf5.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_dbcf5.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_dbcf5.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XEwtT9/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XEwtT9/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_i64toa'
+  return ((int*)(&_i64toa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _i64toa
+  return ((int*)(&_i64toa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _ui64toa exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BJRtra
+
+Run Build Command(s):/usr/bin/ninja cmTC_416f8 && [1/2] Building C object CMakeFiles/cmTC_416f8.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_416f8.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_416f8.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_416f8.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_416f8.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BJRtra/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-BJRtra/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_ui64toa'
+  return ((int*)(&_ui64toa))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _ui64toa
+  return ((int*)(&_ui64toa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _stricmp exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2lS2oM
+
+Run Build Command(s):/usr/bin/ninja cmTC_22d01 && [1/2] Building C object CMakeFiles/cmTC_22d01.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_22d01.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_22d01.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_22d01.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_22d01.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2lS2oM/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2lS2oM/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_stricmp'
+  return ((int*)(&_stricmp))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _stricmp
+  return ((int*)(&_stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strnicmp exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XXSSbT
+
+Run Build Command(s):/usr/bin/ninja cmTC_5f95d && [1/2] Building C object CMakeFiles/cmTC_5f95d.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_5f95d.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_5f95d.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_5f95d.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_5f95d.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XXSSbT/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XXSSbT/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_strnicmp'; did you mean 'strncmp'?
+  return ((int*)(&_strnicmp))[argc];
+                  ^~~~~~~~~
+                  strncmp
+/usr/include/string.h:159:12: note: 'strncmp' declared here
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+           ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strnicmp
+  return ((int*)(&_strnicmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _wcsdup exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Q3H2qN
+
+Run Build Command(s):/usr/bin/ninja cmTC_7ffae && [1/2] Building C object CMakeFiles/cmTC_7ffae.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_7ffae.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_7ffae.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_7ffae.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_7ffae.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Q3H2qN/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-Q3H2qN/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_wcsdup'; did you mean 'wcsdup'?
+  return ((int*)(&_wcsdup))[argc];
+                  ^~~~~~~
+                  wcsdup
+/usr/include/wchar.h:154:17: note: 'wcsdup' declared here
+extern wchar_t *wcsdup (const wchar_t *__s) __THROW
+                ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _wcsdup
+  return ((int*)(&_wcsdup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcslcat exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-v9xSZM
+
+Run Build Command(s):/usr/bin/ninja cmTC_fd78c && [1/2] Building C object CMakeFiles/cmTC_fd78c.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_fd78c.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_fd78c.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_fd78c.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_fd78c.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-v9xSZM/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-v9xSZM/CheckSymbolExists.c:14:19: error: use of undeclared identifier 'wcslcat'
+  return ((int*)(&wcslcat))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcslcat
+  return ((int*)(&wcslcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcslcpy exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-jkUe69
+
+Run Build Command(s):/usr/bin/ninja cmTC_6e75e && [1/2] Building C object CMakeFiles/cmTC_6e75e.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_6e75e.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_6e75e.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_6e75e.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_6e75e.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-jkUe69/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-jkUe69/CheckSymbolExists.c:14:19: error: use of undeclared identifier 'wcslcpy'
+  return ((int*)(&wcslcpy))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcslcpy
+  return ((int*)(&wcslcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _wcsicmp exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bx5dwD
+
+Run Build Command(s):/usr/bin/ninja cmTC_7d281 && [1/2] Building C object CMakeFiles/cmTC_7d281.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_7d281.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_7d281.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_7d281.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_7d281.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bx5dwD/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-bx5dwD/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_wcsicmp'
+  return ((int*)(&_wcsicmp))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _wcsicmp
+  return ((int*)(&_wcsicmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _wcsnicmp exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2uwVld
+
+Run Build Command(s):/usr/bin/ninja cmTC_f9d50 && [1/2] Building C object CMakeFiles/cmTC_f9d50.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_f9d50.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_f9d50.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_f9d50.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_f9d50.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2uwVld/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-2uwVld/CheckSymbolExists.c:14:19: error: use of undeclared identifier '_wcsnicmp'; did you mean 'wcsncmp'?
+  return ((int*)(&_wcsnicmp))[argc];
+                  ^~~~~~~~~
+                  wcsncmp
+/usr/include/wchar.h:109:12: note: 'wcsncmp' declared here
+extern int wcsncmp (const wchar_t *__s1, const wchar_t *__s2, size_t __n)
+           ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _wcsnicmp
+  return ((int*)(&_wcsnicmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysctlbyname exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-u2mp7I
+
+Run Build Command(s):/usr/bin/ninja cmTC_30a5a && [1/2] Building C object CMakeFiles/cmTC_30a5a.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_30a5a.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_30a5a.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_30a5a.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_30a5a.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-u2mp7I/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-u2mp7I/CheckSymbolExists.c:3:10: fatal error: 'sys/sysctl.h' file not found
+#include <sys/sysctl.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysctlbyname
+  return ((int*)(&sysctlbyname))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the elf_aux_info exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qsyFLk
+
+Run Build Command(s):/usr/bin/ninja cmTC_57a10 && [1/2] Building C object CMakeFiles/cmTC_57a10.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_57a10.dir/CheckSymbolExists.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_57a10.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_57a10.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_57a10.dir/CheckSymbolExists.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qsyFLk/CheckSymbolExists.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-qsyFLk/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'elf_aux_info'
+  return ((int*)(&elf_aux_info))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/auxv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef elf_aux_info
+  return ((int*)(&elf_aux_info))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test ICONV_IN_LIBICONV failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-jb68yR
+
+Run Build Command(s):/usr/bin/ninja cmTC_d96b5 && [1/2] Building C object CMakeFiles/cmTC_d96b5.dir/src.c.o
+[2/2] Linking C executable cmTC_d96b5
+FAILED: cmTC_d96b5 
+: && /usr/bin/clang -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1  CMakeFiles/cmTC_d96b5.dir/src.c.o -o cmTC_d96b5  -liconv && :
+/usr/bin/ld: cannot find -liconv: No such file or directory
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <stddef.h>
+        #include <iconv.h>
+        int main(int argc, char **argv) {
+            return !iconv_open(NULL,NULL);
+        }
+
+Determining if the alloca exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-g7H6Bf
+
+Run Build Command(s):/usr/bin/ninja cmTC_a61b3 && [1/2] Building C object CMakeFiles/cmTC_a61b3.dir/CheckSymbolExists.c.o
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-g7H6Bf/CheckSymbolExists.c:8:19: warning: implicitly declaring library function 'alloca' with type 'void *(unsigned long)' [-Wimplicit-function-declaration]
+  return ((int*)(&alloca))[argc];
+                  ^
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-g7H6Bf/CheckSymbolExists.c:8:19: note: include the header <stdlib.h> or explicitly provide a declaration for 'alloca'
+1 warning generated.
+[2/2] Linking C executable cmTC_a61b3
+FAILED: cmTC_a61b3 
+: && /usr/bin/clang -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1  CMakeFiles/cmTC_a61b3.dir/CheckSymbolExists.c.o -o cmTC_a61b3   && :
+/usr/bin/ld: CMakeFiles/cmTC_a61b3.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x19): undefined reference to `alloca'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file audio/audiolib.h exists failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9BwLnn
+
+Run Build Command(s):/usr/bin/ninja cmTC_96377 && [1/2] Building C object CMakeFiles/cmTC_96377.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_96377.dir/CheckIncludeFile.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_96377.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_96377.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_96377.dir/CheckIncludeFile.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9BwLnn/CheckIncludeFile.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-9BwLnn/CheckIncludeFile.c:1:10: fatal error: 'audio/audiolib.h' file not found
+#include <audio/audiolib.h>
+         ^~~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test HAVE_RPI failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-8dvpGx
+
+Run Build Command(s):/usr/bin/ninja cmTC_cd583 && [1/2] Building C object CMakeFiles/cmTC_cd583.dir/src.c.o
+FAILED: CMakeFiles/cmTC_cd583.dir/src.c.o 
+/usr/bin/clang -DHAVE_RPI  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/  -L/opt/vc/lib -MD -MT CMakeFiles/cmTC_cd583.dir/src.c.o -MF CMakeFiles/cmTC_cd583.dir/src.c.o.d -o CMakeFiles/cmTC_cd583.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-8dvpGx/src.c
+clang: warning: argument unused during compilation: '-L/opt/vc/lib' [-Wunused-command-line-argument]
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-8dvpGx/src.c:2:18: fatal error: 'bcm_host.h' file not found
+        #include <bcm_host.h>
+                 ^~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <bcm_host.h>
+        #include <EGL/eglplatform.h>
+        int main(int argc, char **argv) {
+          EGL_DISPMANX_WINDOW_T window;
+          bcm_host_init();
+        }
+
+Performing C SOURCE FILE Test HAVE_OPENGL_GLX failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yBLcKH
+
+Run Build Command(s):/usr/bin/ninja cmTC_54aea && [1/2] Building C object CMakeFiles/cmTC_54aea.dir/src.c.o
+FAILED: CMakeFiles/cmTC_54aea.dir/src.c.o 
+/usr/bin/clang -DHAVE_OPENGL_GLX  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_54aea.dir/src.c.o -MF CMakeFiles/cmTC_54aea.dir/src.c.o.d -o CMakeFiles/cmTC_54aea.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yBLcKH/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-yBLcKH/src.c:2:18: fatal error: 'GL/glx.h' file not found
+        #include <GL/glx.h>
+                 ^~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <GL/glx.h>
+        int main(int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_OPENGL failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-WR4A8I
+
+Run Build Command(s):/usr/bin/ninja cmTC_ce571 && [1/2] Building C object CMakeFiles/cmTC_ce571.dir/src.c.o
+FAILED: CMakeFiles/cmTC_ce571.dir/src.c.o 
+/usr/bin/clang -DHAVE_OPENGL  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_ce571.dir/src.c.o -MF CMakeFiles/cmTC_ce571.dir/src.c.o.d -o CMakeFiles/cmTC_ce571.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-WR4A8I/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-WR4A8I/src.c:2:18: fatal error: 'GL/gl.h' file not found
+        #include <GL/gl.h>
+                 ^~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <GL/gl.h>
+        #include <GL/glext.h>
+        int main(int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_OPENGLES_V1 failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-kw8Lbf
+
+Run Build Command(s):/usr/bin/ninja cmTC_5c124 && [1/2] Building C object CMakeFiles/cmTC_5c124.dir/src.c.o
+FAILED: CMakeFiles/cmTC_5c124.dir/src.c.o 
+/usr/bin/clang -DHAVE_OPENGLES_V1  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_5c124.dir/src.c.o -MF CMakeFiles/cmTC_5c124.dir/src.c.o.d -o CMakeFiles/cmTC_5c124.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-kw8Lbf/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-kw8Lbf/src.c:2:18: fatal error: 'GLES/gl.h' file not found
+        #include <GLES/gl.h>
+                 ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <GLES/gl.h>
+        #include <GLES/glext.h>
+        int main (int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_VIVANTE_VDK failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-rBbojI
+
+Run Build Command(s):/usr/bin/ninja cmTC_51f85 && [1/2] Building C object CMakeFiles/cmTC_51f85.dir/src.c.o
+FAILED: CMakeFiles/cmTC_51f85.dir/src.c.o 
+/usr/bin/clang -DHAVE_VIVANTE_VDK  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_51f85.dir/src.c.o -MF CMakeFiles/cmTC_51f85.dir/src.c.o.d -o CMakeFiles/cmTC_51f85.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-rBbojI/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-rBbojI/src.c:2:18: fatal error: 'gc_vdk.h' file not found
+        #include <gc_vdk.h>
+                 ^~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #include <gc_vdk.h>
+        int main(int argc, char** argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_VIVANTE_EGL_FB failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-olOa2l
+
+Run Build Command(s):/usr/bin/ninja cmTC_518d4 && [1/2] Building C object CMakeFiles/cmTC_518d4.dir/src.c.o
+FAILED: CMakeFiles/cmTC_518d4.dir/src.c.o 
+/usr/bin/clang -DHAVE_VIVANTE_EGL_FB  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_518d4.dir/src.c.o -MF CMakeFiles/cmTC_518d4.dir/src.c.o.d -o CMakeFiles/cmTC_518d4.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-olOa2l/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-olOa2l/src.c:4:18: fatal error: 'EGL/eglvivante.h' file not found
+        #include <EGL/eglvivante.h>
+                 ^~~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+        #define LINUX
+        #define EGL_API_FB
+        #include <EGL/eglvivante.h>
+        int main(int argc, char** argv) { return 0; }
+
+Determining if the include file libudev.h exists failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LjDsj6
+
+Run Build Command(s):/usr/bin/ninja cmTC_f0dec && [1/2] Building C object CMakeFiles/cmTC_f0dec.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_f0dec.dir/CheckIncludeFile.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_f0dec.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_f0dec.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_f0dec.dir/CheckIncludeFile.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LjDsj6/CheckIncludeFile.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-LjDsj6/CheckIncludeFile.c:1:10: fatal error: 'libudev.h' file not found
+#include <libudev.h>
+         ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test LIBC_HAS_WORKING_LIBUNWIND failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ABa6XA
+
+Run Build Command(s):/usr/bin/ninja cmTC_6059d && [1/2] Building C object CMakeFiles/cmTC_6059d.dir/src.c.o
+FAILED: CMakeFiles/cmTC_6059d.dir/src.c.o 
+/usr/bin/clang -DLIBC_HAS_WORKING_LIBUNWIND  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_6059d.dir/src.c.o -MF CMakeFiles/cmTC_6059d.dir/src.c.o.d -o CMakeFiles/cmTC_6059d.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ABa6XA/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-ABa6XA/src.c:1:10: fatal error: 'libunwind.h' file not found
+#include <libunwind.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <libunwind.h>
+int main() {unw_context_t context; unw_getcontext(&context); return 0;}
+
+Performing C SOURCE FILE Test LIBUNWIND_HAS_WORKINGLIBUNWIND failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XbsyRj
+
+Run Build Command(s):/usr/bin/ninja cmTC_20bc4 && [1/2] Building C object CMakeFiles/cmTC_20bc4.dir/src.c.o
+FAILED: CMakeFiles/cmTC_20bc4.dir/src.c.o 
+/usr/bin/clang -DLIBUNWIND_HAS_WORKINGLIBUNWIND  -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_20bc4.dir/src.c.o -MF CMakeFiles/cmTC_20bc4.dir/src.c.o.d -o CMakeFiles/cmTC_20bc4.dir/src.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XbsyRj/src.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-XbsyRj/src.c:1:10: fatal error: 'libunwind.h' file not found
+#include <libunwind.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <libunwind.h>
+int main() {unw_context_t context; unw_getcontext(&context); return 0;}
+
+Determining if files pthread_np.h exist failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0NfRha
+
+Run Build Command(s):/usr/bin/ninja cmTC_8a104 && [1/2] Building C object CMakeFiles/cmTC_8a104.dir/HAVE_PTHREAD_NP_H.c.o
+FAILED: CMakeFiles/cmTC_8a104.dir/HAVE_PTHREAD_NP_H.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos"  -D_GNU_SOURCE=1 -D_REENTRANT -pthread -MD -MT CMakeFiles/cmTC_8a104.dir/HAVE_PTHREAD_NP_H.c.o -MF CMakeFiles/cmTC_8a104.dir/HAVE_PTHREAD_NP_H.c.o.d -o CMakeFiles/cmTC_8a104.dir/HAVE_PTHREAD_NP_H.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0NfRha/HAVE_PTHREAD_NP_H.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-0NfRha/HAVE_PTHREAD_NP_H.c:2:10: fatal error: 'pthread_np.h' file not found
+#include <pthread_np.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <pthread_np.h>
+
+
+int main(void){return 0;}
+
+Determining if the include file samplerate.h exists failed with the following output:
+Change Dir: /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-T7A1Gq
+
+Run Build Command(s):/usr/bin/ninja cmTC_ad1a8 && [1/2] Building C object CMakeFiles/cmTC_ad1a8.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_ad1a8.dir/CheckIncludeFile.c.o 
+/usr/bin/clang   -idirafter "/home/michael/Documents/YURRGOHT_ENGINE/build/_deps/sdl2-src/src/video/khronos" -DHAVE_LINUX_VERSION_H  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_ad1a8.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_ad1a8.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_ad1a8.dir/CheckIncludeFile.c.o -c /home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-T7A1Gq/CheckIncludeFile.c
+/home/michael/Documents/YURRGOHT_ENGINE/build/CMakeFiles/CMakeScratch/TryCompile-T7A1Gq/CheckIncludeFile.c:1:10: fatal error: 'samplerate.h' file not found
+#include <samplerate.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+

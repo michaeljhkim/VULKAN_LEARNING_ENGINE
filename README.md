@@ -19,7 +19,7 @@ The goal of this engine is NOT to create the most advanced, best looking engine 
 - Randomly Generated world system that is not repetitive feeling
 - Decent enemy AI
 - Accomodate 2D sprite based games (think Doom or Duke nukem 3D)
-- templates that don't suck, and people can actually work with! (like how in GZDoom the default Doom code is an excellent starting point. Unity's templates suck)
+- templates that don't suck, and people can actually work with! (like how in GZDoom the default Doom code is an excellent starting point)
 
 - Learning how to make a decent game engine for personal useage
 
@@ -33,12 +33,6 @@ Like GZDoom, but the issue there is getting custom functions to work. This is st
 IMMEDIATE TODO LIST (might as well just put it here):
 - convert from opengl to vulkan
 - make the engine run primarily with async, so input will always feels smooth regardless of framerates
-- figure out how the light system works
-- figure out how the physics works
-- figure out how the collisions works
-- figure out how the skybox works
-- (maybe) figure out dynamic shaders
-- After figuring out above, find ways to improve and make more useful towards goals
 - possibly figure out better name for this game engine
 
 ##
@@ -48,5 +42,10 @@ DONE LIST :
 - switched from GLFW to SDL2
 - switched from Visual Studio SLN to CMAKE
 - converted shader code to openGL 4.6 (only had to change a couple of lines)
+- figure out how the light system works
+- figure out how the physics works
+- figure out how the collisions works
+- figure out how the skybox works
+- (maybe) figure out dynamic shaders
  
 

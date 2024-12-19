@@ -89,7 +89,8 @@
         "stack": "cpp",
         "expected": "cpp",
         "cassert": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

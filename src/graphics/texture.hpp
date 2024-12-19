@@ -1,5 +1,6 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+//#include <glad/glad.h>
+//#include <GLFW/glfw3.h>
+
 #include "vulkan_buffer.hpp"
 #include <vulkan/vulkan.hpp>
 
@@ -55,12 +56,14 @@ public:
     void saveGlobalLookupTable(const std::vector<TextureMetadata>& globalLookupTable, std::ofstream& outFile);
     std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile);
 
-    void allocate(GLenum format, GLuint width, GLuint height, GLenum type);
+    void allocate(enum format, unsigned int width, unsigned int height, enum type);
 
-    static void setParams(GLenum texMinFilter = GL_NEAREST,
-        GLenum texMagFilter = GL_NEAREST,
-        GLenum wrapS = GL_REPEAT,
-        GLenum wrapT = GL_REPEAT);
+    /*
+    static void setParams(enum texMinFilter = GL_NEAREST,
+        enum texMagFilter = GL_NEAREST,
+        enum wrapS = GL_REPEAT,
+        enum wrapT = GL_REPEAT);
+    */
 
     // bind texture id
     void bind();

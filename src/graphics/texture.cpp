@@ -186,7 +186,7 @@ std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile
     }
 
     // Seek back to where the texture count is stored and Read the number of textures in the table
-    inFile.seekg(fileSize - sizeof(int), std::ios::beg);
+    inFile.seekg(fileSize - static_cast<std::streamoff>(sizeof(int)), std::ios::beg);
     int textureCount = 0;
     inFile.read(reinterpret_cast<char*>(&textureCount), sizeof(textureCount));
 
@@ -196,7 +196,7 @@ std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile
     }
 
     // Seek to where the lookup table starts
-    std::streampos tableStart = fileSize - sizeof(int) - (textureCount * sizeof(TextureMetadata));
+    std::streampos tableStart = fileSize - static_cast<std::streamoff>( sizeof(int) - (textureCount * sizeof(TextureMetadata)) );
     inFile.seekg(tableStart, std::ios::beg);
 
     // Read all texture metadata

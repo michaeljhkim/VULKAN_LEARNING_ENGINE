@@ -1,8 +1,39 @@
-#cmake_minimum_required(VERSION 3.20.0)
+I created a cmake file like so:
+
 cmake_minimum_required(VERSION 3.15.0)
 
-# Include the library builder to fetch dependencies
-include(LibraryBuilder.cmake)
+include(FetchContent)
+
+# Declare SDL2
+FetchContent_Declare(
+    SDL2
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+    GIT_TAG        release-2.30.10
+)
+
+# Declare Assimp
+FetchContent_Declare(
+    ASSIMP
+    GIT_REPOSITORY https://github.com/assimp/assimp.git
+    GIT_TAG        v5.4.3
+)
+
+# Declare GLM
+FetchContent_Declare(
+    GLM
+    GIT_REPOSITORY https://github.com/g-truc/glm.git
+    GIT_TAG        1.0.1
+)
+
+# Declare Freetype 2
+FetchContent_Declare(
+    FREETYPE
+    GIT_REPOSITORY https://github.com/freetype/freetype.git
+    GIT_TAG        VER-2-13-3
+)
+
+# Make libraries available
+FetchContent_MakeAvailable(SDL2 ASSIMP GLM FREETYPE)
 
 project(yurrgoht_engine)
 set(CMAKE_CXX_STANDARD 20)
@@ -22,6 +53,7 @@ file(GLOB_RECURSE VULKAN_SOURCES ${CMAKE_SOURCE_DIR}/src/vulkan_core/*.cpp)
 add_executable(yurrgoht_engine
     src/main.cpp
     src/scene.cpp
+    #lib/stb.cpp
 
     ${ALGORITHIMS_SOURCES}
     ${GRAPHICS_SOURCES}
@@ -30,25 +62,19 @@ add_executable(yurrgoht_engine
     ${VULKAN_SOURCES}
 )
 
-# Find Vulkan and glslang
+# Find Assimp, Vulkan, and other dependencies
 find_package(Vulkan REQUIRED)
-find_package(glslang REQUIRED)
-
-# Include the include directories
-target_include_directories(yurrgoht_engine PRIVATE 
-    ${sdl2_SOURCE_DIR}/include
-    ${glm_SOURCE_DIR}/include
-    ${assimp_SOURCE_DIR}/include
-    ${freetype_SOURCE_DIR}/include
-)
-
 
 # Link the libraries
-target_link_libraries(yurrgoht_engine 
-    SDL2::SDL2
-    ASSIMP
+target_link_libraries(yurrgoht_engine
+    SDL2
     GLM
+    ASSIMP
     FREETYPE
     Vulkan
     glslang
 )
+
+
+But then when I try to use SDL2, I get errors saying it doesnt exist: #include <SDL2/SDL.h>
+

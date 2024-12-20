@@ -1,6 +1,3 @@
-//#include <glad/glad.h>
-//#include <GLFW/glfw3.h>
-
 #include "vulkan_buffer.hpp"
 #include <vulkan/vulkan.hpp>
 
@@ -30,7 +27,7 @@ struct TextureMetadata {
 
 class Texture {
 public:
-    // Tile dimensions
+    // Tile dimensions - Temporary, will create a function to accomodate for varying tiles sizes
     const int TILE_WIDTH = 128;
     const int TILE_HEIGHT = 128;
     const int TILE_SIZE = TILE_WIDTH * TILE_HEIGHT * 4; // RGBA (4 bytes per pixel)
@@ -56,9 +53,8 @@ public:
     void saveGlobalLookupTable(const std::vector<TextureMetadata>& globalLookupTable, std::ofstream& outFile);
     std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile);
 
-    void allocate(enum format, unsigned int width, unsigned int height, enum type);
-
     /*
+    void allocate(enum format, unsigned int width, unsigned int height, enum type);
     static void setParams(enum texMinFilter = GL_NEAREST,
         enum texMagFilter = GL_NEAREST,
         enum wrapS = GL_REPEAT,
@@ -94,7 +90,8 @@ public:
     int texWidth, texHeight, texChannels;
     stbi_uc* pixels;
     VkDeviceSize imageSize;
-
+    
+    void load(VulkanDevice &vulkanDevice, bool flip);
     void createTextureImageView();
     void createTextureSampler();
     VkImageView createImageView(VkImage image, VkFormat format);
@@ -108,4 +105,6 @@ public:
 	VulkanDevice &vulkanDevice;
 
 	VkDescriptorImageInfo descriptorImageInfo(VkSampler textureSampler, VkImageView textureImageView);
+
+
 };

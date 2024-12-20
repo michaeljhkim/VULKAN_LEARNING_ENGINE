@@ -1,4 +1,5 @@
 - CONSIDER USING DOCKERS FOR DEPENDENCIES INSTEAD OF CMAKE FetchContent
+https://youtu.be/gAkwW2tuIqE
 
 
 - Octrees are used to split the game world into smaller and smaller pieces

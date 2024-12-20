@@ -6,11 +6,9 @@
 // std
 #include <string>
 #include <vector>
-
 #include <sstream>
 #include <iostream>
 
-#include <glad/glad.h>
 #include <assimp/scene.h>
 
 #include <glm/glm.hpp>

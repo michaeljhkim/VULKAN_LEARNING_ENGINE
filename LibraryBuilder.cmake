@@ -10,18 +10,18 @@ FetchContent_Declare(
     GIT_TAG        release-2.30.10
 )
 
-# Declare Assimp
-FetchContent_Declare(
-    ASSIMP
-    GIT_REPOSITORY https://github.com/assimp/assimp.git
-    GIT_TAG        v5.4.3
-)
-
 # Declare GLM
 FetchContent_Declare(
     GLM
     GIT_REPOSITORY https://github.com/g-truc/glm.git
     GIT_TAG        1.0.1
+)
+
+# Declare Assimp
+FetchContent_Declare(
+    ASSIMP
+    GIT_REPOSITORY https://github.com/assimp/assimp.git
+    GIT_TAG        v5.4.3
 )
 
 # Declare Freetype 2
@@ -34,4 +34,4 @@ FetchContent_Declare(
 
 
 # Make libraries available
-FetchContent_MakeAvailable(SDL2 ASSIMP GLM FREETYPE)
+FetchContent_MakeAvailable(SDL2 GLM ASSIMP FREETYPE)

@@ -1,10 +1,9 @@
 #include <iostream>
-#include <glad/glad.h>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include <memory>
 #include <utility>
-#include "../graphics/game_object.hpp"
+#include "../graphics/entity.hpp"
 
 /*
     mouse class to handle mouse callbacks

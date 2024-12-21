@@ -32,181 +32,226 @@ void Texture::generate() {
 
 
 
+
 // Hash data (e.g., tile or texture data)
-std::string hashData(const unsigned char* data, size_t dataSize) {
-    std::string dataString(reinterpret_cast<const char*>(data), dataSize);
+size_t hashData(const unsigned char* data, size_t dataSize) {
+	std::vector<unsigned char> texData(data, data + dataSize);
     std::hash<std::string> hash_fn;
-    return std::to_string(hash_fn(dataString));
+    return hash_fn(std::string(texData.begin(), texData.end()));
 }
 
-// Function to split texture into tiles and save as KTX2
-void Texture::splitTextureAndSaveAsKTX2(const std::string& inputFile, const std::string& outputFile) {
-    int width, height, channels;
-    unsigned char* image = stbi_load(inputFile.c_str(), &width, &height, &channels, 0);
-    if (!image) {
-        std::cerr << "Failed to load image: " << inputFile << std::endl;
-        return;
-    }
 
-    size_t texSize = width * height * channels;
-    if (width % TILE_WIDTH != 0 || height % TILE_HEIGHT != 0) {
-        std::cerr << "Image dimensions are not evenly divisible by tile size!" << std::endl;
-        stbi_image_free(image);
-        return;
-    }
-    int numTilesX = width / TILE_WIDTH;
-    int numTilesY = height / TILE_HEIGHT;
-    int numTiles = numTilesX * numTilesY;
+// Save texture tiles to the file
+void Texture::saveTextureTiles(unsigned char* pixels, int texWidth, int texHeight, std::ofstream& outFile) {
+    // Write the header
+    int tilesX = texWidth / TILE_WIDTH;
+    int tilesY = texHeight / TILE_HEIGHT;
+    int totalTiles = tilesX * tilesY;
 
-    // Prepare a vector to store all tile data
-    std::vector<unsigned char> allTilesData(TILE_WIDTH * TILE_HEIGHT * channels * numTiles);
-    std::string textureHash = hashData(image, texSize); // Create a unique hash for this texture
-    ktxHashList* tileHashList = nullptr;    // Create a hash list for this texture's metadata (tiles)
-    ktxHashList_Create(&tileHashList);
-    
-    for (int y = 0; y < numTilesY; ++y) {
-        for (int x = 0; x < numTilesX; ++x) {
-            int tileIndex = y * numTilesX + x;
-            size_t tileSize = TILE_WIDTH * TILE_HEIGHT * channels;
-            unsigned char* tile = &allTilesData[tileIndex * tileSize];
+    outFile.write(reinterpret_cast<const char*>(&totalTiles), sizeof(totalTiles));
+    outFile.write(reinterpret_cast<const char*>(&TILE_WIDTH), sizeof(TILE_WIDTH));
+    outFile.write(reinterpret_cast<const char*>(&TILE_HEIGHT), sizeof(TILE_HEIGHT));
+    outFile.write(reinterpret_cast<const char*>(&textureHash), sizeof(textureHash));	// Calculate and write the texture hash
 
-            // Extract the tile data from the image
-            for (int row = 0; row < TILE_HEIGHT; ++row) {
-                std::memcpy(
-                    tile + row * TILE_WIDTH * channels,
-                    image + ((y * TILE_HEIGHT + row) * width + x * TILE_WIDTH) * channels,
-                    TILE_WIDTH * channels
-                );
+    std::streampos offsetTablePosition = outFile.tellp();								// Offset table placeholder
+    outFile.write(reinterpret_cast<const char*>(&offsetTablePosition), sizeof(offsetTablePosition));
+
+    // Process tiles
+    for (int ty = 0; ty < tilesY; ++ty) {
+        for (int tx = 0; tx < tilesX; ++tx) {
+            Tile tile;
+            tile.offset = static_cast<int>(outFile.tellp());
+
+            // Extract tile pixels into tileData
+            for (int y = 0; y < TILE_HEIGHT; ++y) {
+                for (int x = 0; x < TILE_WIDTH; ++x) {
+                    int srcX = tx * TILE_WIDTH + x;
+                    int srcY = ty * TILE_HEIGHT + y;
+                    int srcIdx = (srcY * texWidth + srcX) * 4;
+
+                    std::copy_n(&pixels[srcIdx], 4, &tile.tile_pixels[(y * TILE_WIDTH + x) * 4]);
+                }
             }
 
-            std::string tileKey = textureHash + std::to_string(tileIndex);      // Create a unique key for each tile using textureHash and tile index
+            // Compute hash and write tile data
+            tile.hash = hashData(tile.tile_pixels.data(), TILE_SIZE);
 
-            KTX_error_code result = ktxHashList_AddKVPair(tileHashList, tileKey.c_str(), tileSize, tile);       // Add tile data to hash list
-            if (result != KTX_SUCCESS) {
-                std::cerr << "Error adding tile metadata to KTX2 file" << std::endl;
-                stbi_image_free(image);
-                return;
-            }
+            // Write the tile into the file
+            outFile.write(reinterpret_cast<const char*>(tile.tile_pixels.data()), TILE_SIZE);
+            outFile.write(reinterpret_cast<const char*>(&tile.offset), sizeof(tile.offset));
+            outFile.write(reinterpret_cast<const char*>(&tile.hash), sizeof(tile.hash));
         }
     }
 
-    stbi_image_free(image); // Free the image data after extracting the tiles
+}
 
-    // Create the KTX2 texture
-    ktxTexture2* ktxFileTexture = nullptr;
-    ktxTextureCreateInfo createInfo{};
-    createInfo.vkFormat = VK_FORMAT_R8G8B8_UNORM; // Adjust for your texture's format
-    createInfo.baseWidth = TILE_WIDTH;
-    createInfo.baseHeight = TILE_HEIGHT;
-    createInfo.baseDepth = 1;
-    createInfo.numDimensions = 2;
-    createInfo.numLevels = 1; // Only one level of detail (no mipmaps)
-    createInfo.numLayers = numTiles; // Each tile is a layer
-    createInfo.numFaces = 1;
 
-    ktx_error_code_e result = ktxTexture2_Create(&createInfo, KTX_TEXTURE_CREATE_ALLOC_STORAGE, &ktxFileTexture);
-    if (result != KTX_SUCCESS) {
-        std::cerr << "Failed to create KTX2 texture: " << ktxErrorString(result) << std::endl;
+
+// Pack multiple textures into the output file
+void Texture::packTextures(const std::vector<std::string>& texturePaths, const std::string& outputFile, bool flip) {
+    //std::ofstream outFile(outputFile, std::ios::binary | std::ios::app);
+    std::ofstream outFile(outputFile, std::ios::binary);
+    if (!outFile) {
+        std::cerr << "Failed to open file for writing." << std::endl;
         return;
     }
 
-    // Upload the tile data to the KTX2 texture
-    for (int tileIndex = 0; tileIndex < numTiles; ++tileIndex) {
-        size_t tileSize = TILE_WIDTH * TILE_HEIGHT * channels;
-        ktx_size_t offset = tileIndex * tileSize;
-        result = ktxTexture2_SetImageFromMemory(ktxFileTexture, 0, tileIndex, 0, &allTilesData[offset], tileSize);
-        if (result != KTX_SUCCESS) {
-            std::cerr << "Failed to set image data for tile " << tileIndex << ": " << ktxErrorString(result) << std::endl;
-            ktxTexture2_Destroy(ktxFileTexture);
-            return;
+    // Global lookup table (load existing data)
+    std::vector<TextureMetadata> globalLookupTable = loadGlobalLookupTable(outputFile);
+
+    for (const auto& texturePath : texturePaths) {
+        int texWidth, texHeight, texChannels;
+        stbi_set_flip_vertically_on_load(flip);
+        unsigned char* pixels = stbi_load(texturePath.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
+
+        // Validate texture dimensions
+        if (!pixels || (texWidth % TILE_WIDTH != 0 || texHeight % TILE_HEIGHT != 0) ) {
+            std::cerr << "Failed to load texture: " << texturePath << std::endl;
+            std::cerr << "Or Texture dimensions not divisible by tile size: " << texturePath << std::endl;
+            stbi_image_free(pixels);
+            continue;
         }
+		
+        // Check for duplicates
+        auto it = std::find_if(globalLookupTable.begin(), globalLookupTable.end(),
+								[](const TextureMetadata& metadata) {
+									return metadata.textureHash == Texture::textureHash;
+								});
+
+        if (it != globalLookupTable.end()) {
+            std::cout << "Texture already exists in the file, skipping: " << texturePath << std::endl;
+            stbi_image_free(pixels);
+            continue;
+        }
+
+        // Save texture and update metadata
+        TextureMetadata metadata;
+        metadata.textureHash = textureHash;
+        metadata.offset = outFile.tellp();
+        metadata.width = texWidth;
+        metadata.height = texHeight;
+        metadata.tileCount = (texWidth / TILE_WIDTH) * (texHeight / TILE_HEIGHT);
+
+        saveTextureTiles(pixels, texWidth, texHeight, outFile);
+        globalLookupTable.push_back(metadata);
+        stbi_image_free(pixels);
     }
 
-    // Add the texture hash metadata to the KTX2 file and then Write the KTX2 texture to a file
-    ktxHashList_AddKVPair(&ktxFileTexture->kvDataHead, "TextureHash", textureHash.size(), textureHash.c_str());
-    result = ktxTexture2_WriteToNamedFile(ktxFileTexture, outputFile.c_str());
+    // Save updated lookup table
+    saveGlobalLookupTable(globalLookupTable, outFile);
 
-    if (result != KTX_SUCCESS) {
-        std::cerr << "Failed to write KTX2 file: " << ktxErrorString(result) << std::endl;
-    } else {
-        std::cout << "KTX2 file saved as " << outputFile << std::endl;
+    outFile.close();
+    std::cout << "Textures packed successfully!" << std::endl;
+}
+
+
+
+
+void Texture::saveGlobalLookupTable(const std::vector<TextureMetadata>& globalLookupTable, std::ofstream& outFile) {
+    // Write metadata for each texture
+    for (const auto& metadata : globalLookupTable) {
+        outFile.write(reinterpret_cast<const char*>(&metadata.textureHash), sizeof(metadata.textureHash));
+        outFile.write(reinterpret_cast<const char*>(&metadata.offset), sizeof(metadata.offset));
+        outFile.write(reinterpret_cast<const char*>(&metadata.width), sizeof(metadata.width));
+        outFile.write(reinterpret_cast<const char*>(&metadata.height), sizeof(metadata.height));
+        outFile.write(reinterpret_cast<const char*>(&metadata.tileCount), sizeof(metadata.tileCount));
     }
 
-    // Clean up
-    ktxTexture2_Destroy(ktxFileTexture);
+    // Write the number of textures in the lookup table
+    int textureCount = globalLookupTable.size();
+    outFile.write(reinterpret_cast<const char*>(&textureCount), sizeof(textureCount));
+}
+
+
+std::vector<TextureMetadata> loadGlobalLookupTable(const std::string& outputFile) {
+    std::ifstream inFile(outputFile, std::ios::binary);
+    std::vector<TextureMetadata> globalLookupTable;
+    if (!inFile) {
+        std::cerr << "Failed to open file for reading." << std::endl;
+        return globalLookupTable; 		// Return an empty table
+    }
+
+    // Seek to the end of the file to check if the lookup table exists
+    inFile.seekg(0, std::ios::end);
+    std::streampos fileSize = inFile.tellg();
+
+    if (fileSize < sizeof(int)) {
+        std::cerr << "File is too small to contain a valid lookup table." << std::endl;
+        return globalLookupTable;
+    }
+
+    // Seek back to where the texture count is stored and Read the number of textures in the table
+    inFile.seekg(fileSize - static_cast<std::streamoff>(sizeof(int)), std::ios::beg);
+    int textureCount = 0;
+    inFile.read(reinterpret_cast<char*>(&textureCount), sizeof(textureCount));
+
+    // Validate the table size
+    if (textureCount <= 0) {
+        return globalLookupTable;
+    }
+
+    // Seek to where the lookup table starts
+    std::streampos tableStart = fileSize - static_cast<std::streamoff>( sizeof(int) - (textureCount * sizeof(TextureMetadata)) );
+    inFile.seekg(tableStart, std::ios::beg);
+
+    // Read all texture metadata
+    for (int i = 0; i < textureCount; ++i) {
+        TextureMetadata metadata;
+        inFile.read(reinterpret_cast<char*>(&metadata.textureHash), sizeof(metadata.textureHash));
+        inFile.read(reinterpret_cast<char*>(&metadata.offset), sizeof(metadata.offset));
+        inFile.read(reinterpret_cast<char*>(&metadata.width), sizeof(metadata.width));
+        inFile.read(reinterpret_cast<char*>(&metadata.height), sizeof(metadata.height));
+        inFile.read(reinterpret_cast<char*>(&metadata.tileCount), sizeof(metadata.tileCount));
+        globalLookupTable.push_back(metadata);
+    }
+
+    return globalLookupTable;
 }
 
 
 /*
-// Function to retrieve a texture based on a texture hash in the KTX2 file
-ktxTexture2* getTextureFromKTX2(ktxFile* ktxFile, const std::string& textureHash) {
-    ktxHashList* hashList = nullptr;
-    KTX_error_code result = ktxFile->kvDataHead; // Access the main metadata of the KTX2 file
+std::vector<Tile> loadTilesForTexture(const std::string& outputFile, size_t textureHash) {
+    std::ifstream inFile(outputFile, std::ios::binary);
+    std::vector<Tile> tiles;
 
-    ktxHashListIterator* iterator = nullptr;
-    result = ktxHashList_GetIterator(hashList, &iterator); // Create an iterator for the hash list
-    if (result != KTX_SUCCESS) {
-        std::cerr << "Error creating hash list iterator" << std::endl;
-        return nullptr;
+    if (!inFile) {
+        std::cerr << "Failed to open file for reading." << std::endl;
+        return tiles; // Return an empty list if the file can't be opened
     }
 
-    // Iterate through the hash list to find the texture key
-    while (ktxHashListIterator_GetNext(iterator) == KTX_SUCCESS) {
-        const char* currentKey;
-        const char* value;
-        size_t keyLength, valueLength;
+    // Load the global lookup table
+    std::vector<TextureMetadata> globalLookupTable = loadGlobalLookupTable(outputFile);
 
-        ktxHashListIterator_GetKey(iterator, &currentKey, &keyLength);
-        ktxHashListIterator_GetValue(iterator, &value, &valueLength);
+    // Find the texture metadata for the given textureHash
+    auto it = std::find_if(globalLookupTable.begin(), globalLookupTable.end(),
+                           [textureHash](const TextureMetadata& metadata) {
+                               return metadata.textureHash == textureHash;
+                           });
 
-        // Check if the current key matches the texture hash
-        if (strncmp(currentKey, textureHash.c_str(), keyLength) == 0) {
-            // Once the texture is found, return the corresponding texture data
-            return reinterpret_cast<ktxTexture2*>(value);
-        }
+    if (it == globalLookupTable.end()) {
+        std::cerr << "Texture with hash " << textureHash << " not found." << std::endl;
+        return tiles; // Return empty if texture not found
     }
 
-    // If no match is found, return nullptr
-    std::cerr << "Texture not found in KTX2 file" << std::endl;
-    return nullptr;
-}
+    // Get the metadata for the texture
+    TextureMetadata metadata = *it;
 
+    // Seek to the position where the tiles start in the file
+    inFile.seekg(metadata.offset, std::ios::beg);
 
-// Function to retrieve a tile for a texture based on its tile index
-const void* getTileFromTexture(ktxTexture2* texture, uint32_t tileIndex) {
-    ktxHashList* hashList = texture->kvDataHead;  // Access the hash list for this texture
-    ktxHashListIterator* iterator = nullptr;
+    // Read the tiles
+    for (int i = 0; i < metadata.tileCount; ++i) {
+        TileData tile;
 
-    // Create an iterator for the hash list
-    KTX_error_code result = ktxHashList_GetIterator(hashList, &iterator);
-    if (result != KTX_SUCCESS) {
-        std::cerr << "Error creating hash list iterator" << std::endl;
-        return nullptr;
+        // Assuming TileData has fields such as width, height, and data buffer (adjust according to actual format)
+        inFile.read(reinterpret_cast<char*>(&tile.width), sizeof(tile.width));
+        inFile.read(reinterpret_cast<char*>(&tile.height), sizeof(tile.height));
+        inFile.read(reinterpret_cast<char*>(&tile.data), tile.width * tile.height * sizeof(char));  // Assuming 1 byte per pixel, adjust if necessary
+
+        tiles.push_back(tile);
     }
 
-    // Generate the key for the tile based on texture hash and tile index
-    std::string tileKey = std::to_string(tileIndex);  // You may use texture hash + tile index as key
-    const char* key = tileKey.c_str();
-
-    // Iterate through the hash list to find the matching key for the tile
-    while (ktxHashListIterator_GetNext(iterator) == KTX_SUCCESS) {
-        const char* currentKey;
-        const char* value;
-        size_t keyLength, valueLength;
-
-        ktxHashListIterator_GetKey(iterator, &currentKey, &keyLength);
-        ktxHashListIterator_GetValue(iterator, &value, &valueLength);
-
-        // Check if the current key matches the tile key
-        if (strncmp(currentKey, key, keyLength) == 0) {
-            // Return the corresponding tile data
-            return reinterpret_cast<const void*>(value);
-        }
-    }
-
-    // If no match is found, return nullptr
-    std::cerr << "Tile not found for the specified texture" << std::endl;
-    return nullptr;
+    return tiles;
 }
 */
 

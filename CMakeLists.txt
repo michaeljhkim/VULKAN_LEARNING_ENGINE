@@ -40,6 +40,8 @@ target_include_directories(yurrgoht_engine PRIVATE
     ${glm_SOURCE_DIR}/include
     ${assimp_SOURCE_DIR}/include
     ${freetype_SOURCE_DIR}/include
+    ${ktx_SOURCE_DIR}/include
+    ${ktx_SOURCE_DIR}/lib
 )
 
 
@@ -49,6 +51,7 @@ target_link_libraries(yurrgoht_engine
     ASSIMP
     GLM
     FREETYPE
+    KTX
     Vulkan
     glslang
 )

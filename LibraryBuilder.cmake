@@ -31,7 +31,14 @@ FetchContent_Declare(
     GIT_TAG        VER-2-13-3
 )
 
+# Declare KTX
+FetchContent_Declare(
+    KTX
+    GIT_REPOSITORY https://github.com/KhronosGroup/KTX-Software
+    GIT_TAG        v4.3.2
+)
 
+set(KTX2_ENABLE ON CACHE BOOL "Enable KTX2 support")
 
 # Make libraries available
-FetchContent_MakeAvailable(SDL2 GLM ASSIMP FREETYPE)
+FetchContent_MakeAvailable(SDL2 GLM ASSIMP FREETYPE KTX)

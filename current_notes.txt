@@ -60,3 +60,8 @@ https://youtu.be/gAkwW2tuIqE
 
 - Run a function before anything else (as developer, so should not be on every runtime) that creates the custom file, then stores the textures as tiles
 
+- Finish up texture tiling tomorrow
+- store texture hashes in model (maybe mesh?), remember to account for the different types of textures
+- Finally start real work on sparse images
+- change shaders to accomodate for tiled textures (will need to reconstruct texture from tiles)
+

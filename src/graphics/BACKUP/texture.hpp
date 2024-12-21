@@ -3,9 +3,6 @@
 
 #include <assimp/scene.h>
 #include <stb/stb_image.h>
-#include <ktx.h>
-#include <ktxvulkan.h>
-#include <texture2.h>
 
 
 
@@ -51,8 +48,6 @@ public:
 
     // generate texture id
     void generate();
-
-    void splitTextureAndSaveAsKTX2(const std::string& inputFile, const std::string& outputFile);
 
     // load texture from path
     void saveTextureTiles(unsigned char* pixels, int texWidth, int texHeight, std::ofstream& outFile);

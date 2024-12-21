@@ -1,4 +1,7 @@
 # YURRGOHT_ENGINE
+
+(I have decided to start over using another project as a base, this is now purely for archiving, also changed repo name at the top for less confusion, but this was the original YURRGOHT ENGINE)
+
 This is my (second) attempt at creating a C++ game engine. My old goal was to continue with openGL, I am currently switching to vulkan. I am pretty sure the deprecation of the whole API was not going to be worth it. This is primarily designed for linux systems. 
 This second attempt is based off of the tutorial of Michael Grieco :
 - Tutorial Playlist: https://www.youtube.com/playlist?list=PLysLvOneEETPlOI_PI4mJnocqIpr2cSHS 
